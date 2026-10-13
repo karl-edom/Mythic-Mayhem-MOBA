@@ -9,9 +9,10 @@ Chaque ligne bloque un choix d'architecture. Les recommandations sont des hypoth
 | D3 | ✅ Décidé (0001) — Format | **3v3** avec bots pour le prototype, 5v5 visé à terme | Ça s'adapte à la taille du groupe d'amis, avec une charge cognitive raisonnable. |
 | D4 | Caméra et commandes | Vue du dessus inclinée, clavier/souris (ZQSD + visée souris), 1 attaque de base + 2 capacités | Le tactile vient plus tard si le mobile devient prioritaire. |
 | D5 | Ton artistique | Formes simples et colorées générées par le code (aucun asset au départ) ; les packs apportent leurs images | Lisibilité d'abord, aucun problème de droits. |
-| D6 | Objectif de victoire | Contrôle de zone + score (voir l'expérience E3) | Partie courte (6 à 10 min) et objectif lisible. |
+| D6 | ✅ Décidé (0004, 0005) — Victoire et durée | **Destruction de la base (Mobile Legends), 12 à 20 min** | |
 | D7 | But du premier prototype | **Base technique extensible validant le fun** : simulation testable, 3 kits définis par données, validateur de budget | Le fil rouge : « ajouter un personnage sans toucher au moteur ». |
 | D8 | ✅ Décidé (0001) — REA | Ne pas installer pour l'instant (voir `research/rea-setup.md`) | Inutilisable de façon licite sur les jeux de référence. |
 | D10 | ✅ Décidé (0004) — Squelette de la copie mixée | **Mobile Legends** | |
 | D11 | ✅ Décidé (0004) — Boutique ou objets tenus | **Objets choisis avant la partie, façon Unite** | Les objets en partie sont trop complexes |
 | D9 | ✅ Décidé (0004) — « Pokémon Brawl » | **Pokémon Unite** | |
+| D12 | ✅ Décidé (0005) — Or, compétences, mana | **L'or améliore les objets ; compétences automatiques + choix Unite ; mana comme Mobile Legends** | |
