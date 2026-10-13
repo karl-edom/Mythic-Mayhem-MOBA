@@ -4,8 +4,6 @@ Source: https://mobile-legends.fandom.com/wiki/EXP_Laner
 
 # EXP Laner
 
-[template:EXP Laner Note]
-
 There are currently 42 heroes that are recommended to be a EXP Laner.
 
 Aldous

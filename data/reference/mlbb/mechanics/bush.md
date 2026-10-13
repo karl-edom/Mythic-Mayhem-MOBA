@@ -61,10 +61,8 @@ Though the Imperial Sanctuary is not as prosperous as before, its inner grand te
 ## Special Interactions
 
 - 's passive:  will be triggered when inside the bush that will regenerate and shield her HP.
-- 's passive:  will be triggered when inside the bush making her to conceal after a certain delay.
+- 's passive:  will be triggered when inside the bush making her to concealed after a certain delay.
 - Kagura's Seimei Umbrella Open conceals the umbrella and reveals the entire bush, also informing if any enemy inside is under concealed state. The enemies remain concealed but is targetable by enemy abilities.
 - Xavier's Mystic Field's circle briefly reveals enemies right upon creation, but not enemies entering afterwards. The enemies remain concealed but is targetable by enemy abilities.
 - Hayabusa's Quad Shadow reveals the entire bush, also informing if any enemy inside is under concealed state. The enemies remain concealed but is targetable by enemy abilities.
 - Kalea's Water Zone does not reveal enemies inside a bush. But if it is created with the center inside a bush that sighted enemies are also inside, it will provide lingering vision over them even after she left until it dissipates.
-
-[template:Battlefield Features]

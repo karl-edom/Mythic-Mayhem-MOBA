@@ -1,6 +1,6 @@
 {
   "source": "Mobile Legends: Bang Bang Wiki (mobile-legends.fandom.com), CC BY-SA 3.0",
-  "retrievedAt": "2026-10-13T16:35:43.467Z",
+  "retrievedAt": "2026-10-13T16:43:31.963Z",
   "license": "CC BY-SA 3.0 (Fandom). Attribution: contributors of mobile-legends.fandom.com",
   "notes": [
     "Parsed from the {{Ability}} (= Template:Infobox hero ability) calls in the '== Abilities ==' section of each hero page.",
@@ -3774,7 +3774,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Bane infuses his weapon with a stack of stack each time he uses a skill (up to 2 stacks). Each of his subsequent Basic Attacks consumes a stack to deal Physical Damage equal to (+95% Total Physical Attack) plus 4 (+0.4 × Hero Level) of the target's Max HP to nearby enemies.\n(Percent damage dealt based on Max HP Damage Cap against Creeps: 200 (+20 × Hero Level). (see Patch Notes 1.7.82 Balance Adjustment))",
+      "description": "Bane infuses his weapon with a stack of Tidal Energy each time he uses a skill (up to 2 stacks). Each of his subsequent Basic Attacks consumes a stack to deal Physical Damage equal to (+95% Total Physical Attack) plus 4 (+0.4 × Hero Level) of the target's Max HP to nearby enemies.\n(Percent damage dealt based on Max HP Damage Cap against Creeps: 200 (+20 × Hero Level). (see Patch Notes 1.7.82 Balance Adjustment))",
       "scalings": [
         {
           "base": null,
@@ -6129,7 +6129,7 @@
         "values": null,
         "raw": null
       },
-      "description": "During fight, Fanny deals 10%–20% extra damage to enemies hit (scales with flying speed[speed unknown]) and applies a stack of mark to them (up to 2 stacks) on each attack. Her subsequent skill hits on marked enemy heroes restore 8 energy per stack for her. The energy restoration is reduced[amount unknown] if she hits multiple enemy heroes within a short period of time.[duration unknown]",
+      "description": "During fight, Fanny deals 10%–20% extra damage to enemies hit (scales with flying speed[speed unknown]) and applies a stack of Prey Mark to them (up to 2 stacks) on each attack. Her subsequent skill hits on marked enemy heroes restore 8 energy per stack for her. The energy restoration is reduced[amount unknown] if she hits multiple enemy heroes within a short period of time.[duration unknown]",
       "scalings": [],
       "levelScaling": [
         {
@@ -6358,7 +6358,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Fanny leaps at the target enemy hero or Creep with her blades, dealing 400-650 (+200% Extra Physical Attack) Physical Damage. Each stack of mark of the target increases  this damage by 30%.",
+      "description": "Fanny leaps at the target enemy hero or Creep with her blades, dealing 400-650 (+200% Extra Physical Attack) Physical Damage. Each stack of Prey Mark of the target increases  this damage by 30%.",
       "scalings": [
         {
           "base": "400-650",
@@ -7039,7 +7039,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Minotaur motivates himself and nearby most wounded hero, restoring 220-320 (+60% Total Magic Power) HP for them and healing himself based on his [8%][verification needed] HP.\nEnraged: Minotaur heals himself and nearby allies.",
+      "description": "Minotaur motivates himself and nearby most wounded hero, restoring 220-320 (+60% Total Magic Power) HP for them and healing himself based on his [8%][verification needed] lost HP.\nEnraged: Minotaur heals himself and nearby allies.",
       "scalings": [
         {
           "base": "220-320",
@@ -7605,7 +7605,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Hayabusa's attacks apply a stack of mark on hit (up to 4 stacks). Each stack lasts 6 seconds and increases Hayabusa's damage to the enemy by 5%.",
+      "description": "Hayabusa's attacks apply a stack of Shadow Mark on hit (up to 4 stacks). Each stack lasts 6 seconds and increases Hayabusa's damage to the enemy by 5%.",
       "scalings": [],
       "levelScaling": [
         {
@@ -7894,7 +7894,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Hayabusa blends into the shadows and launches 6 single-target attacks on enemies in the area, each dealing 140 (+75% Extra Physical Attack) Physical Damage.\nThe attacks prioritize enemies with mark and each will consume a mark to deal 45-85 (+20% Extra Physical Attack) extra Physical Damage. Does not apply Shadow Mark.",
+      "description": "Hayabusa blends into the shadows and launches 6 single-target attacks on enemies in the area, each dealing 140 (+75% Extra Physical Attack) Physical Damage.\nThe attacks prioritize enemies with Shadow Mark and each will consume a mark to deal 45-85 (+20% Extra Physical Attack) extra Physical Damage. Does not apply Shadow Mark.",
       "scalings": [
         {
           "base": "140",
@@ -10312,7 +10312,7 @@
         "values": null,
         "raw": null
       },
-      "description": "When Alpha uses a skill, Beta will be summoned to attack. [Non-minion enemies] that are hit by Beta 2 time(s) will be mark.\nmark: After Alpha deals damage to the target, Beta will fire a laser at them, dealing 80 (+8 × Hero Level) (+100% Extra Physical Attack) True Damage and briefly applying a powerful [90% slow for 0.2 seconds].",
+      "description": "When Alpha uses a skill, Beta will be summoned to attack. [Non-minion enemies] that are hit by Beta 2 time(s) will be Locked On.\nLocked On: After Alpha deals damage to the target, Beta will fire a laser at them, dealing 80 (+8 × Hero Level) (+100% Extra Physical Attack) True Damage and briefly applying a powerful [90% slow for 0.2 seconds].",
       "scalings": [
         {
           "base": "80",
@@ -14091,7 +14091,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Each time Lapu-Lapu deals damage, he gains 10 rage (halved from non-hero units). When his Bravery Blessing is full, his next Basic Attack or Justice Blades will be enhanced, granting Lapu-Lapu a shield that can absorb 250 (+65 × Hero Level) damage for 2.5 seconds.\nThe enhanced Basic Attack) will cause him to dash toward the target, dealing (+150% Total Physical Attack) Physical Damage. This Basic Attack cannot be a critical hit.\nThe enhanced Justice Blades will slow the target by 60% for 1 second.",
+      "description": "Each time Lapu-Lapu deals damage, he gains 10 Bravery Blessing (halved from non-hero units). When his Bravery Blessing is full, his next Basic Attack or Justice Blades will be enhanced, granting Lapu-Lapu a shield that can absorb 250 (+65 × Hero Level) damage for 2.5 seconds.\nThe enhanced Basic Attack) will cause him to dash toward the target, dealing (+150% Total Physical Attack) Physical Damage. This Basic Attack cannot be a critical hit.\nThe enhanced Justice Blades will slow the target by 60% for 1 second.",
       "scalings": [
         {
           "base": "250",
@@ -14556,7 +14556,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Lapu-Lapu leaps to the target location while combining his twin blades into one, dealing 300-500 (+80% Total Physical Attack) Physical Damage upon landing and slowing them by 60% for 1 second. Lapu-Lapu Gains 3 times the rage from this skill and skills in transformed state\nFor the next 10 seconds, Lapu-Lapu enters skill) and gains enhanced skills, 30-60 extra Physical & Magic Defense and his Physical Damage is increased to 120%.",
+      "description": "Lapu-Lapu leaps to the target location while combining his twin blades into one, dealing 300-500 (+80% Total Physical Attack) Physical Damage upon landing and slowing them by 60% for 1 second. Lapu-Lapu Gains 3 times the Bravery Blessing from this skill and skills in transformed state\nFor the next 10 seconds, Lapu-Lapu enters Great Sword Stance) and gains enhanced skills, 30-60 extra Physical & Magic Defense and his Basic Attack damage is increased to 120%.",
       "scalings": [
         {
           "base": "300-500",
@@ -15213,7 +15213,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Roger can freely switch between human and wolf forms.\nIn human form, Roger's Basic Attacks and skills deal additional damage equal to [HP.]\nIn wolf form, Roger's Basic Attack and skills deal additional damage equal to [HP.]\nThis effect can only deal up to 60 additional damage against Creeps.",
+      "description": "Roger can freely switch between human and wolf forms.\nIn human form, Roger's Basic Attacks and skills deal additional damage equal to [(+target's 4% Current HP).]\nIn wolf form, Roger's Basic Attack and skills deal additional damage equal to [(+target's 4% Lost HP).]\nThis effect can only deal up to 60 additional damage against Creeps.",
       "scalings": [],
       "levelScaling": [],
       "ccTypes": [],
@@ -16710,7 +16710,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Harley blinks in the designated direction, leaving a magic hat at his place, increasing his Movement Speed by 30% for 2 seconds.\nenhanced Use again within 4 seconds to return where the hat is and lose the speed boost.",
+      "description": "Harley blinks in the designated direction, leaving a magic hat at his place, increasing his Movement Speed by 30% for 2 seconds.\nUse Again: Use again within 4 seconds to return where the hat is and lose the speed boost.",
       "scalings": [],
       "levelScaling": [],
       "ccTypes": [],
@@ -17672,7 +17672,7 @@
         "values": null,
         "raw": null
       },
-      "description": "When Argus' blade reaches 100 rage[amount unknown]. He will launch a Demonic Slash with his next Basic Attack, dealing 120 (+25% Total Physical Attack) Physical Damage and recovering 140 HP. This attack ignores 30% of the target's Physical Defense\nArgus' Demonic Blade gains 5 Malice Energy per second, and each of his Basic Attacks grants 25 Malice Energy. (critical strikes grant an additional 25 energy)\nThe Energy cap is 200. Each Demonic Slash consumes 100 Energy.",
+      "description": "When Argus' blade reaches 100 Malice Energy[amount unknown]. He will launch a Demonic Slash with his next Basic Attack, dealing 120 (+25% Total Physical Attack) Physical Damage and recovering 140 HP. This attack ignores 30% of the target's Physical Defense\nArgus' Demonic Blade gains 5 Malice Energy per second, and each of his Basic Attacks grants 25 Malice Energy. (critical strikes grant an additional 25 energy)\nThe Energy cap is 200. Each Demonic Slash consumes 100 Energy.",
       "scalings": [
         {
           "base": "120",
@@ -18086,7 +18086,7 @@
       ],
       "ccTypes": [],
       "calc": null,
-      "notes": "*Lakeshore Ambience only benefits 50% of Magic Lifesteal.\n*This skill stacks up to 3 times.\n**Stack(s) lasts for 8 seconds; time resets by consuming it.\n*Base Damage increases with hero's level.\n*Sound waves can bounce up to 4 times.\n*Lightning Truncheon's effect will only be actived on the second bounce.\n*This skill is a md and only benefits from skill effects.\n*Can bounce to or from turrets and trigger item effects.\n*Still bounce to and from but does not damage enemies untargetability.\n**Still bounce to and from Odette.",
+      "notes": "*Lakeshore Ambience only benefits 50% of Magic Lifesteal.\n*This skill stacks up to 3 times.\n**Stack(s) lasts for 8 seconds; time resets by consuming it.\n*Base Damage increases with hero's level.\n*Sound waves can bounce up to 4 times.\n*Lightning Truncheon's effect will only be actived on the second bounce.\n*This skill is a magic skill and only benefits from skill effects.\n*Can bounce to or from turrets and trigger item effects.\n*Still bounce to and from but does not damage enemies untargetability.\n**Still bounce to and from Odette.",
       "quote": null
     },
     {
@@ -18247,7 +18247,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Odette releases a set of magic energy balls forward, dealing 250-400 (+50% Total Magic Power) Magic Damage to the enemy hit and cc them for 1.5 seconds. Another energy ball will then spawn and attack a nearby enemy (prioritizes enemy heroes), dealing 250-400 (+50% Total Magic Power) Magic Damage and cc them for 1.5 seconds.",
+      "description": "Odette releases a set of magic energy balls forward, dealing 250-400 (+50% Total Magic Power) Magic Damage to the enemy hit and immobilizing them for 1.5 seconds. Another energy ball will then spawn and attack a nearby enemy (prioritizes enemy heroes), dealing 250-400 (+50% Total Magic Power) Magic Damage and immobilizing them for 1.5 seconds.",
       "scalings": [
         {
           "base": "250-400",
@@ -18302,7 +18302,9 @@
           "raw": "250 / 280 / 310 / 340 / 370 / 400"
         }
       ],
-      "ccTypes": [],
+      "ccTypes": [
+        "immobilize"
+      ],
       "calc": null,
       "notes": "*Blue Nova only benefits 50% of Magic Lifesteal.",
       "quote": null
@@ -18539,7 +18541,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Lancelot charges in a designated direction, dealing 100-250 (+50% Total Physical Attack) Physical Damage to enemies along the way and applying a mark to the first unmarked enemy hit. The Sword Mark lasts 3 seconds.\nIf Lancelot successfully applies a mark to an enemy, the cooldown of this will reset.",
+      "description": "Lancelot charges in a designated direction, dealing 100-250 (+50% Total Physical Attack) Physical Damage to enemies along the way and applying a Sword Mark to the first unmarked enemy hit. The Sword Mark lasts 3 seconds.\nIf Lancelot successfully applies a Sword Mark to an enemy, the cooldown of this will reset.",
       "scalings": [
         {
           "base": "100-250",
@@ -18637,7 +18639,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Lancelot strikes in the target direction 3 times, each time dealing 225-400 (+100% Extra Physical Attack) Physical Damage to enemies hit (damage reduced [to pd] when multiple enemies are hit). He's untargetable and invincible during this process.[how long?] Enemies in the center of the area will take all 3 hits and are slowed by 20% for 0.5 seconds. The slow effect can stack.\nThis skill only benefits from 50% of Lancelot's Spell Vamp.",
+      "description": "Lancelot strikes in the target direction 3 times, each time dealing 225-400 (+100% Extra Physical Attack) Physical Damage to enemies hit (damage reduced [to 30%] when multiple enemies are hit). He's untargetable and invincible during this process.[how long?] Enemies in the center of the area will take all 3 hits and are slowed by 20% for 0.5 seconds. The slow effect can stack.\nThis skill only benefits from 50% of Lancelot's Spell Vamp.",
       "scalings": [
         {
           "base": "225-400",
@@ -18857,7 +18859,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Diggie flings an owl alarm to the target location. The alarm will then remain stationary for 25 seconds or until it reacts to the first enemy in range, chasing them and exploding upon collision. The explosion deals 500-600 (+100% Total Magic Power) Magic Damage to nearby enemies and slows them by 30%.\nDiggie gains 2 stacks of stack each time an enemy hero is hit by the explosion (up to 60 stacks), each stack increasing the skill's damage by 1%. Diggie loses half the stacks upon death, but can gain 1 stack of Dangerous Sparks each time his skill hits an enemy hero when in the egg form.\nUp to 5 owl alarms can exist at the same time.",
+      "description": "Diggie flings an owl alarm to the target location. The alarm will then remain stationary for 25 seconds or until it reacts to the first enemy in range, chasing them and exploding upon collision. The explosion deals 500-600 (+100% Total Magic Power) Magic Damage to nearby enemies and slows them by 30%.\nDiggie gains 2 stacks of Dangerous Sparks each time an enemy hero is hit by the explosion (up to 60 stacks), each stack increasing the skill's damage by 1%. Diggie loses half the stacks upon death, but can gain 1 stack of Dangerous Sparks each time his skill hits an enemy hero when in the egg form.\nUp to 5 owl alarms can exist at the same time.",
       "scalings": [
         {
           "base": "500-600",
@@ -21724,7 +21726,7 @@
         ],
         "raw": "50%"
       },
-      "description": "Angela sends Love Waves in the target direction, dealing 170-320 (+80% Total Magic Power) Magic Damage to enemies hit, revealing their positions briefly,[duration needed] and applying a stack of mark to them (up to 5 stacks). Each stack of Lover's Mark increases the damage by 20% and slows enemies hit by 8% for 3 seconds.\nThe Love Waves also restore 150-200 (+75% Total Magic Power) HP to allied heroes hit. Angela can store up to 5 charges of this skill and the recharge time is affected by Cooldown Reduction.",
+      "description": "Angela sends Love Waves in the target direction, dealing 170-320 (+80% Total Magic Power) Magic Damage to enemies hit, revealing their positions briefly,[duration needed] and applying a stack of Lover's Mark to them (up to 5 stacks). Each stack of Lover's Mark increases the damage by 20% and slows enemies hit by 8% for 3 seconds.\nThe Love Waves also restore 150-200 (+75% Total Magic Power) HP to allied heroes hit. Angela can store up to 5 charges of this skill and the recharge time is affected by Cooldown Reduction.",
       "scalings": [
         {
           "base": "170-320",
@@ -21871,7 +21873,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Angela launches a Puppet String at the target enemy, dealing 300-450 (+40% Total Magic Power) Magic Damage and gradually slowing them up to 80%. If the enemy is still connected to the string after 3 seconds, they'll be immobilized for 1.5 seconds and dealt 450-675 (+60% Total Magic Power) Magic Damage.\nEach stack of mark increases the final damage by 20%.",
+      "description": "Angela launches a Puppet String at the target enemy, dealing 300-450 (+40% Total Magic Power) Magic Damage and gradually slowing them up to 80%. If the enemy is still connected to the string after 3 seconds, they'll be immobilized for 1.5 seconds and dealt 450-675 (+60% Total Magic Power) Magic Damage.\nEach stack of Lover's Mark increases the final damage by 20%.",
       "scalings": [
         {
           "base": "300-450",
@@ -22923,7 +22925,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Martis cc and deals 350-650 (+130% Extra Physical Attack) Physical Damage, slow them by 40% for 2 seconds.",
+      "description": "Martis draws enemies to a fan-shaped area in front of him and deals 350-650 (+130% Extra Physical Attack) Physical Damage, slowing them by 40% for 2 seconds.",
       "scalings": [
         {
           "base": "350-650",
@@ -23011,7 +23013,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Martis blink in the target direction three times, each time dealing 225-300 (+120% Extra Physical Attack) Physical Damage to enemies hit. Enemies hit by the first and third strike are also knocked back. The attack direction can be changed once using the Joystick.\nUse Again: Martis blink in the target direction, dealing 300-400 (+150% Extra Physical Attack) Physical Damage to enemies in his path and cc.\nMartis gains Control Immunity and 60% Damage Reduction when casting this skill.",
+      "description": "Martis strikes in the target direction three times, each time dealing 225-300 (+120% Extra Physical Attack) Physical Damage to enemies hit. Enemies hit by the first and third strike are also knocked back. The attack direction can be changed once using the Joystick.\nUse Again: Martis leaps in the target direction, dealing 300-400 (+150% Extra Physical Attack) Physical Damage to enemies in his path and knocking them airborne.\nMartis gains Control Immunity and 60% Damage Reduction when casting this skill.",
       "scalings": [
         {
           "base": "225-300",
@@ -23067,10 +23069,13 @@
         }
       ],
       "ccTypes": [
-        "knockback"
+        "airborne",
+        "knockback",
+        "suppress",
+        "immobilize"
       ],
       "calc": null,
-      "notes": "*'s cooldown starts after casting the 1st or 2nd phase of the skill.\n*'s 1st phase will trigger 3 stacks of , but only 1 stack on Brute Force Breastplate's Unique Passive Brute Force.\n*Interruption: This skill can only be cc during charging.\n*Exception immune: This skill is not immune to cc.\n*This skill can be cc.\n*Upon casting, there will be a slight delay before the first slash occurs that does a quick cc effect to all opponents infront and beside Martis.\n**This is then immediately followed up by another slash that only does damage to all opponents infront and beside Martis.\n**After the second slash, there will be another slight delay before the last slash occurs that does a quick cc effect to all opponents near Martis.\n*The second phase of the skill immediately cc all opponents away from Martis upon making contact on his body.",
+      "notes": "*'s cooldown starts after casting the 1st or 2nd phase of the skill.\n*'s 1st phase will trigger 3 stacks of , but only 1 stack on Brute Force Breastplate's Unique Passive Brute Force.\n*Interruption: This skill can only be interrupted by Suppression effect during charging.\n*Exception immune: This skill is not immune to Suppression CC effect.\n*This skill can be disabled by Rooted effect.\n*Upon casting, there will be a slight delay before the first slash occurs that does a quick knocked back effect to all opponents infront and beside Martis.\n**This is then immediately followed up by another slash that only does damage to all opponents infront and beside Martis.\n**After the second slash, there will be another slight delay before the last slash occurs that does a quick knocked back effect to all opponents near Martis.\n*The second phase of the skill immediately knocks Up all opponents away from Martis upon making contact on his body.",
       "quote": null
     },
     {
@@ -23153,9 +23158,11 @@
           "raw": "700/ 900 / 1100"
         }
       ],
-      "ccTypes": [],
+      "ccTypes": [
+        "immobilize"
+      ],
       "calc": null,
-      "notes": "*When an enemy Hero's HP drops below 40%, a enhanced will appear beneath them.\n*There are two animations for his ultimate: he stabs the enemy with his blade after dashing in the first attempt; he jumps and stabs the enemy from above with his pair of blades in subsequent slays. Both of the animation does not differ in-game.\n*If Martis successfully decimates a Hero equipped with Immortality, Skill Cooldown Reset and Movement Speed Bonus is still applied, able to recast the skill once more when the target Hero resurrected by the Unique Passive Immortal.\n**The bonuses are also applied by decimating Heroes resurrected from 's .\n*Decimation's cooldown only starts upon eliminating, or attempted to eliminate an enemy Hero with this skill.\n*This skill can be interrupted by Crowd Control effects during dashing.\n*This skill can be cc.",
+      "notes": "*When an enemy Hero's HP drops below 40%, a mark will appear beneath them.\n*There are two animations for his ultimate: he stabs the enemy with his blade after dashing in the first attempt; he jumps and stabs the enemy from above with his pair of blades in subsequent slays. Both of the animation does not differ in-game.\n*If Martis successfully decimates a Hero equipped with Immortality, Skill Cooldown Reset and Movement Speed Bonus is still applied, able to recast the skill once more when the target Hero resurrected by the Unique Passive Immortal.\n**The bonuses are also applied by decimating Heroes resurrected from 's .\n*Decimation's cooldown only starts upon eliminating, or attempted to eliminate an enemy Hero with this skill.\n*This skill can be interrupted by Crowd Control effects during dashing.\n*This skill can be disabled by Rooted effect.",
       "quote": null
     },
     {
@@ -25423,7 +25430,7 @@
         "values": null,
         "raw": null
       },
-      "description": "After every 2 attacks, Aldous gains a 500 (+3 × Contract Soul Steal stack count) Shield for 3 seconds on his next Basic Attack.\nThis effect can only be triggered once every 5 seconds.",
+      "description": "After every 2 attacks, Aldous gains a 500 (+3 × a stack count) shield for 3 seconds on his next Basic Attack.\nThis effect can only be triggered once every 5 seconds.",
       "scalings": [],
       "levelScaling": [],
       "ccTypes": [],
@@ -25868,7 +25875,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Claude attacks enemies in a fan-shaped area ahead, dealing 160-285 (+40% Total Physical Attack) Physical Damage and reducing their Movement Speed by 20% and Attack Speed by 10%.\nFor each target hit, Claude gains 3% extra Movement Speed and Attack Speed (doubled if the target is an enemy hero, up to 5 stacks) for 6 seconds.",
+      "description": "Claude attacks enemies in a fan-shaped area ahead, dealing 160-285 (+40% Total Physical Attack) Physical Damage and reducing their Movement Speed by 20% and Attack Speed by 10%.\nFor each target hit, Claude gains 3% extra Movement and Attack Speed (doubled if the target is an enemy hero, up to 5 stacks) for 6 seconds.",
       "scalings": [
         {
           "base": "160-285",
@@ -26119,9 +26126,13 @@
           "raw": "100 / 115 / 130"
         }
       ],
-      "ccTypes": [],
+      "ccTypes": [
+        "airborne",
+        "suppress",
+        "freeze"
+      ],
       "calc": null,
-      "notes": "* The targeting description of this skill is misleading, Claude and Dexter can fire two individual shots on two enemy targets, when nearby, simultaneously and is not strictly on two targets when more is present. When there are more than 2 enemy targets, Claude and Dexter fires two individual shots at random. Splitting the damage dealt by chance.\n* The skill only targets enemies who are visible. Which targets can evade the skill using stealth.\n* This skill can only be interrupted by high-level crowd control effects (e.g cc, cc, cc, cc, etc).",
+      "notes": "* The targeting description of this skill is misleading, Claude and Dexter can fire two individual shots on two enemy targets, when nearby, simultaneously and is not strictly on two targets when more is present. When there are more than 2 enemy targets, Claude and Dexter fires two individual shots at random. Splitting the damage dealt by chance.\n* The skill only targets enemies who are visible. Which targets can evade the skill using stealth.\n* This skill can only be interrupted by high-level crowd control effects (e.g airborne, suppressed, frozen, transformed, etc).",
       "quote": null
     },
     {
@@ -26171,7 +26182,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Vale gains 1 stack of stack each time he gets a kill or an assist that increases his Movement Speed by 8. This effect can stack up to 10 times.",
+      "description": "Vale gains 1 stack of Windtalk each time he gets a kill or an assist that increases his Movement Speed by 8. This effect can stack up to 10 times.",
       "scalings": [],
       "levelScaling": [
         {
@@ -27032,7 +27043,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Leomord summons Barbiel to rush to him, dealing [template:Sscale base=100-300; total-pa=40] to all enemies in its path.\nIf Barbiel comes in contact with Leomord, they will enter the Mounted State, gaining 50% Movement Speed that decays over 2 seconds.\nMounted State: Leomord gains a brand-new set of skills, and his Basic Attack can be used while moving and hits a circular area to deal AOE damage. Leomord also gains extra 70 Movement Speed and 30–110 Physical & Magic Defense. This lasts 10 seconds.",
+      "description": "Leomord summons Barbiel to rush to him, dealing pd; base: 100-300; total-pa: 40 to all enemies in its path.\nIf Barbiel comes in contact with Leomord, they will enter the Mounted State, gaining 50% Movement Speed that decays over 2 seconds.\nMounted State: Leomord gains a brand-new set of skills, and his Basic Attack can be used while moving and hits a circular area to deal AOE damage. Leomord also gains extra 70 Movement Speed and 30–110 Physical & Magic Defense. This lasts 10 seconds.",
       "scalings": [],
       "levelScaling": [
         {
@@ -29831,7 +29842,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Minsitthar's Basic Attacks and skills apply a stack of mark, up to 5 stacks. Upon reaching max stacks, the next attack detonates all Mark of the King stacks, dealing 400 (+6% Total HP) Physical Damage and stunning the target for 0.8 seconds while healing Minsitthar for 400 (+6% Total HP) HP. Can only trigger once every 6 seconds on the same target.",
+      "description": "Minsitthar's Basic Attacks and skills apply a stack of Mark of the King, up to 5 stacks. Upon reaching max stacks, the next attack detonates all Mark of the King stacks, dealing 400 (+6% Total HP) Physical Damage and stunning the target for 0.8 seconds while healing Minsitthar for 400 (+6% Total HP) HP. Can only trigger once every 6 seconds on the same target.",
       "scalings": [
         {
           "base": "400",
@@ -30708,7 +30719,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Faramis enters the Shadow state for 3 seconds, gaining 70% extra Movement Speed, 25 extra Physical and Magic Defense, 20% cooldown reduction of this skill, and the ability to move through terrain. Enemy heroes that come into contact with Faramis in this state are dealt 250-400 (+60% Total Magic Power) Magic Damage and applied with a mark. Upon leaving the Shadow state, Faramis drags all the marked enemy heroes toward him, dealing 250-400 (+60% Total Magic Power) Magic Damage. Use again to leave the Shadow state early and drags marked enemies toward him.\nThe range of soul fragment absorption is increased while this skill is active.",
+      "description": "Faramis enters the Shadow state for 3 seconds, gaining 70% extra Movement Speed, 25 extra Physical and Magic Defense, 20% cooldown reduction of this skill, and the ability to move through terrain. Enemy heroes that come into contact with Faramis in this state are dealt 250-400 (+60% Total Magic Power) Magic Damage and applied with a Nether Mark. Upon leaving the Shadow state, Faramis drags all the marked enemy heroes toward him, dealing 250-400 (+60% Total Magic Power) Magic Damage. Use again to leave the Shadow state early and drags marked enemies toward him.\nThe range of soul fragment absorption is increased while this skill is active.",
       "scalings": [
         {
           "base": "250-400",
@@ -34124,7 +34135,7 @@
         "values": null,
         "raw": null
       },
-      "description": "template:FULLPAGENAME will gain [1] movement speed boost [for each allied] Oriental [Fighter] in the battlefield.\n(Original text: The Oriental Fighters: A team will gain higher movement speed boost with more Oriental Fighters in the battlefield.)",
+      "description": "[] will gain [1] movement speed boost [for each allied] Oriental [Fighter] in the battlefield.\n(Original text: The Oriental Fighters: A team will gain higher movement speed boost with more Oriental Fighters in the battlefield.)",
       "scalings": [],
       "levelScaling": [],
       "ccTypes": [],
@@ -34181,7 +34192,7 @@
         "values": null,
         "raw": null
       },
-      "description": "When Dyrroth's Rage reaches 50%, he will enhance Burst Strike and Spectre Step.\nAfter each 2 Basic Attacks, Dyrroth will release skill, dealing (+160% Total Physical Attack) Physical Damage to enemies in the circle and regenerating [50 + pd HP] (Circle Strike doesn't have ATK Effect). Each time he hits an enemy hero, the CD of Burst Strike and Spectre Step will be decreased by 1 second.",
+      "description": "When Dyrroth's Rage reaches 50%, he will enhance Burst Strike and Spectre Step.\nAfter each 2 Basic Attacks, Dyrroth will release Circle Strike, dealing (+160% Total Physical Attack) Physical Damage to enemies in the circle and regenerating [50 + 40% of the damage dealt HP] (Circle Strike doesn't have ATK Effect). Each time he hits an enemy hero, the CD of Burst Strike and Spectre Step will be decreased by 1 second.",
       "scalings": [
         {
           "base": null,
@@ -34253,7 +34264,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Dyrroth releases a burst strike in a designated direction. Each burst deals 200-450 (+60% Extra Physical Attack) Physical Damage to enemies and slows them by 25% for 1.5 seconds. (The damage decays against the same target and decreases to only pd on minions.)\nskill: Burst Strike has a longer range, deals pd, and its slow effect is doubled.",
+      "description": "Dyrroth releases a burst strike in a designated direction. Each burst deals 200-450 (+60% Extra Physical Attack) Physical Damage to enemies and slows them by 25% for 1.5 seconds. (The damage decays against the same target and decreases to only 75% on minions.)\nAbyss Enhanced: Burst Strike has a longer range, deals 140% of the original damage, and its slow effect is doubled.",
       "scalings": [
         {
           "base": "200-450",
@@ -34346,7 +34357,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Dyrroth dashes in the designated direction. He will stop when he hits a [non-minion] target, dealing 230-355 (+60% Extra Physical Attack) Physical Damage to enemies. When he uses this skill again, he will lock onto a target and release a Fatal Strike, dealing [a total of] 345-570 (+120% Extra Physical Attack) Physical Damage. Enemy heroes or creeps hit by Fatal Strike will have their Physical Defense reduced by 40% for 4 seconds.\nskill: Fatal Strike will deal pd, slow the target by an extra 90% [for 1 second] and reduce the target's Physical Defense by 60% [instead] for 4 seconds.",
+      "description": "Dyrroth dashes in the designated direction. He will stop when he hits a [non-minion] target, dealing 230-355 (+60% Extra Physical Attack) Physical Damage to enemies. When he uses this skill again, he will lock onto a target and release a Fatal Strike, dealing [a total of] 345-570 (+120% Extra Physical Attack) Physical Damage. Enemy heroes or creeps hit by Fatal Strike will have their Physical Defense reduced by 40% for 4 seconds.\nAbyss Enhanced: Fatal Strike will deal 150% of the original damage, slow the target by an extra 90% [for 1 second] and reduce the target's Physical Defense by 60% [instead] for 4 seconds.",
       "scalings": [
         {
           "base": "230-355",
@@ -34498,7 +34509,7 @@
         "slow"
       ],
       "calc": null,
-      "notes": "*Abysm Strike deals up to 1500 / 2000 / 2500 pd to non-hero units.",
+      "notes": "*Abysm Strike deals up to 1500 / 2000 / 2500 damage to non-hero units.",
       "quote": null
     },
     {
@@ -34598,7 +34609,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Lylia gets power from Gloom, ms whenever she is within the area of Gloom. Additionally, every time Gloom is upgraded, her ms, stacking up to 4 times or ms for a maximum of ms.",
+      "description": "Lylia gets power from Gloom, increasing her movement speed by 15% whenever she is within the area of Gloom. Additionally, every time Gloom is upgraded, her movement speed is increased by 5%, stacking up to 4 times or 20% for a maximum of 35% movement speed increase.",
       "scalings": [],
       "levelScaling": [],
       "ccTypes": [],
@@ -34663,7 +34674,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Lylia sends out Gloom in a line, dealing 250 to 500 6 (+100%Magic Power) Magic Damage to enemies along the path and slow for 1.5 seconds.\nIf Gloom touches Shadow Energy, he will devour and detonate it.",
+      "description": "Lylia sends out Gloom in a line, dealing 250 to 500 6 (+100%Magic Power) Magic Damage to enemies along the path and slowing them by 40% for 1.5 seconds.\nIf Gloom touches Shadow Energy, he will devour and detonate it.",
       "scalings": [],
       "levelScaling": [
         {
@@ -34738,14 +34749,14 @@
         "values": null,
         "raw": null
       },
-      "description": "Lylia condenses enhanced at a location, dealing 100 to 160 6 (+50% Total Magic Power) Magic Damage to enemies hit and slow for 0.5 seconds.\nIf enhanced is detonated by Gloom or Magic Shockwave, it will detonate to deal an additional 250 to 400 6 (+100% Magic Power) Magic Damage and turn the enhanced to Gloom for 8 seconds. During this time, Gloom can then detonate additional enhanced within his range, resetting his timer and moving to the enhanced's location in each instance.\nAdditionally, whenever Gloom detonates a enhanced within 8 seconds, the detonation damage is increased by 30%, stacking up to 4 times or 120%. If Gloom  detonates enhanced consecutively, this skill can deal a maximum of 250*2.2 to 375*2.2 6 (+220% Magic Power) Magic Damage.\nStores a charge of enhanced every 9 seconds, up to 5 charges. Recharge time is affected by cooldown reduction.",
+      "description": "Lylia condenses Shadow Energy at a location, dealing 100 to 160 6 (+50% Total Magic Power) Magic Damage to enemies hit and slowing them by 80% for 0.5 seconds.\nIf Shadow Energy is detonated by Gloom or Magic Shockwave, it will detonate to deal an additional 250 to 400 6 (+100% Magic Power) Magic Damage and turn the Shadow Energy to Gloom for 8 seconds. During this time, Gloom can then detonate additional Shadow Energies within his range, resetting his timer and moving to the Shadow Energy's location in each instance.\nAdditionally, whenever Gloom detonates a Shadow Energy within 8 seconds, the detonation damage is increased by 30%, stacking up to 4 times or 120%. If Gloom  detonates 5 Shadow Energies consecutively, this skill can deal a maximum of 250*2.2 to 375*2.2 6 (+220% Magic Power) Magic Damage.\nStores a charge of Shadow Energy every 9 seconds, up to 5 charges. Recharge time is affected by cooldown reduction.",
       "scalings": [],
       "levelScaling": [],
       "ccTypes": [
         "slow"
       ],
       "calc": null,
-      "notes": "*This skill is xp from Level 1 and can still be upgraded 6 times, but their stacks will start from 0 stacks instead of full stacks and must requires need more time to granting stack until full.\n* enhanced provides vision to its surroundings as well as bushes when placed inside one.\n* Lylia can summon up to enhanced at a time. If she summons another one, the first enhanced that she summoned will disappear.\n* Lylia can summon as many Glooms as she likes provided that they aren't within another Gloom's range.",
+      "notes": "*This skill is already available from Level 1 and can still be upgraded 6 times, but their stacks will start from 0 stacks instead of full stacks and must requires need more time to granting stack until full.\n* Shadow Energy provides vision to its surroundings as well as bushes when placed inside one.\n* Lylia can summon up to 4 Shadow Energies at a time. If she summons another one, the first Shadow Energy that she summoned will disappear.\n* Lylia can summon as many Glooms as she likes provided that they aren't within another Gloom's range.",
       "quote": null
     },
     {
@@ -34805,12 +34816,12 @@
         "values": null,
         "raw": null
       },
-      "description": "Lylia blink to the Black Shoes' location 4 seconds ago and enhanced, 100%  of her HP and Mana to the previous state, and get an extra Heal. She also gains ms for 2 / 3 / 4 seconds.\nLylia will invulnerable while teleporting.",
+      "description": "Lylia returns to the Black Shoes' location 4 seconds ago and restoring all 5 Shadow Energy charges, 100%  of her HP and Mana to the previous state, and get an extra 10% / 15% / 20% Max HP. She also gains 20% extra Movement Speed by 20% for 2 / 3 / 4 seconds.\nLylia will untargetable while teleporting.",
       "scalings": [],
       "levelScaling": [],
       "ccTypes": [],
       "calc": null,
-      "notes": "*Because her ultimate is based on 4 seconds ago, this means she can also lose her HP with her ultimate if her Health bar is damaged while being recorded and immediately healed and then use Black Shoes. This also applies the same to her mana regen.",
+      "notes": "*Because her ultimate is based on 4 seconds ago, this means she can also lose her HP with her ultimate if her Health bar is damaged while being recorded and immediately healed and then use Black Shoes. This also applies the same to her Mana restoration.",
       "quote": null
     },
     {
@@ -35255,7 +35266,7 @@
         "values": null,
         "raw": null
       },
-      "description": "template:FULLPAGENAME will gain [1] movement speed boost [for each allied] Oriental [Fighter] in the battlefield.\n(Original text: The Oriental Fighters: A team will gain higher movement speed boost with more Oriental Fighters in the battlefield.)",
+      "description": "[] will gain [1] movement speed boost [for each allied] Oriental [Fighter] in the battlefield.\n(Original text: The Oriental Fighters: A team will gain higher movement speed boost with more Oriental Fighters in the battlefield.)",
       "scalings": [],
       "levelScaling": [],
       "ccTypes": [],
@@ -36083,7 +36094,7 @@
         "values": null,
         "raw": null
       },
-      "description": "template:FULLPAGENAME will gain [1] movement speed boost [for each allied] Oriental [Fighter] in the battlefield.\n(Original text: The Oriental Fighters: A team will gain higher movement speed boost with more Oriental Fighters in the battlefield.)",
+      "description": "[] will gain [1] movement speed boost [for each allied] Oriental [Fighter] in the battlefield.\n(Original text: The Oriental Fighters: A team will gain higher movement speed boost with more Oriental Fighters in the battlefield.)",
       "scalings": [],
       "levelScaling": [
         {
@@ -36219,7 +36230,7 @@
       ],
       "ccTypes": [],
       "calc": null,
-      "notes": "*md to enemy heroes only includes damage from skills and Basic Attacks.\n*Visual marks do not display on minions and creeps, despite the fact that they can receive debuffs from this skill.",
+      "notes": "*Additional damage dealt to enemy heroes only includes damage from skills and Basic Attacks.\n*Visual marks do not display on minions and creeps, despite the fact that they can receive debuffs from this skill.",
       "quote": null
     },
     {
@@ -36829,7 +36840,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Cecilion summons a pair of claws in a designated location. After a short delay, the claws will move toward each other and cc enemies along the way to the center, dealing 200-300 (+45% Total Magic Power) (+1.2% Total Mana) Magic Damage and cc them for 1 second.",
+      "description": "Cecilion summons a pair of claws in a designated location. After a short delay, the claws will move toward each other and pull enemies along the way to the center, dealing 200-300 (+45% Total Magic Power) (+1.2% Total Mana) Magic Damage and immobilizing them for 1 second.",
       "scalings": [
         {
           "base": "200-300",
@@ -36864,7 +36875,10 @@
           "raw": "200 / 220 / 240 / 260 / 280 / 300"
         }
       ],
-      "ccTypes": [],
+      "ccTypes": [
+        "immobilize",
+        "pull"
+      ],
       "calc": null,
       "notes": null,
       "quote": null
@@ -36926,7 +36940,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Cecilion unleashes Blood Demon power [for 6 seconds], increasing his Movement Speed by 60% (decaying rapidly over 1.5 seconds) and gaining slow immunity. Meanwhile, he shoots 40 bolts of blood energy at the enemies nearby, each dealing 35-45 (+8% Total Magic Power) (+0.3% Total Mana) Magic Damage and slowing them by 3% (up to 30%) for 1 second.\nHitting an enemy heal him for 10 and 1% of his health.",
+      "description": "Cecilion unleashes Blood Demon power [for 6 seconds], increasing his Movement Speed by 60% (decaying rapidly over 1.5 seconds) and gaining immunity to slow effects. Meanwhile, he shoots 40 bolts of blood energy at the enemies nearby, each dealing 35-45 (+8% Total Magic Power) (+0.3% Total Mana) Magic Damage and slowing them by 3% (up to 30%) for 1 second.\nHitting an enemy heals him for 10 and 1% of his lost HP.",
       "scalings": [
         {
           "base": "35-45",
@@ -37685,7 +37699,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Atlas generates Frigid Breath around him for 5 seconds each time he casts a skill. Enemies who stay in the area over 1.5 seconds will have their Movement Speed slow until they are cc for 0.5 seconds.\nAtlas gains 16-30 extra Physical Defense and Magic Defense when Frigid Breath is present.",
+      "description": "Atlas generates Frigid Breath around him for 5 seconds each time he casts a skill. Enemies who stay in the area over 1.5 seconds will have their Movement Speed gradually reduced until they are frozen for 0.5 seconds.\nAtlas gains 16-30 extra Physical and Magic Defense when Frigid Breath is present.",
       "scalings": [],
       "levelScaling": [
         {
@@ -37711,7 +37725,7 @@
         }
       ],
       "ccTypes": [
-        "slow"
+        "freeze"
       ],
       "calc": "${\\rm extra\\ hybrid\\ defense} = 15 + (1 \\times hero\\ level)$",
       "notes": null,
@@ -37875,7 +37889,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Atlas enters Ejected State, gaining 30% Movement Speed and slow immunity. In this state, the Mecha Sentry will follow the pilot at an increasing speed (can only be controlled by cc). Once they meet, Atlas will return to the Mecha, dealing 320-420 (+80% Total Magic Power) Magic Damage to enemies nearby and cc them for 1 second.\nEjected State: Atlas and his Mecha share the HP and reduce damage reduction in this state.",
+      "description": "Atlas enters Ejected State, gaining 30% Movement Speed and immunity to slow effects. In this state, the Mecha Sentry will follow the pilot at an increasing speed (can only be controlled by Suppression). Once they meet, Atlas will return to the Mecha, dealing 320-420 (+80% Total Magic Power) Magic Damage to enemies nearby and stunning them for 1 second.\nEjected State: Atlas and his Mecha share the same HP bar and reduce 50% of the damage taken in this state.",
       "scalings": [
         {
           "base": "320-420",
@@ -37906,7 +37920,9 @@
         }
       ],
       "ccTypes": [
-        "slow"
+        "stun",
+        "slow",
+        "suppress"
       ],
       "calc": null,
       "notes": "*Some items does not work during ejected state. Golden Staff, Twin Blade, Blade of Heptaseas, Bruteforce Breastplate, War Axe (even with Cursed Helmet passive) does not work. Demon Hunter Sword additional damage is applied but Atlas doesn't gain the lifesteal stack. Corrosion Scythe slow is applied but Atlas doesn't gain the attack speed stack.",
@@ -37968,7 +37984,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Atlas hurls chains around and starts to channel (can only be interrupted by cc), dealing 225-475 (+75% Total Magic Power) Magic Damage to enemy heroes hit and slowing them by 40% for 3 seconds.\nUse this skill again while channeling: Atlas will cc on the designated location, dealing 360-760 (+180% Total Magic Power) Magic Damage.\nUse this skill in Ejected State: The Mecha Sentry will return to Atlas immediately, but the stun effect will be replaced by 40% slow effect.",
+      "description": "Atlas hurls chains around and starts to channel (can only be interrupted by suppressing), dealing 225-475 (+75% Total Magic Power) Magic Damage to enemy heroes hit and slowing them by 40% for 3 seconds.\nUse this skill again while channeling: Atlas will drag the targets toward him and plunk them down on the designated location, dealing 360-760 (+180% Total Magic Power) Magic Damage.\nUse this skill in Ejected State: The Mecha Sentry will return to Atlas immediately, but the stun effect will be replaced by 40% slow effect.",
       "scalings": [
         {
           "base": "225-475",
@@ -38019,7 +38035,9 @@
       ],
       "ccTypes": [
         "stun",
-        "slow"
+        "slow",
+        "suppress",
+        "pull"
       ],
       "calc": null,
       "notes": "*Atlas only chains heroes that are in range before he starts channeling. Heroes that walks into range while he is already channeling will not be chained.\n*Holding the skill starts the channeling and releasing it triggers the second phase. This means that you cannot cancel this skill and you can't check its range.",
@@ -38165,7 +38183,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Popol throws a spear at the target for 80-170 (+100% Total Physical Attack) Physical Damage and orders Kupa to bite them, dealing 100-190 (+100% Total Physical Attack) Physical Damage and following up with attacks for 3 seconds. Alpha Wolf Form: Kupa strikes ferociously, cc the target for 1 second with 3 rapid bites.",
+      "description": "Popol throws a spear at the target for 80-170 (+100% Total Physical Attack) Physical Damage and orders Kupa to bite them, dealing 100-190 (+100% Total Physical Attack) Physical Damage and following up with attacks for 3 seconds. Alpha Wolf Form: Kupa strikes ferociously, stunning the target for 1 second with 3 rapid bites.",
       "scalings": [
         {
           "base": "80-170",
@@ -38216,7 +38234,9 @@
           "raw": "100 / 130 / 160 / 190"
         }
       ],
-      "ccTypes": [],
+      "ccTypes": [
+        "stun"
+      ],
       "calc": null,
       "notes": null,
       "quote": null
@@ -38331,7 +38351,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Popol summons Kupa to protect him, gaining a 240-330 (+200% Extra Physical Attack) shield while dealing 240-330 (+50% Total Physical Attack) Physical Damage to nearby enemies and slowing them by 35% for [template:fd 0.5] seconds. Kupa will assist Popol in battle for 3 seconds. Alpha Wolf Form: Kupa darts back to protect its master and knocks nearby enemies cc for [template:fd 0.2] seconds. The shield and damage are increased to 125%.",
+      "description": "Popol summons Kupa to protect him, gaining a 240-330 (+200% Extra Physical Attack) shield while dealing 240-330 (+50% Total Physical Attack) Physical Damage to nearby enemies and slowing them by 35% for 0.5 seconds. Kupa will assist Popol in battle for 3 seconds. Alpha Wolf Form: Kupa darts back to protect its master and knocks nearby enemies airborne for 0.2 seconds. The shield and damage are increased to 125%.",
       "scalings": [
         {
           "base": "240-330",
@@ -38383,7 +38403,8 @@
         }
       ],
       "ccTypes": [
-        "slow"
+        "slow",
+        "airborne"
       ],
       "calc": null,
       "notes": null,
@@ -38504,7 +38525,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Popol sets a trap which will detonate after a short delay to the enemy that steps on it, dealing 70-100 (+20% Total Magic Power) Magic Damage, cc it for 1 second, and creating a frost zone for 4 seconds, slow of enemies within the zone by 20%. Popol can store up to 3 traps at a time and gains 1 charge per 22-16 seconds. Up to 3 traps can be set, each lasting 60 seconds.",
+      "description": "Popol sets a trap which will detonate after a short delay to the enemy that steps on it, dealing 70-100 (+20% Total Magic Power) Magic Damage, immobilizing it for 1 second, and creating a frost zone for 4 seconds, reducing Movement Speed of enemies within the zone by 20%. Popol can store up to 3 traps at a time and gains 1 charge per 22-16 seconds. Up to 3 traps can be set, each lasting 60 seconds.",
       "scalings": [
         {
           "base": "70-100",
@@ -38533,7 +38554,7 @@
         }
       ],
       "ccTypes": [
-        "slow"
+        "immobilize"
       ],
       "calc": null,
       "notes": null,
@@ -38594,7 +38615,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Popol and Kupa enter the state for 12 seconds:\nPopol and Kupa both gain 15% extra Movement Speed and increase their Attack Speed to 1.3 times. Kupa turns into the Alpha Wolf Form, gains 1500-3500 HP, and enhances its other skills. Also fully restores its HP.",
+      "description": "Popol and Kupa enter the Enraged state for 12 seconds:\nPopol and Kupa both gain 15% extra Movement Speed and increase their Attack Speed to 1.3 times. Kupa turns into the Alpha Wolf Form, gains 1500-3500 HP, and enhances its other skills. Also fully restores its HP.",
       "scalings": [
         {
           "base": "1500-3500",
@@ -39192,7 +39213,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Luo Yi's skills create mark on the battlefield. Each Sigil lasts up to 6 seconds.\nSigils opposite attributes will trigger Yin-Yang Reaction when they are within a certain distance,[how much?] dealing 365 (+20 × Hero Level) (+190% Total Magic Power) Magic Damage to the marked [enemy heroes], stunning them for 1 second, and pulling them toward each other .\nEach time Luo Yi applies a new Sigil to a marked enemy [hero], she gains 300 (+10 × Hero Level) (+150% Total Magic Power) shield (up to 3 stacks) and 30% extra Movement Speed that decays over 2 seconds.",
+      "description": "Luo Yi's skills create Sigils of Yin/Yang on the battlefield. Each Sigil lasts up to 6 seconds.\nSigils opposite attributes will trigger Yin-Yang Reaction when they are within a certain distance,[how much?] dealing 365 (+20 × Hero Level) (+190% Total Magic Power) Magic Damage to the marked [enemy heroes], stunning them for 1 second, and pulling them toward each other .\nEach time Luo Yi applies a new Sigil to a marked enemy [hero], she gains 300 (+10 × Hero Level) (+150% Total Magic Power) shield (up to 3 stacks) and 30% extra Movement Speed that decays over 2 seconds.",
       "scalings": [
         {
           "base": "365",
@@ -39346,7 +39367,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Luo Yi casts the energy of Yin/Yang in the target direction, dealing 210-410 (+120% Total Magic Power) Magic Damage to the first enemy hit and those behind in a cone. Enemy heroes hit are marked with mark.\nLuo Yi stores up to 4 Dispersion charges and gains 1 charge every 8 seconds. She also gains 1 charge each time Yin-Yang Reaction is triggered.\nThe state of this skill changes on each cast.",
+      "description": "Luo Yi casts the energy of Yin/Yang in the target direction, dealing 210-410 (+120% Total Magic Power) Magic Damage to the first enemy hit and those behind in a cone. Enemy heroes hit are marked with Sigil of Yin/Yang.\nLuo Yi stores up to 4 Dispersion charges and gains 1 charge every 8 seconds. She also gains 1 charge each time Yin-Yang Reaction is triggered.\nThe state of this skill changes on each cast.",
       "scalings": [
         {
           "base": "210-410",
@@ -39628,7 +39649,7 @@
         "values": null,
         "raw": null
       },
-      "description": "When holding down the Basic Attack button, Benedetta enters the state and charges up Sword Intent. If the Basic Attack button released after the Sword Intent is fully charged, Benedetta will use Swordout Slash in the direction she's facing and dash forward, dealing (+215% Total Physical Attack) Physical Damage to enemies on the path (counts as Skill Damage and is reduced to 50% on Minions and Creeps)\nBenedetta can only use Swordout Slash when her Sword Intent is fully charged and she is in Swordout state by holding down the Basic Attack button.\nBenedetta also gains Sword Intent by dealing damage with her Basic Attacks and skills.",
+      "description": "When holding down the Basic Attack button, Benedetta enters the Swordout state and charges up Sword Intent. If the Basic Attack button released after the Sword Intent is fully charged, Benedetta will use Swordout Slash in the direction she's facing and dash forward, dealing (+215% Total Physical Attack) Physical Damage to enemies on the path (counts as Skill Damage and is reduced to 50% on Minions and Creeps)\nBenedetta can only use Swordout Slash when her Sword Intent is fully charged and she is in Swordout state by holding down the Basic Attack button.\nBenedetta also gains Sword Intent by dealing damage with her Basic Attacks and skills.",
       "scalings": [
         {
           "base": null,
@@ -39714,7 +39735,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Benedetta withdraws swiftly and leaves a shadow in front. After a short delay, her shadow slashes forward in a fan-shaped area, dealing 200-360 (+75% Total Physical Attack) Physical Damage and slowing the enemies by 60% for 0.5 seconds.\nMeanwhile, Benedetta dashes forward to slash, dealing 75-175 (+100% Total Physical Attack) Physical Damage. (If the target is hit by her shadow, damage caused by Benedetta herself will increase to pd.)",
+      "description": "Benedetta withdraws swiftly and leaves a shadow in front. After a short delay, her shadow slashes forward in a fan-shaped area, dealing 200-360 (+75% Total Physical Attack) Physical Damage and slowing the enemies by 60% for 0.5 seconds.\nMeanwhile, Benedetta dashes forward to slash, dealing 75-175 (+100% Total Physical Attack) Physical Damage. (If the target is hit by her shadow, damage caused by Benedetta herself will increase to 200%.)",
       "scalings": [
         {
           "base": "200-360",
@@ -40409,7 +40430,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Detona gains a stack of stack for 12 seconds each time it or Barats damages an enemy with their skills (up to 10 stacks). Each stack of Big Guy increases Detona's size, and grants 4–10 extra Hybrid Defense (scales with the level of Detona's Welcome) and 5% extra Resilience. At max stacks, Detona's Basic Attacks will be replaced with basic attack, which deals (+140% Total Physical Attack) (+3.5% Total HP) Physical Damage to enemies in a circular area, slows them by 40% for 0.2 seconds, and refreshes the duration of Big Guy with each hit.",
+      "description": "Detona gains a stack of Big Guy for 12 seconds each time it or Barats damages an enemy with their skills (up to 10 stacks). Each stack of Big Guy increases Detona's size, and grants 4–10 extra Hybrid Defense (scales with the level of Detona's Welcome) and 5% extra Resilience. At max stacks, Detona's Basic Attacks will be replaced with Trample, which deals (+140% Total Physical Attack) (+3.5% Total HP) Physical Damage to enemies in a circular area, slows them by 40% for 0.2 seconds, and refreshes the duration of Big Guy with each hit.",
       "scalings": [
         {
           "base": null,
@@ -40828,7 +40849,7 @@
         "values": null,
         "raw": null
       },
-      "description": "After a short delay, Detona charges in the target direction, dealing 120-200 (+70% Total Physical Attack) (+1.2% Total HP) Physical Damage to the first enemy hit, devouring and suppressing them for 1.2 seconds before spitting them out. If the target hits an enemy hero or a wall after being spit out, the target will cause an explosion, they and nearby enemies will take an additional 180-300 (+105% Total Physical Attack) (+1.8% Total HP) Physical Damage and be stunned for 1 second.\nFor the duration, Barats becomes immune to control effects. If the channeling is canceled, 60% of the skill cooldown will be refunded.\nPassive: Detona gains 4–10 stacks of stack upon respawn.",
+      "description": "After a short delay, Detona charges in the target direction, dealing 120-200 (+70% Total Physical Attack) (+1.2% Total HP) Physical Damage to the first enemy hit, devouring and suppressing them for 1.2 seconds before spitting them out. If the target hits an enemy hero or a wall after being spit out, the target will cause an explosion, they and nearby enemies will take an additional 180-300 (+105% Total Physical Attack) (+1.8% Total HP) Physical Damage and be stunned for 1 second.\nFor the duration, Barats becomes immune to control effects. If the channeling is canceled, 60% of the skill cooldown will be refunded.\nPassive: Detona gains 4–10 stacks of Big Guy upon respawn.",
       "scalings": [
         {
           "base": "120-200",
@@ -40952,7 +40973,7 @@
         "values": null,
         "raw": null
       },
-      "description": "With his Basic Attacks resonated with the Abyss Power within his body, Brody is able to move while winding up his Basic Attacks (which will be interrupted when casting skills), at the cost of having longer Basic Attack Animation and lower Attack Speed. Each Basic Attack deals (+45 × Hero Level) (+140% Total Physical Attack) Physical Damage (of which the damage scaling with level cannot be critical), increases Movement Speed by 30% (which will decay rapidly in 1.2 seconds), and inflicts 1 stack of Mark on the enemy, capped at 4 stacks. [Marks applied last for 8 seconds.]\nEach stack of Abyss Mark increases Brody's pd and his Movement Speed by 5%.",
+      "description": "With his Basic Attacks resonated with the Abyss Power within his body, Brody is able to move while winding up his Basic Attacks (which will be interrupted when casting skills), at the cost of having longer Basic Attack Animation and lower Attack Speed. Each Basic Attack deals (+45 × Hero Level) (+140% Total Physical Attack) Physical Damage (of which the damage scaling with level cannot be critical), increases Movement Speed by 30% (which will decay rapidly in 1.2 seconds), and inflicts 1 stack of Abyss Mark on the enemy, capped at 4 stacks. [Marks applied last for 8 seconds.]\nEach stack of Abyss Mark increases Brody's damage against the target by 5% and his Movement Speed by 5%.",
       "scalings": [
         {
           "base": null,
@@ -41078,7 +41099,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Brody launches a shock wave in the designated direction, dealing 150-550 (+170% Total Physical Attack) Physical Damage, slowing the enemies by 30% for 1.2 seconds, and applying 1 stack of mark.\nAs the shock wave travels, for each enemy it hits, it deals an extra physical damage, inflicts extra 5% slow effect, and applies an additional stack of Abyss Mark, capped at 130% physical damage, 45% slow effect, and 4 stacks. This skill deals only physical damage to minions.",
+      "description": "Brody launches a shock wave in the designated direction, dealing 150-550 (+170% Total Physical Attack) Physical Damage, slowing the enemies by 30% for 1.2 seconds, and applying 1 stack of Abyss Mark.\nAs the shock wave travels, for each enemy it hits, it deals an extra 10% damage, inflicts extra 5% slow effect, and applies an additional stack of Abyss Mark, capped at 130% damage, 45% slow effect, and 4 stacks. This skill deals only 80%-100% damage to minions.",
       "scalings": [
         {
           "base": "150-550",
@@ -41190,7 +41211,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Brody dashes to an enemy, dealing 200-350 (+70% Total Physical Attack) Physical Damage to the target, stunning the target for 0.8 seconds, and inflicting 1 stack of mark on the target.\nUpon hitting the target, he is able to move one more time in the movement direction, gaining 45% Movement Speed that will decay rapidly in 1.2 seconds.",
+      "description": "Brody dashes to an enemy, dealing 200-350 (+70% Total Physical Attack) Physical Damage to the target, stunning the target for 0.8 seconds, and inflicting 1 stack of Abyss Mark on the target.\nUpon hitting the target, he is able to move one more time in the movement direction, gaining 45% Movement Speed that will decay rapidly in 1.2 seconds.",
       "scalings": [
         {
           "base": "200-350",
@@ -41283,7 +41304,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Brody locks on all the targets within 8 yard(s), dealing 340-580 (+180% Extra Physical Attack) Physical Damage to them. If the target has an mark, all Abyss Marks will be reset, dealing 136-232 (+72% Extra Physical Attack) (+target's 4%-6% Lost HP) Physical Damage for each stack the target has.",
+      "description": "Brody locks on all the targets within 8 yard(s), dealing 340-580 (+180% Extra Physical Attack) Physical Damage to them. If the target has an Abyss Mark, all Abyss Marks will be reset, dealing 136-232 (+72% Extra Physical Attack) (+target's 4%-6% Lost HP) Physical Damage for each stack the target has.",
       "scalings": [
         {
           "base": "340-580",
@@ -42070,7 +42091,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Mathilda applies a mark to the target enemy hero and circles around the them for up to 3.5 seconds, during which her wisps will fly toward nearby enemy heroes, each  dealing 40 (+15% Total Magic Power) Magic Damage. Soul Bloom will prioritize the target with Soul Mark.\nWithin the duration, Mathilda can select an area to dash to. At the end of the duration, she'll dash at the target with mark, dealing 320-400 (+120% Total Magic Power) Magic Damage while knocking enemies in her path airborne for 0.6 seconds and transferring the Soul Mark to the first enemy hero that she knocks airborne.\nMathilda gains control immunity and 400-600 (+160% Total Magic Power) shield for the skill duration.",
+      "description": "Mathilda applies a Soul Mark to the target enemy hero and circles around the them for up to 3.5 seconds, during which her wisps will fly toward nearby enemy heroes, each  dealing 40 (+15% Total Magic Power) Magic Damage. Soul Bloom will prioritize the target with Soul Mark.\nWithin the duration, Mathilda can select an area to dash to. At the end of the duration, she'll dash at the target with Soul Mark, dealing 320-400 (+120% Total Magic Power) Magic Damage while knocking enemies in her path airborne for 0.6 seconds and transferring the Soul Mark to the first enemy hero that she knocks airborne.\nMathilda gains control immunity and 400-600 (+160% Total Magic Power) shield for the skill duration.",
       "scalings": [
         {
           "base": "40",
@@ -42268,7 +42289,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Paquito throws a punch in the target direction, dealing 210-360 (+50% Total Physical Attack) Physical Damage to enemies hit. He gains 150-500 (+110% Total Physical Attack) shield for 2.5 seconds if an enenmy hero is hit.\nChamp Stance: The damage is increased to 350-600 (+100% Total Physical Attack) Physical Damage, while the shield value is increased to shield. The regular and enhanced shields can stack.",
+      "description": "Paquito throws a punch in the target direction, dealing 210-360 (+50% Total Physical Attack) Physical Damage to enemies hit. He gains 150-500 (+110% Total Physical Attack) shield for 2.5 seconds if an enenmy hero is hit.\nChamp Stance: The damage is increased to 350-600 (+100% Total Physical Attack) Physical Damage, while the shield value is increased to 120%. The regular and enhanced shields can stack.",
       "scalings": [
         {
           "base": "210-360",
@@ -42598,7 +42619,7 @@
         "knockback"
       ],
       "calc": null,
-      "notes": "* Upon reaching the final dash distance, does damage and slowing/airborne on a rectangular shape starting from Paquito's back and a small square shape in front of him.\n* While dashing, the skill has a hit box that is the size of Paquito's main body, meaning the actual cc size is smaller than when aiming the skill shows.",
+      "notes": "* Upon reaching the final dash distance, does damage and slowing/airborne on a rectangular shape starting from Paquito's back and a small square shape in front of him.\n* While dashing, the skill has a hit box that is the size of Paquito's main body, meaning the actual pushing size is smaller than when aiming the skill shows.",
       "quote": null
     },
     {
@@ -43021,7 +43042,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Her extraordinary talent in the field of mechanics allowed Beatrix to produce 4 weapon(s) of truly awe-inspiring firepower.\nRenner Basic Attack - Longshot: Fire a powerful shot in the enemy's current direction, dealing (+360%-535% Total Physical Attack) Physical Damage to the first target hit (this shot can be dodged, or blocked by others. Deals pd to creeps).\nBeatrix cannot crit, and converts every 1% Critical Chance gained into 2 Physical Attack",
+      "description": "Her extraordinary talent in the field of mechanics allowed Beatrix to produce 4 weapon(s) of truly awe-inspiring firepower.\nRenner Basic Attack - Longshot: Fire a powerful shot in the enemy's current direction, dealing (+360%-535% Total Physical Attack) Physical Damage to the first target hit (this shot can be dodged, or blocked by others. Deals 50% damage to creeps).\nBeatrix cannot crit, and converts every 1% Critical Chance gained into 2 Physical Attack",
       "scalings": [
         {
           "base": null,
@@ -43111,7 +43132,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Her extraordinary talent in the field of mechanics allowed Beatrix to produce 4 weapon(s) of truly awe-inspiring firepower.\nBennett Basic Attack - Area Bombing: Choose a location to bombard, dealing (+180%-320% Total Physical Attack) Physical Damage to all enemies in that area and slowing them by 30% for 0.5 second (Deals pd to creeps).\nBeatrix cannot crit, and converts every 1% Critical Chance gained into 2 Physical Attack",
+      "description": "Her extraordinary talent in the field of mechanics allowed Beatrix to produce 4 weapon(s) of truly awe-inspiring firepower.\nBennett Basic Attack - Area Bombing: Choose a location to bombard, dealing (+180%-320% Total Physical Attack) Physical Damage to all enemies in that area and slowing them by 30% for 0.5 second (Deals 50% damage to creeps).\nBeatrix cannot crit, and converts every 1% Critical Chance gained into 2 Physical Attack",
       "scalings": [
         {
           "base": null,
@@ -43203,7 +43224,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Her extraordinary talent in the field of mechanics allowed Beatrix to produce 4 weapon(s) of truly awe-inspiring firepower.\nWesker Basic Attack - Proximity Advantage: Fire 5 shots at the target, each one dealing (+125%-195% Total Physical Attack) Physical Damage (pd dealt to targets hit multiple times decays to pd. Deals pd to creeps).\nBeatrix cannot crit, and converts every 1% Critical Chance gained into 2 Physical Attack",
+      "description": "Her extraordinary talent in the field of mechanics allowed Beatrix to produce 4 weapon(s) of truly awe-inspiring firepower.\nWesker Basic Attack - Proximity Advantage: Fire 5 shots at the target, each one dealing (+125%-195% Total Physical Attack) Physical Damage (damage dealt to targets hit multiple times decays to 40%. Deals 50% damage to creeps).\nBeatrix cannot crit, and converts every 1% Critical Chance gained into 2 Physical Attack",
       "scalings": [
         {
           "base": null,
@@ -43244,7 +43265,7 @@
       ],
       "ccTypes": [],
       "calc": "${\\rm Basic\\ attack\\ damage} = 120% + (5% \\times hero\\ level)$",
-      "notes": "*Proximity Advantage only benefits 50% of Physical Lifesteal.\n*The decay ratio for the second shot is reduced to 70% Physical Damage. Decay ratio of the third and subsequent attacks remain unchanged as pd.\n*Basic Attack Effects will be triggered up to 5 times per Proximity Advantage.\n**Physical Damage from Demon Hunter Sword's Unique Passive Devour is reduced to 2% of the target's current HP per shot.",
+      "notes": "*Proximity Advantage only benefits 50% of Physical Lifesteal.\n*The decay ratio for the second shot is reduced to 70% Physical Damage. Decay ratio of the third and subsequent attacks remain unchanged as 40%.\n*Basic Attack Effects will be triggered up to 5 times per Proximity Advantage.\n**Physical Damage from Demon Hunter Sword's Unique Passive Devour is reduced to 2% of the target's current HP per shot.",
       "quote": null
     },
     {
@@ -43293,7 +43314,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Her extraordinary talent in the field of mechanics allowed Beatrix to produce 4 weapon(s) of truly awe-inspiring firepower.\nNibiru Basic Attack - Rapid Fire: Let loose a volley of 4 shots, each one dealing (+50%-67.5% Total Physical Attack) Physical Damage (Deals pd to creeps).\nBeatrix cannot crit, and converts every 1% Critical Chance gained into 2 Physical Attack.",
+      "description": "Her extraordinary talent in the field of mechanics allowed Beatrix to produce 4 weapon(s) of truly awe-inspiring firepower.\nNibiru Basic Attack - Rapid Fire: Let loose a volley of 4 shots, each one dealing (+50%-67.5% Total Physical Attack) Physical Damage (Deals 50% damage to creeps).\nBeatrix cannot crit, and converts every 1% Critical Chance gained into 2 Physical Attack.",
       "scalings": [
         {
           "base": null,
@@ -43367,7 +43388,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Passive: Beatrix can carry 2 weapons at once, and increase her Physical Attack by 5–30.\nenhanced Beatrix takes 0.6 second to swap her primary weapon with the secondary weapon she has slung over her back, gaining an all-new way to attack and Ultimate.",
+      "description": "Passive: Beatrix can carry 2 weapons at once, and increase her Physical Attack by 5–30.\nActive: Beatrix takes 0.6 second to swap her primary weapon with the secondary weapon she has slung over her back, gaining an all-new way to attack and Ultimate.",
       "scalings": [],
       "levelScaling": [
         {
@@ -43658,7 +43679,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Beatrix raises Wesker and fires off [ultra-bullets] that deal 295-445 (+110% Total Physical Attack) Physical Damage each time they hit an enemy (the pd of successive hits on the same enemy decays by pd but falls no lower than pd).\nThis skill gets 50% Physical Lifesteal, but is not affected by Spell Vamp.",
+      "description": "Beatrix raises Wesker and fires off [ultra-bullets] that deal 295-445 (+110% Total Physical Attack) Physical Damage each time they hit an enemy (the damage of successive hits on the same enemy decays by 25% but falls no lower than 25% base damage).\nThis skill gets 50% Physical Lifesteal, but is not affected by Spell Vamp.",
       "scalings": [
         {
           "base": "295-445",
@@ -43818,7 +43839,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Having escaped battle for 3 seconds, Beatrix can call for her butler Morgan to provide her with a backup weapons crate.\nBeatrix must then choose two weapon from the crate to serve as her primary and secondary.\nHer weapon selection is interrupted if she commits any action or is cc during this period.",
+      "description": "Having escaped battle for 3 seconds, Beatrix can call for her butler Morgan to provide her with a backup weapons crate.\nBeatrix must then choose two weapon from the crate to serve as her primary and secondary.\nHer weapon selection is interrupted if she commits any action or is controlled during this period.",
       "scalings": [],
       "levelScaling": [],
       "ccTypes": [],
@@ -44268,7 +44289,7 @@
       ],
       "ccTypes": [],
       "calc": "${\\rm extra\\ ATK\\ SPD} = \\bigl[(0.0053571 \\times hero\\ lv.) + 0.069643 \\bigr] \\times no.\\ of \\ Entanglement\\ stacks$",
-      "notes": "*Natan's basic attacks only benefit 80% of Natan's Physical and Magic Lifesteal.\n*Damage is decreased by pd for Demon Hunter Sword-Unique Passive Devour when equipped.",
+      "notes": "*Natan's basic attacks only benefit 80% of Natan's Physical and Magic Lifesteal.\n*Damage is decreased by 50% for Demon Hunter Sword-Unique Passive Devour when equipped.",
       "quote": "Time is nothing more than a descriptor of space&#8230;"
     },
     {
@@ -44560,7 +44581,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Natan summons a Reverse-Clone at a target location 6 units away that lasts 10s, inherits 35% / 37.5% / 40% of his attack attributes (and 35% of Natan's attack effects), and will copy his moves and attacks in reverse.\nUse Again: Natan switches places with the Reverse-Clone. [Cooldown: 12 seconds.]\nEach cast reduces other skills' remaining cooldown by 50%. The Reverse-Clone will disappear if Natan is too far away.",
+      "description": "Natan summons a Reverse-Clone at a target location 6 units away that lasts 10s, inherits 35% / 37.5% / 40% of his attack attributes (and 35% of Natan's attack effects), and will copy his moves and attacks in reverse.\nUse Again: Natan switches places with the Reverse-Clone. [Cooldown: 12 seconds.]\nEach cast reduces other skills' remaining cooldowns by 50%. The Reverse-Clone will disappear if Natan is too far away.",
       "scalings": [],
       "levelScaling": [
         {
@@ -45006,7 +45027,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Aamon enters the Camouflage state each time he hits an enemy with a skill, during which he untargetable, restores 25 (+15% Total Magic Power) (+Aamon's 3% Lost HP) HP every 0.6 seconds, and gains 60% extra Movement Speed that rapidly decays over 3.5 seconds.\nUpon leaving the Camouflage state, Aamon immediately resets his Basic Attack's cooldown and Enhanced Basic Attack (Aamon) within the next 2.5 seconds. Each enhanced Basic Attack deals 100 (+100% Total Physical Attack) (+65% Total Magic Power) Magic Damage and reduces Aamon's skill cooldowns by 0.5 second. The first enhanced Basic Attack's damage is increased to md if Aamon leaves the Camouflage state actively.",
+      "description": "Aamon enters the Camouflage state each time he hits an enemy with a skill, during which he cannot be targeted, restores 25 (+15% Total Magic Power) (+Aamon's 3% Lost HP) HP every 0.6 seconds, and gains 60% extra Movement Speed that rapidly decays over 3.5 seconds.\nUpon leaving the Camouflage state, Aamon immediately resets his Basic Attack's cooldown and a within the next 2.5 seconds. Each enhanced Basic Attack deals 100 (+100% Total Physical Attack) (+65% Total Magic Power) Magic Damage and reduces Aamon's skill cooldowns by 0.5 second. The first enhanced Basic Attack's damage is increased to 120% if Aamon leaves the Camouflage state actively.",
       "scalings": [
         {
           "base": "25",
@@ -45111,7 +45132,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Passive: Aamon charges his armor each time he casts a skill or hits an enemy with a skill or enhanced Basic Attack (Aamon). At 5 charges, Aamon throws [6] shards at the target on his next attack, each shard dealing 40-100 (+15% Total Magic Power) Magic Damage. The shards will then scatter around the target.\nActive: Aamon throws a shard at a nearby enemy, dealing 150-300 (+60% Total Magic Power) Magic Damage.",
+      "description": "Passive: Aamon charges his armor each time he casts a skill or hits an enemy with a skill or a. At 5 charges, Aamon throws [6] shards at the target on his next attack, each shard dealing 40-100 (+15% Total Magic Power) Magic Damage. The shards will then scatter around the target.\nActive: Aamon throws a shard at a nearby enemy, dealing 150-300 (+60% Total Magic Power) Magic Damage.",
       "scalings": [
         {
           "base": "40-100",
@@ -46828,7 +46849,7 @@
         "values": null,
         "raw": null
       },
-      "description": "If there are no nearby allies within 4 units, Yin's damage is pd to 120% and gains 8% Spell Vamp.",
+      "description": "If there are no nearby allies within 4 units, Yin's damage is increased to 120% and gains 8% Spell Vamp.",
       "scalings": [],
       "levelScaling": [],
       "ccTypes": [],
@@ -46891,7 +46912,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Yin gains 60% extra Movement Speed (decays over 3 seconds).\nYin can launch an enhanced Basic Attack that deals 25-100 (+100% Total Physical Attack) Physical Damage within the duration. Upon hitting an enemy with the enhanced Basic Attack, Yin will throw another charged punch forward, dealing 360-560 (+200% Extra Physical Attack) Physical Damage to enemies in the path.\nSuccessfully throwing a charged punch cooldown reduction by 35%.",
+      "description": "Yin gains 60% extra Movement Speed (decays over 3 seconds).\nYin can launch an enhanced Basic Attack that deals 25-100 (+100% Total Physical Attack) Physical Damage within the duration. Upon hitting an enemy with the enhanced Basic Attack, Yin will throw another charged punch forward, dealing 360-560 (+200% Extra Physical Attack) Physical Damage to enemies in the path.\nSuccessfully throwing a charged punch reduces the skill's cooldown by 35%.",
       "scalings": [
         {
           "base": "25-100",
@@ -46948,7 +46969,7 @@
       ],
       "ccTypes": [],
       "calc": null,
-      "notes": "*Attack Speed affects the dashing speed and casting speed of Charged Punch's initial Basic Attack but not the second one.\n*The initial attack is considered as Basic Attack, the succeeding attack is dealt as skill damage.\n**The enhanced Basic Attack can crit.\n***It is also the one that cooldown reduction by 35%.",
+      "notes": "*Attack Speed affects the dashing speed and casting speed of Charged Punch's initial Basic Attack but not the second one.\n*The initial attack is considered as Basic Attack, the succeeding attack is dealt as skill damage.\n**The enhanced Basic Attack can crit.\n***It is also the one that reduces the skill's cooldown by 35%.",
       "quote": null
     },
     {
@@ -47005,7 +47026,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Lieh smashes an area ahead up to 9 times, each smash dealing 130-180 (+110% Extra Physical Attack) Physical Damage to enemies hit and slowing them by 75% for 0.2 second.\nLieh is control immunity for the duration, while the smashing speed will gradually increase. The first half of the attacks will automatically lock onto nearby enemies, while the latter half cannot change directions.\nLieh can move or cast other skills during the latter half to cancel the skill early.",
+      "description": "Lieh smashes an area ahead up to 9 times, each smash dealing 130-180 (+110% Extra Physical Attack) Physical Damage to enemies hit and slowing them by 75% for 0.2 second.\nLieh is immune to control effects for the duration, while the smashing speed will gradually increase. The first half of the attacks will automatically lock onto nearby enemies, while the latter half cannot change directions.\nLieh can move or cast other skills during the latter half to cancel the skill early.",
       "scalings": [
         {
           "base": "130-180",
@@ -47098,7 +47119,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Yin dashes forward, leaving [Golden Rings] behind while dealing 75-150 (+35% Extra Physical Attack) Physical Damage to enemies along the way. He gains 30% extra Damage Reduction for 4 seconds if an enemy hero is hit.\nAfter 1 second, [Golden Rings] will catch up with Yin, dealing 150-300 (+70% Extra Physical Attack) Physical Damage to enemies it passes through and cc them for 1 second.",
+      "description": "Yin dashes forward, leaving [Golden Rings] behind while dealing 75-150 (+35% Extra Physical Attack) Physical Damage to enemies along the way. He gains 30% extra Damage Reduction for 4 seconds if an enemy hero is hit.\nAfter 1 second, [Golden Rings] will catch up with Yin, dealing 150-300 (+70% Extra Physical Attack) Physical Damage to enemies it passes through and stunning them for 1 second.",
       "scalings": [
         {
           "base": "75-150",
@@ -47154,6 +47175,7 @@
         }
       ],
       "ccTypes": [
+        "stun",
         "pull"
       ],
       "calc": null,
@@ -47216,7 +47238,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Lieh strikes a flying kick forward, leaving a [Golden Rings] behind while dealing 75-150 (+35% Extra Physical Attack) Physical Damage to enemies along the way. Enemies hit will also be cc slightly. He gains 30% extra Damage Reduction for 4 seconds if an enemy hero is hit.\nAfter 1 second, Golden Rings will catch up with Lieh, dealing 150-300 (+70% Extra Physical Attack) Physical Damage to enemies it passes through and cc them for 1.25 seconds.",
+      "description": "Lieh strikes a flying kick forward, leaving a [Golden Rings] behind while dealing 75-150 (+35% Extra Physical Attack) Physical Damage to enemies along the way. Enemies hit will also be knocked back slightly. He gains 30% extra Damage Reduction for 4 seconds if an enemy hero is hit.\nAfter 1 second, Golden Rings will catch up with Lieh, dealing 150-300 (+70% Extra Physical Attack) Physical Damage to enemies it passes through and stunning them for 1.25 seconds.",
       "scalings": [
         {
           "base": "75-150",
@@ -47272,6 +47294,8 @@
         }
       ],
       "ccTypes": [
+        "stun",
+        "knockback",
         "pull"
       ],
       "calc": null,
@@ -47330,7 +47354,7 @@
         "values": null,
         "raw": null
       },
-      "description": "After a short delay Yin cc an enemy (excluding summoned unit) into his domain for up to 8 seconds and turns into form. When in the domain, the two cannot be affected by other heroes' skills.\nLieh has stronger skills and gains 50-80 Physical & Magic Defense that lasts for 8 seconds.\nThe domain will end early if any of the two hero is killed. If Lieh successfully kills the enemy, he'll restore 20% Max HP, leave the domain with the cooldowns of Frenzy Strike and Instant Blast reset, and continue to fight as Lieh for 8 seconds.\nIf Yin fails to pull his target into his domain, the skill will enter a 3 second cooldown.",
+      "description": "After a short delay Yin pulls an enemy (excluding pets and clones) into his domain for up to 8 seconds and turns into Lieh. When in the domain, the two cannot be affected by other heroes' skills.\nLieh has stronger skills and gains 50-80 Physical & Magic Defense that lasts for 8 seconds.\nThe domain will end early if any of the two hero is killed. If Lieh successfully kills the enemy, he'll restore 20% Max HP, leave the domain with the cooldowns of Frenzy Strike and Instant Blast reset, and continue to fight as Lieh for 8 seconds.\nIf Yin fails to pull his target into his domain, the skill will enter a 3 second cooldown.",
       "scalings": [],
       "levelScaling": [
         {
@@ -47392,7 +47416,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Since there are other Forsaken Light members on [[template:FULLPAGENAME]'s] team, [his] Max HP, Max Mana, Movement Speed and Critical Damage are increased [by 1/1/1%/1%, respectively].\n(Original text: Forsaken Light: Since all the Forsaken Light members are present, your Max HP, Max Mana, Movement Speed, and Crit Damage are  increased.)",
+      "description": "Since there are other Forsaken Light members on ['s] team, [his] Max HP, Max Mana, Movement Speed and Critical Damage are increased [by 1/1/1%/1%, respectively].\n(Original text: Forsaken Light: Since all the Forsaken Light members are present, your Max HP, Max Mana, Movement Speed, and Crit Damage are  increased.)",
       "scalings": [],
       "levelScaling": [],
       "ccTypes": [],
@@ -47801,7 +47825,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Since there are other Forsaken Light members on [[template:FULLPAGENAME]'s] team, [her] Max HP, Max Mana, Movement Speed and Critical Damage are increased [by 1/1/1%/1%, respectively].\n(Original text: Forsaken Light: Since all the Forsaken Light members are present, your Max HP, Max Mana, Movement Speed, and Crit Damage are  increased.)",
+      "description": "Since there are other Forsaken Light members on ['s] team, [her] Max HP, Max Mana, Movement Speed and Critical Damage are increased [by 1/1/1%/1%, respectively].\n(Original text: Forsaken Light: Since all the Forsaken Light members are present, your Max HP, Max Mana, Movement Speed, and Crit Damage are  increased.)",
       "scalings": [],
       "levelScaling": [],
       "ccTypes": [],
@@ -48016,7 +48040,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Xavier conjures a Mystic Barrier that lasts 5 seconds. Enemies that come into contact with the Barrier will take 220-340 total-mp-65 and be slowed by 50%, while allies will gain extra Movement Speed that decays over 1.2 seconds.\nWhen hit by Xavier's other skills, the Barrier expands into a forbidden field for 3 seconds, dealing 220-340 (+65% Total Magic Power) Magic Damage to enemies within and cc them for 1.2 seconds.",
+      "description": "Xavier conjures a Mystic Barrier that lasts 5 seconds. Enemies that come into contact with the Barrier will take 220-340 total-mp-65 and be slowed by 50%, while allies will gain extra Movement Speed that decays over 1.2 seconds.\nWhen hit by Xavier's other skills, the Barrier expands into a forbidden field for 3 seconds, dealing 220-340 (+65% Total Magic Power) Magic Damage to enemies within and immobilizing them for 1.2 seconds.",
       "scalings": [
         {
           "base": "220-340",
@@ -48066,7 +48090,8 @@
         }
       ],
       "ccTypes": [
-        "slow"
+        "slow",
+        "immobilize"
       ],
       "calc": null,
       "notes": null,
@@ -48197,7 +48222,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Since there are other Forsaken Light members on [[template:FULLPAGENAME]'s] team, [his] Max HP, Max Mana, Movement Speed and Critical Damage are increased [by 1/1/1%/1%, respectively].\n(Original text: Forsaken Light: Since all the Forsaken Light members are present, your Max HP, Max Mana, Movement Speed, and Crit Damage are  increased.)",
+      "description": "Since there are other Forsaken Light members on ['s] team, [his] Max HP, Max Mana, Movement Speed and Critical Damage are increased [by 1/1/1%/1%, respectively].\n(Original text: Forsaken Light: Since all the Forsaken Light members are present, your Max HP, Max Mana, Movement Speed, and Crit Damage are  increased.)",
       "scalings": [],
       "levelScaling": [],
       "ccTypes": [],
@@ -48993,7 +49018,7 @@
         "values": null,
         "raw": null
       },
-      "description": "Since there are other Forsaken Light members on [[template:FULLPAGENAME]'s] team, [his] Max HP, Max Mana, Movement Speed and Critical Damage are increased [by 1/1/1%/1%, respectively].\n(Original text: Forsaken Light: Since all the Forsaken Light members are present, your Max HP, Max Mana, Movement Speed, and Crit Damage are  increased.)",
+      "description": "Since there are other Forsaken Light members on ['s] team, [his] Max HP, Max Mana, Movement Speed and Critical Damage are increased [by 1/1/1%/1%, respectively].\n(Original text: Forsaken Light: Since all the Forsaken Light members are present, your Max HP, Max Mana, Movement Speed, and Crit Damage are  increased.)",
       "scalings": [],
       "levelScaling": [],
       "ccTypes": [],

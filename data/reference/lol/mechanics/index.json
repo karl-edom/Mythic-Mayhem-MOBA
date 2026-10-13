@@ -1,0 +1,291 @@
+{
+ "source": "https://wiki.leagueoflegends.com/en-us/api.php (action=parse)",
+ "version": "wiki revision per page (see revid)",
+ "retrievedAt": "2026-10-13T16:42:41.522Z",
+ "notes": [
+  "One Markdown file per wiki page. Images and navboxes dropped; tables kept.",
+  "All pages fetched."
+ ],
+ "pages": [
+  {
+   "file": "mechanics/champion-statistic.md",
+   "title": "Champion statistic",
+   "topic": "stats, per-level growth formula",
+   "url": "https://wiki.leagueoflegends.com/en-us/Champion_statistic",
+   "revid": 4069636,
+   "chars": 34688
+  },
+  {
+   "file": "mechanics/armor.md",
+   "title": "Armor",
+   "topic": "armor & damage reduction formula",
+   "url": "https://wiki.leagueoflegends.com/en-us/Armor",
+   "revid": 4073057,
+   "chars": 40210
+  },
+  {
+   "file": "mechanics/magic-resistance.md",
+   "title": "Magic resistance",
+   "topic": "MR & damage reduction formula",
+   "url": "https://wiki.leagueoflegends.com/en-us/Magic_resistance",
+   "revid": 4073058,
+   "chars": 39453
+  },
+  {
+   "file": "mechanics/armor-penetration.md",
+   "title": "Armor penetration",
+   "topic": "armor pen, lethality, reduction ordering",
+   "url": "https://wiki.leagueoflegends.com/en-us/Armor_penetration",
+   "revid": 4035725,
+   "chars": 33202
+  },
+  {
+   "file": "mechanics/magic-penetration.md",
+   "title": "Magic penetration",
+   "topic": "magic pen, reduction ordering",
+   "url": "https://wiki.leagueoflegends.com/en-us/Magic_penetration",
+   "revid": 4060414,
+   "chars": 18798
+  },
+  {
+   "file": "mechanics/damage.md",
+   "title": "Damage",
+   "topic": "damage types, modifiers, ordering",
+   "url": "https://wiki.leagueoflegends.com/en-us/Damage",
+   "revid": 4068095,
+   "chars": 50817
+  },
+  {
+   "file": "mechanics/damage-over-time.md",
+   "title": "Damage over time",
+   "topic": "DoT rules",
+   "url": "https://wiki.leagueoflegends.com/en-us/Damage_over_time",
+   "revid": 4040644,
+   "chars": 23436
+  },
+  {
+   "file": "mechanics/critical-strike.md",
+   "title": "Critical strike",
+   "topic": "crit chance & damage",
+   "url": "https://wiki.leagueoflegends.com/en-us/Critical_strike",
+   "revid": 4059009,
+   "chars": 35492
+  },
+  {
+   "file": "mechanics/attack-speed.md",
+   "title": "Attack speed",
+   "topic": "AS formula, ratio, cap",
+   "url": "https://wiki.leagueoflegends.com/en-us/Attack_speed",
+   "revid": 4073067,
+   "chars": 48088
+  },
+  {
+   "file": "mechanics/basic-attack.md",
+   "title": "Basic attack",
+   "topic": "windup, attack timer, missiles",
+   "url": "https://wiki.leagueoflegends.com/en-us/Basic_attack",
+   "revid": 4072132,
+   "chars": 49908
+  },
+  {
+   "file": "mechanics/movement-speed.md",
+   "title": "Movement speed",
+   "topic": "soft caps, slow stacking",
+   "url": "https://wiki.leagueoflegends.com/en-us/Movement_speed",
+   "revid": 4064468,
+   "chars": 45462
+  },
+  {
+   "file": "mechanics/haste.md",
+   "title": "Haste",
+   "topic": "ability haste formula",
+   "url": "https://wiki.leagueoflegends.com/en-us/Haste",
+   "revid": 4070414,
+   "chars": 31497
+  },
+  {
+   "file": "mechanics/cooldown-reduction.md",
+   "title": "Cooldown reduction",
+   "topic": "legacy CDR",
+   "url": "https://wiki.leagueoflegends.com/en-us/Cooldown_reduction",
+   "revid": 4025566,
+   "chars": 3877
+  },
+  {
+   "file": "mechanics/crowd-control.md",
+   "title": "Crowd control",
+   "topic": "CC types & interactions",
+   "url": "https://wiki.leagueoflegends.com/en-us/Crowd_control",
+   "revid": 4052259,
+   "chars": 63682
+  },
+  {
+   "file": "mechanics/tenacity.md",
+   "title": "Tenacity",
+   "topic": "tenacity stacking",
+   "url": "https://wiki.leagueoflegends.com/en-us/Tenacity",
+   "revid": 4021927,
+   "chars": 20116
+  },
+  {
+   "file": "mechanics/healing.md",
+   "title": "Healing",
+   "topic": "heal & regen",
+   "url": "https://wiki.leagueoflegends.com/en-us/Healing",
+   "revid": 4041638,
+   "chars": 25508
+  },
+  {
+   "file": "mechanics/shield.md",
+   "title": "Shield",
+   "topic": "shields",
+   "url": "https://wiki.leagueoflegends.com/en-us/Shield",
+   "revid": 4021810,
+   "chars": 22566
+  },
+  {
+   "file": "mechanics/grievous-wounds.md",
+   "title": "Grievous Wounds",
+   "topic": "healing reduction",
+   "url": "https://wiki.leagueoflegends.com/en-us/Grievous_Wounds",
+   "revid": 3969410,
+   "chars": 11867
+  },
+  {
+   "file": "mechanics/vamp.md",
+   "title": "Vamp",
+   "topic": "life steal / omnivamp",
+   "url": "https://wiki.leagueoflegends.com/en-us/Vamp",
+   "revid": 4058226,
+   "chars": 29360
+  },
+  {
+   "file": "mechanics/experience.md",
+   "title": "Experience (champion)",
+   "topic": "level table, XP sharing",
+   "url": "https://wiki.leagueoflegends.com/en-us/Experience_(champion)",
+   "revid": 4053165,
+   "chars": 30857
+  },
+  {
+   "file": "mechanics/gold.md",
+   "title": "Gold",
+   "topic": "gold income",
+   "url": "https://wiki.leagueoflegends.com/en-us/Gold",
+   "revid": 4039269,
+   "chars": 16518
+  },
+  {
+   "file": "mechanics/kill.md",
+   "title": "Kill",
+   "topic": "kill gold, bounties, assists",
+   "url": "https://wiki.leagueoflegends.com/en-us/Kill",
+   "revid": 4053216,
+   "chars": 32479
+  },
+  {
+   "file": "mechanics/death.md",
+   "title": "Death",
+   "topic": "death timer / respawn",
+   "url": "https://wiki.leagueoflegends.com/en-us/Death",
+   "revid": 4051174,
+   "chars": 32397
+  },
+  {
+   "file": "mechanics/minion.md",
+   "title": "Minion",
+   "topic": "waves, minion stats & growth",
+   "url": "https://wiki.leagueoflegends.com/en-us/Minion",
+   "revid": 4084248,
+   "chars": 53803
+  },
+  {
+   "file": "mechanics/turret.md",
+   "title": "Turret",
+   "topic": "turret stats, plates, damage ramp",
+   "url": "https://wiki.leagueoflegends.com/en-us/Turret",
+   "revid": 4080007,
+   "chars": 87839
+  },
+  {
+   "file": "mechanics/monster.md",
+   "title": "Monster",
+   "topic": "camps, epic monsters, timers",
+   "url": "https://wiki.leagueoflegends.com/en-us/Monster",
+   "revid": 4070733,
+   "chars": 63644
+  },
+  {
+   "file": "mechanics/jungling.md",
+   "title": "Jungling",
+   "topic": "jungle rules",
+   "url": "https://wiki.leagueoflegends.com/en-us/Jungling",
+   "revid": 3990919,
+   "chars": 25755
+  },
+  {
+   "file": "mechanics/dragon-pit.md",
+   "title": "Dragon pit",
+   "topic": "drakes",
+   "url": "https://wiki.leagueoflegends.com/en-us/Dragon_pit",
+   "revid": 4079625,
+   "chars": 60168
+  },
+  {
+   "file": "mechanics/baron-nashor.md",
+   "title": "Baron Nashor",
+   "topic": "baron",
+   "url": "https://wiki.leagueoflegends.com/en-us/Baron_Nashor",
+   "revid": 4068963,
+   "chars": 38231
+  },
+  {
+   "file": "mechanics/rift-herald.md",
+   "title": "Rift Herald",
+   "topic": "herald",
+   "url": "https://wiki.leagueoflegends.com/en-us/Rift_Herald",
+   "revid": 4069092,
+   "chars": 53344
+  },
+  {
+   "file": "mechanics/voidgrub-camp.md",
+   "title": "Voidgrub camp",
+   "topic": "voidgrubs",
+   "url": "https://wiki.leagueoflegends.com/en-us/Voidgrub_camp",
+   "revid": 4015021,
+   "chars": 17191
+  },
+  {
+   "file": "mechanics/atakhan.md",
+   "title": "Atakhan",
+   "topic": "atakhan",
+   "url": "https://wiki.leagueoflegends.com/en-us/Atakhan",
+   "revid": 3982741,
+   "chars": 21811
+  },
+  {
+   "file": "mechanics/summoners-rift.md",
+   "title": "Summoner's Rift",
+   "topic": "map",
+   "url": "https://wiki.leagueoflegends.com/en-us/Summoner's_Rift",
+   "revid": 4070670,
+   "chars": 44929
+  },
+  {
+   "file": "mechanics/aram.md",
+   "title": "ARAM",
+   "topic": "ARAM mode",
+   "url": "https://wiki.leagueoflegends.com/en-us/ARAM",
+   "revid": 4034990,
+   "chars": 64426
+  },
+  {
+   "file": "mechanics/howling-abyss.md",
+   "title": "Howling Abyss",
+   "topic": "ARAM map",
+   "url": "https://wiki.leagueoflegends.com/en-us/Howling_Abyss",
+   "revid": 4074463,
+   "chars": 34100
+  }
+ ]
+}

@@ -4,8 +4,6 @@ Source: https://mobile-legends.fandom.com/wiki/Map
 
 # Map
 
-[template:Stub]
-
 Map is a battlefield area where players playing heroes and battle against each other in order to win the game. There are different maps that will depends on game mode. Some maps have different variants based on seasonal events. Each map will be based on the Land of Dawn locations except for Evolve Mode.
 
 ## Overview
@@ -35,5 +33,3 @@ This maps only available in the seasonal event, such as Halloween and Christmas.
 ### Brawl Map
 
 ### Arcade Maps
-
-[template:Battlefield Features]

@@ -4,8 +4,6 @@ Source: https://mobile-legends.fandom.com/wiki/Gold_Laner
 
 # Gold Laner
 
-[template:Gold Laner Note]
-
 A Gold Laner is a hero who goes on Gold Lane to take advantage of 20% Gold bonus of the minion waves for the first 5 minutes of a game.
 
 There are currently 21 heroes that are recommended to be a Gold Laner.

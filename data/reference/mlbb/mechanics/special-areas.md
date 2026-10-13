@@ -4,7 +4,6 @@ Source: https://mobile-legends.fandom.com/wiki/Special_Areas
 
 # Special Areas
 
-[template:Stub]
 Special Areas
 
 Special Areas are all places that are in another universe, places that have a bit information about, or places that are outside the main continent (Land of Dawn).
@@ -94,5 +93,3 @@ name: Kadita
 ## Trivia
 
 - In Norse Mythology, Valhalla from Old Norse means hall of the slain.
-
-[template:Land of Dawn]

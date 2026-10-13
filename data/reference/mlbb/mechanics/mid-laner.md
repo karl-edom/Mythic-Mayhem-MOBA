@@ -4,8 +4,6 @@ Source: https://mobile-legends.fandom.com/wiki/Mid_Laner
 
 # Mid Laner
 
-[template:Mid Laner Note]
-
 There are currently 29 heroes that are recommended take the Middle Lane.
 
 name: Aurora

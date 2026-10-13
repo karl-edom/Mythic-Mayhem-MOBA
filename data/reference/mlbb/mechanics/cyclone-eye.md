@@ -48,5 +48,3 @@ The Cyclone Eye has been in existence when the Imperial Sanctuary was establishe
 - The gliding distance extends when there is an obstacle in the expected landing point.
 
 ## Trivia
-
-[template:Battlefield Features]

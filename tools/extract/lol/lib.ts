@@ -404,12 +404,83 @@ function tableToMarkdown(tableHtml: string): string {
   return `\n\n${cap}${out.join("\n")}\n\n`;
 }
 
+type XmlNode = { tag: string; children: (XmlNode | string)[] };
+
+/** Linearizes a MathML fragment into plain text such as `dm = dr / (1 + R / 100)`. */
+export function mathToText(mathml: string): string {
+  const root: XmlNode = { tag: "#root", children: [] };
+  const stack: XmlNode[] = [root];
+  const re = /<(\/?)([a-zA-Z][\w:-]*)([^>]*?)(\/?)>|([^<]+)/g;
+  for (let m = re.exec(mathml); m; m = re.exec(mathml)) {
+    const top = stack[stack.length - 1] ?? root;
+    if (m[5] !== undefined) {
+      top.children.push(decodeEntities(m[5]));
+    } else if (m[1]) {
+      if (stack.length > 1) stack.pop();
+    } else {
+      const node: XmlNode = { tag: (m[2] ?? "").toLowerCase(), children: [] };
+      top.children.push(node);
+      if (!m[4]) stack.push(node);
+    }
+  }
+  const atomic = (t: string): boolean => /^[\w.%]+$/.test(t) || t.length <= 1;
+  const wrap = (t: string): string => (atomic(t) ? t : `(${t})`);
+  const render = (n: XmlNode | string): string => {
+    if (typeof n === "string") return n;
+    const kids = n.children.filter((c) => typeof c !== "string" || c.trim() !== "" || n.tag === "mtext");
+    const r = (i: number): string => {
+      const k = kids[i];
+      return k === undefined ? "" : render(k).trim();
+    };
+    switch (n.tag) {
+      case "mfrac":
+        return `${wrap(r(0))} / ${wrap(r(1))}`;
+      case "msub":
+        return `${r(0)}_${wrap(r(1))}`;
+      case "msup":
+        return `${wrap(r(0))}^${wrap(r(1))}`;
+      case "msubsup":
+        return `${r(0)}_${wrap(r(1))}^${wrap(r(2))}`;
+      case "msqrt":
+        return `sqrt(${kids.map(render).join("")})`;
+      case "mroot":
+        return `root${wrap(r(1))}(${r(0)})`;
+      case "mover":
+      case "munder":
+      case "munderover":
+        return r(0);
+      case "mo": {
+        const t = kids.map(render).join("").trim();
+        return /^[=+−\-×÷<>≤≥,]$/.test(t) ? ` ${t} ` : t;
+      }
+      case "mspace":
+        return " ";
+      case "mtable":
+        return `[ ${kids.map(render).map((x) => x.trim()).filter(Boolean).join(" ; ")} ]`;
+      case "mtr":
+      case "mlabeledtr":
+        return kids.map(render).map((x) => x.trim()).join("  ");
+      case "annotation":
+      case "annotation-xml":
+        return "";
+      default:
+        return kids.map(render).join("");
+    }
+  };
+  return render(root).replace(/\s+/g, " ").replace(/\(\s+/g, "(").replace(/\s+\)/g, ")").trim();
+}
+
 /** Converts MediaWiki-rendered HTML to Markdown, keeping tables and lists. */
 export function htmlToMarkdown(html: string): string {
   let s = html;
   // drop noise
   s = s.replace(/<!--[\s\S]*?-->/g, "");
   s = s.replace(/<(script|style|noscript)\b[\s\S]*?<\/\1>/gi, "");
+  // MathML -> inline code (before tag stripping), drop fallback images
+  s = s.replace(/<math\b[\s\S]*?<\/math>/gi, (m) => ` \`${mathToText(m).replace(/`/g, "'")}\` `);
+  s = s.replace(/<img[^>]*mwe-math-fallback[^>]*>/gi, "");
+  // icon images: their alt text duplicates the following label
+  s = s.replace(/<img[^>]*alt="An icon (?:representing|for)[^"]*"[^>]*>/gi, "");
   s = s.replace(/<span[^>]*class="[^"]*mw-editsection[^"]*"[^>]*>[\s\S]*?<\/span>\s*<\/span>/gi, "");
   // tables (innermost first, repeat for nesting)
   for (let guard = 0; guard < 20 && /<table\b/i.test(s); guard++) {

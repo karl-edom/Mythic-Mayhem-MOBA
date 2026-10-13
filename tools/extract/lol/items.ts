@@ -123,7 +123,8 @@ async function main(): Promise<void> {
   const str = (v: Json | undefined): string | null => (typeof v === "string" ? v : typeof v === "number" ? String(v) : null);
   const sumRecords = Object.values(sums.data)
     .map((s) => {
-      const w = wikiByName.get(s.name.toLowerCase()) ?? null;
+      const standard = s.modes.some((m) => m === "CLASSIC" || m === "ARAM");
+      const w = standard ? wikiByName.get(s.name.toLowerCase()) ?? null : null;
       return {
         id: s.id,
         key: Number(s.key),

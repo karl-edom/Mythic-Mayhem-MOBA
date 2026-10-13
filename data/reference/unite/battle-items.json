@@ -1,0 +1,373 @@
+{
+  "source": "unite-db.com/battle_items.json (standard items, precise effects); serebii.net/pokemonunite/battleitems.shtml (unlock levels, event-only items)",
+  "retrievedAt": "2026-10-13T16:40:15.426Z",
+  "notes": [
+    "One battle item is equipped per match; it is an active button with a cooldown.",
+    "cooldownS in seconds. unlockTrainerLevel = account (trainer) level required, not in-match level; null when unite-db does not list it.",
+    "Items with mode \"event\" exist only in limited event modes; Serebii lists most of their cooldowns as \"0 Seconds\", stored as null (undocumented).",
+    "Known disagreements: unlock trainer level Potion 3 (unite-db) vs 4 (Serebii), Goal Getter 17 vs 16; Full Heal cooldown 60 s vs 55 s.",
+    "Where unite-db and Serebii disagree (e.g. Full Heal cooldown), unite-db is used for cooldownS and the Serebii value is kept under serebii."
+  ],
+  "battleItems": [
+    {
+      "id": "ejectbutton",
+      "name": "Eject Button",
+      "sourceUrl": "https://unite-db.com/battle_items.json",
+      "mode": "standard",
+      "cooldownS": 80,
+      "unlockTrainerLevel": 11,
+      "description": "Quickly moves forward.",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Quickly moves your Pokémon in the designated direction",
+        "cooldownS": 80,
+        "unlock": "Trainer Level 11"
+      }
+    },
+    {
+      "id": "fluffytail",
+      "name": "Fluffy Tail",
+      "sourceUrl": "https://unite-db.com/battle_items.json",
+      "mode": "standard",
+      "cooldownS": 22,
+      "unlockTrainerLevel": 10,
+      "description": "Applies a debuff to the designated wild Pokémon for 3s; disabling the target's attacks. When damaging the debuffed target: deals 100 + 100% Atk + 60% SpAtk + 10 × (Lv. - 1) as additional damage (0.5s CD).",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Stuns Pokémon in front of you for a short time and makes attacks do more damage on them",
+        "cooldownS": 22,
+        "unlock": "Trainer Level 10"
+      }
+    },
+    {
+      "id": "fullheal",
+      "name": "Full Heal",
+      "sourceUrl": "https://unite-db.com/battle_items.json",
+      "mode": "standard",
+      "cooldownS": 60,
+      "unlockTrainerLevel": 14,
+      "description": "Cleanses status conditions, and becomes unstoppable for 1.5s.",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Removes all status conditions from your Pokémon and makes it immune to hindrances for a short time.",
+        "cooldownS": 55,
+        "unlock": "Trainer Level 14"
+      }
+    },
+    {
+      "id": "goalgetter",
+      "name": "Goal Getter",
+      "sourceUrl": "https://unite-db.com/battle_items.json",
+      "mode": "standard",
+      "cooldownS": 60,
+      "unlockTrainerLevel": 17,
+      "description": "Doubles goal-scoring speed for 10s.",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Doubles goal-scoring speed for a short while",
+        "cooldownS": 60,
+        "unlock": "Trainer Level 16"
+      }
+    },
+    {
+      "id": "goalhacker",
+      "name": "Goal Hacker",
+      "sourceUrl": "https://unite-db.com/battle_items.json",
+      "mode": "standard",
+      "cooldownS": 80,
+      "unlockTrainerLevel": null,
+      "description": "Tampers with 1 goal zone in range for 4s. If used on an ally goal zone: doubles any shield provided by the goal zone, and strengthens the goal zone's HP restoration rate (restoring HP every 0.5s) for the duration of the effect. If used on an opposing goal zone: disables shield effects and HP restoration from that goal zone for the duration of the effect. Additional applications on an affected goal zone overrides the previous effects and refreshes the duration.",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Strengthe the shield and HP recovery effects of an ally goal zone for a short time when used within or near that goal zone. Nullifies the shield and HP recovery effects of an opposing goal zone for a short time when used within or near that goal zone",
+        "cooldownS": 90,
+        "unlock": "Aeos Emporuim"
+      }
+    },
+    {
+      "id": "potion",
+      "name": "Potion",
+      "sourceUrl": "https://unite-db.com/battle_items.json",
+      "mode": "standard",
+      "cooldownS": 30,
+      "unlockTrainerLevel": 3,
+      "description": "Restores HP equal to 160 + 20% max HP.",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Restores some of your Pokémon's HP",
+        "cooldownS": 30,
+        "unlock": "Trainer Level 4"
+      }
+    },
+    {
+      "id": "slowsmoke",
+      "name": "Slow Smoke",
+      "sourceUrl": "https://unite-db.com/battle_items.json",
+      "mode": "standard",
+      "cooldownS": 35,
+      "unlockTrainerLevel": 13,
+      "description": "Creates a cloud of smoke in an area of effect around the user for 3.5s; decreasing the movement speed of opposing Pokémon in the area of effect by 80%, and their basic attack speed by 50%.",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Creates a cloud of smoke that greatly decreases the movement speed of opposing Pokémon for a short time",
+        "cooldownS": 35,
+        "unlock": "Trainer Level 13"
+      }
+    },
+    {
+      "id": "xattack",
+      "name": "X Attack",
+      "sourceUrl": "https://unite-db.com/battle_items.json",
+      "mode": "standard",
+      "cooldownS": 40,
+      "unlockTrainerLevel": 7,
+      "description": "Increases Attack and Sp. Attack by 20%, and basic attack speed by 25% for 6.5s.",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Raises your Pokémon's Attack and Sp. Atk for a short time (6.5 second)",
+        "cooldownS": 40,
+        "unlock": "Trainer Level 7"
+      }
+    },
+    {
+      "id": "xspeed",
+      "name": "X Speed",
+      "sourceUrl": "https://unite-db.com/battle_items.json",
+      "mode": "standard",
+      "cooldownS": 50,
+      "unlockTrainerLevel": 8,
+      "description": "Increases movement speed by 45%, and prevents movement speed from being decreased for 6s.",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Raises your Pokémon's Speed for a short time",
+        "cooldownS": 50,
+        "unlock": "Trainer Level 8"
+      }
+    },
+    {
+      "id": "shedinjadoll",
+      "name": "Shedinja Doll",
+      "sourceUrl": "https://unite-db.com/battle_items.json",
+      "mode": "standard",
+      "cooldownS": 45,
+      "unlockTrainerLevel": null,
+      "description": "Makes the user impervious to damage, immune to status conditions, and unable to act for 2s.",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "For a short time, it makes your Pokémon impervious to damage and immune to status conditions but leaves it unable to act.",
+        "cooldownS": 45,
+        "unlock": "Trainer Level 16"
+      }
+    },
+    {
+      "id": "pumpkintoss",
+      "name": "Pumpkin Toss",
+      "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+      "mode": "event",
+      "cooldownS": 5,
+      "unlockTrainerLevel": null,
+      "description": "Throws a Pumpkin forward turning any Pokémon it hits into a Pumpkin for a short time, dropping their points. It does the same damage as a Basic Attack, running off of the user's Attack stat",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Throws a Pumpkin forward turning any Pokémon it hits into a Pumpkin for a short time, dropping their points. It does the same damage as a Basic Attack, running off of the user's Attack stat",
+        "cooldownS": 5,
+        "unlock": "Halloween Festival Event / Halloween Battle Only"
+      }
+    },
+    {
+      "id": "pumpkinpush",
+      "name": "Pumpkin Push",
+      "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+      "mode": "event",
+      "cooldownS": 8,
+      "unlockTrainerLevel": null,
+      "description": "Pushes a Pumpkin-ified Pokémon fast in the direction facing",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Pushes a Pumpkin-ified Pokémon fast in the direction facing",
+        "cooldownS": 8,
+        "unlock": "Halloween Festival Event / Halloween Battle Only"
+      }
+    },
+    {
+      "id": "goalzonebooster",
+      "name": "Goal Zone Booster",
+      "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+      "mode": "event",
+      "cooldownS": null,
+      "unlockTrainerLevel": null,
+      "description": "Increases the shield and HP recovery of a goal zone for a short time.",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Increases the shield and HP recovery of a goal zone for a short time.",
+        "cooldownS": 0,
+        "unlock": "Holiday Festivities Event / Snowball Battle Only"
+      }
+    },
+    {
+      "id": "gravitysmoke",
+      "name": "Gravity Smoke",
+      "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+      "mode": "event",
+      "cooldownS": null,
+      "unlockTrainerLevel": null,
+      "description": "Shoots smoke out at an opponent decreasing their movement speed",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Shoots smoke out at an opponent decreasing their movement speed",
+        "cooldownS": 0,
+        "unlock": "Holiday Festivities Event / Snowball Battle Only"
+      }
+    },
+    {
+      "id": "magnetpuller",
+      "name": "Magnet Puller",
+      "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+      "mode": "event",
+      "cooldownS": null,
+      "unlockTrainerLevel": null,
+      "description": "Pulls an opposing Pokémon toward the user and decreases that Pokémon's movement speed.",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Pulls an opposing Pokémon toward the user and decreases that Pokémon's movement speed.",
+        "cooldownS": 0,
+        "unlock": "Holiday Festivities Event / Snowball Battle Only"
+      }
+    },
+    {
+      "id": "pokemonpropeller",
+      "name": "Pokémon Propeller",
+      "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+      "mode": "event",
+      "cooldownS": null,
+      "unlockTrainerLevel": null,
+      "description": "Pushes the user forward rapidly, knocking the opponent away.",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Pushes the user forward rapidly, knocking the opponent away.",
+        "cooldownS": 0,
+        "unlock": "Holiday Festivities Event / Snowball Battle Only"
+      }
+    },
+    {
+      "id": "recoverybomb",
+      "name": "Recovery Bomb",
+      "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+      "mode": "event",
+      "cooldownS": null,
+      "unlockTrainerLevel": null,
+      "description": "Creates a small area that heals the ally Pokémon and melts any snowmen. It pushes opponents away.",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Creates a small area that heals the ally Pokémon and melts any snowmen. It pushes opponents away.",
+        "cooldownS": 0,
+        "unlock": "Holiday Festivities Event / Snowball Battle Only"
+      }
+    },
+    {
+      "id": "repositioner",
+      "name": "Repositioner",
+      "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+      "mode": "event",
+      "cooldownS": null,
+      "unlockTrainerLevel": null,
+      "description": "Switches the positions of the user and an opponent, decreasing their speed..",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Switches the positions of the user and an opponent, decreasing their speed..",
+        "cooldownS": 0,
+        "unlock": "Holiday Festivities Event / Snowball Battle Only"
+      }
+    },
+    {
+      "id": "returningsmoke",
+      "name": "Returning Smoke",
+      "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+      "mode": "event",
+      "cooldownS": null,
+      "unlockTrainerLevel": null,
+      "description": "Shoots smoke out that sends the opponent to their base if hit.",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Shoots smoke out that sends the opponent to their base if hit.",
+        "cooldownS": 0,
+        "unlock": "Holiday Festivities Event / Snowball Battle Only"
+      }
+    },
+    {
+      "id": "snowball",
+      "name": "Snowball",
+      "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+      "mode": "event",
+      "cooldownS": null,
+      "unlockTrainerLevel": null,
+      "description": "Turns the user into a snowball to rapidly roll around, dealing damage when it hits. Can be activated again to end",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Turns the user into a snowball to rapidly roll around, dealing damage when it hits. Can be activated again to end",
+        "cooldownS": 0,
+        "unlock": "Holiday Festivities Event / Snowball Battle Only"
+      }
+    },
+    {
+      "id": "uniteballcharger",
+      "name": "Unite Ball Charger",
+      "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+      "mode": "event",
+      "cooldownS": null,
+      "unlockTrainerLevel": null,
+      "description": "Increases the goal-scoring speed charge and increases the user's movement speed.",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Increases the goal-scoring speed charge and increases the user's movement speed.",
+        "cooldownS": 0,
+        "unlock": "Holiday Festivities Event / Snowball Battle Only"
+      }
+    },
+    {
+      "id": "freezeball",
+      "name": "Freeze Ball",
+      "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+      "mode": "event",
+      "cooldownS": null,
+      "unlockTrainerLevel": null,
+      "description": "Creates a freezing zone, decreasing the movement speed of opposing Pokémon that enter it. Opposing Pokémon that remain in the zone for a set amount of time are left frozen.",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Creates a freezing zone, decreasing the movement speed of opposing Pokémon that enter it. Opposing Pokémon that remain in the zone for a set amount of time are left frozen.",
+        "cooldownS": 0,
+        "unlock": "Holiday Festivities Event / Snowball Battle Only"
+      }
+    },
+    {
+      "id": "electrowall",
+      "name": "Electro Wall",
+      "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+      "mode": "event",
+      "cooldownS": null,
+      "unlockTrainerLevel": null,
+      "description": "Creates an impenetrable wall of electricity that disappears after a set amount of time. Pokémon from the opposing team that come in contact with the wall are left unable to act.",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Creates an impenetrable wall of electricity that disappears after a set amount of time. Pokémon from the opposing team that come in contact with the wall are left unable to act.",
+        "cooldownS": 0,
+        "unlock": "Holiday Festivities Event / Snowball Battle Only"
+      }
+    },
+    {
+      "id": "teleportbutton",
+      "name": "Teleport Button",
+      "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+      "mode": "event",
+      "cooldownS": null,
+      "unlockTrainerLevel": null,
+      "description": "Teleports your Pokémon to the designated area after a set amount of time passes.",
+      "serebii": {
+        "sourceUrl": "https://www.serebii.net/pokemonunite/battleitems.shtml",
+        "effect": "Teleports your Pokémon to the designated area after a set amount of time passes.",
+        "cooldownS": 0,
+        "unlock": "Holiday Festivities Event / Snowball Battle Only"
+      }
+    }
+  ]
+}

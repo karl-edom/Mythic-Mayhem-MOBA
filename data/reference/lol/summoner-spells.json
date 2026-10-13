@@ -1,0 +1,725 @@
+{
+ "source": [
+  "https://ddragon.leagueoflegends.com/cdn/16.20.1/data/en_US/summoner.json",
+  "https://wiki.leagueoflegends.com/en-us/Module:SpellData/data"
+ ],
+ "version": "16.20.1",
+ "retrievedAt": "2026-10-13T16:42:40.522Z",
+ "notes": [
+  "cooldown/range from Data Dragon (range 25000 = global/self in DDragon convention).",
+  "wiki.effect is raw wikitext from the community wiki (templates such as {{pp|...}} encode per-level formulas, e.g. Barrier 100 + (460-100)/17*(x-1) for level x).",
+  "wiki.maps codes: sr Summoner's Rift, ha Howling Abyss, ar Arena, nb Nexus Blitz, tt Twisted Treeline, cs Crystal Scar."
+ ],
+ "summonerSpells": [
+  {
+   "id": "SummonerBoost",
+   "key": 1,
+   "name": "Cleanse",
+   "description": "Removes all disables (excluding suppression and airborne) and summoner spell debuffs affecting your champion and gives Tenacity.",
+   "cooldown": 240,
+   "range": 200,
+   "summonerLevel": 9,
+   "modes": [
+    "ARAM",
+    "TUTORIAL",
+    "KIWI",
+    "ULTBOOK",
+    "FIRSTBLOOD",
+    "SWIFTPLAY",
+    "CLASSIC",
+    "PRACTICETOOL",
+    "RUBY",
+    "RUBY_TRIAL_1",
+    "BRAWL",
+    "URF",
+    "KIWI_JADE",
+    "RUBY_TRIAL_3",
+    "ONEFORALL",
+    "ARSR",
+    "NEXUSBLITZ",
+    "DOOMBOTSTEEMO",
+    "RUBY_TRIAL_2"
+   ],
+   "wiki": {
+    "cooldown": "240",
+    "range": "Self",
+    "effect": "Removes all {{tip|Crowd control|disables}} (excluding {{tip|Airborne}}, {{tip|Nearsight}}, and {{tip|Suppression}}) and {{ccib|Summoner spell icon.png|summoner spell}} [[debuff]]s (excluding {{si|Mark}}) affecting your [[champion]], and grants you 75% {{tip|tenacity}} for 3 seconds.",
+    "maps": [
+     "sr",
+     "ha",
+     "nb"
+    ]
+   }
+  },
+  {
+   "id": "SummonerExhaust",
+   "key": 3,
+   "name": "Exhaust",
+   "description": "Slows target enemy champion and reduces their damage dealt.",
+   "cooldown": 240,
+   "range": 650,
+   "summonerLevel": 4,
+   "modes": [
+    "URF",
+    "PRACTICETOOL",
+    "CLASSIC",
+    "ULTBOOK",
+    "DOOMBOTSTEEMO",
+    "ARAM",
+    "RUBY_TRIAL_3",
+    "NEXUSBLITZ",
+    "SWIFTPLAY",
+    "ONEFORALL",
+    "TUTORIAL",
+    "RUBY",
+    "WIPMODEWIP",
+    "RUBY_TRIAL_2",
+    "WIPMODEWIP3",
+    "RUBY_TRIAL_1",
+    "ARSR"
+   ],
+   "wiki": {
+    "cooldown": "240",
+    "range": "{{tip|cr|icononly = true}} 650",
+    "effect": "Weakens the target enemy [[champion]] for 3 seconds, {{tip|slow|slowing}} them by 40% and [[damage modifier|reducing]] their damage dealt by 35%.",
+    "maps": [
+     "sr",
+     "ha",
+     "nb",
+     "tt",
+     "cs"
+    ]
+   }
+  },
+  {
+   "id": "SummonerFlash",
+   "key": 4,
+   "name": "Flash",
+   "description": "Teleports you a short distance toward your cursor.",
+   "cooldown": 300,
+   "range": 425,
+   "summonerLevel": 7,
+   "modes": [
+    "ARAM",
+    "TUTORIAL",
+    "KIWI",
+    "ULTBOOK",
+    "FIRSTBLOOD",
+    "SWIFTPLAY",
+    "CLASSIC",
+    "PRACTICETOOL",
+    "RUBY",
+    "RUBY_TRIAL_1",
+    "BRAWL",
+    "WIPMODEWIP4",
+    "URF",
+    "SNOWURF",
+    "KIWI_JADE",
+    "RUBY_TRIAL_3",
+    "ONEFORALL",
+    "ARSR",
+    "NEXUSBLITZ",
+    "DOOMBOTSTEEMO",
+    "RUBY_TRIAL_2"
+   ],
+   "wiki": {
+    "cooldown": "300",
+    "range": "400 ([[Quick cast]])",
+    "effect": "[[Blink]]s your [[champion]] a short distance toward the target location.",
+    "maps": [
+     "sr",
+     "ar",
+     "ha",
+     "nb",
+     "tt",
+     "cs"
+    ]
+   }
+  },
+  {
+   "id": "SummonerHaste",
+   "key": 6,
+   "name": "Ghost",
+   "description": "Gain Move Speed and ignore unit collision for the duration.",
+   "cooldown": 240,
+   "range": 200,
+   "summonerLevel": 1,
+   "modes": [
+    "ARAM",
+    "TUTORIAL_MODULE_1",
+    "TUTORIAL",
+    "KIWI",
+    "ULTBOOK",
+    "FIRSTBLOOD",
+    "SWIFTPLAY",
+    "CLASSIC",
+    "PRACTICETOOL",
+    "RUBY",
+    "RUBY_TRIAL_1",
+    "BRAWL",
+    "URF",
+    "KIWI_JADE",
+    "RUBY_TRIAL_3",
+    "TUTORIAL_MODULE_2",
+    "ONEFORALL",
+    "ASSASSINATE",
+    "ARSR",
+    "NEXUSBLITZ",
+    "DOOMBOTSTEEMO",
+    "RUBY_TRIAL_2"
+   ],
+   "wiki": {
+    "cooldown": "240",
+    "range": "Self",
+    "effect": "Your [[champion]] ignores [[unit collision]] and gains {{as|{{pp|key=%|24 + (48-24)/17*(x-1)|1 to 20 by 1}} {{sti|'''bonus''' movement speed}}}} for 10 seconds.",
+    "maps": [
+     "sr",
+     "ha",
+     "nb",
+     "tt",
+     "cs"
+    ]
+   }
+  },
+  {
+   "id": "SummonerHeal",
+   "key": 7,
+   "name": "Heal",
+   "description": "Restores Health and grants Move Speed to you and target allied champion.",
+   "cooldown": 240,
+   "range": 875,
+   "summonerLevel": 1,
+   "modes": [
+    "ARAM",
+    "TUTORIAL_MODULE_1",
+    "TUTORIAL",
+    "KIWI",
+    "ULTBOOK",
+    "SWIFTPLAY",
+    "CLASSIC",
+    "PRACTICETOOL",
+    "RUBY",
+    "RUBY_TRIAL_1",
+    "BRAWL",
+    "URF",
+    "KIWI_JADE",
+    "RUBY_TRIAL_3",
+    "TUTORIAL_MODULE_2",
+    "ONEFORALL",
+    "ASSASSINATE",
+    "ARSR",
+    "NEXUSBLITZ",
+    "DOOMBOTSTEEMO",
+    "RUBY_TRIAL_2"
+   ],
+   "wiki": {
+    "cooldown": "240",
+    "range": "{{tip|Center range|nolink=true|900}}",
+    "effect": "{{tip|Heals}} your [[champion]] and the allied champion nearest to the cursor for {{pp|80 + (318-80)/17*(x-1)|1 to 20 by 1|color=heal}}, while also granting both of you {{sti|{{as|30% '''bonus total''' movement speed}}}} for 1 second.",
+    "maps": [
+     "sr",
+     "ha",
+     "nb",
+     "tt",
+     "cs"
+    ]
+   }
+  },
+  {
+   "id": "SummonerSmite",
+   "key": 11,
+   "name": "Smite",
+   "description": "Deals true damage to a monster or minion.",
+   "cooldown": 15,
+   "range": 500,
+   "summonerLevel": 3,
+   "modes": [
+    "DOOMBOTSTEEMO",
+    "PRACTICETOOL",
+    "CLASSIC",
+    "SWIFTPLAY",
+    "URF",
+    "NEXUSBLITZ",
+    "ONEFORALL",
+    "TUTORIAL",
+    "ARSR"
+   ],
+   "wiki": {
+    "cooldown": "15",
+    "range": "{{tip|Edge range|nolink=true|500}}",
+    "effect": "Deals {{sti|true damage|{{as|600 true damage}}}} to the target medium / large [[monster]] or enemy [[minion]]. Against [[Champion summoned units|pets]], deals {{as|40 true damage}} instead.",
+    "maps": [
+     "sr",
+     "nb",
+     "tt"
+    ]
+   }
+  },
+  {
+   "id": "SummonerTeleport",
+   "key": 12,
+   "name": "Teleport",
+   "description": "After a brief channel, become untargetable and travel to an allied unit. Upgrades into Unleashed Teleport, which significantly increases travel speed. ",
+   "cooldown": 300,
+   "range": 25000,
+   "summonerLevel": 7,
+   "modes": [
+    "CLASSIC",
+    "SWIFTPLAY",
+    "ULTBOOK",
+    "WIPMODEWIP4",
+    "DOOMBOTSTEEMO",
+    "PRACTICETOOL",
+    "ONEFORALL",
+    "RUBY",
+    "ARSR",
+    "RUBY_TRIAL_2",
+    "TUTORIAL",
+    "ASSASSINATE",
+    "RUBY_TRIAL_3",
+    "RUBY_TRIAL_1"
+   ],
+   "wiki": {
+    "cooldown": "300",
+    "range": "Global",
+    "effect": "After {{tip|channel|channeling}} for 3 seconds, removes any [[homestart]] or [[homeguard]] buff and causes your [[champion]] to {{tip|dash}} to the location of the target allied [[turret]], [[minion]], or [[ward]] at the time of cast over {{pp|round=3|0.5 to (4.5*4500)/5000+0.5 for 10;5|0 to 4500;5000+|type=distance to target|label=Seconds|formula=(5-0.5)*distance/5000+0.5}} seconds, during which they are {{tip|untargetable}} and {{tip|lockout|unable to act}}. ''Upgrades to {{si|Unleashed Teleport}} at 10:00.''",
+    "maps": [
+     "sr",
+     "nb",
+     "tt"
+    ]
+   }
+  },
+  {
+   "id": "SummonerMana",
+   "key": 13,
+   "name": "Clarity",
+   "description": "Restores your and ally champion's Mana.",
+   "cooldown": 240,
+   "range": 600,
+   "summonerLevel": 6,
+   "modes": [
+    "KIWI",
+    "FIRSTBLOOD",
+    "ARAM",
+    "KIWI_JADE"
+   ],
+   "wiki": {
+    "cooldown": "240",
+    "range": "600",
+    "effect": "Restores {{as|{{sti|mana|50% '''maximum''' mana}}}} to your [[champion]] and {{as|25% of target's '''maximum''' mana}} to nearby allied [[champion]]s.",
+    "maps": [
+     "ha"
+    ]
+   }
+  },
+  {
+   "id": "SummonerDot",
+   "key": 14,
+   "name": "Ignite",
+   "description": "Deals true damage over time to target enemy champion and reduces healing effects on them for the duration.",
+   "cooldown": 180,
+   "range": 600,
+   "summonerLevel": 9,
+   "modes": [
+    "ARAM",
+    "TUTORIAL",
+    "KIWI",
+    "ULTBOOK",
+    "FIRSTBLOOD",
+    "SWIFTPLAY",
+    "CLASSIC",
+    "PRACTICETOOL",
+    "RUBY",
+    "RUBY_TRIAL_1",
+    "BRAWL",
+    "URF",
+    "KIWI_JADE",
+    "RUBY_TRIAL_3",
+    "ONEFORALL",
+    "ASSASSINATE",
+    "ARSR",
+    "NEXUSBLITZ",
+    "DOOMBOTSTEEMO",
+    "RUBY_TRIAL_2"
+   ],
+   "wiki": {
+    "cooldown": "180",
+    "range": "{{tip|Center range|nolink=true|600}}",
+    "effect": "Sets the target enemy [[champion]] on fire for 5 seconds, {{tip|standard sight|revealing}} them and dealing {{as|{{pp|70; then +20*x for 4;then +25*x|1 to 20 by 1|formula=70 base, then +20 per level until level 5, then +25 per level.}} {{sti|true damage}}}} over the duration, with the first tick of damage occurring briefly after the cast and subsequent ticks occurring every {{fd|1.056}} seconds after the previous. The target is also inflicted with {{tip|Grievous Wounds}} for the same duration.",
+    "maps": [
+     "sr",
+     "ha",
+     "nb",
+     "tt",
+     "cs"
+    ]
+   }
+  },
+  {
+   "id": "SummonerBarrier",
+   "key": 21,
+   "name": "Barrier",
+   "description": "Gain a brief Shield.",
+   "cooldown": 180,
+   "range": 1200,
+   "summonerLevel": 4,
+   "modes": [
+    "ARAM",
+    "TUTORIAL",
+    "KIWI",
+    "ULTBOOK",
+    "FIRSTBLOOD",
+    "SWIFTPLAY",
+    "CLASSIC",
+    "PRACTICETOOL",
+    "RUBY",
+    "RUBY_TRIAL_1",
+    "BRAWL",
+    "URF",
+    "KIWI_JADE",
+    "RUBY_TRIAL_3",
+    "ONEFORALL",
+    "ASSASSINATE",
+    "ARSR",
+    "NEXUSBLITZ",
+    "DOOMBOTSTEEMO",
+    "RUBY_TRIAL_2"
+   ],
+   "wiki": {
+    "cooldown": "180",
+    "range": "Self",
+    "effect": "Grants your [[champion]] a {{tip|shield}} that absorbs {{pp|100 + (460-100)/17*(x-1)|1 to 20 by 1}} damage for {{fd|2.5}} seconds.",
+    "maps": [
+     "sr",
+     "ha",
+     "nb",
+     "tt",
+     "cs"
+    ]
+   }
+  },
+  {
+   "id": "SummonerPoroRecall",
+   "key": 30,
+   "name": "To the King!",
+   "description": "Quickly travel to the Poro King's side.",
+   "cooldown": 10,
+   "range": 200,
+   "summonerLevel": 1,
+   "modes": [
+    "KINGPORO"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerPoroThrow",
+   "key": 31,
+   "name": "Poro Toss",
+   "description": "Toss a Poro at your enemies. If it hits, you can quickly travel to your target as a follow up.",
+   "cooldown": 20,
+   "range": 2500,
+   "summonerLevel": 1,
+   "modes": [
+    "KINGPORO"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerSnowball",
+   "key": 32,
+   "name": "Mark",
+   "description": "Throw a snowball in a straight line at your enemies. If it hits an enemy, they become marked, granting True Sight, and your champion can quickly travel to the marked target as a follow up.",
+   "cooldown": 80,
+   "range": 1600,
+   "summonerLevel": 6,
+   "modes": [
+    "KIWI",
+    "KIWI_JADE",
+    "ARAM",
+    "FIRSTBLOOD"
+   ],
+   "wiki": {
+    "cooldown": "80",
+    "range": "1600",
+    "effect": "{{sbc|Active:}} Throw a snowball at a long distance in the target direction, dealing {{as|{{pp|15 to 100}} {{sti|true damage}}}} to the first enemy unit hit, {{tip|true sight|revealing}} them for 3 seconds and granting you the ability to cast {{si|Dash}} for the next 3 seconds.",
+    "maps": [
+     "ha"
+    ]
+   }
+  },
+  {
+   "id": "SummonerSnowURFSnowball_Mark",
+   "key": 39,
+   "name": "Mark",
+   "description": "Throw a snowball in a straight line at your enemies. If it hits an enemy, they become marked, granting True Sight, and your champion can quickly travel to the marked target as a follow up.",
+   "cooldown": 80,
+   "range": 8000,
+   "summonerLevel": 6,
+   "modes": [
+    "SNOWURF"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "Summoner_UltBookPlaceholder",
+   "key": 54,
+   "name": "Placeholder",
+   "description": "This slot will be replaced by another champion's ultimate selected at the start of the game. There will be 30 seconds to select an ultimate. Be prepared!",
+   "cooldown": 0,
+   "range": 400,
+   "summonerLevel": 1,
+   "modes": [
+    "ULTBOOK"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "Summoner_UltBookSmitePlaceholder",
+   "key": 55,
+   "name": "Placeholder and Attack-Smite",
+   "description": "This slot will be replaced by another champion's ultimate and you will gain Attack-Smite. There will be 30 seconds to select an ultimate. Be prepared!",
+   "cooldown": 0,
+   "range": 400,
+   "summonerLevel": 1,
+   "modes": [
+    "ULTBOOK"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerBoost_Jade",
+   "key": 71,
+   "name": "Cleanse",
+   "description": "Removes all disables and summoner spell debuffs affecting your champion and temporarily lowers the duration of incoming disables. Summoner's Resolve: Extends the Tenacity buff duration.",
+   "cooldown": 210,
+   "range": 200,
+   "summonerLevel": 1,
+   "modes": [
+    "JADE"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerExhaust_Jade",
+   "key": 73,
+   "name": "Exhaust",
+   "description": "Slows target enemy champion and reduces their Attack Speed and damage dealt. Summoner's Wrath: Exhaust also reduces the target's Armor and Magic Resist by 10.",
+   "cooldown": 210,
+   "range": 550,
+   "summonerLevel": 1,
+   "modes": [
+    "JADE"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerFlash_Jade",
+   "key": 74,
+   "name": "Flash",
+   "description": "Teleports you a short distance toward your cursor. Summoner's Insight: Reduces Flash's Cooldown by 15 seconds.",
+   "cooldown": 300,
+   "range": 425,
+   "summonerLevel": 1,
+   "modes": [
+    "JADE"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerClairvoyance_Jade",
+   "key": 75,
+   "name": "Clairvoyance",
+   "description": "Reveals a small area of the map for your team for a short duration. Summoner's Insight: Retain sight on units revealed by Clairvoyance for 5 seconds.",
+   "cooldown": 60,
+   "range": 25000,
+   "summonerLevel": 1,
+   "modes": [
+    "JADE"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerHaste_Jade",
+   "key": 76,
+   "name": "Ghost",
+   "description": "Gain Move Speed and ignore unit collision for the duration. Summoner's Wrath: Bonus Move Speed granted by Ghost is increased.",
+   "cooldown": 240,
+   "range": 200,
+   "summonerLevel": 1,
+   "modes": [
+    "JADE"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerHeal_Jade",
+   "key": 77,
+   "name": "Heal",
+   "description": "Restores Health to your champion and to nearby allies. Summoner's Resolve: Gain 5 Health per level.",
+   "cooldown": 300,
+   "range": 600,
+   "summonerLevel": 1,
+   "modes": [
+    "JADE"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerFortify_Jade",
+   "key": 705,
+   "name": "Fortify",
+   "description": "Grants invulnerability to all Allied Turrets and causes them to attack 100% faster for 6 seconds. Summoner's Resolve: Turrets deal splash damage around their target.",
+   "cooldown": 180,
+   "range": 25000,
+   "summonerLevel": 1,
+   "modes": [
+    "JADE"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerRally_Jade",
+   "key": 709,
+   "name": "Rally",
+   "description": "Summons a temporary beacon which increases allied Attack damage in an area. Summoner's Wrath: Rally additionally gives Ability Power.",
+   "cooldown": 270,
+   "range": 25000,
+   "summonerLevel": 1,
+   "modes": [
+    "JADE"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerSmite_Jade",
+   "key": 711,
+   "name": "Smite",
+   "description": "Deals true damage to target enemy minion or pet. Summoner's Resolve: Smite grants 10 gold per cast.",
+   "cooldown": 70,
+   "range": 760,
+   "summonerLevel": 1,
+   "modes": [
+    "JADE"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerTeleport_Jade",
+   "key": 712,
+   "name": "Teleport",
+   "description": "After a short channel, your champion teleports to a target allied minion, turret, or ward. Summoner's Insight: Teleport's channel time is reduced.",
+   "cooldown": 300,
+   "range": 25000,
+   "summonerLevel": 1,
+   "modes": [
+    "JADE"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerMana_Jade",
+   "key": 713,
+   "name": "Clarity",
+   "description": "Restores your and ally champions' Mana. Summoner's Insight: Restores more mana.",
+   "cooldown": 135,
+   "range": 600,
+   "summonerLevel": 1,
+   "modes": [
+    "JADE"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerDot_Jade",
+   "key": 714,
+   "name": "Ignite",
+   "description": "Deals true damage over time to target enemy champion and reduces healing effects on them for the duration. Summoner's Wrath: While Ignite is on cooldown, gain 5 Ability Power and Attack Damage.",
+   "cooldown": 210,
+   "range": 600,
+   "summonerLevel": 1,
+   "modes": [
+    "JADE"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerBattleCry_Jade",
+   "key": 716,
+   "name": "Surge",
+   "description": "Temporarily empowers your champion, granting Attack Speed  and Ability Power for the duration. Summoner's Wrath: Increases the Attack Speed bonus by 5% and the Ability Power bonus by 10%.",
+   "cooldown": 180,
+   "range": 200,
+   "summonerLevel": 1,
+   "modes": [
+    "JADE"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerSpell_Promote_Jade",
+   "key": 720,
+   "name": "Promote",
+   "description": "Promotes a minion, granting it bonus stats, an empowering aura, and causing it to grant the caster gold for its kills. Summoner's Wrath: The Siege Rider's bonus Attack Damage aura also affects Champions.",
+   "cooldown": 270,
+   "range": 4294967295,
+   "summonerLevel": 1,
+   "modes": [
+    "JADE"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerBarrier_Jade",
+   "key": 721,
+   "name": "Barrier",
+   "description": "Gain a short duration shield. Summoner's Resolve: Barrier's Shield is increased.",
+   "cooldown": 210,
+   "range": 1200,
+   "summonerLevel": 1,
+   "modes": [
+    "JADE"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerRevive_Jade",
+   "key": 777,
+   "name": "Revive",
+   "description": "Instantly revives your champion at your team's Summoner Platform and increases their Movement Speed for a short duration. Summoner's Insight: Revive temporarily grants the user 220-560 Health.",
+   "cooldown": 510,
+   "range": 200,
+   "summonerLevel": 1,
+   "modes": [
+    "JADE"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerCherryHold",
+   "key": 2201,
+   "name": "Flee",
+   "description": "Gain a short burst of Move Speed, increased while running away from enemy champions.",
+   "cooldown": 45,
+   "range": 25000,
+   "summonerLevel": 1,
+   "modes": [
+    "CHERRY"
+   ],
+   "wiki": null
+  },
+  {
+   "id": "SummonerCherryFlash",
+   "key": 2202,
+   "name": "Flash",
+   "description": "Teleports your champion a short distance toward your cursor's location.",
+   "cooldown": 0.25,
+   "range": 425,
+   "summonerLevel": 1,
+   "modes": [
+    "CHERRY"
+   ],
+   "wiki": null
+  }
+ ]
+}

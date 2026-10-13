@@ -1,0 +1,1357 @@
+{
+  "source": "Mobile Legends: Bang Bang Wiki (mobile-legends.fandom.com), CC BY-SA 3.0",
+  "retrievedAt": "2026-10-13T16:43:32.252Z",
+  "notes": [
+    "One markdown file per wiki page. Pages were hand-picked by group plus every page of the categories listed in `categoriesCrawled`.",
+    "Redirects are resolved: several requested titles may map to one file (see `requestedAs`).",
+    "Requested titles that do not exist on the wiki: none."
+  ],
+  "categoriesCrawled": [
+    "Gameplay elements",
+    "Battlefield Features",
+    "Crowd control effects",
+    "Jungle",
+    "Attributes",
+    "Battle Spells",
+    "Emblems & Talents",
+    "Turret",
+    "Damage",
+    "Healing",
+    "Terrain Features"
+  ],
+  "pages": [
+    {
+      "page": "Land of Dawn",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Land_of_Dawn",
+      "file": "mechanics/land-of-dawn.md",
+      "group": "map-and-match",
+      "requestedAs": [
+        "Land of Dawn"
+      ],
+      "markdownChars": 3750
+    },
+    {
+      "page": "Land of Dawn (Old)",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Land_of_Dawn_(Old)",
+      "file": "mechanics/land-of-dawn-old.md",
+      "group": "map-and-match",
+      "requestedAs": [
+        "Land of Dawn (Old)"
+      ],
+      "markdownChars": 12622
+    },
+    {
+      "page": "Map",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Map",
+      "file": "mechanics/map.md",
+      "group": "map-and-match",
+      "requestedAs": [
+        "Map"
+      ],
+      "markdownChars": 1353
+    },
+    {
+      "page": "Battlefield Guide",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Battlefield_Guide",
+      "file": "mechanics/battlefield-guide.md",
+      "group": "map-and-match",
+      "requestedAs": [
+        "Battlefield Guide"
+      ],
+      "markdownChars": 34592
+    },
+    {
+      "page": "Match Details & Timestamps",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Match_Details_%26_Timestamps",
+      "file": "mechanics/match-details-and-timestamps.md",
+      "group": "map-and-match",
+      "requestedAs": [
+        "Match Details & Timestamps"
+      ],
+      "markdownChars": 901
+    },
+    {
+      "page": "Special Areas",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Special_Areas",
+      "file": "mechanics/special-areas.md",
+      "group": "map-and-match",
+      "requestedAs": [
+        "Special Areas"
+      ],
+      "markdownChars": 4676
+    },
+    {
+      "page": "Bush",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Bush",
+      "file": "mechanics/bush.md",
+      "group": "map-and-match",
+      "requestedAs": [
+        "Bush"
+      ],
+      "markdownChars": 5303
+    },
+    {
+      "page": "Cyclone Eye",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Cyclone_Eye",
+      "file": "mechanics/cyclone-eye.md",
+      "group": "map-and-match",
+      "requestedAs": [
+        "Cyclone Eye"
+      ],
+      "markdownChars": 2708
+    },
+    {
+      "page": "Wall",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Wall",
+      "file": "mechanics/wall.md",
+      "group": "map-and-match",
+      "requestedAs": [
+        "Wall"
+      ],
+      "markdownChars": 2718
+    },
+    {
+      "page": "Lane cutting",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Lane_cutting",
+      "file": "mechanics/lane-cutting.md",
+      "group": "map-and-match",
+      "requestedAs": [
+        "Lane cutting"
+      ],
+      "markdownChars": 3394
+    },
+    {
+      "page": "Macro",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Macro",
+      "file": "mechanics/macro.md",
+      "group": "map-and-match",
+      "requestedAs": [
+        "Macro"
+      ],
+      "markdownChars": 1097
+    },
+    {
+      "page": "Controls",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Controls",
+      "file": "mechanics/controls.md",
+      "group": "map-and-match",
+      "requestedAs": [
+        "Controls"
+      ],
+      "markdownChars": 0
+    },
+    {
+      "page": "Ping",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Ping",
+      "file": "mechanics/ping.md",
+      "group": "map-and-match",
+      "requestedAs": [
+        "Ping"
+      ],
+      "markdownChars": 1227
+    },
+    {
+      "page": "Gold Laner",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Gold_Laner",
+      "file": "mechanics/gold-laner.md",
+      "group": "lanes-and-roles",
+      "requestedAs": [
+        "Gold Laner"
+      ],
+      "markdownChars": 2954
+    },
+    {
+      "page": "EXP Laner",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/EXP_Laner",
+      "file": "mechanics/exp-laner.md",
+      "group": "lanes-and-roles",
+      "requestedAs": [
+        "EXP Laner"
+      ],
+      "markdownChars": 5212
+    },
+    {
+      "page": "Mid Laner",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Mid_Laner",
+      "file": "mechanics/mid-laner.md",
+      "group": "lanes-and-roles",
+      "requestedAs": [
+        "Mid Laner"
+      ],
+      "markdownChars": 3031
+    },
+    {
+      "page": "Jungler",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Jungler",
+      "file": "mechanics/jungler.md",
+      "group": "lanes-and-roles",
+      "requestedAs": [
+        "Jungler"
+      ],
+      "markdownChars": 3470
+    },
+    {
+      "page": "Roamer",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Roamer",
+      "file": "mechanics/roamer.md",
+      "group": "lanes-and-roles",
+      "requestedAs": [
+        "Roamer"
+      ],
+      "markdownChars": 2481
+    },
+    {
+      "page": "Side Laner",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Side_Laner",
+      "file": "mechanics/side-laner.md",
+      "group": "lanes-and-roles",
+      "requestedAs": [
+        "Side Laner"
+      ],
+      "markdownChars": 639
+    },
+    {
+      "page": "Utility Jungler",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Utility_Jungler",
+      "file": "mechanics/utility-jungler.md",
+      "group": "lanes-and-roles",
+      "requestedAs": [
+        "Utility Jungler"
+      ],
+      "markdownChars": 1169
+    },
+    {
+      "page": "Hero roles",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Hero_roles",
+      "file": "mechanics/hero-roles.md",
+      "group": "lanes-and-roles",
+      "requestedAs": [
+        "Hero roles"
+      ],
+      "markdownChars": 4432
+    },
+    {
+      "page": "Hero specialties",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Hero_specialties",
+      "file": "mechanics/hero-specialties.md",
+      "group": "lanes-and-roles",
+      "requestedAs": [
+        "Hero specialties"
+      ],
+      "markdownChars": 3837
+    },
+    {
+      "page": "Turret",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Turret",
+      "file": "mechanics/turret.md",
+      "group": "structures",
+      "requestedAs": [
+        "Turret"
+      ],
+      "markdownChars": 13787
+    },
+    {
+      "page": "Sacred Statue",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Sacred_Statue",
+      "file": "mechanics/sacred-statue.md",
+      "group": "structures",
+      "requestedAs": [
+        "Sacred Statue"
+      ],
+      "markdownChars": 1283
+    },
+    {
+      "page": "Altar",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Altar",
+      "file": "mechanics/altar.md",
+      "group": "structures",
+      "requestedAs": [
+        "Altar"
+      ],
+      "markdownChars": 1396
+    },
+    {
+      "page": "Minions",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Minions",
+      "file": "mechanics/minions.md",
+      "group": "minions",
+      "requestedAs": [
+        "Minions"
+      ],
+      "markdownChars": 3972
+    },
+    {
+      "page": "Jungle",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Jungle",
+      "file": "mechanics/jungle.md",
+      "group": "jungle",
+      "requestedAs": [
+        "Jungle"
+      ],
+      "markdownChars": 19394
+    },
+    {
+      "page": "Jungle (Old)",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Jungle_(Old)",
+      "file": "mechanics/jungle-old.md",
+      "group": "jungle",
+      "requestedAs": [
+        "Jungle (Old)"
+      ],
+      "markdownChars": 7294
+    },
+    {
+      "page": "Crab",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Crab",
+      "file": "mechanics/crab.md",
+      "group": "jungle",
+      "requestedAs": [
+        "Crab"
+      ],
+      "markdownChars": 2551
+    },
+    {
+      "page": "Fire Beetle",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Fire_Beetle",
+      "file": "mechanics/fire-beetle.md",
+      "group": "jungle",
+      "requestedAs": [
+        "Fire Beetle"
+      ],
+      "markdownChars": 2272
+    },
+    {
+      "page": "Horned Lizard",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Horned_Lizard",
+      "file": "mechanics/horned-lizard.md",
+      "group": "jungle",
+      "requestedAs": [
+        "Horned Lizard"
+      ],
+      "markdownChars": 3510
+    },
+    {
+      "page": "Lava Golem",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Lava_Golem",
+      "file": "mechanics/lava-golem.md",
+      "group": "jungle",
+      "requestedAs": [
+        "Lava Golem"
+      ],
+      "markdownChars": 2102
+    },
+    {
+      "page": "Lithowanderer",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Lithowanderer",
+      "file": "mechanics/lithowanderer.md",
+      "group": "jungle",
+      "requestedAs": [
+        "Lithowanderer"
+      ],
+      "markdownChars": 5072
+    },
+    {
+      "page": "Molten Fiend",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Molten_Fiend",
+      "file": "mechanics/molten-fiend.md",
+      "group": "jungle",
+      "requestedAs": [
+        "Molten Fiend"
+      ],
+      "markdownChars": 5478
+    },
+    {
+      "page": "Thunder Fenrir",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Thunder_Fenrir",
+      "file": "mechanics/thunder-fenrir.md",
+      "group": "jungle",
+      "requestedAs": [
+        "Thunder Fenrir"
+      ],
+      "markdownChars": 6547
+    },
+    {
+      "page": "Turtle",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Turtle",
+      "file": "mechanics/turtle.md",
+      "group": "jungle",
+      "requestedAs": [
+        "Turtle"
+      ],
+      "markdownChars": 7889
+    },
+    {
+      "page": "Lord",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Lord",
+      "file": "mechanics/lord.md",
+      "group": "jungle",
+      "requestedAs": [
+        "Lord"
+      ],
+      "markdownChars": 17846
+    },
+    {
+      "page": "Gold",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Gold",
+      "file": "mechanics/gold.md",
+      "group": "economy",
+      "requestedAs": [
+        "Gold"
+      ],
+      "markdownChars": 900
+    },
+    {
+      "page": "Kill",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Kill",
+      "file": "mechanics/kill.md",
+      "group": "economy",
+      "requestedAs": [
+        "Kill"
+      ],
+      "markdownChars": 1767
+    },
+    {
+      "page": "Killing Notifications",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Killing_Notifications",
+      "file": "mechanics/killing-notifications.md",
+      "group": "economy",
+      "requestedAs": [
+        "Killing Notifications"
+      ],
+      "markdownChars": 274
+    },
+    {
+      "page": "Death",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Death",
+      "file": "mechanics/death.md",
+      "group": "economy",
+      "requestedAs": [
+        "Death"
+      ],
+      "markdownChars": 615
+    },
+    {
+      "page": "Equipment",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Equipment",
+      "file": "mechanics/equipment.md",
+      "group": "economy",
+      "requestedAs": [
+        "Equipment"
+      ],
+      "markdownChars": 1815
+    },
+    {
+      "page": "Battle spells",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Battle_spells",
+      "file": "mechanics/battle-spells.md",
+      "group": "spells-emblems",
+      "requestedAs": [
+        "Battle spells"
+      ],
+      "markdownChars": 17268
+    },
+    {
+      "page": "Retribution",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Retribution",
+      "file": "mechanics/retribution.md",
+      "group": "spells-emblems",
+      "requestedAs": [
+        "Retribution"
+      ],
+      "markdownChars": 10
+    },
+    {
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "file": "mechanics/emblems.md",
+      "group": "spells-emblems",
+      "requestedAs": [
+        "Emblems"
+      ],
+      "markdownChars": 12094
+    },
+    {
+      "page": "Emblems (2016–2023)",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems_(2016%E2%80%932023)",
+      "file": "mechanics/emblems-2016-2023.md",
+      "group": "spells-emblems",
+      "requestedAs": [
+        "Emblems (2016–2023)"
+      ],
+      "markdownChars": 14816
+    },
+    {
+      "page": "Impure Rage",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Impure_Rage",
+      "file": "mechanics/impure-rage.md",
+      "group": "spells-emblems",
+      "requestedAs": [
+        "Impure Rage"
+      ],
+      "markdownChars": 1374
+    },
+    {
+      "page": "Attribute",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Attribute",
+      "file": "mechanics/attribute.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Attribute"
+      ],
+      "markdownChars": 113
+    },
+    {
+      "page": "Terms",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Terms",
+      "file": "mechanics/terms.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Terms"
+      ],
+      "markdownChars": 7009
+    },
+    {
+      "page": "Basic attack",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Basic_attack",
+      "file": "mechanics/basic-attack.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Basic attack"
+      ],
+      "markdownChars": 5915
+    },
+    {
+      "page": "Attack speed",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Attack_speed",
+      "file": "mechanics/attack-speed.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Attack speed"
+      ],
+      "markdownChars": 4955
+    },
+    {
+      "page": "Attack range",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Attack_range",
+      "file": "mechanics/attack-range.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Attack range"
+      ],
+      "markdownChars": 6408
+    },
+    {
+      "page": "Range",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Range",
+      "file": "mechanics/range.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Range"
+      ],
+      "markdownChars": 3142
+    },
+    {
+      "page": "Movement speed",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Movement_speed",
+      "file": "mechanics/movement-speed.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Movement speed"
+      ],
+      "markdownChars": 1250
+    },
+    {
+      "page": "Health point",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Health_point",
+      "file": "mechanics/health-point.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Health point"
+      ],
+      "markdownChars": 3344
+    },
+    {
+      "page": "HP Regen",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/HP_Regen",
+      "file": "mechanics/hp-regen.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "HP Regen"
+      ],
+      "markdownChars": 85
+    },
+    {
+      "page": "HP regen (attribute)",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/HP_regen_(attribute)",
+      "file": "mechanics/hp-regen-attribute.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "HP regen (attribute)"
+      ],
+      "markdownChars": 1217
+    },
+    {
+      "page": "Resource",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Resource",
+      "file": "mechanics/resource.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Resource"
+      ],
+      "markdownChars": 6330
+    },
+    {
+      "page": "Physical attack",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Physical_attack",
+      "file": "mechanics/physical-attack.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Physical attack"
+      ],
+      "markdownChars": 2945
+    },
+    {
+      "page": "Magic power",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Magic_power",
+      "file": "mechanics/magic-power.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Magic power"
+      ],
+      "markdownChars": 2216
+    },
+    {
+      "page": "Adaptive attributes",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Adaptive_attributes",
+      "file": "mechanics/adaptive-attributes.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Adaptive attributes"
+      ],
+      "markdownChars": 2780
+    },
+    {
+      "page": "Hybrid attributes",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Hybrid_attributes",
+      "file": "mechanics/hybrid-attributes.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Hybrid attributes"
+      ],
+      "markdownChars": 5693
+    },
+    {
+      "page": "Physical defense",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Physical_defense",
+      "file": "mechanics/physical-defense.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Physical defense"
+      ],
+      "markdownChars": 4080
+    },
+    {
+      "page": "Magic defense",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Magic_defense",
+      "file": "mechanics/magic-defense.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Magic defense"
+      ],
+      "markdownChars": 3729
+    },
+    {
+      "page": "Physical penetration",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Physical_penetration",
+      "file": "mechanics/physical-penetration.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Physical penetration"
+      ],
+      "markdownChars": 1609
+    },
+    {
+      "page": "Magic penetration",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Magic_penetration",
+      "file": "mechanics/magic-penetration.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Magic penetration"
+      ],
+      "markdownChars": 1217
+    },
+    {
+      "page": "Defense reduction",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Defense_reduction",
+      "file": "mechanics/defense-reduction.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Defense reduction"
+      ],
+      "markdownChars": 2194
+    },
+    {
+      "page": "Damage",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Damage",
+      "file": "mechanics/damage.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Damage"
+      ],
+      "markdownChars": 2421
+    },
+    {
+      "page": "Physical damage",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Physical_damage",
+      "file": "mechanics/physical-damage.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Physical damage"
+      ],
+      "markdownChars": 736
+    },
+    {
+      "page": "Magic damage",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Magic_damage",
+      "file": "mechanics/magic-damage.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Magic damage"
+      ],
+      "markdownChars": 884
+    },
+    {
+      "page": "True damage",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/True_damage",
+      "file": "mechanics/true-damage.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "True damage"
+      ],
+      "markdownChars": 5067
+    },
+    {
+      "page": "Damage reduction",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Damage_reduction",
+      "file": "mechanics/damage-reduction.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Damage reduction"
+      ],
+      "markdownChars": 4655
+    },
+    {
+      "page": "Critical strike",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Critical_strike",
+      "file": "mechanics/critical-strike.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Critical strike"
+      ],
+      "markdownChars": 5989
+    },
+    {
+      "page": "Cooldown",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Cooldown",
+      "file": "mechanics/cooldown.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Cooldown"
+      ],
+      "markdownChars": 2297
+    },
+    {
+      "page": "Cooldown reduction",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Cooldown_reduction",
+      "file": "mechanics/cooldown-reduction.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Cooldown reduction"
+      ],
+      "markdownChars": 8884
+    },
+    {
+      "page": "Lifesteal and Spell Vamp",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Lifesteal_and_Spell_Vamp",
+      "file": "mechanics/lifesteal-and-spell-vamp.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Lifesteal and Spell Vamp"
+      ],
+      "markdownChars": 2505
+    },
+    {
+      "page": "Physical lifesteal",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Physical_lifesteal",
+      "file": "mechanics/physical-lifesteal.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Physical lifesteal"
+      ],
+      "markdownChars": 1460
+    },
+    {
+      "page": "Magic lifesteal",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Magic_lifesteal",
+      "file": "mechanics/magic-lifesteal.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Magic lifesteal"
+      ],
+      "markdownChars": 1368
+    },
+    {
+      "page": "Healing",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Healing",
+      "file": "mechanics/healing.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Healing"
+      ],
+      "markdownChars": 1791
+    },
+    {
+      "page": "Healing effect",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Healing_effect",
+      "file": "mechanics/healing-effect.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Healing effect"
+      ],
+      "markdownChars": 1285
+    },
+    {
+      "page": "Healing received",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Healing_received",
+      "file": "mechanics/healing-received.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Healing received"
+      ],
+      "markdownChars": 1446
+    },
+    {
+      "page": "Shield",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Shield",
+      "file": "mechanics/shield.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Shield"
+      ],
+      "markdownChars": 1389
+    },
+    {
+      "page": "Resilience",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Resilience",
+      "file": "mechanics/resilience.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Resilience"
+      ],
+      "markdownChars": 1868
+    },
+    {
+      "page": "Buff",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Buff",
+      "file": "mechanics/buff.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Buff"
+      ],
+      "markdownChars": 862
+    },
+    {
+      "page": "Debuff",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Debuff",
+      "file": "mechanics/debuff.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Debuff"
+      ],
+      "markdownChars": 1567
+    },
+    {
+      "page": "Conceal",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Conceal",
+      "file": "mechanics/conceal.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Conceal"
+      ],
+      "markdownChars": 5777
+    },
+    {
+      "page": "Untargetability",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Untargetability",
+      "file": "mechanics/untargetability.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Untargetability"
+      ],
+      "markdownChars": 4636
+    },
+    {
+      "page": "Summoned unit",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Summoned_unit",
+      "file": "mechanics/summoned-unit.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Summoned unit"
+      ],
+      "markdownChars": 894
+    },
+    {
+      "page": "Mobility",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Mobility",
+      "file": "mechanics/mobility.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Mobility"
+      ],
+      "markdownChars": 2131
+    },
+    {
+      "page": "Blink and charge",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Blink_and_charge",
+      "file": "mechanics/blink-and-charge.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Blink and charge"
+      ],
+      "markdownChars": 5778
+    },
+    {
+      "page": "Cast types",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Cast_types",
+      "file": "mechanics/cast-types.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Cast types"
+      ],
+      "markdownChars": 3495
+    },
+    {
+      "page": "AoE skills",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/AoE_skills",
+      "file": "mechanics/aoe-skills.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "AoE skills"
+      ],
+      "markdownChars": 30
+    },
+    {
+      "page": "Single-targeted",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Single-targeted",
+      "file": "mechanics/single-targeted.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Single-targeted"
+      ],
+      "markdownChars": 296
+    },
+    {
+      "page": "Ability tag",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Ability_tag",
+      "file": "mechanics/ability-tag.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "Ability tag"
+      ],
+      "markdownChars": 1141
+    },
+    {
+      "page": "List of Skills That Deal No Damage",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/List_of_Skills_That_Deal_No_Damage",
+      "file": "mechanics/list-of-skills-that-deal-no-damage.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "List of Skills That Deal No Damage"
+      ],
+      "markdownChars": 516
+    },
+    {
+      "page": "List of skills that reveals units",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/List_of_skills_that_reveals_units",
+      "file": "mechanics/list-of-skills-that-reveals-units.md",
+      "group": "combat-stats",
+      "requestedAs": [
+        "List of skills that reveals units"
+      ],
+      "markdownChars": 269
+    },
+    {
+      "page": "Crowd control",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Crowd_control",
+      "file": "mechanics/crowd-control.md",
+      "group": "crowd-control",
+      "requestedAs": [
+        "Crowd control"
+      ],
+      "markdownChars": 7612
+    },
+    {
+      "page": "Control and slowing immunity",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Control_and_slowing_immunity",
+      "file": "mechanics/control-and-slowing-immunity.md",
+      "group": "crowd-control",
+      "requestedAs": [
+        "Control and slowing immunity"
+      ],
+      "markdownChars": 2754
+    },
+    {
+      "page": "Airborne",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Airborne",
+      "file": "mechanics/airborne.md",
+      "group": "crowd-control",
+      "requestedAs": [
+        "Airborne"
+      ],
+      "markdownChars": 3317
+    },
+    {
+      "page": "Stunned",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Stunned",
+      "file": "mechanics/stunned.md",
+      "group": "crowd-control",
+      "requestedAs": [
+        "Frozen",
+        "Stunned",
+        "Suppressed"
+      ],
+      "markdownChars": 4392
+    },
+    {
+      "page": "Immobilized",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Immobilized",
+      "file": "mechanics/immobilized.md",
+      "group": "crowd-control",
+      "requestedAs": [
+        "Immobilized"
+      ],
+      "markdownChars": 1541
+    },
+    {
+      "page": "Knocked back",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Knocked_back",
+      "file": "mechanics/knocked-back.md",
+      "group": "crowd-control",
+      "requestedAs": [
+        "Knocked back",
+        "Pulled"
+      ],
+      "markdownChars": 4138
+    },
+    {
+      "page": "Restrained",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Restrained",
+      "file": "mechanics/restrained.md",
+      "group": "crowd-control",
+      "requestedAs": [
+        "Restrained"
+      ],
+      "markdownChars": 610
+    },
+    {
+      "page": "Root",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Root",
+      "file": "mechanics/root.md",
+      "group": "crowd-control",
+      "requestedAs": [
+        "Root"
+      ],
+      "markdownChars": 2618
+    },
+    {
+      "page": "Silenced",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Silenced",
+      "file": "mechanics/silenced.md",
+      "group": "crowd-control",
+      "requestedAs": [
+        "Silenced"
+      ],
+      "markdownChars": 492
+    },
+    {
+      "page": "Slow",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Slow",
+      "file": "mechanics/slow.md",
+      "group": "crowd-control",
+      "requestedAs": [
+        "Slow"
+      ],
+      "markdownChars": 8428
+    },
+    {
+      "page": "Taunted",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Taunted",
+      "file": "mechanics/taunted.md",
+      "group": "crowd-control",
+      "requestedAs": [
+        "Taunted"
+      ],
+      "markdownChars": 697
+    },
+    {
+      "page": "Terrified",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Terrified",
+      "file": "mechanics/terrified.md",
+      "group": "crowd-control",
+      "requestedAs": [
+        "Terrified"
+      ],
+      "markdownChars": 786
+    },
+    {
+      "page": "Transformed",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Transformed",
+      "file": "mechanics/transformed.md",
+      "group": "crowd-control",
+      "requestedAs": [
+        "Transformed"
+      ],
+      "markdownChars": 859
+    },
+    {
+      "page": "Disarm",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Disarm",
+      "file": "mechanics/disarm.md",
+      "group": "crowd-control",
+      "requestedAs": [
+        "Disarm"
+      ],
+      "markdownChars": 558
+    },
+    {
+      "page": "Game Modes",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Game_Modes",
+      "file": "mechanics/game-modes.md",
+      "group": "game-modes",
+      "requestedAs": [
+        "Game Modes"
+      ],
+      "markdownChars": 19
+    },
+    {
+      "page": "Classic",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Classic",
+      "file": "mechanics/classic.md",
+      "group": "game-modes",
+      "requestedAs": [
+        "Classic"
+      ],
+      "markdownChars": 3091
+    },
+    {
+      "page": "Ranked",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Ranked",
+      "file": "mechanics/ranked.md",
+      "group": "game-modes",
+      "requestedAs": [
+        "Ranked"
+      ],
+      "markdownChars": 7144
+    },
+    {
+      "page": "Ranks",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Ranks",
+      "file": "mechanics/ranks.md",
+      "group": "game-modes",
+      "requestedAs": [
+        "Ranks"
+      ],
+      "markdownChars": 204
+    },
+    {
+      "page": "Draft Pick",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Draft_Pick",
+      "file": "mechanics/draft-pick.md",
+      "group": "game-modes",
+      "requestedAs": [
+        "Draft Pick"
+      ],
+      "markdownChars": 4442
+    },
+    {
+      "page": "Brawl",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Brawl",
+      "file": "mechanics/brawl.md",
+      "group": "game-modes",
+      "requestedAs": [
+        "Brawl"
+      ],
+      "markdownChars": 10379
+    },
+    {
+      "page": "Arcade Mode",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Arcade_Mode",
+      "file": "mechanics/arcade-mode.md",
+      "group": "game-modes",
+      "requestedAs": [
+        "Arcade Mode"
+      ],
+      "markdownChars": 20556
+    },
+    {
+      "page": "Custom",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Custom",
+      "file": "mechanics/custom.md",
+      "group": "game-modes",
+      "requestedAs": [
+        "Custom"
+      ],
+      "markdownChars": 1322
+    },
+    {
+      "page": "Vs. AI",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Vs._AI",
+      "file": "mechanics/vs-ai.md",
+      "group": "game-modes",
+      "requestedAs": [
+        "Vs. AI"
+      ],
+      "markdownChars": 2161
+    },
+    {
+      "page": "Chaos Clash",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Chaos_Clash",
+      "file": "mechanics/chaos-clash.md",
+      "group": "game-modes",
+      "requestedAs": [
+        "Chaos Clash"
+      ],
+      "markdownChars": 818
+    },
+    {
+      "page": "Survival",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Survival",
+      "file": "mechanics/survival.md",
+      "group": "game-modes",
+      "requestedAs": [
+        "Survival"
+      ],
+      "markdownChars": 11598
+    },
+    {
+      "page": "Arena",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Arena",
+      "file": "mechanics/arena.md",
+      "group": "game-modes",
+      "requestedAs": [
+        "Arena"
+      ],
+      "markdownChars": 3033
+    },
+    {
+      "page": "Evolve",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Evolve",
+      "file": "mechanics/evolve.md",
+      "group": "game-modes",
+      "requestedAs": [
+        "Evolve"
+      ],
+      "markdownChars": 6713
+    },
+    {
+      "page": "Boommander",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Boommander",
+      "file": "mechanics/boommander.md",
+      "group": "game-modes",
+      "requestedAs": [
+        "Boommander"
+      ],
+      "markdownChars": 5229
+    },
+    {
+      "page": "Patch 1.9.06",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Patch_1.9.06",
+      "file": "mechanics/patch-1-9-06.md",
+      "group": "patches",
+      "requestedAs": [
+        "Patch 1.9.06"
+      ],
+      "markdownChars": 17623
+    },
+    {
+      "page": "Patch Notes 2.1.67",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Patch_Notes_2.1.67",
+      "file": "mechanics/patch-notes-2-1-67.md",
+      "group": "patches",
+      "requestedAs": [
+        "Patch Notes 2.1.67"
+      ],
+      "markdownChars": 20428
+    },
+    {
+      "page": "Patch Notes 2.1.88",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Patch_Notes_2.1.88",
+      "file": "mechanics/patch-notes-2-1-88.md",
+      "group": "patches",
+      "requestedAs": [
+        "Patch Notes 2.1.88"
+      ],
+      "markdownChars": 14349
+    },
+    {
+      "page": "Patch Notes 2.1.90",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Patch_Notes_2.1.90",
+      "file": "mechanics/patch-notes-2-1-90.md",
+      "group": "patches",
+      "requestedAs": [
+        "Patch Notes 2.1.90"
+      ],
+      "markdownChars": 4270
+    },
+    {
+      "page": "Patch Notes 2.2.16",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Patch_Notes_2.2.16",
+      "file": "mechanics/patch-notes-2-2-16.md",
+      "group": "patches",
+      "requestedAs": [
+        "Patch Notes 2.2.16"
+      ],
+      "markdownChars": 33465
+    },
+    {
+      "page": "List of heroes by attack speed",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/List_of_heroes_by_attack_speed",
+      "file": "mechanics/list-of-heroes-by-attack-speed.md",
+      "group": "hero-lists",
+      "requestedAs": [
+        "List of heroes by attack speed"
+      ],
+      "markdownChars": 5099
+    },
+    {
+      "page": "List of heroes by movement speed",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/List_of_heroes_by_movement_speed",
+      "file": "mechanics/list-of-heroes-by-movement-speed.md",
+      "group": "hero-lists",
+      "requestedAs": [
+        "List of heroes by movement speed"
+      ],
+      "markdownChars": 1906
+    },
+    {
+      "page": "List of heroes by physical defense",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/List_of_heroes_by_physical_defense",
+      "file": "mechanics/list-of-heroes-by-physical-defense.md",
+      "group": "hero-lists",
+      "requestedAs": [
+        "List of heroes by physical defense"
+      ],
+      "markdownChars": 1515
+    },
+    {
+      "page": "Spells/History",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Spells/History",
+      "file": "mechanics/spells-history.md",
+      "group": "category:Battle Spells",
+      "requestedAs": [
+        "Spells/History"
+      ],
+      "markdownChars": 720
+    }
+  ]
+}

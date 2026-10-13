@@ -5,7 +5,7 @@
   "https://wiki.leagueoflegends.com/en-us/Module:ChampionData/data"
  ],
  "version": "16.20.1",
- "retrievedAt": "2026-10-13T16:37:05.146Z",
+ "retrievedAt": "2026-10-13T16:42:40.462Z",
  "notes": [
   "Base stats and growth: Data Dragon. Growth formula: stat(n) = base + perLevel × (n − 1) × (0.7025 + 0.0175 × (n − 1)).",
   "attackSpeed.perLevelPercent is a percentage of bonus attack speed applied with the same growth formula; bonus AS is multiplied by attackSpeed.ratio.",

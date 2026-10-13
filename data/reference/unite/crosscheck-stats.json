@@ -1,0 +1,1851 @@
+{
+  "source": "Comparison of level 1-15 stats: unite-db /stats.json vs dittobase.com/unite/stats (RSC payload) vs serebii.net per-Pokémon stat tables",
+  "retrievedAt": "2026-10-13T16:40:17.596Z",
+  "notes": [
+    "dittobase rows carry the unite-db id of each Pokémon (uniteDbId): it appears to mirror unite-db, so agreement is expected and is not independent confirmation.",
+    "Serebii publishes HP/Atk/Def/SpA/SpD only (its Speed column is empty); Serebii tables are often older than the current balance patch."
+  ],
+  "summary": {
+    "uniteDbPokemon": 101,
+    "comparedWithDittobase": 91,
+    "identicalWithDittobase": 88,
+    "comparedWithSerebii": 100,
+    "identicalWithSerebii": 32
+  },
+  "pokemon": [
+    {
+      "pokemonId": "absol",
+      "name": "Absol",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/absol.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 39,
+        "examples": [
+          "L2 hp: unite-db 3114 vs serebii 3187",
+          "L2 defense: unite-db 61 vs serebii 70",
+          "L2 spDefense: unite-db 42 vs serebii 48",
+          "L3 hp: unite-db 3239 vs serebii 3380",
+          "L3 defense: unite-db 71 vs serebii 87",
+          "L3 spDefense: unite-db 48 vs serebii 59",
+          "L4 hp: unite-db 3377 vs serebii 3579",
+          "L4 defense: unite-db 82 vs serebii 105",
+          "L4 spDefense: unite-db 55 vs serebii 71",
+          "L5 hp: unite-db 3528 vs serebii 3783"
+        ]
+      }
+    },
+    {
+      "pokemonId": "aegislash",
+      "name": "Aegislash",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/aegislash.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 30,
+        "examples": [
+          "L1 defense: unite-db 80 vs serebii 50",
+          "L1 spDefense: unite-db 60 vs serebii 35",
+          "L2 defense: unite-db 83 vs serebii 53",
+          "L2 spDefense: unite-db 62 vs serebii 37",
+          "L3 defense: unite-db 86 vs serebii 56",
+          "L3 spDefense: unite-db 64 vs serebii 39",
+          "L4 defense: unite-db 90 vs serebii 60",
+          "L4 spDefense: unite-db 67 vs serebii 42",
+          "L5 defense: unite-db 105 vs serebii 75",
+          "L5 spDefense: unite-db 77 vs serebii 52"
+        ]
+      }
+    },
+    {
+      "pokemonId": "alcremie",
+      "name": "Alcremie",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/alcremie.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 3,
+        "examples": [
+          "L13 spDefense: unite-db 283 vs serebii 282",
+          "L14 spDefense: unite-db 323 vs serebii 322",
+          "L15 spDefense: unite-db 370 vs serebii 270"
+        ]
+      }
+    },
+    {
+      "pokemonId": "armarouge",
+      "name": "Armarouge",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/armarouge.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "articuno",
+      "name": "Articuno",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/articuno.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 47,
+        "examples": [
+          "L1 hp: unite-db 3740 vs serebii 6168",
+          "L1 attack: unite-db 20 vs serebii 134",
+          "L1 defense: unite-db 114 vs serebii 60",
+          "L1 spAttack: unite-db 96 vs serebii 50",
+          "L1 spDefense: unite-db 118 vs serebii 40",
+          "L2 hp: unite-db 3964 vs serebii 3982",
+          "L2 defense: unite-db 131 vs serebii 133",
+          "L2 spDefense: unite-db 132 vs serebii 138",
+          "L3 hp: unite-db 4210 vs serebii 4248",
+          "L3 defense: unite-db 150 vs serebii 154"
+        ]
+      }
+    },
+    {
+      "pokemonId": "azumarill",
+      "name": "Azumarill",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/azumarill.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 4,
+        "examples": [
+          "L4 hp: unite-db 4064 vs serebii 3604",
+          "L4 attack: unite-db 185 vs serebii 151",
+          "L4 defense: unite-db 136 vs serebii 104",
+          "L4 spAttack: unite-db 36 vs serebii 27"
+        ]
+      }
+    },
+    {
+      "pokemonId": "blastoise",
+      "name": "Blastoise",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/blastoise.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 39,
+        "examples": [
+          "L1 defense: unite-db 100 vs serebii 700",
+          "L2 defense: unite-db 108 vs serebii 107",
+          "L3 defense: unite-db 117 vs serebii 116",
+          "L3 spDefense: unite-db 82 vs serebii 81",
+          "L4 defense: unite-db 128 vs serebii 126",
+          "L4 spDefense: unite-db 90 vs serebii 88",
+          "L5 defense: unite-db 169 vs serebii 163",
+          "L5 spDefense: unite-db 119 vs serebii 114",
+          "L6 defense: unite-db 185 vs serebii 178",
+          "L6 spDefense: unite-db 130 vs serebii 124"
+        ]
+      }
+    },
+    {
+      "pokemonId": "blaziken",
+      "name": "Blaziken",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/blaziken.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 2,
+        "examples": [
+          "L15 defense: unite-db 458 vs serebii 460",
+          "L15 spDefense: unite-db 351 vs serebii 350"
+        ]
+      }
+    },
+    {
+      "pokemonId": "blissey",
+      "name": "Blissey",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/blissey.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "buzzwole",
+      "name": "Buzzwole",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/buzzwole.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 14,
+        "examples": [
+          "L1 attack: unite-db 170 vs serebii 155",
+          "L2 attack: unite-db 180 vs serebii 166",
+          "L3 attack: unite-db 191 vs serebii 178",
+          "L4 attack: unite-db 203 vs serebii 191",
+          "L5 attack: unite-db 216 vs serebii 205",
+          "L6 attack: unite-db 231 vs serebii 220",
+          "L7 attack: unite-db 247 vs serebii 237",
+          "L8 attack: unite-db 265 vs serebii 256",
+          "L9 attack: unite-db 285 vs serebii 277",
+          "L10 attack: unite-db 306 vs serebii 300"
+        ]
+      }
+    },
+    {
+      "pokemonId": "ceruledge",
+      "name": "Ceruledge",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/ceruledge.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "charizard",
+      "name": "Charizard",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/charizard.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 21,
+        "examples": [
+          "L4 attack: unite-db 176 vs serebii 175",
+          "L7 hp: unite-db 4516 vs serebii 4066",
+          "L7 attack: unite-db 249 vs serebii 219",
+          "L7 spAttack: unite-db 48 vs serebii 38",
+          "L8 hp: unite-db 4709 vs serebii 4259",
+          "L8 attack: unite-db 262 vs serebii 232",
+          "L8 spAttack: unite-db 52 vs serebii 42",
+          "L9 attack: unite-db 277 vs serebii 278",
+          "L9 spAttack: unite-db 57 vs serebii 56",
+          "L10 attack: unite-db 296 vs serebii 297"
+        ]
+      }
+    },
+    {
+      "pokemonId": "mega-charizard-x",
+      "name": "Mega-Charizard-X",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/megacharizardx.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 21,
+        "examples": [
+          "L4 attack: unite-db 176 vs serebii 175",
+          "L7 hp: unite-db 4516 vs serebii 4066",
+          "L7 attack: unite-db 249 vs serebii 219",
+          "L7 spAttack: unite-db 48 vs serebii 38",
+          "L8 hp: unite-db 4709 vs serebii 4259",
+          "L8 attack: unite-db 262 vs serebii 232",
+          "L8 spAttack: unite-db 52 vs serebii 42",
+          "L9 attack: unite-db 277 vs serebii 278",
+          "L9 spAttack: unite-db 57 vs serebii 56",
+          "L10 attack: unite-db 296 vs serebii 297"
+        ]
+      }
+    },
+    {
+      "pokemonId": "mega-charizard-y",
+      "name": "Mega-Charizard-Y",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/megacharizardy.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 21,
+        "examples": [
+          "L4 attack: unite-db 176 vs serebii 175",
+          "L7 hp: unite-db 4516 vs serebii 4066",
+          "L7 attack: unite-db 249 vs serebii 219",
+          "L7 spAttack: unite-db 48 vs serebii 38",
+          "L8 hp: unite-db 4709 vs serebii 4259",
+          "L8 attack: unite-db 262 vs serebii 232",
+          "L8 spAttack: unite-db 52 vs serebii 42",
+          "L9 attack: unite-db 277 vs serebii 278",
+          "L9 spAttack: unite-db 57 vs serebii 56",
+          "L10 attack: unite-db 296 vs serebii 297"
+        ]
+      }
+    },
+    {
+      "pokemonId": "chandelure",
+      "name": "Chandelure",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/chandelure.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 1,
+        "examples": [
+          "L12 defense: unite-db 124 vs serebii 134"
+        ]
+      }
+    },
+    {
+      "pokemonId": "cinderace",
+      "name": "Cinderace",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/cinderace.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 41,
+        "examples": [
+          "L2 hp: unite-db 3043 vs serebii 3034",
+          "L2 spDefense: unite-db 33 vs serebii 32",
+          "L3 hp: unite-db 3095 vs serebii 3075",
+          "L3 defense: unite-db 57 vs serebii 56",
+          "L3 spDefense: unite-db 36 vs serebii 34",
+          "L4 hp: unite-db 3157 vs serebii 3124",
+          "L4 defense: unite-db 62 vs serebii 60",
+          "L4 spDefense: unite-db 40 vs serebii 36",
+          "L5 hp: unite-db 3382 vs serebii 3304",
+          "L5 defense: unite-db 78 vs serebii 75"
+        ]
+      }
+    },
+    {
+      "pokemonId": "clefable",
+      "name": "Clefable",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/clefable.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 5,
+        "examples": [
+          "L3 hp: unite-db 3527 vs serebii 3572",
+          "L5 defense: unite-db 96 vs serebii 92",
+          "L7 spDefense: unite-db 119 vs serebii 110",
+          "L8 spDefense: unite-db 134 vs serebii 124",
+          "L14 spDefense: unite-db 289 vs serebii 280"
+        ]
+      }
+    },
+    {
+      "pokemonId": "comfey",
+      "name": "Comfey",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/comfey.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 43,
+        "examples": [
+          "L1 hp: unite-db 3000 vs serebii 3100",
+          "L2 hp: unite-db 3103 vs serebii 3189",
+          "L2 defense: unite-db 47 vs serebii 45",
+          "L2 spDefense: unite-db 37 vs serebii 35",
+          "L3 hp: unite-db 3217 vs serebii 3287",
+          "L3 defense: unite-db 55 vs serebii 51",
+          "L3 spDefense: unite-db 44 vs serebii 40",
+          "L4 hp: unite-db 3342 vs serebii 3395",
+          "L4 defense: unite-db 64 vs serebii 57",
+          "L4 spDefense: unite-db 52 vs serebii 46"
+        ]
+      }
+    },
+    {
+      "pokemonId": "cramorant",
+      "name": "Cramorant",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/cramorant.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "crustle",
+      "name": "Crustle",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/crustle.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 28,
+        "examples": [
+          "L2 defense: unite-db 109 vs serebii 108",
+          "L2 spDefense: unite-db 76 vs serebii 74",
+          "L3 defense: unite-db 123 vs serebii 120",
+          "L3 spDefense: unite-db 86 vs serebii 82",
+          "L4 defense: unite-db 193 vs serebii 182",
+          "L4 spDefense: unite-db 137 vs serebii 125",
+          "L5 defense: unite-db 211 vs serebii 198",
+          "L5 spDefense: unite-db 150 vs serebii 136",
+          "L6 defense: unite-db 232 vs serebii 217",
+          "L6 spDefense: unite-db 165 vs serebii 149"
+        ]
+      }
+    },
+    {
+      "pokemonId": "darkrai",
+      "name": "Darkrai",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/darkrai.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "decidueye",
+      "name": "Decidueye",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/decidueye.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 41,
+        "examples": [
+          "L1 hp: unite-db 3200 vs serebii 3000",
+          "L1 spDefense: unite-db 76 vs serebii 30",
+          "L2 hp: unite-db 3240 vs serebii 3031",
+          "L2 spDefense: unite-db 80 vs serebii 33",
+          "L3 hp: unite-db 3288 vs serebii 3068",
+          "L3 attack: unite-db 135 vs serebii 136",
+          "L3 spDefense: unite-db 84 vs serebii 36",
+          "L4 hp: unite-db 3346 vs serebii 3112",
+          "L4 attack: unite-db 142 vs serebii 143",
+          "L4 spDefense: unite-db 89 vs serebii 40"
+        ]
+      }
+    },
+    {
+      "pokemonId": "delphox",
+      "name": "Delphox",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/delphox.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 5,
+        "examples": [
+          "L1 hp: unite-db 3300 vs serebii 3000",
+          "L8 spDefense: unite-db 93 vs serebii 92",
+          "L14 spAttack: unite-db 816 vs serebii 819",
+          "L15 defense: unite-db 175 vs serebii 174",
+          "L15 spAttack: unite-db 950 vs serebii 650"
+        ]
+      }
+    },
+    {
+      "pokemonId": "dhelmise",
+      "name": "Dhelmise",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/dhelmise.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 42,
+        "examples": [
+          "L2 hp: unite-db 3448 vs serebii 3405",
+          "L2 defense: unite-db 106 vs serebii 104",
+          "L2 spDefense: unite-db 82 vs serebii 80",
+          "L3 hp: unite-db 3665 vs serebii 3575",
+          "L3 defense: unite-db 124 vs serebii 119",
+          "L3 spDefense: unite-db 95 vs serebii 91",
+          "L4 hp: unite-db 3904 vs serebii 3762",
+          "L4 defense: unite-db 143 vs serebii 136",
+          "L4 spDefense: unite-db 110 vs serebii 103",
+          "L5 hp: unite-db 4166 vs serebii 3968"
+        ]
+      }
+    },
+    {
+      "pokemonId": "dodrio",
+      "name": "Dodrio",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/dodrio.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 65,
+        "examples": [
+          "L1 hp: unite-db 3050 vs serebii 3100",
+          "L1 attack: unite-db 150 vs serebii 160",
+          "L1 spDefense: unite-db 35 vs serebii 40",
+          "L2 hp: unite-db 3122 vs serebii 3174",
+          "L2 attack: unite-db 161 vs serebii 170",
+          "L2 spDefense: unite-db 39 vs serebii 44",
+          "L3 hp: unite-db 3205 vs serebii 3259",
+          "L3 attack: unite-db 173 vs serebii 182",
+          "L3 defense: unite-db 57 vs serebii 58",
+          "L3 spDefense: unite-db 43 vs serebii 48"
+        ]
+      }
+    },
+    {
+      "pokemonId": "dragapult",
+      "name": "Dragapult",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/dragapult.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "dragonite",
+      "name": "Dragonite",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/dragonite.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 27,
+        "examples": [
+          "L2 defense: unite-db 84 vs serebii 83",
+          "L3 defense: unite-db 91 vs serebii 89",
+          "L3 spDefense: unite-db 69 vs serebii 68",
+          "L4 defense: unite-db 99 vs serebii 96",
+          "L4 spDefense: unite-db 75 vs serebii 73",
+          "L5 defense: unite-db 128 vs serebii 121",
+          "L5 spDefense: unite-db 97 vs serebii 92",
+          "L6 defense: unite-db 140 vs serebii 131",
+          "L6 spDefense: unite-db 106 vs serebii 100",
+          "L7 defense: unite-db 154 vs serebii 143"
+        ]
+      }
+    },
+    {
+      "pokemonId": "duraludon",
+      "name": "Duraludon",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/duraludon.shtml",
+      "dittobase": [
+        "L1 hp: unite-db 3200 vs dittobase 3000",
+        "L2 hp: unite-db 3300 vs dittobase 3085",
+        "L3 hp: unite-db 3410 vs dittobase 3179",
+        "L4 hp: unite-db 3531 vs dittobase 3282",
+        "L5 hp: unite-db 3664 vs dittobase 3395",
+        "L6 hp: unite-db 3811 vs dittobase 3520",
+        "L7 hp: unite-db 3972 vs dittobase 3657",
+        "L8 hp: unite-db 4149 vs dittobase 3808",
+        "L9 hp: unite-db 4344 vs dittobase 3975",
+        "L10 hp: unite-db 4559 vs dittobase 4159",
+        "L11 hp: unite-db 4795 vs dittobase 4362",
+        "L12 hp: unite-db 5054 vs dittobase 4585",
+        "L13 hp: unite-db 5340 vs dittobase 4830",
+        "L14 hp: unite-db 5654 vs dittobase 5100",
+        "L15 hp: unite-db 6000 vs dittobase 5397"
+      ],
+      "serebii": {
+        "mismatches": 15,
+        "examples": [
+          "L1 hp: unite-db 3200 vs serebii 3000",
+          "L2 hp: unite-db 3300 vs serebii 3085",
+          "L3 hp: unite-db 3410 vs serebii 3179",
+          "L4 hp: unite-db 3531 vs serebii 3282",
+          "L5 hp: unite-db 3664 vs serebii 3395",
+          "L6 hp: unite-db 3811 vs serebii 3520",
+          "L7 hp: unite-db 3972 vs serebii 3657",
+          "L8 hp: unite-db 4149 vs serebii 3808",
+          "L9 hp: unite-db 4344 vs serebii 3975",
+          "L10 hp: unite-db 4559 vs serebii 4159"
+        ]
+      }
+    },
+    {
+      "pokemonId": "eldegoss",
+      "name": "Eldegoss",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/eldegoss.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "empoleon",
+      "name": "Empoleon",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/empoleon.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 2,
+        "examples": [
+          "L4 spDefense: unite-db 83 vs serebii 82",
+          "L7 spDefense: unite-db 163 vs serebii 162"
+        ]
+      }
+    },
+    {
+      "pokemonId": "espeon",
+      "name": "Espeon",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/espeon.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "falinks",
+      "name": "Falinks",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/falinks.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "feraligatr",
+      "name": "Feraligatr",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": null,
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/feraligatr.shtml",
+      "dittobase": "not on dittobase",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "garchomp",
+      "name": "Garchomp",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/garchomp.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 51,
+        "examples": [
+          "L1 hp: unite-db 3300 vs serebii 3050",
+          "L1 defense: unite-db 98 vs serebii 90",
+          "L1 spDefense: unite-db 86 vs serebii 67",
+          "L2 hp: unite-db 3370 vs serebii 3117",
+          "L2 defense: unite-db 104 vs serebii 95",
+          "L2 spDefense: unite-db 91 vs serebii 71",
+          "L3 hp: unite-db 3453 vs serebii 3198",
+          "L3 defense: unite-db 111 vs serebii 102",
+          "L3 spDefense: unite-db 96 vs serebii 76",
+          "L4 hp: unite-db 3554 vs serebii 3295"
+        ]
+      }
+    },
+    {
+      "pokemonId": "gardevoir",
+      "name": "Gardevoir",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/gardevoir.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 45,
+        "examples": [
+          "L2 hp: unite-db 3250 vs serebii 3245",
+          "L2 defense: unite-db 39 vs serebii 38",
+          "L2 spDefense: unite-db 30 vs serebii 29",
+          "L3 hp: unite-db 3310 vs serebii 3299",
+          "L3 defense: unite-db 43 vs serebii 41",
+          "L3 spDefense: unite-db 33 vs serebii 32",
+          "L4 hp: unite-db 3382 vs serebii 3363",
+          "L4 defense: unite-db 48 vs serebii 45",
+          "L4 spDefense: unite-db 37 vs serebii 35",
+          "L5 hp: unite-db 3644 vs serebii 3596"
+        ]
+      }
+    },
+    {
+      "pokemonId": "gengar",
+      "name": "Gengar",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/gengar.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 52,
+        "examples": [
+          "L2 hp: unite-db 3510 vs serebii 3660",
+          "L2 attack: unite-db 21 vs serebii 25",
+          "L2 defense: unite-db 56 vs serebii 70",
+          "L2 spDefense: unite-db 40 vs serebii 49",
+          "L3 hp: unite-db 3574 vs serebii 3871",
+          "L3 attack: unite-db 23 vs serebii 30",
+          "L3 defense: unite-db 61 vs serebii 88",
+          "L3 spDefense: unite-db 43 vs serebii 61",
+          "L4 hp: unite-db 3651 vs serebii 4087",
+          "L4 attack: unite-db 25 vs serebii 35"
+        ]
+      }
+    },
+    {
+      "pokemonId": "glaceon",
+      "name": "Glaceon",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/glaceon.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 10,
+        "examples": [
+          "L2 defense: unite-db 78 vs serebii 75",
+          "L5 spAttack: unite-db 265 vs serebii 264",
+          "L6 spAttack: unite-db 295 vs serebii 294",
+          "L7 spAttack: unite-db 330 vs serebii 329",
+          "L8 spAttack: unite-db 370 vs serebii 369",
+          "L9 spAttack: unite-db 416 vs serebii 415",
+          "L10 spAttack: unite-db 469 vs serebii 468",
+          "L11 spAttack: unite-db 530 vs serebii 529",
+          "L12 spAttack: unite-db 600 vs serebii 599",
+          "L13 spAttack: unite-db 681 vs serebii 680"
+        ]
+      }
+    },
+    {
+      "pokemonId": "goodra",
+      "name": "Goodra",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/goodra.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 26,
+        "examples": [
+          "L2 spDefense: unite-db 107 vs serebii 106",
+          "L3 spDefense: unite-db 115 vs serebii 113",
+          "L4 defense: unite-db 127 vs serebii 126",
+          "L4 spDefense: unite-db 125 vs serebii 121",
+          "L5 defense: unite-db 166 vs serebii 163",
+          "L5 spDefense: unite-db 162 vs serebii 151",
+          "L6 defense: unite-db 181 vs serebii 178",
+          "L6 spDefense: unite-db 177 vs serebii 163",
+          "L7 defense: unite-db 200 vs serebii 196",
+          "L7 spDefense: unite-db 195 vs serebii 177"
+        ]
+      }
+    },
+    {
+      "pokemonId": "greedent",
+      "name": "Greedent",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/greedent.shtml",
+      "dittobase": [
+        "L2 defense: unite-db 84 vs dittobase 85",
+        "L2 spDefense: unite-db 68 vs dittobase 69",
+        "L3 defense: unite-db 95 vs dittobase 97",
+        "L3 spDefense: unite-db 77 vs dittobase 79",
+        "L4 defense: unite-db 108 vs dittobase 111",
+        "L4 spDefense: unite-db 88 vs dittobase 91",
+        "L5 defense: unite-db 165 vs dittobase 173",
+        "L5 spDefense: unite-db 136 vs dittobase 144",
+        "L6 defense: unite-db 181 vs dittobase 191",
+        "L6 spDefense: unite-db 150 vs dittobase 159",
+        "L7 defense: unite-db 200 vs dittobase 212",
+        "L7 spDefense: unite-db 166 vs dittobase 177",
+        "L8 defense: unite-db 222 vs dittobase 236",
+        "L8 spDefense: unite-db 184 vs dittobase 198",
+        "L9 defense: unite-db 247 vs dittobase 263",
+        "L9 spDefense: unite-db 206 vs dittobase 222",
+        "L10 defense: unite-db 276 vs dittobase 295",
+        "L10 spDefense: unite-db 230 vs dittobase 249",
+        "L11 defense: unite-db 309 vs dittobase 331",
+        "L11 spDefense: unite-db 258 vs dittobase 280",
+        "L12 defense: unite-db 347 vs dittobase 373",
+        "L12 spDefense: unite-db 291 vs dittobase 316",
+        "L13 defense: unite-db 391 vs dittobase 421",
+        "L13 spDefense: unite-db 328 vs dittobase 357",
+        "L14 defense: unite-db 442 vs dittobase 476",
+        "L14 spDefense: unite-db 371 vs dittobase 405",
+        "L15 defense: unite-db 500 vs dittobase 540",
+        "L15 spDefense: unite-db 420 vs dittobase 460"
+      ],
+      "serebii": {
+        "mismatches": 30,
+        "examples": [
+          "L2 defense: unite-db 84 vs serebii 85",
+          "L2 spDefense: unite-db 68 vs serebii 69",
+          "L3 defense: unite-db 95 vs serebii 97",
+          "L3 spDefense: unite-db 77 vs serebii 79",
+          "L4 defense: unite-db 108 vs serebii 111",
+          "L4 spDefense: unite-db 88 vs serebii 91",
+          "L5 defense: unite-db 165 vs serebii 173",
+          "L5 spDefense: unite-db 136 vs serebii 144",
+          "L6 defense: unite-db 181 vs serebii 191",
+          "L6 spDefense: unite-db 150 vs serebii 159"
+        ]
+      }
+    },
+    {
+      "pokemonId": "greninja",
+      "name": "Greninja",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/greninja.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 3,
+        "examples": [
+          "L4 attack: unite-db 165 vs serebii 164",
+          "L11 spAttack: unite-db 71 vs serebii 74",
+          "L13 attack: unite-db 400 vs serebii 401"
+        ]
+      }
+    },
+    {
+      "pokemonId": "gyarados",
+      "name": "Gyarados",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/gyarados.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 43,
+        "examples": [
+          "L1 hp: unite-db 3250 vs serebii 3100",
+          "L2 hp: unite-db 3389 vs serebii 3239",
+          "L2 defense: unite-db 93 vs serebii 91",
+          "L2 spDefense: unite-db 70 vs serebii 69",
+          "L3 hp: unite-db 3542 vs serebii 3392",
+          "L3 defense: unite-db 108 vs serebii 104",
+          "L3 spDefense: unite-db 81 vs serebii 78",
+          "L4 hp: unite-db 3710 vs serebii 3560",
+          "L4 defense: unite-db 124 vs serebii 118",
+          "L4 spDefense: unite-db 93 vs serebii 88"
+        ]
+      }
+    },
+    {
+      "pokemonId": "mega-gyarados",
+      "name": "Mega-Gyarados",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/megagyarados.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 75,
+        "examples": [
+          "L1 hp: unite-db 3100 vs serebii null",
+          "L1 attack: unite-db 140 vs serebii null",
+          "L1 defense: unite-db 80 vs serebii null",
+          "L1 spAttack: unite-db 20 vs serebii null",
+          "L1 spDefense: unite-db 60 vs serebii null",
+          "L2 hp: unite-db 3239 vs serebii null",
+          "L2 attack: unite-db 149 vs serebii null",
+          "L2 defense: unite-db 93 vs serebii null",
+          "L2 spAttack: unite-db 23 vs serebii null",
+          "L2 spDefense: unite-db 70 vs serebii null"
+        ]
+      }
+    },
+    {
+      "pokemonId": "ho-oh",
+      "name": "Ho-Oh",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/ho-oh.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 1,
+        "examples": [
+          "L2 spDefense: unite-db 82 vs serebii 83"
+        ]
+      }
+    },
+    {
+      "pokemonId": "hoopa",
+      "name": "Hoopa",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/hoopa.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "inteleon",
+      "name": "Inteleon",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/inteleon.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 40,
+        "examples": [
+          "L2 hp: unite-db 3248 vs serebii 3244",
+          "L3 hp: unite-db 3305 vs serebii 3297",
+          "L3 defense: unite-db 42 vs serebii 41",
+          "L3 spDefense: unite-db 32 vs serebii 31",
+          "L4 hp: unite-db 3374 vs serebii 3361",
+          "L4 defense: unite-db 47 vs serebii 45",
+          "L4 spDefense: unite-db 37 vs serebii 35",
+          "L5 hp: unite-db 3625 vs serebii 3593",
+          "L5 defense: unite-db 64 vs serebii 59",
+          "L5 spDefense: unite-db 55 vs serebii 50"
+        ]
+      }
+    },
+    {
+      "pokemonId": "lapras",
+      "name": "Lapras",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/lapras.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 14,
+        "examples": [
+          "L1 spAttack: unite-db 90 vs serebii 60",
+          "L2 spAttack: unite-db 102 vs serebii 73",
+          "L3 spAttack: unite-db 115 vs serebii 88",
+          "L4 spAttack: unite-db 130 vs serebii 104",
+          "L5 spAttack: unite-db 146 vs serebii 122",
+          "L6 spAttack: unite-db 164 vs serebii 141",
+          "L7 spAttack: unite-db 183 vs serebii 162",
+          "L8 spAttack: unite-db 204 vs serebii 185",
+          "L9 spAttack: unite-db 228 vs serebii 211",
+          "L10 spAttack: unite-db 254 vs serebii 239"
+        ]
+      }
+    },
+    {
+      "pokemonId": "latias",
+      "name": "Latias",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/latias.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 42,
+        "examples": [
+          "L2 hp: unite-db 3489 vs serebii 3439",
+          "L2 defense: unite-db 69 vs serebii 68",
+          "L2 spDefense: unite-db 69 vs serebii 68",
+          "L3 hp: unite-db 3697 vs serebii 3592",
+          "L3 defense: unite-db 78 vs serebii 77",
+          "L3 spDefense: unite-db 79 vs serebii 77",
+          "L4 hp: unite-db 3925 vs serebii 3760",
+          "L4 defense: unite-db 88 vs serebii 86",
+          "L4 spDefense: unite-db 90 vs serebii 87",
+          "L5 hp: unite-db 4175 vs serebii 3944"
+        ]
+      }
+    },
+    {
+      "pokemonId": "latios",
+      "name": "Latios",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/latios.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "leafeon",
+      "name": "Leafeon",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/leafeon.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 1,
+        "examples": [
+          "L2 spDefense: unite-db 34 vs serebii 31"
+        ]
+      }
+    },
+    {
+      "pokemonId": "lucario",
+      "name": "Lucario",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/lucario.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 26,
+        "examples": [
+          "L1 attack: unite-db 160 vs serebii 165",
+          "L2 attack: unite-db 170 vs serebii 175",
+          "L3 attack: unite-db 180 vs serebii 186",
+          "L4 attack: unite-db 192 vs serebii 198",
+          "L5 attack: unite-db 205 vs serebii 211",
+          "L5 spAttack: unite-db 35 vs serebii 36",
+          "L6 attack: unite-db 219 vs serebii 225",
+          "L6 spAttack: unite-db 40 vs serebii 41",
+          "L7 attack: unite-db 234 vs serebii 241",
+          "L7 spAttack: unite-db 45 vs serebii 46"
+        ]
+      }
+    },
+    {
+      "pokemonId": "mega-lucario",
+      "name": "Mega-Lucario",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/megalucario.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 75,
+        "examples": [
+          "L1 hp: unite-db 3250 vs serebii null",
+          "L1 attack: unite-db 160 vs serebii null",
+          "L1 defense: unite-db 78 vs serebii null",
+          "L1 spAttack: unite-db 20 vs serebii null",
+          "L1 spDefense: unite-db 60 vs serebii null",
+          "L2 hp: unite-db 3392 vs serebii null",
+          "L2 attack: unite-db 170 vs serebii null",
+          "L2 defense: unite-db 89 vs serebii null",
+          "L2 spAttack: unite-db 23 vs serebii null",
+          "L2 spDefense: unite-db 69 vs serebii null"
+        ]
+      }
+    },
+    {
+      "pokemonId": "machamp",
+      "name": "Machamp",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/machamp.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "mamoswine",
+      "name": "Mamoswine",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/mamoswine.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "meganium",
+      "name": "Meganium",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": null,
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/meganium.shtml",
+      "dittobase": "not on dittobase",
+      "serebii": {
+        "mismatches": 45,
+        "examples": [
+          "L1 hp: unite-db 3640 vs serebii 3580",
+          "L1 defense: unite-db 98 vs serebii 94",
+          "L1 spDefense: unite-db 98 vs serebii 94",
+          "L2 hp: unite-db 3726 vs serebii 3661",
+          "L2 defense: unite-db 104 vs serebii 100",
+          "L2 spDefense: unite-db 104 vs serebii 100",
+          "L3 hp: unite-db 3828 vs serebii 3758",
+          "L3 defense: unite-db 111 vs serebii 106",
+          "L3 spDefense: unite-db 111 vs serebii 106",
+          "L4 hp: unite-db 3952 vs serebii 3874"
+        ]
+      }
+    },
+    {
+      "pokemonId": "meowscarada",
+      "name": "Meowscarada",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/meowscarada.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 40,
+        "examples": [
+          "L2 hp: unite-db 3149 vs serebii 3286",
+          "L2 defense: unite-db 54 vs serebii 69",
+          "L2 spDefense: unite-db 43 vs serebii 53",
+          "L3 hp: unite-db 3207 vs serebii 3477",
+          "L3 defense: unite-db 59 vs serebii 89",
+          "L3 spDefense: unite-db 46 vs serebii 65",
+          "L4 hp: unite-db 3446 vs serebii 3779",
+          "L4 defense: unite-db 79 vs serebii 117",
+          "L4 spDefense: unite-db 59 vs serebii 84",
+          "L5 hp: unite-db 3530 vs serebii 3982"
+        ]
+      }
+    },
+    {
+      "pokemonId": "meowth",
+      "name": "Meowth",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/meowth.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "metagross",
+      "name": "Metagross",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/metagross.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "mew",
+      "name": "Mew",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/mew.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 14,
+        "examples": [
+          "L2 spAttack: unite-db 119 vs serebii 121",
+          "L3 spAttack: unite-db 151 vs serebii 155",
+          "L4 spAttack: unite-db 186 vs serebii 192",
+          "L5 spAttack: unite-db 224 vs serebii 233",
+          "L6 spAttack: unite-db 266 vs serebii 278",
+          "L7 spAttack: unite-db 312 vs serebii 327",
+          "L8 spAttack: unite-db 363 vs serebii 381",
+          "L9 spAttack: unite-db 419 vs serebii 441",
+          "L10 spAttack: unite-db 481 vs serebii 507",
+          "L11 spAttack: unite-db 550 vs serebii 579"
+        ]
+      }
+    },
+    {
+      "pokemonId": "mewtwox",
+      "name": "MewtwoX",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/mewtwox.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 15,
+        "examples": [
+          "L1 attack: unite-db 190 vs serebii 210",
+          "L2 attack: unite-db 202 vs serebii 222",
+          "L3 attack: unite-db 215 vs serebii 235",
+          "L4 attack: unite-db 229 vs serebii 249",
+          "L5 attack: unite-db 245 vs serebii 265",
+          "L6 attack: unite-db 262 vs serebii 282",
+          "L7 attack: unite-db 281 vs serebii 301",
+          "L8 attack: unite-db 302 vs serebii 322",
+          "L9 attack: unite-db 325 vs serebii 345",
+          "L10 attack: unite-db 350 vs serebii 370"
+        ]
+      }
+    },
+    {
+      "pokemonId": "mewtwoy",
+      "name": "MewtwoY",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/mewtwoy.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "mimikyu",
+      "name": "Mimikyu",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/mimikyu.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 24,
+        "examples": [
+          "L1 spAttack: unite-db 20 vs serebii 70",
+          "L2 spAttack: unite-db 23 vs serebii 80",
+          "L3 attack: unite-db 175 vs serebii 174",
+          "L3 spAttack: unite-db 27 vs serebii 91",
+          "L4 attack: unite-db 186 vs serebii 185",
+          "L4 spAttack: unite-db 31 vs serebii 103",
+          "L5 attack: unite-db 199 vs serebii 198",
+          "L5 spAttack: unite-db 35 vs serebii 117",
+          "L6 attack: unite-db 213 vs serebii 212",
+          "L6 spAttack: unite-db 40 vs serebii 132"
+        ]
+      }
+    },
+    {
+      "pokemonId": "miraidon",
+      "name": "Miraidon",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/miraidon.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 42,
+        "examples": [
+          "L2 hp: unite-db 3442 vs serebii 3432",
+          "L2 defense: unite-db 79 vs serebii 77",
+          "L2 spDefense: unite-db 87 vs serebii 86",
+          "L3 hp: unite-db 3599 vs serebii 3577",
+          "L3 defense: unite-db 89 vs serebii 85",
+          "L3 spDefense: unite-db 95 vs serebii 92",
+          "L4 hp: unite-db 3771 vs serebii 3736",
+          "L4 defense: unite-db 100 vs serebii 94",
+          "L4 spDefense: unite-db 104 vs serebii 99",
+          "L5 hp: unite-db 3960 vs serebii 3911"
+        ]
+      }
+    },
+    {
+      "pokemonId": "moltres",
+      "name": "Moltres",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/moltres.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 60,
+        "examples": [
+          "L1 attack: unite-db 120 vs serebii 20",
+          "L1 defense: unite-db 80 vs serebii 120",
+          "L1 spAttack: unite-db 100 vs serebii 80",
+          "L1 spDefense: unite-db 70 vs serebii 100",
+          "L2 attack: unite-db 123 vs serebii 23",
+          "L2 defense: unite-db 95 vs serebii 123",
+          "L2 spAttack: unite-db 115 vs serebii 95",
+          "L2 spDefense: unite-db 85 vs serebii 115",
+          "L3 attack: unite-db 126 vs serebii 27",
+          "L3 defense: unite-db 112 vs serebii 126"
+        ]
+      }
+    },
+    {
+      "pokemonId": "morpeko",
+      "name": "Morpeko",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": null,
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/morpeko.shtml",
+      "dittobase": "not on dittobase",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "mr-mime",
+      "name": "Mr.Mime",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/mr.mime.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 14,
+        "examples": [
+          "L2 spAttack: unite-db 64 vs serebii 63",
+          "L3 spAttack: unite-db 80 vs serebii 77",
+          "L4 spAttack: unite-db 97 vs serebii 93",
+          "L5 spAttack: unite-db 116 vs serebii 110",
+          "L6 spAttack: unite-db 137 vs serebii 129",
+          "L7 spAttack: unite-db 160 vs serebii 150",
+          "L8 spAttack: unite-db 185 vs serebii 173",
+          "L9 spAttack: unite-db 213 vs serebii 198",
+          "L10 spAttack: unite-db 244 vs serebii 226",
+          "L11 spAttack: unite-db 278 vs serebii 257"
+        ]
+      }
+    },
+    {
+      "pokemonId": "ninetales",
+      "name": "Ninetales",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/alolanninetales.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 41,
+        "examples": [
+          "L2 defense: unite-db 39 vs serebii 38",
+          "L2 spAttack: unite-db 72 vs serebii 65",
+          "L2 spDefense: unite-db 30 vs serebii 29",
+          "L3 defense: unite-db 44 vs serebii 42",
+          "L3 spAttack: unite-db 96 vs serebii 81",
+          "L3 spDefense: unite-db 34 vs serebii 32",
+          "L4 defense: unite-db 69 vs serebii 60",
+          "L4 spAttack: unite-db 219 vs serebii 101",
+          "L4 spDefense: unite-db 53 vs serebii 46",
+          "L5 defense: unite-db 75 vs serebii 65"
+        ]
+      }
+    },
+    {
+      "pokemonId": "palkia",
+      "name": "Palkia",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": null,
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/palkia.shtml",
+      "dittobase": "not on dittobase",
+      "serebii": {
+        "mismatches": 31,
+        "examples": [
+          "L1 attack: unite-db 20 vs serebii 170",
+          "L1 spAttack: unite-db 118 vs serebii null",
+          "L2 attack: unite-db 23 vs serebii 183",
+          "L2 spAttack: unite-db 139 vs serebii null",
+          "L3 attack: unite-db 27 vs serebii 197",
+          "L3 spAttack: unite-db 162 vs serebii null",
+          "L4 attack: unite-db 31 vs serebii 212",
+          "L4 spAttack: unite-db 187 vs serebii null",
+          "L5 attack: unite-db 36 vs serebii 228",
+          "L5 spAttack: unite-db 214 vs serebii null"
+        ]
+      }
+    },
+    {
+      "pokemonId": "pawmot",
+      "name": "Pawmot",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/pawmot.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 1,
+        "examples": [
+          "L14 spDefense: unite-db 349 vs serebii 340"
+        ]
+      }
+    },
+    {
+      "pokemonId": "pikachu",
+      "name": "Pikachu",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/pikachu.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 28,
+        "examples": [
+          "L2 defense: unite-db 42 vs serebii 40",
+          "L2 spDefense: unite-db 33 vs serebii 31",
+          "L3 defense: unite-db 50 vs serebii 45",
+          "L3 spDefense: unite-db 40 vs serebii 35",
+          "L4 defense: unite-db 59 vs serebii 51",
+          "L4 spDefense: unite-db 47 vs serebii 40",
+          "L5 defense: unite-db 69 vs serebii 58",
+          "L5 spDefense: unite-db 55 vs serebii 45",
+          "L6 defense: unite-db 80 vs serebii 65",
+          "L6 spDefense: unite-db 64 vs serebii 51"
+        ]
+      }
+    },
+    {
+      "pokemonId": "psyduck",
+      "name": "Psyduck",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/psyduck.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 1,
+        "examples": [
+          "L7 spDefense: unite-db 136 vs serebii 126"
+        ]
+      }
+    },
+    {
+      "pokemonId": "quaquaval",
+      "name": "Quaquaval",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": null,
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/quaquaval.shtml",
+      "dittobase": "not on dittobase",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "raichu",
+      "name": "Raichu",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/alolanraichu.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 2,
+        "examples": [
+          "L14 hp: unite-db 6200 vs serebii 5854",
+          "L15 hp: unite-db 6854 vs serebii 6200"
+        ]
+      }
+    },
+    {
+      "pokemonId": "rapidash",
+      "name": "Rapidash",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/galarianrapidash.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "reshiram",
+      "name": "Reshiram",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": null,
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/reshiram.shtml",
+      "dittobase": "not on dittobase",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "sableye",
+      "name": "Sableye",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/sableye.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "scizor",
+      "name": "Scizor",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/scizor.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 30,
+        "examples": [
+          "L1 hp: unite-db 3200 vs serebii 3100",
+          "L1 defense: unite-db 92 vs serebii 45",
+          "L2 hp: unite-db 3280 vs serebii 3174",
+          "L2 defense: unite-db 98 vs serebii 51",
+          "L3 hp: unite-db 3372 vs serebii 3259",
+          "L3 defense: unite-db 105 vs serebii 58",
+          "L4 hp: unite-db 3478 vs serebii 3357",
+          "L4 defense: unite-db 113 vs serebii 66",
+          "L5 hp: unite-db 4339 vs serebii 4154",
+          "L5 defense: unite-db 203 vs serebii 143"
+        ]
+      }
+    },
+    {
+      "pokemonId": "scyther",
+      "name": "Scyther",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": null,
+      "dittobase": "identical",
+      "serebii": "not on serebii"
+    },
+    {
+      "pokemonId": "sirfetchd",
+      "name": "Sirfetchd",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/sirfetch'd.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "skeledirge",
+      "name": "Skeledirge",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": null,
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/skeledirge.shtml",
+      "dittobase": "not on dittobase",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "slowbro",
+      "name": "Slowbro",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/slowbro.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 27,
+        "examples": [
+          "L2 hp: unite-db 3361 vs serebii 3362",
+          "L3 hp: unite-db 3517 vs serebii 3519",
+          "L3 defense: unite-db 89 vs serebii 87",
+          "L4 hp: unite-db 4309 vs serebii 4318",
+          "L4 defense: unite-db 142 vs serebii 132",
+          "L5 hp: unite-db 4516 vs serebii 4527",
+          "L5 defense: unite-db 156 vs serebii 144",
+          "L6 hp: unite-db 4754 vs serebii 4767",
+          "L6 defense: unite-db 172 vs serebii 158",
+          "L7 hp: unite-db 5027 vs serebii 5042"
+        ]
+      }
+    },
+    {
+      "pokemonId": "snorlax",
+      "name": "Snorlax",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/snorlax.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 42,
+        "examples": [
+          "L1 spDefense: unite-db 70 vs serebii 67",
+          "L2 hp: unite-db 3553 vs serebii 3688",
+          "L2 defense: unite-db 116 vs serebii 114",
+          "L2 spDefense: unite-db 85 vs serebii 79",
+          "L3 hp: unite-db 3831 vs serebii 4091",
+          "L3 defense: unite-db 137 vs serebii 133",
+          "L3 spDefense: unite-db 101 vs serebii 92",
+          "L4 hp: unite-db 4137 vs serebii 4510",
+          "L4 defense: unite-db 160 vs serebii 154",
+          "L4 spDefense: unite-db 119 vs serebii 106"
+        ]
+      }
+    },
+    {
+      "pokemonId": "solgaleo",
+      "name": "Solgaleo",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": null,
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/solgaleo.shtml",
+      "dittobase": "not on dittobase",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "suicune",
+      "name": "Suicune",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/suicune.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 27,
+        "examples": [
+          "L1 spDefense: unite-db 70 vs serebii 60",
+          "L2 spDefense: unite-db 78 vs serebii 66",
+          "L3 spAttack: unite-db 133 vs serebii 132",
+          "L3 spDefense: unite-db 87 vs serebii 73",
+          "L4 spAttack: unite-db 163 vs serebii 162",
+          "L4 spDefense: unite-db 96 vs serebii 80",
+          "L5 spAttack: unite-db 196 vs serebii 195",
+          "L5 spDefense: unite-db 106 vs serebii 88",
+          "L6 spAttack: unite-db 233 vs serebii 231",
+          "L6 spDefense: unite-db 118 vs serebii 97"
+        ]
+      }
+    },
+    {
+      "pokemonId": "sylveon",
+      "name": "Sylveon",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/sylveon.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 16,
+        "examples": [
+          "L2 hp: unite-db 3494 vs serebii 3489",
+          "L3 hp: unite-db 3595 vs serebii 3584",
+          "L3 spAttack: unite-db 101 vs serebii 1401",
+          "L4 hp: unite-db 4105 vs serebii 4068",
+          "L5 hp: unite-db 4238 vs serebii 4195",
+          "L6 hp: unite-db 4391 vs serebii 4340",
+          "L7 hp: unite-db 4567 vs serebii 4507",
+          "L8 hp: unite-db 4770 vs serebii 4699",
+          "L9 hp: unite-db 5003 vs serebii 4920",
+          "L10 hp: unite-db 5271 vs serebii 5174"
+        ]
+      }
+    },
+    {
+      "pokemonId": "talonflame",
+      "name": "Talonflame",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/talonflame.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 44,
+        "examples": [
+          "L2 hp: unite-db 3072 vs serebii 3209",
+          "L2 defense: unite-db 62 vs serebii 75",
+          "L2 spDefense: unite-db 43 vs serebii 52",
+          "L3 hp: unite-db 3130 vs serebii 3399",
+          "L3 defense: unite-db 66 vs serebii 93",
+          "L3 spDefense: unite-db 46 vs serebii 63",
+          "L4 hp: unite-db 3200 vs serebii 3595",
+          "L4 defense: unite-db 71 vs serebii 110",
+          "L4 spDefense: unite-db 50 vs serebii 75",
+          "L5 hp: unite-db 3453 vs serebii 3904"
+        ]
+      }
+    },
+    {
+      "pokemonId": "tinkaton",
+      "name": "Tinkaton",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/tinkaton.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 14,
+        "examples": [
+          "L2 hp: unite-db 3324 vs serebii 3321",
+          "L3 hp: unite-db 3412 vs serebii 3406",
+          "L4 hp: unite-db 3518 vs serebii 3508",
+          "L5 hp: unite-db 3903 vs serebii 3878",
+          "L6 hp: unite-db 4057 vs serebii 4025",
+          "L7 hp: unite-db 4756 vs serebii 4697",
+          "L8 hp: unite-db 4997 vs serebii 4909",
+          "L9 hp: unite-db 5242 vs serebii 5164",
+          "L10 hp: unite-db 5560 vs serebii 5470",
+          "L11 hp: unite-db 5942 vs serebii 5837"
+        ]
+      }
+    },
+    {
+      "pokemonId": "toxtricity",
+      "name": "Toxtricity",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": null,
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/toxtricity.shtml",
+      "dittobase": "not on dittobase",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "trevenant",
+      "name": "Trevenant",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/trevenant.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "tsareena",
+      "name": "Tsareena",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/tsareena.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 9,
+        "examples": [
+          "L4 hp: unite-db 3529 vs serebii 3319",
+          "L4 spAttack: unite-db 30 vs serebii 25",
+          "L6 hp: unite-db 4178 vs serebii 3758",
+          "L6 spAttack: unite-db 44 vs serebii 35",
+          "L7 spAttack: unite-db 47 vs serebii 48",
+          "L8 spAttack: unite-db 51 vs serebii 52",
+          "L9 spAttack: unite-db 56 vs serebii 57",
+          "L10 spAttack: unite-db 62 vs serebii 63",
+          "L11 spAttack: unite-db 69 vs serebii 70"
+        ]
+      }
+    },
+    {
+      "pokemonId": "typhlosion",
+      "name": "Typhlosion",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/typhlosion.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "tyranitar",
+      "name": "Tyranitar",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/tyranitar.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "umbreon",
+      "name": "Umbreon",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/umbreon.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "urshifu",
+      "name": "Urshifu",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/urshifu.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 14,
+        "examples": [
+          "L2 defense: unite-db 88 vs serebii 89",
+          "L3 defense: unite-db 97 vs serebii 99",
+          "L4 defense: unite-db 107 vs serebii 111",
+          "L5 defense: unite-db 154 vs serebii 164",
+          "L6 defense: unite-db 168 vs serebii 179",
+          "L7 defense: unite-db 184 vs serebii 197",
+          "L8 defense: unite-db 202 vs serebii 218",
+          "L9 defense: unite-db 223 vs serebii 242",
+          "L10 defense: unite-db 247 vs serebii 269",
+          "L11 defense: unite-db 274 vs serebii 300"
+        ]
+      }
+    },
+    {
+      "pokemonId": "vaporeon",
+      "name": "Vaporeon",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/vaporeon.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 30,
+        "examples": [
+          "L3 attack: unite-db 25 vs serebii 24",
+          "L4 hp: unite-db 4551 vs serebii 3901",
+          "L4 attack: unite-db 37 vs serebii 27",
+          "L4 defense: unite-db 170 vs serebii 124",
+          "L4 spAttack: unite-db 154 vs serebii 118",
+          "L4 spDefense: unite-db 138 vs serebii 94",
+          "L5 defense: unite-db 185 vs serebii 184",
+          "L6 defense: unite-db 202 vs serebii 201",
+          "L7 defense: unite-db 222 vs serebii 221",
+          "L8 hp: unite-db 5648 vs serebii 5647"
+        ]
+      }
+    },
+    {
+      "pokemonId": "venusaur",
+      "name": "Venusaur",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/venusaur.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 55,
+        "examples": [
+          "L1 defense: unite-db 50 vs serebii 45",
+          "L1 spDefense: unite-db 50 vs serebii 35",
+          "L2 hp: unite-db 3350 vs serebii 3346",
+          "L2 defense: unite-db 53 vs serebii 48",
+          "L2 spDefense: unite-db 53 vs serebii 37",
+          "L3 hp: unite-db 3410 vs serebii 3401",
+          "L3 defense: unite-db 57 vs serebii 51",
+          "L3 spDefense: unite-db 56 vs serebii 39",
+          "L4 hp: unite-db 3482 vs serebii 3467",
+          "L4 defense: unite-db 62 vs serebii 55"
+        ]
+      }
+    },
+    {
+      "pokemonId": "wigglytuff",
+      "name": "Wigglytuff",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/wigglytuff.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "yveltal",
+      "name": "Yveltal",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": null,
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/yveltal.shtml",
+      "dittobase": "not on dittobase",
+      "serebii": {
+        "mismatches": 45,
+        "examples": [
+          "L1 hp: unite-db 3320 vs serebii 3360",
+          "L1 defense: unite-db 72 vs serebii 76",
+          "L1 spDefense: unite-db 72 vs serebii 76",
+          "L2 hp: unite-db 3452 vs serebii 3504",
+          "L2 defense: unite-db 80 vs serebii 85",
+          "L2 spDefense: unite-db 80 vs serebii 85",
+          "L3 hp: unite-db 3596 vs serebii 3663",
+          "L3 defense: unite-db 89 vs serebii 95",
+          "L3 spDefense: unite-db 89 vs serebii 95",
+          "L4 hp: unite-db 3755 vs serebii 3838"
+        ]
+      }
+    },
+    {
+      "pokemonId": "zacian",
+      "name": "Zacian",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/zacian.shtml",
+      "dittobase": "identical",
+      "serebii": "identical"
+    },
+    {
+      "pokemonId": "zapdos",
+      "name": "Zapdos",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/zapdos.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 5,
+        "examples": [
+          "L1 hp: unite-db 3320 vs serebii 6168",
+          "L1 attack: unite-db 20 vs serebii 134",
+          "L1 defense: unite-db 74 vs serebii 60",
+          "L1 spAttack: unite-db 120 vs serebii 50",
+          "L1 spDefense: unite-db 74 vs serebii 40"
+        ]
+      }
+    },
+    {
+      "pokemonId": "zeraora",
+      "name": "Zeraora",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/zeraora.shtml",
+      "dittobase": "identical",
+      "serebii": {
+        "mismatches": 1,
+        "examples": [
+          "L13 spAttack: unite-db 95 vs serebii 98"
+        ]
+      }
+    },
+    {
+      "pokemonId": "zoroark",
+      "name": "Zoroark",
+      "sourceUrl": "https://unite-db.com/stats.json",
+      "dittobaseUrl": "https://www.dittobase.com/unite/stats",
+      "serebiiUrl": "https://www.serebii.net/pokemonunite/pokemon/zoroark.shtml",
+      "dittobase": [
+        "L2 hp: unite-db 3105 vs dittobase 3100",
+        "L2 spDefense: unite-db 49 vs dittobase 48",
+        "L3 hp: unite-db 3191 vs dittobase 3181",
+        "L3 defense: unite-db 67 vs dittobase 65",
+        "L3 spDefense: unite-db 53 vs dittobase 51",
+        "L4 hp: unite-db 3290 vs dittobase 3274",
+        "L4 defense: unite-db 74 vs dittobase 71",
+        "L4 spDefense: unite-db 58 vs dittobase 55",
+        "L5 hp: unite-db 3741 vs dittobase 3698",
+        "L5 defense: unite-db 107 vs dittobase 99",
+        "L5 spDefense: unite-db 80 vs dittobase 73",
+        "L6 hp: unite-db 3872 vs dittobase 3821",
+        "L6 defense: unite-db 116 vs dittobase 107",
+        "L6 spDefense: unite-db 86 vs dittobase 78",
+        "L7 hp: unite-db 4022 vs dittobase 3962",
+        "L7 defense: unite-db 127 vs dittobase 116",
+        "L7 spDefense: unite-db 94 vs dittobase 84",
+        "L8 hp: unite-db 4195 vs dittobase 4125",
+        "L8 defense: unite-db 140 vs dittobase 127",
+        "L8 spDefense: unite-db 102 vs dittobase 91",
+        "L9 hp: unite-db 4394 vs dittobase 4312",
+        "L9 defense: unite-db 154 vs dittobase 139",
+        "L9 spDefense: unite-db 112 vs dittobase 99",
+        "L10 hp: unite-db 4624 vs dittobase 4528",
+        "L10 defense: unite-db 171 vs dittobase 153",
+        "L10 spDefense: unite-db 123 vs dittobase 108",
+        "L11 hp: unite-db 4887 vs dittobase 4776",
+        "L11 defense: unite-db 190 vs dittobase 169",
+        "L11 spDefense: unite-db 136 vs dittobase 119",
+        "L12 hp: unite-db 5190 vs dittobase 5061",
+        "L12 defense: unite-db 212 vs dittobase 187",
+        "L12 spDefense: unite-db 151 vs dittobase 131",
+        "L13 hp: unite-db 5539 vs dittobase 5389",
+        "L13 defense: unite-db 237 vs dittobase 208",
+        "L13 spDefense: unite-db 168 vs dittobase 145",
+        "L14 hp: unite-db 5939 vs dittobase 5766",
+        "L14 defense: unite-db 266 vs dittobase 232",
+        "L14 spDefense: unite-db 187 vs dittobase 161",
+        "L15 hp: unite-db 6400 vs dittobase 6200",
+        "L15 defense: unite-db 300 vs dittobase 260",
+        "L15 spDefense: unite-db 210 vs dittobase 180"
+      ],
+      "serebii": {
+        "mismatches": 41,
+        "examples": [
+          "L2 hp: unite-db 3105 vs serebii 3100",
+          "L2 spDefense: unite-db 49 vs serebii 48",
+          "L3 hp: unite-db 3191 vs serebii 3181",
+          "L3 defense: unite-db 67 vs serebii 65",
+          "L3 spDefense: unite-db 53 vs serebii 51",
+          "L4 hp: unite-db 3290 vs serebii 3274",
+          "L4 defense: unite-db 74 vs serebii 71",
+          "L4 spDefense: unite-db 58 vs serebii 55",
+          "L5 hp: unite-db 3741 vs serebii 3698",
+          "L5 defense: unite-db 107 vs serebii 99"
+        ]
+      }
+    }
+  ]
+}

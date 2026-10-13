@@ -3,7 +3,7 @@
   "sourcePage": "Module:Hero/data",
   "sourceUrl": "https://mobile-legends.fandom.com/wiki/Module:Hero/data",
   "moduleLastEdited": "2026-10-01T16:35:15Z",
-  "retrievedAt": "2026-10-13T16:33:42.973Z",
+  "retrievedAt": "2026-10-13T16:43:31.785Z",
   "license": "CC BY-SA 3.0 (Fandom). Attribution: contributors of mobile-legends.fandom.com",
   "notes": [
     "All numeric stats come from Module:Hero/data, the Lua table used by {{Infobox hero}} and {{Hero stats}} on every hero page.",

@@ -37,7 +37,7 @@ The point of the jungles is to have a method of gaining gold or experience for y
 
 At the start of the match, the monsters are spawned and in the waiting period for the minions, you can spend that time killing one of the monsters. As the match goes on more powerful ones spawn for more powerful bonuses.
 
-In some cases defeating a monster will give your heroes a certain type of bonus. They range from heal, exp to gold.
+In some cases defeating a monster will give your heroes a certain type of bonus. They range from Health Regen, Experience to Gold.
 
 There are certain heroes that are encouraged to the jungle, while some others are not. Check first your heroes' specialty in the jungle before locking in jungling items, emblems and spells.
 
@@ -211,17 +211,6 @@ NOTE:
   - Icon Minions in Imperial Sanctuary Map, also can use in Alternative Map.
 - For icon Jungle in Celestial Palace or Western Expanse Map, See here.
 
-{{csec|
-
-## Recent Changes to the Battlefield
-
-(Recent Changes is long, Click to Expand)
-|
-{{csec|
-
-### Patch Notes 1.5.88
-
-|
 - Damage Calculation Adjustments
   - Minimum Physical/Magic Defense against enemy heroes: 0 → -60
   - When both percentage and fixed-value Penetration are in effect, the algorithm will now prioritize the percentage before the fixed value.
@@ -267,26 +256,14 @@ NOTE:
     - Encourage: Revamped it to be a Passive and removed the Movement Speed Boost.
     - Favor: New skill. At set intervals, the next time the hero casting a healing or shield skill, it also restores HP for a nearby ally with the lowest HP. (Skills that only affect the hero itself do not trigger this effect).
     - Dire Hit: New skill. At set intervals, the next time the hero damages a target and leaves it below 35% HP, they'll deal extra Physical and Magic Damage equivalent to a proportion of the enemy's Max HP.
-}}
 
-{{csec|
-
-### Patch Notes 1.5.78
-
-|
 - Toppling Turrets not only grants team rewards, but also gives you the advantage as it improves your sight range and ability to invade the enemy. This advantage is a little too strong, making it difficult for the team at a disadvantage to resist. In light of this we've adjusted the team rewards and offered more chances for the team under attack in such situations. Also, we've increased the amount of Gold you gain gradually, in order to help balance the influence of these changes on the flow of combat.
 - Gold gained gradually: 5 every 2s → 6 every 2s
 - Team Gold rewards for destroying Inner Turrets: 100 → 80
 - Team Gold rewards for destroying Base Turrets: 150 → 100 Team EXP rewards have also been reduced slightly.
 - Reduced the respawn time after a battle lasts 25 minutes, to improve player experience in lengthy matches.
 - Increased the HP Growth of melee and ranged minions.
-}}
 
-{{csec|
-
-### Patch Notes 1.5.70
-
-|
 - In this version we've made a considerable amount of adjustments to various battlefield values. We hope that those with the upper hand will still have the chance to keep pushing for the advantage, while retaining the possibility for their foes to turn the tables on them. In addition, we hope this version minimizes the appearance of matches that are too long/short in duration.
 
 - Adjusted heroes' respawn time to be shorter in the first 20 minutes of a game, after which it grows in duration.
@@ -304,13 +281,7 @@ NOTE:
 - To prevent abnormal Lithowanderer behavior in certain situations, you can no longer use control effects against them.
 - Optimized how Chou's Passive builds.
 - Optimized the color of the Mana values in Cecilion's skill description, to make it easier to differentiate between Mana bonuses and Magic Power bonuses.
-}}
 
-{{csec|
-
-### Patch Notes 1.5.62
-
-|
 - Slightly shortened heroes' respawn time for the early game and lengthened it for the late game.
 - Lane Optimization
   - In this round of updates we've revamped and optimized the game's lanes. The 5 lane icons have had their art style reworked, and the ground designs of Bases in "The Celestial Palace" and "Imperial Sanctuary" have been changed. In addition to this, we've added new effects to help indicate the different lanes to players, and a recommended "roaming" lane to the battlefield.
@@ -321,13 +292,7 @@ NOTE:
   - Energy Shield When active, it reduces the damage taken by nearby allied heroes by: 10% → 15%
   - Extra damage dealt by all Turrets and the Base to the same hero target consecutively: 40% → 75%
   - Damage from all Turrets to heroes for the first time reduced by 10%.
-}}
 
-{{csec|
-
-### Patch Notes 1.5.52
-
-|
 - Optimized the item icons of Warrior Boots, Tough Boots, Bloodlust Axe, Blood Wings, and Brute Force Breastplate.
 - Optimized the special effect of 's Ultimate to make it clearer for players to recognize which hero she chooses to attach to or is attached to.
 - Unified the sight of the units summoned by 's Skill 2, 's Skill 1, 's Skill 1, 's Skill 1, and 's Skill 3 to 50% of the heroes' sight.
@@ -338,13 +303,8 @@ NOTE:
 - Optimized laning and build recommendations for some heroes' main roles.
 - Optimized the recommended lane indicator.
 - Optimized the data of Lord and Turtle, to make it easier for players to hit them with skills.
-- Revamped 's background story and voice-overs.}}
+- Revamped 's background story and voice-overs.
 
-{{csec|
-
-### Patch Notes 1.5.46
-
-|
 - The laning guide on the battlefield does not need to be set in each match now. It is automatically turned on. You can switch it on or off via the mini map on the Hero Selection screen.
 - Optimized the laning recommendations for some heroes.
 - Added a general special effect to the following heroes when revealing a target's position with skills: , , , , , , , , , , , , , , , , , , ,
@@ -352,26 +312,15 @@ NOTE:
 - Optimized heroes' movements when they kill minions.
 - Optimized the special effect of 's .
 - Replaced 's skill icons with new ones.
-- Optimized 's movements on the battlefield.}}
+- Optimized 's movements on the battlefield.
 
-{{csec|
-
-### Patch Notes 1.5.44
-
-|
 - Siege Minion Waves
   - Physical Defense Growth: 0 → 4
   - Magic Defense Growth: 0 → 3
 - Normal Siege Minion Waves: Physical Attack Growth: 15 → 25
 - Siege Minion Waves’ Physical Attack Growth after an enemy Base Turret is destroyed: 15 → 30
 - Siege Minion Waves’ Physical Attack Growth after Lord is killed: 19.6 → 33
-}}
 
-{{csec|
-
-### Patch Notes 1.5.38
-
-|
 - We have always received player feedback on the insufficient defense of Turrets. Many said that they were easily killed even within the range of Allied Turrets. Based on a large amount of data and suggestions, we decided to offer better defense to heroes by the energy shield. This can both protect heroes without advantages in the early game and give room for enemies to do turret dives. We will pay close attention to the effect of these adjustments and consider possible updates accordingly.
   - Outer Turret
     - New Effect: When the energy shield is active, damage taken by nearby allied heroes decreases by 10%.
@@ -380,35 +329,19 @@ NOTE:
 - If a Turret is destroyed in the first 8 minutes, the next Turret of the same lane increases Defense → If a Turret is destroyed in the first 9 minutes, the next Turret of the same lane increases Defense
 - Increased the team gold bonus from killing enemies with high net worth by 33%.
 - Optimized the Battle Spell effects of  "Samurai Mech".
-}}
 
-{{csec|
-
-### Patch Notes 1.5.32
-
-|
 - Optimized the art of Siege Minion Waves that offer Gold and Exp in lanes.
 - Optimized the art of the Bases and turrets in the map "Imperial Sanctuary".
 - Added the "Merge Damage Text" feature: It can calculate and display the sum of some continuous damage. You can switch it on/off via [Basic Settings] - [Graphics]- [Merge Damage Text]. This feature applies to the following heroes: Alice, Gord, Cyclops, Hylos, Jawhead, Chang'e, Badang, Guinevere, Wanwan, Yve, Hanzo, Zhask, Silvanna, Carmilla, X.Borg, Balmond, Franco, Hayabusa, Baxia, Harley, Cecilion.
-- Optimized the art of some ground textures and creeps in the map "Imperial Sanctuary".}}
+- Optimized the art of some ground textures and creeps in the map "Imperial Sanctuary".
 
-{{csec|
-
-### Patch Notes 1.5.24
-
-|
 - The turret energy shield lasts 210s → 300s
 - Natural gold gain is changed from 2 gold every 1s to 5 gold every 2s.
 - Natural Exp gain is adjusted, but the number of each minute is almost the same as before.
 - Movement Speed growth duration of minions: 8 minutes → 9 minutes Increase every minute: 10 → 15 Increase Limit: 70 → 120
 - Removed the Walkie Grass that follows the killer of Lithowanderer. Movement Speed Boost remains the same.
-- In the first 3 minutes, now the pop-up reminder appears each time you've killed 6 minions with Jungle Equipment Items instead of killing 3 minions.}}
+- In the first 3 minutes, now the pop-up reminder appears each time you've killed 6 minions with Jungle Equipment Items instead of killing 3 minions.
 
-{{csec|
-
-### Patch Notes 1.5.16
-
-|
 - For the first 7 waves the Siege Minions in each lane have special effects. The Siege Minions of the lane that is near the first Turtle give extra 50% EXP, whereas those of the lane that is far away from the first Turtle give extra 50% Gold. From wave number 8, all the Siege Minions stop giving such benefits.
 - Outer Turret (the first turret on each lane)
   - HP: 4000 → 4500
@@ -444,114 +377,62 @@ NOTE:
   - The directional indicators can show whether the hero will move now
   - The area indicators can show whether the hero will move now
   - Added a new indicator for the skills that are cast toward yourself
-- Optimized the base explosion effect and battle result effect at the end of matches}}
+- Optimized the base explosion effect and battle result effect at the end of matches
 
-{{csec|
-
-### Patch Notes 1.5.08
-
-|
 - Eliminating enemies with high net worth now grants more bonus gold.
 - Optimized the walls in Imperial Sanctuary and The Celestial Palace.
 - Optimized the visual effect in the Western Desert map.
 - The numbers of HP Regen and Mana Regen are now shown every 1 second instead of every 5 seconds. (Regen effects stay the same as before.)
 - The Attack Speed number on the in-battle interface is the same as the actual number now (instead of being multiplied by 0.8). The actual effect remains the same.
-- Optimized the navigation mechanism for minions. Their routes are more reasonable now.}}
+- Optimized the navigation mechanism for minions. Their routes are more reasonable now.
 
-{{csec|
-
-### Patch Notes 1.4.94
-
-|
 - Increased the Movement Speed of Side Lane Minions.
-{{csec|
-- [fix] Issue Fixes; color: navy
-|
+
+- [fix] Issue Fixes
 - Optimized the map performance of Imperial Sanctuary in Ultra Graphics.
 - Fixed the abnormal damage result when  casts his Ultimate to Kupa.
 - Fixed the issue where  would exit the Barrel prematurely when using Barrel skill in  in Brawl Mode.
 - Fixed the abnormal skill timer of 's Skill 1 caused by leaving bushes after using the skill.
 - Fixed 's model color issue after getting off the wall caused by leaving bushes after using his Skill 1.
 - Fixed the display issue of the incoming HP restoration for ' Ultimate.
-- Fixed the issue happened when  and  are in the same match.}}
-}}
+- Fixed the issue happened when  and  are in the same match.
 
-{{csec|
+- Reduced the Gold and Experience Sharing from Minions with Multiple Teammates.
+- Adjusted the Respawn Time from 6.5 (+1.8 per level) (+ Match Time in Minutes) to 3.2 (+2.1 per level) (+ Match Time in Minutes).
+- Increased the Gold Reward from Melee Minions by 30%.
+- Increased the Gold Reward from Siege Minions in the first 2 waves by 20%.
 
-### Patch Notes 1.4.86
-
-|
-- Reduced the Gold and Experience; xp Sharing from Minions with Multiple Teammates.
-- Adjusted the Respawn Time from 6.5 (+1.8 per level); xp (+ Match Time in Minutes); td to 3.2 (+2.1 per level); xp (+ Match Time in Minutes); td.
-- Increased the Gold Reward from Melee Minions by 30%; gold.
-- Increased the Gold Reward from Siege Minions in the first 2 waves by 20%; gold.
-
-{{csec|
-- [FIX] Issue Fixes; color: navy
-|
+- [FIX] Issue Fixes
 - Optimized the animation when Energy and Rage change.
 - Optimized the level-up logic of some skills.
 - Optimized the map performance of Imperial Sanctuary under Smooth or Ultra
-- Optimized some skill animations for the hero resurrected by .}}
-}}
+- Optimized some skill animations for the hero resurrected by .
 
-{{csec|
+- [FIX] Optimized the Lord's Animation in Imperial Sanctuary.
 
-### Patch Notes 1.4.76
-
-|
-- [FIX] Optimized the Lord's Animation in Imperial Sanctuary.}}
-
-{{csec|
-
-### Patch Notes 1.4.70
-
-|
-{{csec|
-Context; color: crimson
-|
+Context
 - "In recent several seasons, we’ve noticed that players are focusing more and more on the early game, and the intensity of fights just keeps on rising. This is what we would like to see. But what we’ve also noticed is that it is not rewarding enough for the team that’s behind to pick off a core hero on the other side, maybe even after executing some brilliant team fight combos. So we introduced a new mechanism in this update to make the comebacks more likely to happen".
-- Of course, as mentioned previously, we still encourage players to play more aggressively and try to gain a decent lead in the early game. We will be watching closely on how this turns out, and deciding further optimization steps.}}
+- Of course, as mentioned previously, we still encourage players to play more aggressively and try to gain a decent lead in the early game. We will be watching closely on how this turns out, and deciding further optimization steps.
 
 - Newly added: When the side with a team gold disadvantage eliminates an enemy Hero with a gold lead, everyone on the side will now get elimination gold bonus based on the gold difference between the enemy Hero and the average among the 5 of side that is behind.
 - Fixed the issue that Healing Increase/Reduction does not work on some skills.
 - Improved the “Suppressed” effect, now it can be inflicted to targets which immune to CC correctly.
 - Optimized the action logic of Luminous Lord and Minions, now they will automatically move back to the lane once they’re dragged too far away.
-- Basic EXP of the Siege Minion of the first 2 waves increased by 10%.}}
+- Basic EXP of the Siege Minion of the first 2 waves increased by 10%.
 
-{{csec|
-
-### Patch Notes 1.4.60
-
-|
 - Team Gold for destroying Outer Turret reduced from 80 to 60.
 - Team Gold for destroying Inner Turret increased from 100 to 120.
 - Team Gold for destroying Base Turret increased from 150 to 160.
 - Increased the EXP gained by killing high-level heroes.
-- Improved HP bars of Creeps. Now each grid indicates the same amount of HP so that you can know how much HP the Creeps have.}}
+- Improved HP bars of Creeps. Now each grid indicates the same amount of HP so that you can know how much HP the Creeps have.
 
-{{csec|
-
-### Patch Notes 1.4.50
-
-|
 - Turret
   - Team Gold for destroying Outer Turret decreased from 100 to 80.
-  - Team Gold for destroying Base Turret increased from 125 to 150.}}
+  - Team Gold for destroying Base Turret increased from 125 to 150.
 
-{{csec|
-
-### Patch Notes 1.4.44
-
-|
 - Improved the display when there are too many in-battlefield skill tips.
-- Brief Skill Description: Now you can switch between the full/brief skill description at the bottom right corner of the skill description page outside the battlefield. Choose the version you like!}}
+- Brief Skill Description: Now you can switch between the full/brief skill description at the bottom right corner of the skill description page outside the battlefield. Choose the version you like!
 
-{{csec|
-
-### Patch Notes 1.4.36
-
-|
 - Battlefield Overview
   - Do you want to get the information about season changes more easily and clearly? Do you want to have an overview of MLBB's battlefield? Do you want to know the stories behind the creatures on the map? Now, by tapping the "Battlefield Overview" button. you can overlook the whole battlefield!
   - In this update. we've designed a new sand table model for the new map "Imperial Sanctuary" where you can learn a lot of details about MLBB's battlefield. We hope that this new feature can help you to optimize your game tactics and to dominate your opponents!
@@ -559,23 +440,11 @@ Context; color: crimson
 - Adjusted the shape of the bushes which locate around the mid lane in the river.
   - Decreased the length of the bushes which locate around the .
 - When multiple shields and HP Regen Effects increase/decrease, the stacking method is adjusted from addition and subtraction to multiplication; after the stacking method is changed, the reduction effect will be stronger. We will adjust some heroes and equipment according to the data.
-- Optimized the animation and the visual effect displayed when the Luminous Lord hit the Turret.}}
+- Optimized the animation and the visual effect displayed when the Luminous Lord hit the Turret.
 
-{{csec|
-
-### Patch Notes 1.4.28
-
-|
 - Optimized the performance of the arrow indicator.
 - New 5V5 map - [Halloween Carnival] is unavailable.
-}}
 
-{{csec|
-
-### Patch Notes 1.4.14
-
-|
 - In 5V5 battlefield of Classic, Rank and non-Arcade Modes, the Basic Movement Speed of Minions increased 15%. The Max Movement Speed remains the same.
 - First MLBB World Cup is ju st around the corner! 16 teams from 14 countries will fight for the champion! Stay tuned for our M1 Tournament and support your favourite team! We will change the map from the Celestial Palace to M1 Top Honor in the next 2 months.
-- Added new Tab - [Attribute] in Equipment Screen: Now players can tap the button on the top to check all basic attributes of all heroes in the battlefield.}}
-}}
+- Added new Tab - [Attribute] in Equipment Screen: Now players can tap the button on the top to check all basic attributes of all heroes in the battlefield.

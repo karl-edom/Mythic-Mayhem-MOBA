@@ -353,8 +353,10 @@ function renderInlineTemplates(text: string): string {
       const p0 = call.positional[0] ?? "";
       const p1 = call.positional[1] ?? "";
       if (n === "scale") rep = renderScale(call);
-      else if (["hi", "ii", "ai", "si", "ei", "bsi", "ti", "avc1", "avc", "aq", "a", "b", "c", "sl", "link", "ci", "cci", "ri", "icon"].includes(n))
-        rep = p1 && p1.length > 1 ? p1 : p0;
+      // {{b|display|target}}, {{AVC1|text|icon}}: first arg is the displayed text
+      else if (["avc1", "avc", "ac", "aq", "a", "b", "c", "sl", "icon"].includes(n)) rep = p0;
+      // {{hi|Page|display}}, {{ii|Basic Attack|Basic Attacks}}: optional 2nd arg is the displayed text
+      else if (["hi", "ii", "ai", "si", "ei", "bsi", "ti", "link", "ci", "cci", "ri"].includes(n)) rep = p1 && p1.length > 1 ? p1 : p0;
       else if (n === "!") rep = "|";
       else if (n === "=") rep = "=";
       else if (n === "pci") rep = `[${p0}]`;
@@ -367,7 +369,7 @@ function renderInlineTemplates(text: string): string {
       else if (n === "main" || n === "see also" || n === "further") rep = `(See: ${call.positional.join(", ")})`;
       else if (call.positional.length === 1 && Object.keys(call.named).length === 0 && p0.length < 60 && /^[A-Z]/.test(p0) && n.length <= 12)
         rep = p0;
-      else if (call.positional.length === 0 && Object.keys(call.named).length === 0) rep = `[template:${call.name}]`;
+      else if (call.positional.length === 0 && Object.keys(call.named).length === 0) rep = ""; // navboxes, stubs, notices
       else {
         // unknown template: keep its content (positional text, then key: value pairs)
         const named = Object.entries(call.named).map(([k, v]) => `${k}: ${v}`);
@@ -539,9 +541,14 @@ export function wikitextToMarkdown(src: string): string {
     s = s.slice(0, start) + `\n@@TABLE${tables.length - 1}@@\n` + s.slice(end);
   }
   // block templates (infoboxes...): render named params as a field/value table
-  for (let guard = 0; guard < 100; guard++) {
-    const block = findTemplates(s, () => true).find((t) => s.slice(t.start, t.end).includes("\n|") && Object.keys(t.named).length >= 2);
+  for (let guard = 0; guard < 500; guard++) {
+    const block = findTemplates(s, () => true).find((t) => s.slice(t.start, t.end).includes("\n"));
     if (!block) break;
+    if (Object.keys(block.named).length < 2) {
+      // multi-line wrapper (e.g. {{csec|...|...}} collapsible sections): unwrap its content
+      s = s.slice(0, block.start) + "\n" + block.positional.join("\n") + "\n" + s.slice(block.end);
+      continue;
+    }
     const rows = Object.entries(block.named)
       .filter(([, v]) => v.trim() !== "")
       .map(([k, v]) => `| ${k} | ${wikiToText(maskMath(v)).replace(/\n/g, "<br>").replace(/\|/g, "\\|")} |`);

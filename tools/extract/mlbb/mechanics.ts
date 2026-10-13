@@ -96,6 +96,8 @@ const GROUPS: Record<string, string[]> = {
     "Disarm",
   ],
   "game-modes": ["Game Modes", "Classic", "Ranked", "Ranks", "Draft Pick", "Brawl", "Arcade Mode", "Custom", "Vs. AI", "Chaos Clash", "Survival", "Arena", "Evolve", "Boommander"],
+  // recent / large patch notes: the wiki's only source for some current battlefield numbers
+  patches: ["Patch 1.9.06", "Patch Notes 2.1.67", "Patch Notes 2.1.88", "Patch Notes 2.1.90", "Patch Notes 2.2.16"],
   "hero-lists": ["List of heroes by attack speed", "List of heroes by movement speed", "List of heroes by physical defense"],
 };
 

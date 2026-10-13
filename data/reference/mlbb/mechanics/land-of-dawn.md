@@ -35,8 +35,6 @@ The Land of Dawn is divided into eight major regions, each with their own set of
 
 ## Interactive Map
 
-[template:Map:Land of Dawn]
-
 ## Gallery
 
 ## Trivia
@@ -50,5 +48,3 @@ The Land of Dawn is divided into eight major regions, each with their own set of
 - The first revision of the map debuted on MOONTON EPICON 2019.
 
 ## Navigation
-
-[template:Land of Dawn]

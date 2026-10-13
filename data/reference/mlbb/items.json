@@ -2,7 +2,7 @@
   "source": "Mobile Legends: Bang Bang Wiki (mobile-legends.fandom.com), CC BY-SA 3.0",
   "sourcePage": "Module:Equipment/data",
   "sourceUrl": "https://mobile-legends.fandom.com/wiki/Module:Equipment/data",
-  "retrievedAt": "2026-10-13T16:36:15.013Z",
+  "retrievedAt": "2026-10-13T16:43:32.006Z",
   "license": "CC BY-SA 3.0 (Fandom). Attribution: contributors of mobile-legends.fandom.com",
   "notes": [
     "Source of truth: Module:Equipment/data, the Lua table behind {{Infobox equipment}} on every item page.",

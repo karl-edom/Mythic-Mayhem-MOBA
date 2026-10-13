@@ -1,0 +1,656 @@
+{
+  "source": "Mobile Legends: Bang Bang Wiki (mobile-legends.fandom.com), CC BY-SA 3.0",
+  "sourcePage": "Emblems",
+  "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems",
+  "retrievedAt": "2026-10-13T16:43:32.023Z",
+  "license": "CC BY-SA 3.0 (Fandom). Attribution: contributors of mobile-legends.fandom.com",
+  "notes": [
+    "Current emblem system (2023+): parsed from {{New-basic-emblem-set}} / {{New-custom-emblem-set}} on the 'Emblems' page. The pre-2023 system is dumped as markdown in mechanics/emblems-2016-2023.md.",
+    "A player picks one emblem set, then 2 standard talents (tier 1 and tier 2) and 1 core talent (tier 3).",
+    "The page intro says 16 standard and 8 core talents exist; the set templates list 16 standard and 10 core (Basic Common offers 4 core talents, each custom set 1). `talents` is the de-duplicated union; the intro count may be outdated.",
+    "attributes: flat values unless unit is '%'. 'Adaptive' = physical or magic depending on the hero's higher bonus stat; 'Hybrid' = both physical and magic."
+  ],
+  "count": 7,
+  "emblems": [
+    {
+      "name": "Basic Common Emblem",
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "template": "New-basic-emblem-set",
+      "attributes": [
+        {
+          "stat": "Hybrid Regen",
+          "value": 12,
+          "unit": "flat",
+          "raw": "+12"
+        },
+        {
+          "stat": "HP",
+          "value": 275,
+          "unit": "flat",
+          "raw": "+275"
+        },
+        {
+          "stat": "Adaptive Attack",
+          "value": 22,
+          "unit": "flat",
+          "raw": "+22"
+        }
+      ],
+      "talents": [
+        {
+          "tier": 1,
+          "kind": "standard",
+          "name": "Thrill",
+          "description": "Gain 16 Adaptive Attack."
+        },
+        {
+          "tier": 1,
+          "kind": "standard",
+          "name": "Swift",
+          "description": "Gain 10% Extra Attack Speed."
+        },
+        {
+          "tier": 2,
+          "kind": "standard",
+          "name": "Wilderness Blessing",
+          "description": "Movement Speed in the Jungle and River is increased by 10%. This bonus is halved when in combat with enemy heroes, Lord or Turtle."
+        },
+        {
+          "tier": 2,
+          "kind": "standard",
+          "name": "Seasoned Hunter",
+          "description": "Damage against Lord and Turtle is increased by 15%. This bonus is halved against regular Creeps and doesn't affect the damage of Retribution."
+        },
+        {
+          "tier": 3,
+          "kind": "core",
+          "name": "Impure Rage",
+          "description": "Dealing damage with skills deals 4% of target's Max HP\nextra Adaptive Damage and restores 2% Mana on hit. (If the hero does not use Mana, restores 1% HP instead. The extra Adaptive Damage dealt to non-hero units is up to 120. Cooldown: 5 seconds."
+        },
+        {
+          "tier": 3,
+          "kind": "core",
+          "name": "Quantum Charge",
+          "description": "Dealing damage with Basic Attacks increases Movement Speed by 30% for 1.5s and restores 75-180 HP (scales with level). Cooldown: 10 seconds."
+        },
+        {
+          "tier": 3,
+          "kind": "core",
+          "name": "War Cry",
+          "description": "After every 3 separate Basic Attacks or skills hit an enemy hero, all damage dealt increases by 8% for 6 seconds. (A single Basic Attack or skill that deals damage multiple times only counts as 1. Cooldown: 6 seconds.)"
+        },
+        {
+          "tier": 3,
+          "kind": "core",
+          "name": "Temporal Reign",
+          "description": "The next Ultimate cast decreases other active skills' remaining cooldowns by 1.5 times within 4 seconds. This effect is extended by 2 seconds after getting hero kills or assists. (This only applies to the hero themselves. Cooldown: 20 seconds.)"
+        }
+      ]
+    },
+    {
+      "name": "Custom Tank Emblem",
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "template": "New-custom-emblem-set",
+      "attributes": [
+        {
+          "stat": "HP",
+          "value": 500,
+          "unit": "flat",
+          "raw": "+500"
+        },
+        {
+          "stat": "Hybrid Defense",
+          "value": 10,
+          "unit": "flat",
+          "raw": "+10"
+        },
+        {
+          "stat": "HP Regen",
+          "value": 4,
+          "unit": "flat",
+          "raw": "+4"
+        }
+      ],
+      "talents": [
+        {
+          "tier": 1,
+          "kind": "standard",
+          "name": "Vitality",
+          "description": "Gain 225 extra max HP."
+        },
+        {
+          "tier": 2,
+          "kind": "standard",
+          "name": "Tenacity",
+          "description": "When HP is below 50%, Damage Reduction is increased by 5%."
+        },
+        {
+          "tier": 3,
+          "kind": "core",
+          "name": "Concussive Blast",
+          "description": "After the next Basic Attack, deal 100(+7% Total HP) Magic Damage to nearby enemies. Cooldown: 15s."
+        }
+      ]
+    },
+    {
+      "name": "Custom Assassin Emblem",
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "template": "New-custom-emblem-set",
+      "attributes": [
+        {
+          "stat": "Adaptive Penetration",
+          "value": 14,
+          "unit": "flat",
+          "raw": "+14"
+        },
+        {
+          "stat": "Adaptive Attack",
+          "value": 10,
+          "unit": "flat",
+          "raw": "+10"
+        },
+        {
+          "stat": "Movement Speed",
+          "value": 3,
+          "unit": "%",
+          "raw": "+3%"
+        }
+      ],
+      "talents": [
+        {
+          "tier": 1,
+          "kind": "standard",
+          "name": "Rupture",
+          "description": "Gain 5 Adaptive Penetration. Gain Physical Penetration if extra Physical Attack is higher than extra Magic Power; otherwise, gain Magic Penetration."
+        },
+        {
+          "tier": 2,
+          "kind": "standard",
+          "name": "Master Assassin",
+          "description": "If there is only one enemy hero nearby, damage dealt to them is increased by 7%."
+        },
+        {
+          "tier": 3,
+          "kind": "core",
+          "name": "Killing Spree",
+          "description": "When damaging heroes below 30% HP, instantly recover 15% of Lost HP and gains 20% Movement Speed. Additional Effect: Reset cooldown upon killing an enemy hero. Duration: 3 seconds. Cooldown: 30 seconds."
+        }
+      ]
+    },
+    {
+      "name": "Custom Mage Emblem",
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "template": "New-custom-emblem-set",
+      "attributes": [
+        {
+          "stat": "Magic Power",
+          "value": 30,
+          "unit": "flat",
+          "raw": "+30"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 5,
+          "unit": "%",
+          "raw": "+5%"
+        },
+        {
+          "stat": "Magic Penetration",
+          "value": 8,
+          "unit": "flat",
+          "raw": "+8"
+        }
+      ],
+      "talents": [
+        {
+          "tier": 1,
+          "kind": "standard",
+          "name": "Inspire",
+          "description": "Cooldown Reduction is increased by 5% and Mana Regen by 2."
+        },
+        {
+          "tier": 2,
+          "kind": "standard",
+          "name": "Bargain Hunter",
+          "description": "Equipment can be purchased at 95% of their base price."
+        },
+        {
+          "tier": 3,
+          "kind": "core",
+          "name": "Lethal Ignition",
+          "description": "Dealing damage greater than 7% of an enemy hero's Max HP 3 times within 5s will scorch the target for an additional 162-750 Adaptive Damage (scales with level). Cooldown 15 seconds."
+        }
+      ]
+    },
+    {
+      "name": "Custom Fighter Emblem",
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "template": "New-custom-emblem-set",
+      "attributes": [
+        {
+          "stat": "Hybrid Lifesteal",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10%"
+        },
+        {
+          "stat": "Adaptive Attack",
+          "value": 16,
+          "unit": "flat",
+          "raw": "+16"
+        },
+        {
+          "stat": "Hybrid Defense",
+          "value": 8,
+          "unit": "flat",
+          "raw": "+8"
+        }
+      ],
+      "talents": [
+        {
+          "tier": 1,
+          "kind": "standard",
+          "name": "Firmness",
+          "description": "Gain 8 extra Physical & Magic Defense."
+        },
+        {
+          "tier": 2,
+          "kind": "standard",
+          "name": "Festival of Blood",
+          "description": "Gain 6% Spell Vamp. Each hero kill or assist grants an additional 0.5% Spell Vamp, up to 12 stacks."
+        },
+        {
+          "tier": 3,
+          "kind": "core",
+          "name": "Brave Smite",
+          "description": "Brave Smite: Dealing skill damage to an enemy hero recovers 5% Max HP. CD: 6 seconds."
+        }
+      ]
+    },
+    {
+      "name": "Custom Support Emblem",
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "template": "New-custom-emblem-set",
+      "attributes": [
+        {
+          "stat": "Healing Effect",
+          "value": 12,
+          "unit": "%",
+          "raw": "+12%"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10%"
+        },
+        {
+          "stat": "Movement Speed",
+          "value": 6,
+          "unit": "%",
+          "raw": "+6%"
+        }
+      ],
+      "talents": [
+        {
+          "tier": 1,
+          "kind": "standard",
+          "name": "Agility",
+          "description": "Gain 4% extra Movement Speed."
+        },
+        {
+          "tier": 2,
+          "kind": "standard",
+          "name": "Pull Yourself Together",
+          "description": "Cooldowns of Battle Spells and equipment's active skills are reduced by 12% initially. Each hero kill or assist grants an additional 1% reduction, up to 8 stacks."
+        },
+        {
+          "tier": 3,
+          "kind": "core",
+          "name": "Focusing Mark",
+          "description": "After damaging an enemy hero, allied heroes deal 6% more damage to them and gain 10% Movement Speed. Duration: 3 seconds. Cooldown: 4 seconds."
+        }
+      ]
+    },
+    {
+      "name": "Custom Marksman Emblem",
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems",
+      "template": "New-custom-emblem-set",
+      "attributes": [
+        {
+          "stat": "Attack Speed",
+          "value": 15,
+          "unit": "%",
+          "raw": "+15%"
+        },
+        {
+          "stat": "Adaptive Attack",
+          "value": 16,
+          "unit": "flat",
+          "raw": "+16"
+        },
+        {
+          "stat": "Adaptive Penetration",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10%"
+        }
+      ],
+      "talents": [
+        {
+          "tier": 1,
+          "kind": "standard",
+          "name": "Fatal",
+          "description": "Gain 5% Crit Chance and 5% extra Crit Damage."
+        },
+        {
+          "tier": 2,
+          "kind": "standard",
+          "name": "Weapon Master",
+          "description": "Physical Attack and Magic Power gained from equipment, emblem, talents, and skills are increased by 8%."
+        },
+        {
+          "tier": 3,
+          "kind": "core",
+          "name": "Weakness Finder",
+          "description": "Basic Attacks slow enemies by 50% and reduce their Attack Speed by 30%. Duration: 1 second. Cooldown: 10 seconds (each Basic Attack reduces it bv 1 seconds, down to 3 seconds)."
+        }
+      ]
+    }
+  ],
+  "talents": [
+    {
+      "tier": 1,
+      "kind": "standard",
+      "name": "Thrill",
+      "description": "Gain 16 Adaptive Attack.",
+      "sets": [
+        "Basic Common Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 1,
+      "kind": "standard",
+      "name": "Swift",
+      "description": "Gain 10% Extra Attack Speed.",
+      "sets": [
+        "Basic Common Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 2,
+      "kind": "standard",
+      "name": "Wilderness Blessing",
+      "description": "Movement Speed in the Jungle and River is increased by 10%. This bonus is halved when in combat with enemy heroes, Lord or Turtle.",
+      "sets": [
+        "Basic Common Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 2,
+      "kind": "standard",
+      "name": "Seasoned Hunter",
+      "description": "Damage against Lord and Turtle is increased by 15%. This bonus is halved against regular Creeps and doesn't affect the damage of Retribution.",
+      "sets": [
+        "Basic Common Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 3,
+      "kind": "core",
+      "name": "Impure Rage",
+      "description": "Dealing damage with skills deals 4% of target's Max HP\nextra Adaptive Damage and restores 2% Mana on hit. (If the hero does not use Mana, restores 1% HP instead. The extra Adaptive Damage dealt to non-hero units is up to 120. Cooldown: 5 seconds.",
+      "sets": [
+        "Basic Common Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 3,
+      "kind": "core",
+      "name": "Quantum Charge",
+      "description": "Dealing damage with Basic Attacks increases Movement Speed by 30% for 1.5s and restores 75-180 HP (scales with level). Cooldown: 10 seconds.",
+      "sets": [
+        "Basic Common Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 3,
+      "kind": "core",
+      "name": "War Cry",
+      "description": "After every 3 separate Basic Attacks or skills hit an enemy hero, all damage dealt increases by 8% for 6 seconds. (A single Basic Attack or skill that deals damage multiple times only counts as 1. Cooldown: 6 seconds.)",
+      "sets": [
+        "Basic Common Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 3,
+      "kind": "core",
+      "name": "Temporal Reign",
+      "description": "The next Ultimate cast decreases other active skills' remaining cooldowns by 1.5 times within 4 seconds. This effect is extended by 2 seconds after getting hero kills or assists. (This only applies to the hero themselves. Cooldown: 20 seconds.)",
+      "sets": [
+        "Basic Common Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 1,
+      "kind": "standard",
+      "name": "Vitality",
+      "description": "Gain 225 extra max HP.",
+      "sets": [
+        "Custom Tank Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 2,
+      "kind": "standard",
+      "name": "Tenacity",
+      "description": "When HP is below 50%, Damage Reduction is increased by 5%.",
+      "sets": [
+        "Custom Tank Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 3,
+      "kind": "core",
+      "name": "Concussive Blast",
+      "description": "After the next Basic Attack, deal 100(+7% Total HP) Magic Damage to nearby enemies. Cooldown: 15s.",
+      "sets": [
+        "Custom Tank Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 1,
+      "kind": "standard",
+      "name": "Rupture",
+      "description": "Gain 5 Adaptive Penetration. Gain Physical Penetration if extra Physical Attack is higher than extra Magic Power; otherwise, gain Magic Penetration.",
+      "sets": [
+        "Custom Assassin Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 2,
+      "kind": "standard",
+      "name": "Master Assassin",
+      "description": "If there is only one enemy hero nearby, damage dealt to them is increased by 7%.",
+      "sets": [
+        "Custom Assassin Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 3,
+      "kind": "core",
+      "name": "Killing Spree",
+      "description": "When damaging heroes below 30% HP, instantly recover 15% of Lost HP and gains 20% Movement Speed. Additional Effect: Reset cooldown upon killing an enemy hero. Duration: 3 seconds. Cooldown: 30 seconds.",
+      "sets": [
+        "Custom Assassin Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 1,
+      "kind": "standard",
+      "name": "Inspire",
+      "description": "Cooldown Reduction is increased by 5% and Mana Regen by 2.",
+      "sets": [
+        "Custom Mage Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 2,
+      "kind": "standard",
+      "name": "Bargain Hunter",
+      "description": "Equipment can be purchased at 95% of their base price.",
+      "sets": [
+        "Custom Mage Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 3,
+      "kind": "core",
+      "name": "Lethal Ignition",
+      "description": "Dealing damage greater than 7% of an enemy hero's Max HP 3 times within 5s will scorch the target for an additional 162-750 Adaptive Damage (scales with level). Cooldown 15 seconds.",
+      "sets": [
+        "Custom Mage Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 1,
+      "kind": "standard",
+      "name": "Firmness",
+      "description": "Gain 8 extra Physical & Magic Defense.",
+      "sets": [
+        "Custom Fighter Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 2,
+      "kind": "standard",
+      "name": "Festival of Blood",
+      "description": "Gain 6% Spell Vamp. Each hero kill or assist grants an additional 0.5% Spell Vamp, up to 12 stacks.",
+      "sets": [
+        "Custom Fighter Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 3,
+      "kind": "core",
+      "name": "Brave Smite",
+      "description": "Brave Smite: Dealing skill damage to an enemy hero recovers 5% Max HP. CD: 6 seconds.",
+      "sets": [
+        "Custom Fighter Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 1,
+      "kind": "standard",
+      "name": "Agility",
+      "description": "Gain 4% extra Movement Speed.",
+      "sets": [
+        "Custom Support Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 2,
+      "kind": "standard",
+      "name": "Pull Yourself Together",
+      "description": "Cooldowns of Battle Spells and equipment's active skills are reduced by 12% initially. Each hero kill or assist grants an additional 1% reduction, up to 8 stacks.",
+      "sets": [
+        "Custom Support Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 3,
+      "kind": "core",
+      "name": "Focusing Mark",
+      "description": "After damaging an enemy hero, allied heroes deal 6% more damage to them and gain 10% Movement Speed. Duration: 3 seconds. Cooldown: 4 seconds.",
+      "sets": [
+        "Custom Support Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 1,
+      "kind": "standard",
+      "name": "Fatal",
+      "description": "Gain 5% Crit Chance and 5% extra Crit Damage.",
+      "sets": [
+        "Custom Marksman Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 2,
+      "kind": "standard",
+      "name": "Weapon Master",
+      "description": "Physical Attack and Magic Power gained from equipment, emblem, talents, and skills are increased by 8%.",
+      "sets": [
+        "Custom Marksman Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    },
+    {
+      "tier": 3,
+      "kind": "core",
+      "name": "Weakness Finder",
+      "description": "Basic Attacks slow enemies by 50% and reduce their Attack Speed by 30%. Duration: 1 second. Cooldown: 10 seconds (each Basic Attack reduces it bv 1 seconds, down to 3 seconds).",
+      "sets": [
+        "Custom Marksman Emblem"
+      ],
+      "page": "Emblems",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Emblems"
+    }
+  ]
+}
