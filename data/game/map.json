@@ -1,0 +1,189 @@
+{
+  "version": 1,
+  "_doc": "Carte ML réduite pour le 3v3 (rules-v1 §1). Dimensions 🧪 : aucune distance de carte ML n'est publiée.",
+  "size": 48,
+  "bases": [
+    [
+      6,
+      42
+    ],
+    [
+      42,
+      6
+    ]
+  ],
+  "fountains": [
+    [
+      2.5,
+      45.5
+    ],
+    [
+      45.5,
+      2.5
+    ]
+  ],
+  "lanes": [
+    {
+      "id": "top",
+      "path": [
+        [
+          6,
+          42
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          42,
+          6
+        ]
+      ]
+    },
+    {
+      "id": "mid",
+      "path": [
+        [
+          6,
+          42
+        ],
+        [
+          42,
+          6
+        ]
+      ]
+    },
+    {
+      "id": "bot",
+      "path": [
+        [
+          6,
+          42
+        ],
+        [
+          43,
+          43
+        ],
+        [
+          42,
+          6
+        ]
+      ]
+    }
+  ],
+  "towerDistances": {
+    "top": {
+      "inner": 9,
+      "outer": 22
+    },
+    "mid": {
+      "inner": 8,
+      "outer": 16
+    },
+    "bot": {
+      "inner": 9,
+      "outer": 22
+    }
+  },
+  "river": {
+    "from": [
+      9,
+      9
+    ],
+    "to": [
+      39,
+      39
+    ],
+    "width": 4
+  },
+  "bushes": [
+    {
+      "center": [
+        11,
+        33
+      ],
+      "size": [
+        3,
+        2
+      ]
+    },
+    {
+      "center": [
+        17,
+        40
+      ],
+      "size": [
+        2.5,
+        2
+      ]
+    },
+    {
+      "center": [
+        21,
+        28
+      ],
+      "size": [
+        2,
+        2.5
+      ]
+    },
+    {
+      "center": [
+        9,
+        15
+      ],
+      "size": [
+        2,
+        3
+      ]
+    },
+    {
+      "center": [
+        31,
+        41
+      ],
+      "size": [
+        3,
+        2
+      ]
+    }
+  ],
+  "camps": [
+    {
+      "id": "orange",
+      "pos": [
+        12,
+        28
+      ]
+    },
+    {
+      "id": "purple",
+      "pos": [
+        21,
+        36
+      ]
+    },
+    {
+      "id": "beetle",
+      "pos": [
+        11,
+        21
+      ]
+    },
+    {
+      "id": "lizard",
+      "pos": [
+        29,
+        37
+      ]
+    }
+  ],
+  "turtle": [
+    33,
+    33
+  ],
+  "lord": [
+    15,
+    15
+  ]
+}

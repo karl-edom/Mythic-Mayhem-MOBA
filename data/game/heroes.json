@@ -1,0 +1,388 @@
+{
+  "version": 1,
+  "_source": "Stats : médianes ML par rôle aux niveaux 1 et 15 ✅ (data/reference/mlbb/heroes.json). Compétences : forme, recharges, coûts et ordres de grandeur du héros ML de référence ✅ (skills.json), au format de dégâts Unite. Personnages et noms originaux.",
+  "heroes": [
+    {
+      "id": "bastion",
+      "name": "Bastion",
+      "role": "tank",
+      "reference": "Tigreal (ML)",
+      "color": "#5b8def",
+      "resource": "mana",
+      "attackType": "melee",
+      "radius": 0.6,
+      "stats": {
+        "hp": [2619, 5839], "hpRegen": [8.4, 16.8], "mana": [500, 1900], "manaRegen": [4, 6.8],
+        "physicalAttack": [117, 209], "physicalDefense": [20, 75], "magicDefense": [15, 50],
+        "attackSpeed": [1.01, 1.24], "moveSpeed": 260, "range": 1.8
+      },
+      "boosted": {
+        "description": "Toutes les 3 attaques : +60 (+30 % attaque) dégâts physiques et ralentit de 30 % pendant 1 s.",
+        "effects": [
+          { "type": "damage", "damageType": "physical", "amount": { "base": 60, "ratios": [{ "stat": "physicalAttack", "value": 0.3 }] } },
+          { "type": "slow", "pct": 0.3, "duration": 1 }
+        ]
+      },
+      "skills": [
+        {
+          "id": "wave", "name": "Onde de choc", "cooldown": 7, "manaCost": 45,
+          "cast": { "type": "cone", "range": 4.5, "angle": 60, "delay": 0.25 },
+          "effects": [
+            { "type": "damage", "damageType": "physical", "amount": { "base": 270, "perLevel": 18, "ratios": [{ "stat": "physicalAttack", "value": 0.7 }] } },
+            { "type": "slow", "pct": 0.4, "duration": 1.5 }
+          ],
+          "counterplay": "Le cône est court : rester à plus de 4,5 u ou sur ses flancs.",
+          "indicator": "Cône orange au sol pendant 0,25 s.",
+          "choices": {
+            "A": { "name": "Onde lourde", "description": "+30 % de dégâts.", "mods": { "damageMult": 1.3 } },
+            "B": { "name": "Onde vive", "description": "−2 s de recharge.", "mods": { "cooldownDelta": -2 } }
+          },
+          "plus": { "description": "+15 % de dégâts.", "mods": { "damageMult": 1.15 } }
+        },
+        {
+          "id": "charge", "name": "Charge sacrée", "cooldown": 12, "manaCost": 70,
+          "cast": { "type": "dash", "distance": 5, "speed": 14 },
+          "effects": [
+            { "type": "damage", "damageType": "physical", "amount": { "base": 280, "perLevel": 10, "ratios": [{ "stat": "physicalAttack", "value": 1 }] } },
+            { "type": "knockback", "distance": 2 }
+          ],
+          "counterplay": "La charge suit une ligne droite visible : s'écarter latéralement.",
+          "indicator": "Flèche de trajectoire pour le lanceur ; traînée visible pour tous.",
+          "choices": {
+            "A": { "name": "Charge étourdissante", "description": "Étourdit 0,6 s les ennemis percutés.", "mods": { "addEffects": [{ "type": "stun", "duration": 0.6 }] } },
+            "B": { "name": "Charge rapide", "description": "−3 s de recharge.", "mods": { "cooldownDelta": -3 } }
+          },
+          "plus": { "description": "+15 % de dégâts.", "mods": { "damageMult": 1.15 } }
+        },
+        {
+          "id": "implosion", "name": "Implosion", "cooldown": [45, 41, 37], "manaCost": [120, 140, 160],
+          "cast": { "type": "selfCircle", "radius": 3.5, "delay": 0.6 },
+          "effects": [
+            { "type": "pull", "distance": 3 },
+            { "type": "stun", "duration": 1.5 },
+            { "type": "damage", "damageType": "physical", "amount": { "base": [270, 350, 430], "ratios": [{ "stat": "physicalAttack", "value": 1.3 }] } }
+          ],
+          "counterplay": "0,6 s d'incantation visible : sortir du cercle, ou l'interrompre par un contrôle.",
+          "indicator": "Grand cercle rouge autour de Bastion qui se remplit pendant 0,6 s."
+        }
+      ],
+      "defaults": { "items": ["cuirass", "ice", "helmet"], "spell": "aegis" }
+    },
+    {
+      "id": "brasier",
+      "name": "Brasier",
+      "role": "mage",
+      "reference": "Eudora (ML)",
+      "color": "#c06bf0",
+      "resource": "mana",
+      "attackType": "ranged",
+      "projectileSpeed": 12,
+      "radius": 0.5,
+      "stats": {
+        "hp": [2445, 4561], "hpRegen": [6.8, 11], "mana": [500, 1900], "manaRegen": [4, 6.8],
+        "physicalAttack": [112.5, 201.5], "physicalDefense": [18, 72], "magicDefense": [15, 50],
+        "attackSpeed": [1, 1.14], "moveSpeed": 245, "range": 4.7
+      },
+      "boosted": {
+        "description": "Toutes les 3 attaques : +50 (+50 % puissance) dégâts magiques.",
+        "effects": [
+          { "type": "damage", "damageType": "magic", "amount": { "base": 50, "ratios": [{ "stat": "magicPower", "value": 0.5 }] } }
+        ]
+      },
+      "skills": [
+        {
+          "id": "fork", "name": "Éclair fourchu", "cooldown": 7, "manaCost": 50,
+          "cast": { "type": "cone", "range": 5, "angle": 50, "delay": 0.2 },
+          "effects": [
+            { "type": "damage", "damageType": "magic", "amount": { "base": 275, "perLevel": 22, "ratios": [{ "stat": "magicPower", "value": 1 }] } }
+          ],
+          "counterplay": "Cône court et frontal : rester hors des 5 u ou derrière ses sbires.",
+          "indicator": "Cône violet pendant 0,2 s.",
+          "choices": {
+            "A": { "name": "Éclair puissant", "description": "+30 % de dégâts.", "mods": { "damageMult": 1.3 } },
+            "B": { "name": "Éclair rapide", "description": "−2 s de recharge.", "mods": { "cooldownDelta": -2 } }
+          },
+          "plus": { "description": "+15 % de dégâts.", "mods": { "damageMult": 1.15 } }
+        },
+        {
+          "id": "orb", "name": "Boule de foudre", "cooldown": 11, "manaCost": 70,
+          "cast": { "type": "targetEnemy", "range": 5.5 },
+          "effects": [
+            { "type": "damage", "damageType": "magic", "amount": { "base": 300, "perLevel": 10, "ratios": [{ "stat": "magicPower", "value": 0.5 }] } },
+            { "type": "stun", "duration": 1 }
+          ],
+          "counterplay": "Portée de 5,5 u : rester à distance de Brasier quand l'orbe est prête.",
+          "indicator": "Cercle de portée affiché ; éclair au-dessus de la cible étourdie.",
+          "choices": {
+            "A": { "name": "Orbe paralysante", "description": "Étourdit 1,5 s.", "mods": { "addEffects": [{ "type": "stun", "duration": 1.5 }] } },
+            "B": { "name": "Orbe longue", "description": "+1,5 u de portée.", "mods": { "rangeAdd": 1.5 } }
+          },
+          "plus": { "description": "+15 % de dégâts.", "mods": { "damageMult": 1.15 } }
+        },
+        {
+          "id": "wrath", "name": "Colère du tonnerre", "cooldown": [32, 29, 26], "manaCost": [130, 160, 190],
+          "cast": { "type": "circle", "castRange": 6, "radius": 2.5, "delay": 0.6 },
+          "effects": [
+            { "type": "damage", "damageType": "magic", "amount": { "base": [600, 800, 1000], "ratios": [{ "stat": "magicPower", "value": 1.6 }] } }
+          ],
+          "counterplay": "0,6 s de télégraphe : sortir du cercle.",
+          "indicator": "Cercle violet au sol qui se remplit pendant 0,6 s."
+        }
+      ],
+      "defaults": { "items": ["truncheon", "crystal", "talisman"], "spell": "flicker" }
+    },
+    {
+      "id": "pique",
+      "name": "Pique",
+      "role": "marksman",
+      "reference": "Layla (ML)",
+      "color": "#f2a33a",
+      "resource": "mana",
+      "attackType": "ranged",
+      "projectileSpeed": 14,
+      "radius": 0.5,
+      "stats": {
+        "hp": [2288, 4420], "hpRegen": [7, 10], "mana": [500, 1900], "manaRegen": [4, 6.8],
+        "physicalAttack": [115, 244], "physicalDefense": [17, 73], "magicDefense": [15, 50],
+        "attackSpeed": [1.03, 1.24], "moveSpeed": 240, "range": 4.6
+      },
+      "boosted": {
+        "description": "Toutes les 3 attaques : +40 % d'attaque en dégâts physiques.",
+        "effects": [
+          { "type": "damage", "damageType": "physical", "amount": { "base": 0, "ratios": [{ "stat": "physicalAttack", "value": 0.4 }] } }
+        ]
+      },
+      "skills": [
+        {
+          "id": "bomb", "name": "Bombe maléfique", "cooldown": 6, "manaCost": 40,
+          "cast": { "type": "projectile", "range": 7, "width": 0.6, "speed": 13 },
+          "effects": [
+            { "type": "damage", "damageType": "physical", "amount": { "base": 200, "perLevel": 18, "ratios": [{ "stat": "physicalAttack", "value": 0.8 }] } }
+          ],
+          "counterplay": "Tir en ligne droite qui touche la première cible : se cacher derrière un sbire ou s'écarter.",
+          "indicator": "Ligne de visée pour le lanceur ; projectile visible.",
+          "choices": {
+            "A": { "name": "Bombe lourde", "description": "+30 % de dégâts.", "mods": { "damageMult": 1.3 } },
+            "B": { "name": "Bombe rapide", "description": "−1,5 s de recharge.", "mods": { "cooldownDelta": -1.5 } }
+          },
+          "plus": { "description": "+15 % de dégâts.", "mods": { "damageMult": 1.15 } }
+        },
+        {
+          "id": "void", "name": "Projectile du vide", "cooldown": 7.5, "manaCost": 65,
+          "cast": { "type": "projectile", "range": 6.5, "width": 0.8, "speed": 11, "explodeRadius": 1.8 },
+          "effects": [
+            { "type": "damage", "damageType": "physical", "amount": { "base": 170, "perLevel": 14, "ratios": [{ "stat": "physicalAttack", "value": 0.65 }] } }
+          ],
+          "counterplay": "Explose au premier contact : s'écarter des sbires touchés.",
+          "indicator": "Projectile visible, cercle d'explosion à l'impact.",
+          "choices": {
+            "A": { "name": "Vide engluant", "description": "Ralentit de 30 % pendant 1,5 s.", "mods": { "addEffects": [{ "type": "slow", "pct": 0.3, "duration": 1.5 }] } },
+            "B": { "name": "Vide lointain", "description": "+1,5 u de portée.", "mods": { "rangeAdd": 1.5 } }
+          },
+          "plus": { "description": "+15 % de dégâts.", "mods": { "damageMult": 1.15 } }
+        },
+        {
+          "id": "rush", "name": "Ruée destructrice", "cooldown": [37, 32, 27], "manaCost": [130, 150, 170],
+          "cast": { "type": "line", "length": 9, "width": 1.4, "delay": 0.5 },
+          "effects": [
+            { "type": "damage", "damageType": "physical", "amount": { "base": [500, 650, 800], "ratios": [{ "stat": "physicalAttack", "value": 1.5 }] } }
+          ],
+          "counterplay": "0,5 s de télégraphe en ligne : sortir latéralement.",
+          "indicator": "Rectangle orange de 9 u qui se remplit pendant 0,5 s."
+        }
+      ],
+      "defaults": { "items": ["scythe", "despair", "hunter"], "spell": "flicker" }
+    },
+    {
+      "id": "lame",
+      "name": "Lame",
+      "role": "assassin",
+      "reference": "Saber (ML)",
+      "color": "#ef5b6b",
+      "resource": "mana",
+      "attackType": "melee",
+      "radius": 0.5,
+      "stats": {
+        "hp": [2549, 4853], "hpRegen": [7.2, 13.2], "mana": [500, 1900], "manaRegen": [4, 6.8],
+        "physicalAttack": [121, 251], "physicalDefense": [18, 74], "magicDefense": [15, 50],
+        "attackSpeed": [1.08, 1.34], "moveSpeed": 260, "range": 1.85
+      },
+      "boosted": {
+        "description": "Toutes les 3 attaques : +80 (+50 % attaque) dégâts physiques.",
+        "effects": [
+          { "type": "damage", "damageType": "physical", "amount": { "base": 80, "ratios": [{ "stat": "physicalAttack", "value": 0.5 }] } }
+        ]
+      },
+      "skills": [
+        {
+          "id": "dash", "name": "Ruée", "cooldown": 7, "manaCost": 60,
+          "cast": { "type": "dash", "distance": 5, "speed": 18 },
+          "effects": [
+            { "type": "damage", "damageType": "physical", "amount": { "base": 120, "perLevel": 12, "ratios": [{ "stat": "physicalAttack", "value": 0.8 }] } }
+          ],
+          "counterplay": "Après la ruée, Lame n'a plus de fuite pendant 7 s : la punir.",
+          "indicator": "Traînée rouge sur la trajectoire.",
+          "choices": {
+            "A": { "name": "Ruée tranchante", "description": "+30 % de dégâts.", "mods": { "damageMult": 1.3 } },
+            "B": { "name": "Ruée fréquente", "description": "−2 s de recharge.", "mods": { "cooldownDelta": -2 } }
+          },
+          "plus": { "description": "+15 % de dégâts.", "mods": { "damageMult": 1.15 } }
+        },
+        {
+          "id": "swords", "name": "Lames tournoyantes", "cooldown": 9, "manaCost": 75,
+          "cast": { "type": "selfCircle", "radius": 1.8, "delay": 0, "duration": 3, "tick": 0.5 },
+          "effects": [
+            { "type": "damage", "damageType": "physical", "amount": { "base": 60, "perLevel": 5, "ratios": [{ "stat": "physicalAttack", "value": 0.3 }] } }
+          ],
+          "counterplay": "Zone courte autour de Lame pendant 3 s : garder ses distances.",
+          "indicator": "Cercle de lames visible autour de Lame.",
+          "choices": {
+            "A": { "name": "Lames acérées", "description": "+30 % de dégâts.", "mods": { "damageMult": 1.3 } },
+            "B": { "name": "Lames gelées", "description": "Ralentissent de 20 %.", "mods": { "addEffects": [{ "type": "slow", "pct": 0.2, "duration": 0.6 }] } }
+          },
+          "plus": { "description": "+15 % de dégâts.", "mods": { "damageMult": 1.15 } }
+        },
+        {
+          "id": "sweep", "name": "Triple frappe", "cooldown": [44, 40, 36], "manaCost": [100, 120, 140],
+          "cast": { "type": "targetEnemy", "range": 4, "dashTo": true },
+          "effects": [
+            { "type": "airborne", "duration": 1.2 },
+            { "type": "damage", "damageType": "physical", "amount": { "base": [480, 600, 720], "ratios": [{ "stat": "physicalAttack", "value": 1.6 }] } }
+          ],
+          "counterplay": "Portée de 4 u : rester groupé avec un allié capable de purifier ou de protéger.",
+          "indicator": "Marque au-dessus de la cible, puis projection visible.",
+          "_note": "ML : 3 coups pendant la projection ; v1 : un seul coup du même total."
+        }
+      ],
+      "defaults": { "items": ["hunter", "despair", "cuirass"], "spell": "retribution" }
+    },
+    {
+      "id": "roc",
+      "name": "Roc",
+      "role": "fighter",
+      "reference": "Balmond (ML)",
+      "color": "#d9774a",
+      "resource": "none",
+      "attackType": "melee",
+      "radius": 0.6,
+      "stats": {
+        "hp": [2589, 5581], "hpRegen": [7.8, 14.2], "mana": [0, 0], "manaRegen": [0, 0],
+        "physicalAttack": [122, 248.5], "physicalDefense": [21.5, 83], "magicDefense": [15, 50],
+        "attackSpeed": [1.065, 1.34], "moveSpeed": 260, "range": 1.8
+      },
+      "boosted": {
+        "description": "Toutes les 3 attaques : +50 (+3 % PV max) dégâts physiques.",
+        "effects": [
+          { "type": "damage", "damageType": "physical", "amount": { "base": 50, "ratios": [{ "stat": "maxHp", "value": 0.03 }] } }
+        ]
+      },
+      "skills": [
+        {
+          "id": "lock", "name": "Verrou d'âme", "cooldown": 8, "manaCost": 0,
+          "cast": { "type": "dash", "distance": 6, "speed": 15, "stopAtHero": true },
+          "effects": [
+            { "type": "damage", "damageType": "physical", "amount": { "base": 150, "perLevel": 12, "ratios": [{ "stat": "physicalAttack", "value": 0.6 }] } },
+            { "type": "slow", "pct": 0.4, "duration": 1 },
+            { "type": "knockback", "distance": 1 }
+          ],
+          "counterplay": "S'arrête sur le premier héros : se cacher derrière un allié robuste.",
+          "indicator": "Trajectoire visible.",
+          "choices": {
+            "A": { "name": "Verrou brutal", "description": "+30 % de dégâts.", "mods": { "damageMult": 1.3 } },
+            "B": { "name": "Verrou agile", "description": "−2 s de recharge.", "mods": { "cooldownDelta": -2 } }
+          },
+          "plus": { "description": "+15 % de dégâts.", "mods": { "damageMult": 1.15 } }
+        },
+        {
+          "id": "spin", "name": "Tourbillon", "cooldown": 7, "manaCost": 0,
+          "cast": { "type": "selfCircle", "radius": 2.2, "delay": 0, "duration": 3, "tick": 0.25 },
+          "effects": [
+            { "type": "damage", "damageType": "physical", "amount": { "base": 25, "perLevel": 6, "ratios": [{ "stat": "physicalAttack", "value": 0.25 }, { "stat": "maxHp", "value": 0.004 }] } }
+          ],
+          "counterplay": "Zone de 2,2 u pendant 3 s : reculer et revenir après.",
+          "indicator": "Tourbillon visible autour de Roc.",
+          "choices": {
+            "A": { "name": "Tourbillon furieux", "description": "+30 % de dégâts.", "mods": { "damageMult": 1.3 } },
+            "B": { "name": "Tourbillon large", "description": "+0,8 u de rayon.", "mods": { "rangeAdd": 0.8 } }
+          },
+          "plus": { "description": "+15 % de dégâts.", "mods": { "damageMult": 1.15 } }
+        },
+        {
+          "id": "counter", "name": "Contre mortel", "cooldown": [34, 29, 24], "manaCost": 0,
+          "cast": { "type": "line", "length": 4, "width": 2, "delay": 0.35 },
+          "effects": [
+            { "type": "damage", "damageType": "true", "amount": { "base": 150, "ratios": [{ "stat": "physicalAttack", "value": 0.7 }, { "stat": "targetMissingHp", "value": [0.3, 0.375, 0.45] }] } }
+          ],
+          "counterplay": "0,35 s de télégraphe ; dangereux surtout à PV bas : se soigner ou reculer avant.",
+          "indicator": "Rectangle rouge devant Roc qui se remplit.",
+          "_note": "ML : dégâts aux non-héros plafonnés à 1 000 – 2 000 (v1 : non repris)."
+        }
+      ],
+      "defaults": { "items": ["hunter", "cuirass", "thunder"], "spell": "purify" }
+    },
+    {
+      "id": "sylve",
+      "name": "Sylve",
+      "role": "support",
+      "reference": "Estes (ML)",
+      "color": "#4fc48a",
+      "resource": "mana",
+      "attackType": "ranged",
+      "projectileSpeed": 12,
+      "radius": 0.5,
+      "stats": {
+        "hp": [2500, 5190], "hpRegen": [7.8, 14], "mana": [500, 1900], "manaRegen": [4, 6.8],
+        "physicalAttack": [120, 216], "physicalDefense": [20, 71], "magicDefense": [15, 50],
+        "attackSpeed": [1, 1.14], "moveSpeed": 252, "range": 3.5
+      },
+      "boosted": {
+        "description": "Toutes les 3 attaques : +100 (+80 % puissance) dégâts magiques.",
+        "effects": [
+          { "type": "damage", "damageType": "magic", "amount": { "base": 100, "ratios": [{ "stat": "magicPower", "value": 0.8 }] } }
+        ]
+      },
+      "skills": [
+        {
+          "id": "moonlight", "name": "Immersion lunaire", "cooldown": 11, "manaCost": 110,
+          "cast": { "type": "targetAlly", "range": 6 },
+          "effects": [
+            { "type": "heal", "amount": { "base": 250, "perLevel": 15, "ratios": [{ "stat": "magicPower", "value": 1.1 }] } },
+            { "type": "buff", "stat": "hpRegen", "add": 100, "duration": 3 }
+          ],
+          "counterplay": "Soin ciblé à 6 u : concentrer les dégâts hors de portée de Sylve.",
+          "indicator": "Lien vert entre Sylve et l'allié soigné.",
+          "choices": {
+            "A": { "name": "Grande marée", "description": "+30 % de soin.", "mods": { "damageMult": 1.3 } },
+            "B": { "name": "Marée rapide", "description": "−3 s de recharge.", "mods": { "cooldownDelta": -3 } }
+          },
+          "plus": { "description": "+15 % de soin.", "mods": { "damageMult": 1.15 } }
+        },
+        {
+          "id": "domain", "name": "Domaine de la lune", "cooldown": 12, "manaCost": 80,
+          "cast": { "type": "circle", "castRange": 6, "radius": 2.2, "delay": 0.6 },
+          "effects": [
+            { "type": "damage", "damageType": "magic", "amount": { "base": 350, "perLevel": 25, "ratios": [{ "stat": "magicPower", "value": 0.7 }] } },
+            { "type": "slow", "pct": 0.6, "duration": 1.5 }
+          ],
+          "counterplay": "0,6 s de télégraphe : sortir du cercle.",
+          "indicator": "Cercle bleu clair qui se remplit.",
+          "choices": {
+            "A": { "name": "Domaine profond", "description": "+30 % de dégâts.", "mods": { "damageMult": 1.3 } },
+            "B": { "name": "Domaine figé", "description": "Immobilise 0,8 s.", "mods": { "addEffects": [{ "type": "root", "duration": 0.8 }] } }
+          },
+          "plus": { "description": "+15 % de dégâts.", "mods": { "damageMult": 1.15 } }
+        },
+        {
+          "id": "blessing", "name": "Bénédiction lunaire", "cooldown": [55, 50, 45], "manaCost": [150, 250, 350],
+          "cast": { "type": "selfCircle", "radius": 6, "delay": 0, "duration": 8, "tick": 1 },
+          "effects": [
+            { "type": "heal", "amount": { "base": [154, 169, 184], "ratios": [{ "stat": "magicPower", "value": 0.26 }] } }
+          ],
+          "counterplay": "Soin dans un rayon de 6 u autour de Sylve : la séparer de son équipe ou l'éliminer d'abord.",
+          "indicator": "Grand cercle vert autour de Sylve pendant 8 s."
+        }
+      ],
+      "defaults": { "items": ["talisman", "ice", "thunder"], "spell": "aegis" }
+    }
+  ]
+}

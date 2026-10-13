@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "_source": "Chaînes de fabrication, prix et stats ✅ ML (data/reference/mlbb/items.json). Noms : les nôtres. Passifs : texte seulement en v1.",
+  "items": [
+    {
+      "id": "despair",
+      "name": "Lame du désespoir",
+      "category": "attack",
+      "passive": "Désespoir : +25 % d'attaque pendant 2 s en frappant une cible sous 50 % de PV (ML, à venir).",
+      "tiers": [
+        { "name": "Dague", "price": 250, "stats": { "physicalAttack": 15 }, "source": "Dagger" },
+        { "name": "Épée de légion", "price": 910, "stats": { "physicalAttack": 60 }, "source": "Legion Sword" },
+        { "name": "Lame du désespoir", "price": 3010, "stats": { "physicalAttack": 160, "moveSpeedPct": 0.05 }, "source": "Blade of Despair" }
+      ]
+    },
+    {
+      "id": "hunter",
+      "name": "Frappe du chasseur",
+      "category": "attack",
+      "passive": "Traque : 5 coups de suite sur la même cible donnent +50 % de vitesse décroissante (ML, à venir).",
+      "tiers": [
+        { "name": "Dague", "price": 250, "stats": { "physicalAttack": 15 }, "source": "Dagger" },
+        { "name": "Marteau de fureur", "price": 830, "stats": { "physicalAttack": 35 }, "source": "Fury Hammer" },
+        { "name": "Frappe du chasseur", "price": 2010, "stats": { "physicalAttack": 80, "cdr": 0.1 }, "source": "Hunter Strike" }
+      ]
+    },
+    {
+      "id": "scythe",
+      "name": "Faux corrosive",
+      "category": "attack",
+      "passive": "Corrosion : les attaques de base infligent 80 dégâts physiques de plus et ralentissent de 8 % (ML, à venir).",
+      "tiers": [
+        { "name": "Couteau", "price": 280, "stats": { "attackSpeedPct": 0.1 }, "source": "Knife" },
+        { "name": "Arbalète rapide", "price": 1000, "stats": { "attackSpeedPct": 0.2 }, "source": "Swift Crossbow" },
+        { "name": "Faux corrosive", "price": 2050, "stats": { "physicalAttack": 30, "attackSpeedPct": 0.3, "moveSpeedPct": 0.05 }, "source": "Corrosion Scythe" }
+      ]
+    },
+    {
+      "id": "crystal",
+      "name": "Cristal sacré",
+      "category": "magic",
+      "passive": "Mystère : +21 à 35 % de puissance magique selon le niveau (ML, à venir).",
+      "tiers": [
+        { "name": "Codex mystique", "price": 300, "stats": { "magicPower": 15 }, "source": "Mystery Codex" },
+        { "name": "Baguette magique", "price": 820, "stats": { "magicPower": 45 }, "source": "Magic Wand" },
+        { "name": "Cristal sacré", "price": 3000, "stats": { "magicPower": 165 }, "source": "Holy Crystal" }
+      ]
+    },
+    {
+      "id": "truncheon",
+      "name": "Matraque foudroyante",
+      "category": "magic",
+      "passive": "Résonance : toutes les 6 s, la compétence suivante inflige 255 + 85 % de puissance en plus (ML, à venir).",
+      "tiers": [
+        { "name": "Codex mystique", "price": 300, "stats": { "magicPower": 15 }, "source": "Mystery Codex" },
+        { "name": "Baguette magique", "price": 820, "stats": { "magicPower": 45 }, "source": "Magic Wand" },
+        { "name": "Matraque foudroyante", "price": 2250, "stats": { "magicPower": 75, "mana": 400, "cdr": 0.1 }, "source": "Lightning Truncheon" }
+      ]
+    },
+    {
+      "id": "talisman",
+      "name": "Talisman enchanté",
+      "category": "magic",
+      "passive": "Source de mana : rend 15 % du mana max toutes les 10 s (ML, à venir).",
+      "tiers": [
+        { "name": "Collier magique", "price": 120, "stats": { "manaRegen": 2 }, "source": "Magic Necklace" },
+        { "name": "Tome du mal", "price": 950, "stats": { "magicPower": 30, "manaRegen": 2, "cdr": 0.1 }, "source": "Tome of Evil" },
+        { "name": "Talisman enchanté", "price": 2070, "stats": { "magicPower": 70, "hp": 300, "cdr": 0.15 }, "source": "Enchanted Talisman" }
+      ]
+    },
+    {
+      "id": "cuirass",
+      "name": "Cuirasse antique",
+      "category": "defense",
+      "passive": "Dissuasion : touché par une compétence, réduit les dégâts physiques de l'attaquant de 6 % (ML, à venir).",
+      "tiers": [
+        { "name": "Justaucorps de cuir", "price": 220, "stats": { "physicalDefense": 14 }, "source": "Leather Jerkin" },
+        { "name": "Armure intrépide", "price": 730, "stats": { "physicalDefense": 30 }, "source": "Dreadnaught Armor" },
+        { "name": "Cuirasse antique", "price": 2170, "stats": { "hp": 920, "physicalDefense": 40, "hpRegen": 4 }, "source": "Antique Cuirass" }
+      ]
+    },
+    {
+      "id": "ice",
+      "name": "Glace dominante",
+      "category": "defense",
+      "passive": "Forteresse : +8 défenses par héros ennemi à moins de 5 u, jusqu'à +40 (ML, à venir).",
+      "tiers": [
+        { "name": "Justaucorps de cuir", "price": 220, "stats": { "physicalDefense": 14 }, "source": "Leather Jerkin" },
+        { "name": "Bouclier de glace noire", "price": 780, "stats": { "physicalDefense": 20, "magicDefense": 20 }, "source": "Black Ice Shield" },
+        { "name": "Glace dominante", "price": 2010, "stats": { "physicalDefense": 40, "magicDefense": 40, "moveSpeedPct": 0.05 }, "source": "Dominance Ice" }
+      ]
+    },
+    {
+      "id": "helmet",
+      "name": "Casque maudit",
+      "category": "defense",
+      "passive": "Âme ardente : 1,2 % des PV max en dégâts magiques par seconde aux ennemis proches (ML, à venir).",
+      "tiers": [
+        { "name": "Cristal de vitalité", "price": 300, "stats": { "hp": 230 }, "source": "Vitality Crystal" },
+        { "name": "Ceinture d'Arès", "price": 700, "stats": { "hp": 600 }, "source": "Ares Belt" },
+        { "name": "Casque maudit", "price": 1910, "stats": { "hp": 1200, "magicDefense": 20 }, "source": "Cursed Helmet" }
+      ]
+    },
+    {
+      "id": "thunder",
+      "name": "Ceinture du tonnerre",
+      "category": "defense",
+      "passive": "Foudre : toutes les 4 s, l'attaque suivante inflige des dégâts bruts et ralentit fortement (ML, à venir).",
+      "tiers": [
+        { "name": "Cristal de vitalité", "price": 300, "stats": { "hp": 230 }, "source": "Vitality Crystal" },
+        { "name": "Ceinture d'Arès", "price": 700, "stats": { "hp": 600 }, "source": "Ares Belt" },
+        { "name": "Ceinture du tonnerre", "price": 1820, "stats": { "hp": 600, "physicalDefense": 15, "magicDefense": 15, "moveSpeed": 20 }, "source": "Thunder Belt" }
+      ]
+    }
+  ]
+}

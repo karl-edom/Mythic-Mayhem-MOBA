@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "_source": "effets ✅ ML (battle-spells.json) ; recharges ⚠️ (valeurs connues du jeu, absentes de l'extraction)",
+  "spells": [
+    { "id": "flicker", "name": "Saut", "cooldown": 120, "distance": 4, "description": "Se téléporte de 4 u vers le curseur." },
+    { "id": "retribution", "name": "Châtiment", "cooldown": 35, "damage": { "base": 520, "perLevel": 80 }, "description": "520 + 80 × niveau de dégâts bruts au monstre ou au sbire le plus proche (pour le jungleur)." },
+    { "id": "purify", "name": "Purification", "cooldown": 90, "description": "Retire tous les contrôles et effets négatifs." },
+    { "id": "aegis", "name": "Égide", "cooldown": 90, "shield": { "base": 750, "perLevel": 50 }, "duration": 5, "description": "Bouclier de 750 + 50 × niveau pendant 5 s." }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "_doc": "docs/design/rules-v1.md. Marques : ✅ relevé, ⚠️ ancien/communautaire, 🧪 provisoire.",
+  "tickRate": 20,
+  "teamSize": 3,
+  "xp": {
+    "_source": "niveau max 15 ✅ (ML, Unite) ; table forme LoL 180 + 100 × n 🧪 ; partage LoL ✅ ; XP passive 🧪",
+    "perLevelBase": 180,
+    "perLevelStep": 100,
+    "maxLevel": 15,
+    "passivePerSec": 2,
+    "shareRadius": 8,
+    "shareSplit": [1, 0.65, 0.433, 0.325, 0.26],
+    "heroKillBase": 100,
+    "heroKillPerLevel": 40
+  },
+  "gold": {
+    "_source": "🧪 (or d'élimination et revenu passif de ML non publiés) ; 80 % sans dernier coup ⚠️ (ML)",
+    "passivePerSec": 2,
+    "kill": 300,
+    "assist": 150,
+    "noHeroLastHitShare": 0.8
+  },
+  "respawn": { "_source": "⚠️ ancienne formule ML ; plafond 🧪", "base": 3.2, "perLevel": 2.1, "perMinute": 1, "max": 60 },
+  "defense": { "_source": "✅ ML (dégâts × 120 / (120 + défense), plancher −60)", "k": 120, "floor": -60 },
+  "caps": { "_source": "vitesse d'attaque ✅ ML ; recharge ⚠️", "cdr": 0.4, "attackSpeed": 3 },
+  "growthRatio": 1.15,
+  "windupFraction": 0.25,
+  "boostedEvery": 3,
+  "recall": 5,
+  "fountain": { "_source": "✅ ML (10 % toutes les 0,2 s)", "radius": 4, "healPct": 0.1, "interval": 0.2 },
+  "skillSchedule": {
+    "_source": "déblocage ✅ ML ; choix et + ✅ Unite",
+    "skill2": 2,
+    "ultimate": 4,
+    "choice1": 5,
+    "choice2": 7,
+    "plus1": 11,
+    "plus2": 13,
+    "ultRanks": [4, 8, 12]
+  },
+  "finalStretch": 1080,
+  "assistWindow": 10,
+  "combatTimeout": 4
+}

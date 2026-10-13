@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "_doc": "docs/design/rules-v1.md §3–5",
+  "minions": {
+    "_source": "rythme et composition ✅ ML ; stats de combat = LoL converties (PV ×4, attaque ×2, portée ÷140) 🧪 ; or ✅ ML ; XP LoL 🧪",
+    "firstWave": 10,
+    "interval": 30,
+    "growthPctPerMin": 0.03,
+    "damageVsHeroesAndStructures": 0.6,
+    "types": {
+      "melee": { "hp": 1720, "attack": 44, "attackSpeed": 1.25, "range": 0.9, "speed": 250, "defense": 0, "gold": { "base": 65, "perMin": 1.83 }, "xp": 62 },
+      "ranged": { "hp": 1100, "attack": 39, "attackSpeed": 0.667, "range": 3.9, "speed": 250, "defense": 0, "gold": { "base": 33, "perMin": 1.9 }, "xp": 31 },
+      "cannon": { "hp": 3000, "attack": 72, "attackSpeed": 1.0, "range": 2.4, "speed": 250, "defense": 0, "gold": { "base": 100, "perMin": 1.67 }, "xp": 75 },
+      "super": { "hp": 6000, "attack": 360, "attackSpeed": 0.85, "range": 1.2, "speed": 250, "defense": 40, "gold": { "base": 100, "perMin": 1.67 }, "xp": 75 }
+    }
+  },
+  "towers": {
+    "_source": "✅ ML (PV, dégâts, défenses, portée 5,3, montée +75 %/coup, remise à zéro 2 s, −50 % sans sbire, −30 % avant 5:00) ; plafond ×2,5 = LoL",
+    "range": 5.3,
+    "attackInterval": 1,
+    "rampPerHit": 0.75,
+    "rampCap": 2.5,
+    "rampReset": 2,
+    "backdoorReduction": 0.5,
+    "earlyShield": { "until": 300, "reduction": 0.3 },
+    "outer": { "hp": 4500, "damage": { "base": 320, "perMin": 3.82 }, "defense": 20 },
+    "inner": { "hp": 5500, "damage": { "base": 360, "perMin": 3.82 }, "defense": 20 },
+    "base": { "hp": 7900, "damage": { "base": 539, "perMin": 3.82 }, "defense": 40, "regenPer5s": 165 }
+  },
+  "camps": [
+    { "id": "orange", "name": "Démon de lave", "_source": "✅ ML Molten Fiend ; or ⚠️ ; XP 🧪", "hp": { "base": 4941, "perMin": 158.22 }, "attack": { "base": 214, "perMin": 3.84 }, "defense": { "base": 37, "perMin": 2 }, "spawnAt": 20, "respawn": 90, "gold": 120, "xp": 150, "buff": "orange", "radius": 0.9 },
+    { "id": "purple", "name": "Loups du tonnerre", "_source": "✅ ML Thunder Fenrir ; or ⚠️ ; XP 🧪", "hp": { "base": 4090, "perMin": 230.22 }, "attack": { "base": 226, "perMin": 3.84 }, "defense": { "base": 60, "perMin": 0 }, "spawnAt": 25, "respawn": 90, "gold": 122, "xp": 150, "buff": "purple", "radius": 0.9 },
+    { "id": "beetle", "name": "Scarabée de feu", "_source": "✅ ML Fire Beetle ; or ⚠️ ; XP 🧪", "hp": { "base": 2501, "perMin": 126.69 }, "attack": { "base": 113, "perMin": 2.3 }, "defense": { "base": 37, "perMin": 0 }, "spawnAt": 39, "respawn": 70, "gold": 81, "xp": 100, "radius": 0.7 },
+    { "id": "lizard", "name": "Lézard cornu", "_source": "✅ ML Horned Lizard ; or ⚠️ ; XP 🧪", "hp": { "base": 3019, "perMin": 156.69 }, "attack": { "base": 110, "perMin": 2.3 }, "defense": { "base": 37, "perMin": 0 }, "spawnAt": 40, "respawn": 70, "gold": 92, "xp": 100, "radius": 0.7 }
+  ],
+  "buffs": {
+    "_source": "✅ ML (75 s ; orange : 50 + 20/30 % attaque, ralentissement 60/20 %, recharge 3 s ; violet : −10 % recharge, −60 % mana)",
+    "duration": 75,
+    "orange": { "cooldown": 3, "slowTough": 0.6, "slowSquishy": 0.2, "base": 50, "ratioTough": 0.2, "ratioSquishy": 0.3 },
+    "purple": { "cdr": 0.1, "manaCostReduction": 0.6 }
+  },
+  "turtle": {
+    "_source": "✅ ML avant 2.2.16 (PV, attaque, défense, 2:00, 120 s, fin après 6:00, or 60/70/80, bouclier allié 200 + 20 × niveau) ; XP 🧪",
+    "hp": { "base": 10367, "perMin": 1067.15 },
+    "attack": { "base": 260, "perMin": 21.72 },
+    "defense": { "base": 15, "perMin": 10 },
+    "spawnAt": 120,
+    "respawn": 120,
+    "lastSpawnAfterDeathBefore": 360,
+    "goldPerHero": [60, 70, 80],
+    "xpPerHero": 300,
+    "allyShield": { "base": 200, "perLevel": 20 },
+    "shieldDuration": 120,
+    "radius": 1.4
+  },
+  "lord": {
+    "_source": "✅ ML (PV, attaque brute, 8:00, 180 s puis 120 s après 18:00, Seigneur invoqué) ; XP 🧪",
+    "hp": { "base": 31743, "perMin": 2242 },
+    "attack": { "base": 428, "perMin": 20.15 },
+    "defense": 37,
+    "growthStopsAt": 1080,
+    "spawnAt": 480,
+    "respawn": 180,
+    "respawnLate": 120,
+    "lateAfter": 1080,
+    "xpPerHero": 400,
+    "summoned": { "hp": { "base": 16218, "perMin": 1672 }, "attack": { "base": 428, "perMin": 20.15 }, "speed": 200, "range": 2.2 },
+    "radius": 1.8
+  }
+}
