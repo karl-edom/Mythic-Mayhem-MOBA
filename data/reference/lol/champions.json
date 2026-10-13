@@ -5,7 +5,7 @@
   "https://wiki.leagueoflegends.com/en-us/Module:ChampionData/data"
  ],
  "version": "16.20.1",
- "retrievedAt": "2026-10-13T16:42:40.462Z",
+ "retrievedAt": "2026-10-13T17:20:20.844Z",
  "notes": [
   "Base stats and growth: Data Dragon. Growth formula: stat(n) = base + perLevel × (n − 1) × (0.7025 + 0.0175 × (n − 1)).",
   "attackSpeed.perLevelPercent is a percentage of bonus attack speed applied with the same growth formula; bonus AS is multiplied by attackSpeed.ratio.",
@@ -49,7 +49,7 @@
     },
     "attackDamage": {
      "base": 60,
-     "perLevel": 0
+     "perLevel": 5
     },
     "hpRegenPer5": {
      "base": 3,
@@ -156,7 +156,7 @@
     },
     "attackDamage": {
      "base": 53,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 2.5,
@@ -266,7 +266,7 @@
     },
     "attackDamage": {
      "base": 62,
-     "perLevel": 0
+     "perLevel": 3.3
     },
     "hpRegenPer5": {
      "base": 9,
@@ -386,7 +386,7 @@
     },
     "attackDamage": {
      "base": 52,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 3.75,
@@ -498,7 +498,7 @@
     },
     "attackDamage": {
      "base": 62,
-     "perLevel": 0
+     "perLevel": 3.75
     },
     "hpRegenPer5": {
      "base": 8.5,
@@ -614,7 +614,7 @@
     },
     "attackDamage": {
      "base": 63,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 8.5,
@@ -718,7 +718,7 @@
     },
     "attackDamage": {
      "base": 57,
-     "perLevel": 0
+     "perLevel": 3.8
     },
     "hpRegenPer5": {
      "base": 9,
@@ -826,7 +826,7 @@
     },
     "attackDamage": {
      "base": 51,
-     "perLevel": 0
+     "perLevel": 3.2
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -937,7 +937,7 @@
     },
     "attackDamage": {
      "base": 50,
-     "perLevel": 0
+     "perLevel": 2.65
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -1048,7 +1048,7 @@
     },
     "attackDamage": {
      "base": 55,
-     "perLevel": 0
+     "perLevel": 2.3
     },
     "hpRegenPer5": {
      "base": 3.25,
@@ -1160,7 +1160,7 @@
     },
     "attackDamage": {
      "base": 59,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 3.5,
@@ -1266,7 +1266,7 @@
     },
     "attackDamage": {
      "base": 58,
-     "perLevel": 0
+     "perLevel": 3.2
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -1378,7 +1378,7 @@
     },
     "attackDamage": {
      "base": 53,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 6,
@@ -1482,7 +1482,7 @@
     },
     "attackDamage": {
      "base": 56,
-     "perLevel": 0
+     "perLevel": 3.5
     },
     "hpRegenPer5": {
      "base": 7,
@@ -1592,7 +1592,7 @@
     },
     "attackDamage": {
      "base": 52,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -1714,7 +1714,7 @@
     },
     "attackDamage": {
      "base": 55,
-     "perLevel": 0
+     "perLevel": 1.5
     },
     "hpRegenPer5": {
      "base": 6,
@@ -1825,7 +1825,7 @@
     },
     "attackDamage": {
      "base": 62,
-     "perLevel": 0
+     "perLevel": 3.5
     },
     "hpRegenPer5": {
      "base": 7.5,
@@ -1939,7 +1939,7 @@
     },
     "attackDamage": {
      "base": 57,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -2054,7 +2054,7 @@
     },
     "attackDamage": {
      "base": 55,
-     "perLevel": 0
+     "perLevel": 3.2
     },
     "hpRegenPer5": {
      "base": 8.5,
@@ -2165,7 +2165,7 @@
     },
     "attackDamage": {
      "base": 60,
-     "perLevel": 0
+     "perLevel": 2.5
     },
     "hpRegenPer5": {
      "base": 0,
@@ -2272,7 +2272,7 @@
     },
     "attackDamage": {
      "base": 62,
-     "perLevel": 0
+     "perLevel": 3.8
     },
     "hpRegenPer5": {
      "base": 3.5,
@@ -2375,7 +2375,7 @@
     },
     "attackDamage": {
      "base": 68,
-     "perLevel": 0
+     "perLevel": 3.8
     },
     "hpRegenPer5": {
      "base": 8.5,
@@ -2484,7 +2484,7 @@
     },
     "attackDamage": {
      "base": 53,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -2590,7 +2590,7 @@
     },
     "attackDamage": {
      "base": 69,
-     "perLevel": 0
+     "perLevel": 4.2
     },
     "hpRegenPer5": {
      "base": 9,
@@ -2697,7 +2697,7 @@
     },
     "attackDamage": {
      "base": 52,
-     "perLevel": 0
+     "perLevel": 2.5
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -2804,7 +2804,7 @@
     },
     "attackDamage": {
      "base": 64,
-     "perLevel": 0
+     "perLevel": 5
     },
     "hpRegenPer5": {
      "base": 10,
@@ -2915,7 +2915,7 @@
     },
     "attackDamage": {
      "base": 57,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 6.5,
@@ -3022,7 +3022,7 @@
     },
     "attackDamage": {
      "base": 64,
-     "perLevel": 0
+     "perLevel": 3.4
     },
     "hpRegenPer5": {
      "base": 3.75,
@@ -3132,7 +3132,7 @@
     },
     "attackDamage": {
      "base": 61,
-     "perLevel": 0
+     "perLevel": 2.5
     },
     "hpRegenPer5": {
      "base": 7,
@@ -3242,7 +3242,7 @@
     },
     "attackDamage": {
      "base": 58,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 9,
@@ -3353,7 +3353,7 @@
     },
     "attackDamage": {
      "base": 55,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -3469,7 +3469,7 @@
     },
     "attackDamage": {
      "base": 61,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 8.5,
@@ -3589,7 +3589,7 @@
     },
     "attackDamage": {
      "base": 60,
-     "perLevel": 0
+     "perLevel": 3.75
     },
     "hpRegenPer5": {
      "base": 4,
@@ -3695,7 +3695,7 @@
     },
     "attackDamage": {
      "base": 55,
-     "perLevel": 0
+     "perLevel": 2.65
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -3811,7 +3811,7 @@
     },
     "attackDamage": {
      "base": 66,
-     "perLevel": 0
+     "perLevel": 3.3
     },
     "hpRegenPer5": {
      "base": 8.5,
@@ -3926,7 +3926,7 @@
     },
     "attackDamage": {
      "base": 58,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 8,
@@ -4037,7 +4037,7 @@
     },
     "attackDamage": {
      "base": 59,
-     "perLevel": 0
+     "perLevel": 3.5
     },
     "hpRegenPer5": {
      "base": 8,
@@ -4142,7 +4142,7 @@
     },
     "attackDamage": {
      "base": 64,
-     "perLevel": 0
+     "perLevel": 4.2
     },
     "hpRegenPer5": {
      "base": 6,
@@ -4248,7 +4248,7 @@
     },
     "attackDamage": {
      "base": 69,
-     "perLevel": 0
+     "perLevel": 4.5
     },
     "hpRegenPer5": {
      "base": 8,
@@ -4357,7 +4357,7 @@
     },
     "attackDamage": {
      "base": 60,
-     "perLevel": 0
+     "perLevel": 3.2
     },
     "hpRegenPer5": {
      "base": 4.5,
@@ -4465,7 +4465,7 @@
     },
     "attackDamage": {
      "base": 64,
-     "perLevel": 0
+     "perLevel": 3.5
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -4566,7 +4566,7 @@
     },
     "attackDamage": {
      "base": 66,
-     "perLevel": 0
+     "perLevel": 4
     },
     "hpRegenPer5": {
      "base": 8,
@@ -4671,7 +4671,7 @@
     },
     "attackDamage": {
      "base": 63,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 9,
@@ -4777,7 +4777,7 @@
     },
     "attackDamage": {
      "base": 66,
-     "perLevel": 0
+     "perLevel": 3.7
     },
     "hpRegenPer5": {
      "base": 7,
@@ -4886,7 +4886,7 @@
     },
     "attackDamage": {
      "base": 56,
-     "perLevel": 0
+     "perLevel": 2.7
     },
     "hpRegenPer5": {
      "base": 7,
@@ -4992,7 +4992,7 @@
     },
     "attackDamage": {
      "base": 54,
-     "perLevel": 0
+     "perLevel": 3.3
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -5095,7 +5095,7 @@
     },
     "attackDamage": {
      "base": 65,
-     "perLevel": 0
+     "perLevel": 5
     },
     "hpRegenPer5": {
      "base": 9.5,
@@ -5211,7 +5211,7 @@
     },
     "attackDamage": {
      "base": 65,
-     "perLevel": 0
+     "perLevel": 3.5
     },
     "hpRegenPer5": {
      "base": 3.5,
@@ -5322,7 +5322,7 @@
     },
     "attackDamage": {
      "base": 50,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 7,
@@ -5433,7 +5433,7 @@
     },
     "attackDamage": {
      "base": 47,
-     "perLevel": 0
+     "perLevel": 2.5
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -5541,7 +5541,7 @@
     },
     "attackDamage": {
      "base": 64,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 8,
@@ -5649,7 +5649,7 @@
     },
     "attackDamage": {
      "base": 68,
-     "perLevel": 0
+     "perLevel": 4.25
     },
     "hpRegenPer5": {
      "base": 8.5,
@@ -5768,7 +5768,7 @@
     },
     "attackDamage": {
      "base": 59,
-     "perLevel": 0
+     "perLevel": 4.25
     },
     "hpRegenPer5": {
      "base": 6,
@@ -5874,7 +5874,7 @@
     },
     "attackDamage": {
      "base": 61,
-     "perLevel": 0
+     "perLevel": 4.4
     },
     "hpRegenPer5": {
      "base": 3.75,
@@ -5981,7 +5981,7 @@
     },
     "attackDamage": {
      "base": 59,
-     "perLevel": 0
+     "perLevel": 3.25
     },
     "hpRegenPer5": {
      "base": 3.75,
@@ -6092,7 +6092,7 @@
     },
     "attackDamage": {
      "base": 59,
-     "perLevel": 0
+     "perLevel": 2.6
     },
     "hpRegenPer5": {
      "base": 4,
@@ -6202,7 +6202,7 @@
     },
     "attackDamage": {
      "base": 57,
-     "perLevel": 0
+     "perLevel": 4.75
     },
     "hpRegenPer5": {
      "base": 4,
@@ -6313,7 +6313,7 @@
     },
     "attackDamage": {
      "base": 49,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -6417,7 +6417,7 @@
     },
     "attackDamage": {
      "base": 46,
-     "perLevel": 0
+     "perLevel": 3.25
     },
     "hpRegenPer5": {
      "base": 6.5,
@@ -6524,7 +6524,7 @@
     },
     "attackDamage": {
      "base": 59,
-     "perLevel": 0
+     "perLevel": 3.9
     },
     "hpRegenPer5": {
      "base": 6,
@@ -6630,7 +6630,7 @@
     },
     "attackDamage": {
      "base": 58,
-     "perLevel": 0
+     "perLevel": 3.2
     },
     "hpRegenPer5": {
      "base": 7.5,
@@ -6742,7 +6742,7 @@
     },
     "attackDamage": {
      "base": 50,
-     "perLevel": 0
+     "perLevel": 2.5
     },
     "hpRegenPer5": {
      "base": 5,
@@ -6857,7 +6857,7 @@
     },
     "attackDamage": {
      "base": 68,
-     "perLevel": 0
+     "perLevel": 3.3
     },
     "hpRegenPer5": {
      "base": 8,
@@ -6960,7 +6960,7 @@
     },
     "attackDamage": {
      "base": 48,
-     "perLevel": 0
+     "perLevel": 3.75
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -7070,7 +7070,7 @@
     },
     "attackDamage": {
      "base": 60,
-     "perLevel": 0
+     "perLevel": 3.1
     },
     "hpRegenPer5": {
      "base": 7.5,
@@ -7174,7 +7174,7 @@
     },
     "attackDamage": {
      "base": 65,
-     "perLevel": 0
+     "perLevel": 3.25
     },
     "hpRegenPer5": {
      "base": 7,
@@ -7288,7 +7288,7 @@
     },
     "attackDamage": {
      "base": 65,
-     "perLevel": 0
+     "perLevel": 3.5
     },
     "hpRegenPer5": {
      "base": 6,
@@ -7386,7 +7386,7 @@
     },
     "attackDamage": {
      "base": 61,
-     "perLevel": 0
+     "perLevel": 3.1
     },
     "hpRegenPer5": {
      "base": 3.75,
@@ -7505,7 +7505,7 @@
     },
     "attackDamage": {
      "base": 64,
-     "perLevel": 0
+     "perLevel": 3.5
     },
     "hpRegenPer5": {
      "base": 9.5,
@@ -7620,7 +7620,7 @@
     },
     "attackDamage": {
      "base": 55,
-     "perLevel": 0
+     "perLevel": 2.2
     },
     "hpRegenPer5": {
      "base": 7.5,
@@ -7735,7 +7735,7 @@
     },
     "attackDamage": {
      "base": 66,
-     "perLevel": 0
+     "perLevel": 3.4
     },
     "hpRegenPer5": {
      "base": 7.5,
@@ -7851,7 +7851,7 @@
     },
     "attackDamage": {
      "base": 60,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 8.5,
@@ -7954,7 +7954,7 @@
     },
     "attackDamage": {
      "base": 61,
-     "perLevel": 0
+     "perLevel": 3.1
     },
     "hpRegenPer5": {
      "base": 2.5,
@@ -8062,7 +8062,7 @@
     },
     "attackDamage": {
      "base": 55,
-     "perLevel": 0
+     "perLevel": 2.7
     },
     "hpRegenPer5": {
      "base": 7,
@@ -8165,7 +8165,7 @@
     },
     "attackDamage": {
      "base": 58,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 9,
@@ -8268,7 +8268,7 @@
     },
     "attackDamage": {
      "base": 60,
-     "perLevel": 0
+     "perLevel": 2.9
     },
     "hpRegenPer5": {
      "base": 3.75,
@@ -8377,7 +8377,7 @@
     },
     "attackDamage": {
      "base": 47,
-     "perLevel": 0
+     "perLevel": 2.6
     },
     "hpRegenPer5": {
      "base": 6,
@@ -8480,7 +8480,7 @@
     },
     "attackDamage": {
      "base": 54,
-     "perLevel": 0
+     "perLevel": 3.3
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -8593,7 +8593,7 @@
     },
     "attackDamage": {
      "base": 62,
-     "perLevel": 0
+     "perLevel": 4
     },
     "hpRegenPer5": {
      "base": 7,
@@ -8697,7 +8697,7 @@
     },
     "attackDamage": {
      "base": 55,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 6,
@@ -8804,7 +8804,7 @@
     },
     "attackDamage": {
      "base": 64,
-     "perLevel": 0
+     "perLevel": 3.3
     },
     "hpRegenPer5": {
      "base": 5,
@@ -8922,7 +8922,7 @@
     },
     "attackDamage": {
      "base": 65,
-     "perLevel": 0
+     "perLevel": 2.5
     },
     "hpRegenPer5": {
      "base": 7.5,
@@ -9038,7 +9038,7 @@
     },
     "attackDamage": {
      "base": 54,
-     "perLevel": 0
+     "perLevel": 3.3
     },
     "hpRegenPer5": {
      "base": 6,
@@ -9144,7 +9144,7 @@
     },
     "attackDamage": {
      "base": 48,
-     "perLevel": 0
+     "perLevel": 3.2
     },
     "hpRegenPer5": {
      "base": 5,
@@ -9248,7 +9248,7 @@
     },
     "attackDamage": {
      "base": 55,
-     "perLevel": 0
+     "perLevel": 2.4
     },
     "hpRegenPer5": {
      "base": 3.75,
@@ -9359,7 +9359,7 @@
     },
     "attackDamage": {
      "base": 66,
-     "perLevel": 0
+     "perLevel": 3.5
     },
     "hpRegenPer5": {
      "base": 3.5,
@@ -9469,7 +9469,7 @@
     },
     "attackDamage": {
      "base": 61,
-     "perLevel": 0
+     "perLevel": 4
     },
     "hpRegenPer5": {
      "base": 5,
@@ -9582,7 +9582,7 @@
     },
     "attackDamage": {
      "base": 56,
-     "perLevel": 0
+     "perLevel": 3.5
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -9694,7 +9694,7 @@
     },
     "attackDamage": {
      "base": 55,
-     "perLevel": 0
+     "perLevel": 2
     },
     "hpRegenPer5": {
      "base": 6.25,
@@ -9800,7 +9800,7 @@
     },
     "attackDamage": {
      "base": 54,
-     "perLevel": 0
+     "perLevel": 3.1
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -9909,7 +9909,7 @@
     },
     "attackDamage": {
      "base": 67,
-     "perLevel": 0
+     "perLevel": 4
     },
     "hpRegenPer5": {
      "base": 9,
@@ -10018,7 +10018,7 @@
     },
     "attackDamage": {
      "base": 58,
-     "perLevel": 0
+     "perLevel": 3.3
     },
     "hpRegenPer5": {
      "base": 8.5,
@@ -10121,7 +10121,7 @@
     },
     "attackDamage": {
      "base": 48,
-     "perLevel": 0
+     "perLevel": 2.5
     },
     "hpRegenPer5": {
      "base": 7.5,
@@ -10228,7 +10228,7 @@
     },
     "attackDamage": {
      "base": 58,
-     "perLevel": 0
+     "perLevel": 3.5
     },
     "hpRegenPer5": {
      "base": 6,
@@ -10349,7 +10349,7 @@
     },
     "attackDamage": {
      "base": 58,
-     "perLevel": 0
+     "perLevel": 2
     },
     "hpRegenPer5": {
      "base": 6,
@@ -10452,7 +10452,7 @@
     },
     "attackDamage": {
      "base": 62,
-     "perLevel": 0
+     "perLevel": 2.6
     },
     "hpRegenPer5": {
      "base": 7,
@@ -10563,7 +10563,7 @@
     },
     "attackDamage": {
      "base": 61,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 5,
@@ -10689,7 +10689,7 @@
     },
     "attackDamage": {
      "base": 68,
-     "perLevel": 0
+     "perLevel": 4.7
     },
     "hpRegenPer5": {
      "base": 6.5,
@@ -10791,7 +10791,7 @@
     },
     "attackDamage": {
      "base": 44,
-     "perLevel": 0
+     "perLevel": 2.6
     },
     "hpRegenPer5": {
      "base": 7,
@@ -10897,7 +10897,7 @@
     },
     "attackDamage": {
      "base": 69,
-     "perLevel": 0
+     "perLevel": 3.5
     },
     "hpRegenPer5": {
      "base": 9,
@@ -11004,7 +11004,7 @@
     },
     "attackDamage": {
      "base": 64,
-     "perLevel": 0
+     "perLevel": 3.3
     },
     "hpRegenPer5": {
      "base": 6,
@@ -11115,7 +11115,7 @@
     },
     "attackDamage": {
      "base": 56,
-     "perLevel": 0
+     "perLevel": 4
     },
     "hpRegenPer5": {
      "base": 9,
@@ -11214,7 +11214,7 @@
     },
     "attackDamage": {
      "base": 62,
-     "perLevel": 0
+     "perLevel": 2
     },
     "hpRegenPer5": {
      "base": 7,
@@ -11332,7 +11332,7 @@
     },
     "attackDamage": {
      "base": 64,
-     "perLevel": 0
+     "perLevel": 3.1
     },
     "hpRegenPer5": {
      "base": 8,
@@ -11445,7 +11445,7 @@
     },
     "attackDamage": {
      "base": 59,
-     "perLevel": 0
+     "perLevel": 3.2
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -11557,7 +11557,7 @@
     },
     "attackDamage": {
      "base": 62,
-     "perLevel": 0
+     "perLevel": 3.5
     },
     "hpRegenPer5": {
      "base": 5,
@@ -11660,7 +11660,7 @@
     },
     "attackDamage": {
      "base": 65,
-     "perLevel": 0
+     "perLevel": 2.75
     },
     "hpRegenPer5": {
      "base": 8,
@@ -11777,7 +11777,7 @@
     },
     "attackDamage": {
      "base": 62,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 2.5,
@@ -11898,7 +11898,7 @@
     },
     "attackDamage": {
      "base": 55,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 7.5,
@@ -12009,7 +12009,7 @@
     },
     "attackDamage": {
      "base": 49,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -12118,7 +12118,7 @@
     },
     "attackDamage": {
      "base": 69,
-     "perLevel": 0
+     "perLevel": 4.15
     },
     "hpRegenPer5": {
      "base": 8,
@@ -12225,7 +12225,7 @@
     },
     "attackDamage": {
      "base": 68,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 6,
@@ -12334,7 +12334,7 @@
     },
     "attackDamage": {
      "base": 64,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 8.5,
@@ -12446,7 +12446,7 @@
     },
     "attackDamage": {
      "base": 64,
-     "perLevel": 0
+     "perLevel": 3.2
     },
     "hpRegenPer5": {
      "base": 7,
@@ -12548,7 +12548,7 @@
     },
     "attackDamage": {
      "base": 55,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 8,
@@ -12654,7 +12654,7 @@
     },
     "attackDamage": {
      "base": 57,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 3.25,
@@ -12769,7 +12769,7 @@
     },
     "attackDamage": {
      "base": 66,
-     "perLevel": 0
+     "perLevel": 4
     },
     "hpRegenPer5": {
      "base": 8.5,
@@ -12992,7 +12992,7 @@
     },
     "attackDamage": {
      "base": 50,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 6.5,
@@ -13110,7 +13110,7 @@
     },
     "attackDamage": {
      "base": 60,
-     "perLevel": 0
+     "perLevel": 4
     },
     "hpRegenPer5": {
      "base": 7,
@@ -13228,7 +13228,7 @@
     },
     "attackDamage": {
      "base": 63,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 8.5,
@@ -13333,7 +13333,7 @@
     },
     "attackDamage": {
      "base": 64,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 8.5,
@@ -13443,7 +13443,7 @@
     },
     "attackDamage": {
      "base": 62,
-     "perLevel": 0
+     "perLevel": 4
     },
     "hpRegenPer5": {
      "base": 7,
@@ -13555,7 +13555,7 @@
     },
     "attackDamage": {
      "base": 63,
-     "perLevel": 0
+     "perLevel": 3.4
     },
     "hpRegenPer5": {
      "base": 9.5,
@@ -13668,7 +13668,7 @@
     },
     "attackDamage": {
      "base": 68,
-     "perLevel": 0
+     "perLevel": 4
     },
     "hpRegenPer5": {
      "base": 9,
@@ -13780,7 +13780,7 @@
     },
     "attackDamage": {
      "base": 60,
-     "perLevel": 0
+     "perLevel": 2.5
     },
     "hpRegenPer5": {
      "base": 3.25,
@@ -13891,7 +13891,7 @@
     },
     "attackDamage": {
      "base": 63,
-     "perLevel": 0
+     "perLevel": 5
     },
     "hpRegenPer5": {
      "base": 7.5,
@@ -14002,7 +14002,7 @@
     },
     "attackDamage": {
      "base": 58,
-     "perLevel": 0
+     "perLevel": 2.3
     },
     "hpRegenPer5": {
      "base": 3.75,
@@ -14105,7 +14105,7 @@
     },
     "attackDamage": {
      "base": 49,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -14218,7 +14218,7 @@
     },
     "attackDamage": {
      "base": 50,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 2.5,
@@ -14332,7 +14332,7 @@
     },
     "attackDamage": {
      "base": 58,
-     "perLevel": 0
+     "perLevel": 2.7
     },
     "hpRegenPer5": {
      "base": 3,
@@ -14441,7 +14441,7 @@
     },
     "attackDamage": {
      "base": 61,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 9,
@@ -14548,7 +14548,7 @@
     },
     "attackDamage": {
      "base": 54,
-     "perLevel": 0
+     "perLevel": 2.9
     },
     "hpRegenPer5": {
      "base": 6.5,
@@ -14655,7 +14655,7 @@
     },
     "attackDamage": {
      "base": 56,
-     "perLevel": 0
+     "perLevel": 3.2
     },
     "hpRegenPer5": {
      "base": 6.5,
@@ -14761,7 +14761,7 @@
     },
     "attackDamage": {
      "base": 58,
-     "perLevel": 0
+     "perLevel": 3.3
     },
     "hpRegenPer5": {
      "base": 6.5,
@@ -14871,7 +14871,7 @@
     },
     "attackDamage": {
      "base": 68,
-     "perLevel": 0
+     "perLevel": 3.1
     },
     "hpRegenPer5": {
      "base": 8.5,
@@ -14975,7 +14975,7 @@
     },
     "attackDamage": {
      "base": 55,
-     "perLevel": 0
+     "perLevel": 3.5
     },
     "hpRegenPer5": {
      "base": 6,
@@ -15084,7 +15084,7 @@
     },
     "attackDamage": {
      "base": 54,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -15196,7 +15196,7 @@
     },
     "attackDamage": {
      "base": 56,
-     "perLevel": 0
+     "perLevel": 2.2
     },
     "hpRegenPer5": {
      "base": 7,
@@ -15322,7 +15322,7 @@
     },
     "attackDamage": {
      "base": 60,
-     "perLevel": 0
+     "perLevel": 3.4
     },
     "hpRegenPer5": {
      "base": 4,
@@ -15429,7 +15429,7 @@
     },
     "attackDamage": {
      "base": 68,
-     "perLevel": 0
+     "perLevel": 4.5
     },
     "hpRegenPer5": {
      "base": 6,
@@ -15544,7 +15544,7 @@
     },
     "attackDamage": {
      "base": 66,
-     "perLevel": 0
+     "perLevel": 4.5
     },
     "hpRegenPer5": {
      "base": 8.5,
@@ -15651,7 +15651,7 @@
     },
     "attackDamage": {
      "base": 52,
-     "perLevel": 0
+     "perLevel": 2.5
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -15754,7 +15754,7 @@
     },
     "attackDamage": {
      "base": 59,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 3.75,
@@ -15864,7 +15864,7 @@
     },
     "attackDamage": {
      "base": 62,
-     "perLevel": 0
+     "perLevel": 4
     },
     "hpRegenPer5": {
      "base": 6,
@@ -15971,7 +15971,7 @@
     },
     "attackDamage": {
      "base": 63,
-     "perLevel": 0
+     "perLevel": 4
     },
     "hpRegenPer5": {
      "base": 7.5,
@@ -16081,7 +16081,7 @@
     },
     "attackDamage": {
      "base": 59,
-     "perLevel": 0
+     "perLevel": 3.4
     },
     "hpRegenPer5": {
      "base": 3.5,
@@ -16185,7 +16185,7 @@
     },
     "attackDamage": {
      "base": 60,
-     "perLevel": 0
+     "perLevel": 2.35
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -16299,7 +16299,7 @@
     },
     "attackDamage": {
      "base": 52,
-     "perLevel": 0
+     "perLevel": 2.7
     },
     "hpRegenPer5": {
      "base": 6.5,
@@ -16405,7 +16405,7 @@
     },
     "attackDamage": {
      "base": 55,
-     "perLevel": 0
+     "perLevel": 3.14159
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -16511,7 +16511,7 @@
     },
     "attackDamage": {
      "base": 54,
-     "perLevel": 0
+     "perLevel": 2.75
     },
     "hpRegenPer5": {
      "base": 6.5,
@@ -16621,7 +16621,7 @@
     },
     "attackDamage": {
      "base": 61,
-     "perLevel": 0
+     "perLevel": 3.9
     },
     "hpRegenPer5": {
      "base": 10,
@@ -16736,7 +16736,7 @@
     },
     "attackDamage": {
      "base": 57,
-     "perLevel": 0
+     "perLevel": 4
     },
     "hpRegenPer5": {
      "base": 7,
@@ -16847,7 +16847,7 @@
     },
     "attackDamage": {
      "base": 53,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 8,
@@ -16953,7 +16953,7 @@
     },
     "attackDamage": {
      "base": 55,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 7,
@@ -17062,7 +17062,7 @@
     },
     "attackDamage": {
      "base": 65,
-     "perLevel": 0
+     "perLevel": 3.5
     },
     "hpRegenPer5": {
      "base": 9,
@@ -17174,7 +17174,7 @@
     },
     "attackDamage": {
      "base": 65,
-     "perLevel": 0
+     "perLevel": 2.5
     },
     "hpRegenPer5": {
      "base": 4,
@@ -17280,7 +17280,7 @@
     },
     "attackDamage": {
      "base": 60,
-     "perLevel": 0
+     "perLevel": 3.5
     },
     "hpRegenPer5": {
      "base": 3.25,
@@ -17395,7 +17395,7 @@
     },
     "attackDamage": {
      "base": 55,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -17502,7 +17502,7 @@
     },
     "attackDamage": {
      "base": 63,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 8,
@@ -17617,7 +17617,7 @@
     },
     "attackDamage": {
      "base": 60,
-     "perLevel": 0
+     "perLevel": 2.5
     },
     "hpRegenPer5": {
      "base": 6.5,
@@ -17724,7 +17724,7 @@
     },
     "attackDamage": {
      "base": 62,
-     "perLevel": 0
+     "perLevel": 2
     },
     "hpRegenPer5": {
      "base": 7.5,
@@ -17841,7 +17841,7 @@
     },
     "attackDamage": {
      "base": 62,
-     "perLevel": 0
+     "perLevel": 5
     },
     "hpRegenPer5": {
      "base": 8,
@@ -17943,7 +17943,7 @@
     },
     "attackDamage": {
      "base": 55,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 4,
@@ -18061,7 +18061,7 @@
     },
     "attackDamage": {
      "base": 49,
-     "perLevel": 0
+     "perLevel": 3.1
     },
     "hpRegenPer5": {
      "base": 5,
@@ -18178,7 +18178,7 @@
     },
     "attackDamage": {
      "base": 63,
-     "perLevel": 0
+     "perLevel": 4
     },
     "hpRegenPer5": {
      "base": 7.5,
@@ -18298,7 +18298,7 @@
     },
     "attackDamage": {
      "base": 60,
-     "perLevel": 0
+     "perLevel": 3.4
     },
     "hpRegenPer5": {
      "base": 5,
@@ -18400,7 +18400,7 @@
     },
     "attackDamage": {
      "base": 63,
-     "perLevel": 0
+     "perLevel": 3.4
     },
     "hpRegenPer5": {
      "base": 7,
@@ -18509,7 +18509,7 @@
     },
     "attackDamage": {
      "base": 56,
-     "perLevel": 0
+     "perLevel": 2
     },
     "hpRegenPer5": {
      "base": 3.25,
@@ -18611,7 +18611,7 @@
     },
     "attackDamage": {
      "base": 55,
-     "perLevel": 0
+     "perLevel": 3.1
     },
     "hpRegenPer5": {
      "base": 6.5,
@@ -18725,7 +18725,7 @@
     },
     "attackDamage": {
      "base": 52,
-     "perLevel": 0
+     "perLevel": 3
     },
     "hpRegenPer5": {
      "base": 5.5,
@@ -18835,7 +18835,7 @@
     },
     "attackDamage": {
      "base": 58,
-     "perLevel": 0
+     "perLevel": 3.3
     },
     "hpRegenPer5": {
      "base": 7.5,
@@ -18945,7 +18945,7 @@
     },
     "attackDamage": {
      "base": 53,
-     "perLevel": 0
+     "perLevel": 3.2
     },
     "hpRegenPer5": {
      "base": 5.5,

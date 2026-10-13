@@ -4,7 +4,7 @@
   "https://raw.communitydragon.org/latest/game/data/characters/<alias>/<alias>.bin.json"
  ],
  "version": "16.20.1",
- "retrievedAt": "2026-10-13T16:42:40.462Z",
+ "retrievedAt": "2026-10-13T17:20:20.844Z",
  "notes": [
   "cooldown/cost/range: Data Dragon (rank 1..maxRank). dataValues/calculations/ratios/castTime/missileSpeed/lineWidth: CommunityDragon bins.",
   "dataValues: arrays indexed rank 1..maxRank (bin index 0 = rank-0 placeholder dropped); constant arrays collapsed to one value.",

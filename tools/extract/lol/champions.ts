@@ -513,7 +513,14 @@ async function main(): Promise<void> {
         mp: g("mp", "mpperlevel"),
         armor: g("armor", "armorperlevel"),
         magicResist: g("spellblock", "spellblockperlevel"),
-        attackDamage: g("attackdamage", "attackdamageperlevel"),
+        // Data Dragon 16.20 reports 0 AD growth for every champion; the game files (bin) have the real value.
+        attackDamage: {
+          base: s["attackdamage"] ?? null,
+          perLevel:
+            s["attackdamageperlevel"] || !root
+              ? (s["attackdamageperlevel"] ?? null)
+              : (modifiable(root["damagePerLevelModifiable"]) ?? num(root["damagePerLevel"]) ?? s["attackdamageperlevel"] ?? null),
+        },
         hpRegenPer5: g("hpregen", "hpregenperlevel"),
         mpRegenPer5: g("mpregen", "mpregenperlevel"),
         crit: g("crit", "critperlevel"),
