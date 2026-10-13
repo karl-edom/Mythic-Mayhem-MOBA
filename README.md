@@ -1,20 +1,48 @@
 # Mythic Mayhem
 
-Jeu d'arène en équipe (MOBA court), lumineux et lisible. On peut y faire s'affronter des personnages venus de n'importe quel univers, tous soumis à un même cadre de règles et à un budget de puissance commun.
+MOBA 3 contre 3 jouable dans le navigateur. C'est une **copie mixée** de Mobile Legends (le squelette), de League of Legends (stats et formules) et de Pokémon Unite (objets choisis avant la partie, compétences à choix). Les personnages sont originaux, et seront ensuite déclinés dans les univers voulus.
 
-Statut : **reverse engineering des jeux de référence à lancer** (voir `docs/research/reverse-engineering-plan.md` et la décision 0003). Avant ça : **expérience E2 terminée** (simulation de combat sans rendu, budget de puissance, profils par rôle). Rien n'est encore jouable à l'écran. Résultats : `docs/experiments/e2-results.md`.
+Statut : **v1 jouable**, toi et 2 bots contre 3 bots. Règles : `docs/design/rules-v1.md`.
+
+## Jouer
 
 ```bash
-npm install && npm test     # Node ≥ 22.18, aucune dépendance d'exécution
-npm run budget              # budget et profil de chaque personnage
-npm run e2 -- --teams 3     # matchs 3v3 entre bots + télémétrie
+npm install
+npm run build        # → dist/mythic-mayhem.html, un seul fichier à ouvrir dans un navigateur
 ```
 
-- `docs/research/reverse-engineering-plan.md` : **plan en cours**
-- `docs/product-brief.md` : brief initial
-- `docs/vision.md` : intention du porteur de projet et conséquences
-- `docs/decisions/` : décisions prises et à prendre
-- `docs/design/character-system.md` : contrat de personnage et budget de puissance
-- `docs/design/prototype-experiments.md` : plan d'expérimentation
-- `docs/experiments/e2-results.md` : résultats de l'expérience E2
-- `docs/research/rea-setup.md` : évaluation de REA
+Commandes (clavier et souris) :
+
+| Action | Touches |
+| --- | --- |
+| Se déplacer | ZQSD en AZERTY (WASD en QWERTY) ou flèches |
+| Attaquer (verrouillage automatique de la cible) | Espace ou clic gauche maintenu |
+| Compétences, visées à la souris | A, E, R en AZERTY (Q, E, R en QWERTY) |
+| Sort de combat | F |
+| Retour à la base | B |
+| Choix de compétence A ou B (niveaux 5 et 7) | 1 et 2 |
+
+Options de test dans l'adresse : `?vitesse=8` accélère la simulation, `?auto=1` confie ton personnage à un bot.
+
+## Développer
+
+```bash
+npm test             # tests (moteur, règles, validateur)
+npm run typecheck
+npm run sim -- --n 10   # parties complètes entre bots : durée, niveaux, or
+```
+
+- `src/game/` : moteur déterministe sans rendu (`engine.ts`), formules, bots ;
+- `data/game/` : **tous les chiffres du jeu**, avec leur source ;
+- `web/` : client navigateur (canvas 2D) ;
+- `data/reference/` et `tools/extract/` : données extraites des trois jeux de référence.
+
+## Documents
+
+- `docs/design/rules-v1.md` : règles de la v1 (valeurs ✅ relevées, ⚠️ anciennes, 🧪 provisoires)
+- `docs/research/comparison.md` : comparaison des trois jeux et choix faits
+- `docs/research/systems/` : fiches détaillées par famille de systèmes
+- `docs/research/gaps.md` : valeurs manquantes et mesures à faire en jeu
+- `docs/decisions/` : décisions prises (0001 à 0005)
+- `docs/vision.md`, `docs/product-brief.md` : intention et brief initial
+- `docs/experiments/e2-results.md` : première expérience d'équilibrage (approche abandonnée au profit de la copie, outils conservés pour le futur créateur de personnages)

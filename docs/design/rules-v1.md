@@ -1,6 +1,6 @@
 # Règles v1 de la « copie mixée »
 
-Statut : **spécification de la v1 jouable**. Elle applique les décisions 0003 à 0005 et les propositions validées dans `docs/research/comparison.md`.
+Statut : **implémentée** (`src/game/`, `data/game/`, client `web/`). Version publiée : https://claude.ai/artifact/B3W7jknsVd1jaov6BMnuTQ Elle applique les décisions 0003 à 0005 et les propositions validées dans `docs/research/comparison.md`.
 
 Légende des valeurs :
 
@@ -218,3 +218,13 @@ Chaque compétence précise, dans les données, son **contre-jeu** et son **indi
 - les tours détruites.
 
 Les valeurs 🧪 sont réglées par ce banc d'essai. Les mesures en jeu prévues dans `docs/research/gaps.md` les remplaceront.
+
+## 13. Limites connues de la v1
+
+- **Pas de murs ni de brouillard** en dehors des buissons. La carte n'a pas encore le tracé de ML.
+- **Passifs des objets** : affichés, pas encore appliqués. Seules les stats comptent.
+- **Contrôles** : provocation et suppression ne sont pas encore implémentées.
+- **Bots** : simples. Ils tiennent leur voie, poussent derrière leurs sbires, se battent quand c'est favorable, se replient et rentrent à la base. Le jungleur fait ses camps, la Tortue et le Seigneur.
+- **Commandes** : clavier et souris seulement, pas de commandes tactiles.
+- **Multijoueur en ligne** : pas encore, c'est le jalon 2 (décision 0001).
+- **Durée mesurée entre bots** (`npm run sim`) : de 10 à 19 min selon les compositions. Les valeurs 🧪 restent à remplacer par les mesures en jeu.
