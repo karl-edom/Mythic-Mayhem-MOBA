@@ -1,0 +1,5547 @@
+{
+  "source": "Mobile Legends: Bang Bang Wiki (mobile-legends.fandom.com), CC BY-SA 3.0",
+  "sourcePage": "Module:Equipment/data",
+  "sourceUrl": "https://mobile-legends.fandom.com/wiki/Module:Equipment/data",
+  "retrievedAt": "2026-10-13T16:36:15.013Z",
+  "license": "CC BY-SA 3.0 (Fandom). Attribution: contributors of mobile-legends.fandom.com",
+  "notes": [
+    "Source of truth: Module:Equipment/data, the Lua table behind {{Infobox equipment}} on every item page.",
+    "priceTotal = full gold cost; priceUpgrade = gold paid on top of the recipe components (combine cost).",
+    "tier is derived here: 1 = no recipe, else 1 + max(tier of components). It is not a wiki field.",
+    "stats = 'bonus' attributes; uniqueStats = 'Unique' attributes (do not stack with the same unique attribute from another item). unit '%' means percentage points.",
+    "passives/actives: the module separates multiple named effects with '@'; numbers[] lists every number found in the text (unit/meaning must be read from the text).",
+    "Expressions like '(+60*Hero Level)' or '(120*Hero Level)' are kept verbatim in passive text.",
+    "removed = availability 'Removed' in the module or page listed in Category:Removed equipment. Removed items are kept for reference.",
+    "Pages in Category:Equipment without a module entry: Awe Mask, Beast Killer, Courage Bulwark, Courage Mask, Curse Sword, Deadly Blade, Equipment, Evil Hunter, Gold, Hunter's Knife, Iron Mask, Nimble Blade, Pillager Axe, Raptor Machete, Shadow Mask, Soul Scroll, Spirit Wheel, Star Shard, Wizard Boots, Wooden Mask."
+  ],
+  "count": 113,
+  "items": [
+    {
+      "name": "Berserker's Fury",
+      "page": "Berserker's Fury",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Berserker's_Fury",
+      "category": "Attack",
+      "caption": "Crit Chance & Damage",
+      "priceTotal": 2390,
+      "priceUpgrade": 840,
+      "tier": 3,
+      "recipe": [
+        "Legion Sword",
+        "Javelin",
+        "Javelin"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 60,
+          "unit": "flat",
+          "raw": "+60 Physical Attack"
+        },
+        {
+          "stat": "Crit Chance",
+          "value": 25,
+          "unit": "%",
+          "raw": "+25% Crit Chance"
+        }
+      ],
+      "statsRaw": "+60 Physical Attack, +25% Crit Chance",
+      "uniqueStats": [
+        {
+          "stat": "Crit Damage",
+          "value": 30,
+          "unit": "%",
+          "raw": "+30% Crit Damage"
+        }
+      ],
+      "uniqueStatsRaw": "+30% Crit Damage",
+      "passives": [
+        {
+          "name": "Doom",
+          "text": "When Basic Attacks Crit, they deal extra True Damage equal to 12% of the damage before reduction.",
+          "numbers": [
+            12
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Blade of Despair",
+      "page": "Blade of Despair",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Blade_of_Despair",
+      "category": "Attack",
+      "caption": "Highest Physical Attack",
+      "priceTotal": 3010,
+      "priceUpgrade": 1190,
+      "tier": 3,
+      "recipe": [
+        "Legion Sword",
+        "Legion Sword"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 160,
+          "unit": "flat",
+          "raw": "+160 Physical Attack"
+        },
+        {
+          "stat": "Movement Speed",
+          "value": 5,
+          "unit": "%",
+          "raw": "+5% Movement Speed"
+        }
+      ],
+      "statsRaw": "+160 Physical Attack, +5% Movement Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Despair",
+          "text": "Dealing damage to non-Minion enemies below 50% HP increases Physical Attack by 25% for 2 seconds (takes effect before the damage is dealt).",
+          "numbers": [
+            50,
+            25,
+            2
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Blade of the Heptaseas",
+      "page": "Blade of the Heptaseas",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Blade_of_the_Heptaseas",
+      "category": "Attack",
+      "caption": "Best for Assassins",
+      "priceTotal": 1950,
+      "priceUpgrade": 470,
+      "tier": 3,
+      "recipe": [
+        "Fury Hammer",
+        "Ogre Tomahawk"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 70,
+          "unit": "flat",
+          "raw": "+70 Physical Attack"
+        },
+        {
+          "stat": "HP",
+          "value": 250,
+          "unit": "flat",
+          "raw": "+250 HP"
+        }
+      ],
+      "statsRaw": "+70 Physical Attack, +250 HP",
+      "uniqueStats": [
+        {
+          "stat": "Physical Penetration",
+          "value": 15,
+          "unit": "flat",
+          "raw": "+15 Physical Penetration"
+        }
+      ],
+      "uniqueStatsRaw": "+15 Physical Penetration",
+      "passives": [
+        {
+          "name": "Ambush",
+          "text": "If no damage is taken or dealt within 5 seconds (excluding from Minions or Creeps), the next Basic Attack will deal an additional 160 (+40% Total Physical Attack) Physical Damage and slow the target by 40% for 1.5 seconds.",
+          "numbers": [
+            5,
+            160,
+            40,
+            40,
+            1.5
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Bloodlust Axe",
+      "page": "Bloodlust Axe",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Bloodlust_Axe",
+      "category": "Attack",
+      "caption": "Spell Vamp",
+      "priceTotal": 1970,
+      "priceUpgrade": 820,
+      "tier": 2,
+      "recipe": [
+        "Iron Hunting Bow",
+        "Dagger",
+        "Iron Hunting Bow"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 70,
+          "unit": "flat",
+          "raw": "+70 Physical Attack"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+70 Physical Attack, +10% Cooldown Reduction",
+      "uniqueStats": [
+        {
+          "stat": "Spell Vamp",
+          "value": 20,
+          "unit": "%",
+          "raw": "+20% Spell Vamp"
+        }
+      ],
+      "uniqueStatsRaw": "+20% Spell Vamp",
+      "passives": [],
+      "actives": [],
+      "availability": "Removed",
+      "removed": true,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Corrosion Scythe",
+      "page": "Corrosion Scythe",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Corrosion_Scythe",
+      "category": "Attack",
+      "caption": "One-Hit Slow",
+      "priceTotal": 2050,
+      "priceUpgrade": 450,
+      "tier": 3,
+      "recipe": [
+        "Swift Crossbow",
+        "Regular Spear"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 30,
+          "unit": "flat",
+          "raw": "+30 Physical Attack"
+        },
+        {
+          "stat": "Attack Speed",
+          "value": 30,
+          "unit": "%",
+          "raw": "+30% Attack Speed"
+        },
+        {
+          "stat": "Movement Speed",
+          "value": 5,
+          "unit": "%",
+          "raw": "+5% Movement Speed"
+        }
+      ],
+      "statsRaw": "+30 Physical Attack, +30% Attack Speed, +5% Movement Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Corrosive",
+          "text": "Basic Attacks gain 80 extra Physical Damage and slow the target by 8% (halved for ranged Basic Attacks) for 1.5 seconds. Stacks up to 5 times.",
+          "numbers": [
+            80,
+            8,
+            1.5,
+            5
+          ]
+        },
+        {
+          "name": "Impulse",
+          "text": "Basic Attacks grant 6% extra Attack Speed for 3 seconds, capped at 5 stacks.",
+          "numbers": [
+            6,
+            3,
+            5
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Dagger",
+      "page": "Dagger",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Dagger",
+      "category": "Attack",
+      "caption": null,
+      "priceTotal": 250,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [
+        "Fury Hammer",
+        "Magic Blade",
+        "Legion Sword",
+        "Ogre Tomahawk",
+        "Regular Spear",
+        "Golden Staff",
+        "Haas' Claws",
+        "Hunter Strike"
+      ],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 15,
+          "unit": "flat",
+          "raw": "+15 Physical Attack"
+        }
+      ],
+      "statsRaw": "+15 Physical Attack",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Demon Hunter Sword",
+      "page": "Demon Hunter Sword",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Demon_Hunter_Sword",
+      "category": "Attack",
+      "caption": "Tank Killer",
+      "priceTotal": 2180,
+      "priceUpgrade": 900,
+      "tier": 3,
+      "recipe": [
+        "Regular Spear",
+        "Vampire Mallet",
+        "Knife"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 35,
+          "unit": "flat",
+          "raw": "+35 Physical Attack"
+        },
+        {
+          "stat": "Attack Speed",
+          "value": 20,
+          "unit": "%",
+          "raw": "+20% Attack Speed"
+        }
+      ],
+      "statsRaw": "+35 Physical Attack, +20% Attack Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Engulf",
+          "text": "Basic Attacks deal 8% of the target's current HP as extra Physical Damage (capped at 60 against minions).",
+          "numbers": [
+            8,
+            60
+          ]
+        },
+        {
+          "name": "Devour",
+          "text": "Each Basic Attack recovers 10(+4*Hero Level) HP. This effect is halved against minions.",
+          "numbers": [
+            10,
+            4
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Endless Battle",
+      "page": "Endless Battle",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Endless_Battle",
+      "category": "Attack",
+      "caption": "Enhanced Basic Attacks",
+      "priceTotal": 2330,
+      "priceUpgrade": 630,
+      "tier": 3,
+      "recipe": [
+        "Azure Blade",
+        "Iron Hunting Bow",
+        "Ogre Tomahawk"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 60,
+          "unit": "flat",
+          "raw": "+60 Physical Attack"
+        },
+        {
+          "stat": "HP",
+          "value": 250,
+          "unit": "flat",
+          "raw": "+250 HP"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Cooldown Reduction"
+        },
+        {
+          "stat": "Movement Speed",
+          "value": 5,
+          "unit": "%",
+          "raw": "+5% Movement Speed"
+        },
+        {
+          "stat": "Mana Regen",
+          "value": 5,
+          "unit": "flat",
+          "raw": "+5 Mana Regen"
+        }
+      ],
+      "statsRaw": "+60 Physical Attack, +250 HP, +10% Cooldown Reduction, +5% Movement Speed, +5 Mana Regen",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Divine Justice",
+          "text": "After casting a skill, the next Basic Attack within 3 seconds deals (60% Total Physical Attack) extra True Damage and recovers 80 (+40% of Total Physical Attack) HP (1.5 seconds cooldown).",
+          "numbers": [
+            3,
+            60,
+            80,
+            40,
+            1.5
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Fury Hammer",
+      "page": "Fury Hammer",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Fury_Hammer",
+      "category": "Attack",
+      "caption": null,
+      "priceTotal": 830,
+      "priceUpgrade": 580,
+      "tier": 2,
+      "recipe": [
+        "Dagger"
+      ],
+      "buildsInto": [
+        "Blade of the Heptaseas",
+        "Hunter Strike",
+        "Malefic Gun"
+      ],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 35,
+          "unit": "flat",
+          "raw": "+35 Physical Attack"
+        }
+      ],
+      "statsRaw": "+35 Physical Attack",
+      "uniqueStats": [
+        {
+          "stat": "Physical Penetration",
+          "value": 12,
+          "unit": "flat",
+          "raw": "+12 Physical Penetration"
+        }
+      ],
+      "uniqueStatsRaw": "+12 Physical Penetration",
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Golden Staff",
+      "page": "Golden Staff",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Golden_Staff",
+      "category": "Attack",
+      "caption": "Enhance Attack Effects",
+      "priceTotal": 2000,
+      "priceUpgrade": 900,
+      "tier": 3,
+      "recipe": [
+        "Regular Spear",
+        "Dagger",
+        "Dagger"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 55,
+          "unit": "flat",
+          "raw": "+55 Physical Attack"
+        },
+        {
+          "stat": "Attack Speed",
+          "value": 15,
+          "unit": "%",
+          "raw": "+15% Attack Speed"
+        }
+      ],
+      "statsRaw": "+55 Physical Attack, +15% Attack Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Swift",
+          "text": "Every 1% extra Crit Chance gained is converted into 1% extra Attack Speed.",
+          "numbers": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Endless Strike",
+          "text": "After every 2 non-Crit Basic Attacks, the Attack Speed of the next Basic Attack is increased by 80% (and Attack Speed cap is increased to 500%) and triggers Attack Effects an additional 2 time(s).",
+          "numbers": [
+            2,
+            80,
+            500,
+            2
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Great Dragon Spear",
+      "page": "Great Dragon Spear",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Great_Dragon_Spear",
+      "category": "Attack",
+      "caption": "CD Reduction & Crit",
+      "priceTotal": 2140,
+      "priceUpgrade": 460,
+      "tier": 3,
+      "recipe": [
+        "Legion Sword",
+        "Iron Hunting Bow",
+        "Javelin"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 70,
+          "unit": "flat",
+          "raw": "+70 Physical Attack"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Cooldown Reduction"
+        },
+        {
+          "stat": "Crit Chance",
+          "value": 20,
+          "unit": "%",
+          "raw": "+20% Crit Chance"
+        }
+      ],
+      "statsRaw": "+70 Physical Attack, +10% Cooldown Reduction, +20% Crit Chance",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Supreme Warrior",
+          "text": "After casting an Ultimate, increase Movement Speed by 30% for 7.5 seconds. This effect has a 15 seconds cooldown.",
+          "numbers": [
+            30,
+            7.5,
+            15
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Haas' Claws",
+      "page": "Haas' Claws",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Haas'_Claws",
+      "category": "Attack",
+      "caption": "Lifesteal",
+      "priceTotal": 2020,
+      "priceUpgrade": 470,
+      "tier": 3,
+      "recipe": [
+        "Vampire Mallet",
+        "Rogue Meteor",
+        "Dagger"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 40,
+          "unit": "flat",
+          "raw": "+40 Physical Attack"
+        },
+        {
+          "stat": "Attack Speed",
+          "value": 15,
+          "unit": "%",
+          "raw": "+15% Attack Speed"
+        },
+        {
+          "stat": "Crit Chance",
+          "value": 20,
+          "unit": "%",
+          "raw": "+20% Crit Chance"
+        }
+      ],
+      "statsRaw": "+40 Physical Attack, +15% Attack Speed, +20% Crit Chance",
+      "uniqueStats": [
+        {
+          "stat": "Lifesteal",
+          "value": 20,
+          "unit": "%",
+          "raw": "+20% Lifesteal"
+        }
+      ],
+      "uniqueStatsRaw": "+20% Lifesteal",
+      "passives": [
+        {
+          "name": "Frenzy",
+          "text": "Critical strikes grant 20% extra Attack Speed for 2 seconds.",
+          "numbers": [
+            20,
+            2
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Hunter Strike",
+      "page": "Hunter Strike",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Hunter_Strike",
+      "category": "Attack",
+      "caption": "Brief Speed-Up",
+      "priceTotal": 2010,
+      "priceUpgrade": 480,
+      "tier": 3,
+      "recipe": [
+        "Fury Hammer",
+        "Iron Hunting Bow",
+        "Dagger"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 80,
+          "unit": "flat",
+          "raw": "+80 Physical Attack"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+80 Physical Attack, +10% Cooldown Reduction",
+      "uniqueStats": [
+        {
+          "stat": "Physical Penetration",
+          "value": 15,
+          "unit": "flat",
+          "raw": "+15 Physical Penetration"
+        }
+      ],
+      "uniqueStatsRaw": "+15 Physical Penetration",
+      "passives": [
+        {
+          "name": "Retribution",
+          "text": "Dealing damage to the same enemy hero or creep 5 times in a row grants 50% extra Movement Speed that decays over 3 seconds (8 seconds cooldown).",
+          "numbers": [
+            5,
+            50,
+            3,
+            8
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Iron Hunting Bow",
+      "page": "Iron Hunting Bow",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Iron_Hunting_Bow",
+      "category": "Attack",
+      "caption": null,
+      "priceTotal": 450,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [
+        "Endless Battle",
+        "Great Dragon Spear",
+        "Hunter Strike",
+        "War Axe"
+      ],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 10,
+          "unit": "flat",
+          "raw": "+10 Physical Attack"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 5,
+          "unit": "%",
+          "raw": "+5% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+10 Physical Attack, +5% Cooldown Reduction",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Javelin",
+      "page": "Javelin",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Javelin",
+      "category": "Attack",
+      "caption": null,
+      "priceTotal": 320,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [
+        "Rogue Meteor",
+        "Berserker's Fury",
+        "Great Dragon Spear"
+      ],
+      "stats": [
+        {
+          "stat": "Crit Chance",
+          "value": 8,
+          "unit": "%",
+          "raw": "+8% Crit Chance"
+        }
+      ],
+      "statsRaw": "+8% Crit Chance",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Knife",
+      "page": "Knife",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Knife",
+      "category": "Attack",
+      "caption": null,
+      "priceTotal": 280,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [
+        "Regular Spear",
+        "Rogue Meteor",
+        "Swift Boots",
+        "Swift Crossbow",
+        "Malefic Gun",
+        "Rose Gold Meteor"
+      ],
+      "stats": [
+        {
+          "stat": "Attack Speed",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Attack Speed"
+        }
+      ],
+      "statsRaw": "+10% Attack Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Legion Sword",
+      "page": "Legion Sword",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Legion_Sword",
+      "category": "Attack",
+      "caption": null,
+      "priceTotal": 910,
+      "priceUpgrade": 410,
+      "tier": 2,
+      "recipe": [
+        "Dagger",
+        "Dagger"
+      ],
+      "buildsInto": [
+        "Berserker's Fury",
+        "Blade of Despair",
+        "Great Dragon Spear",
+        "Malefic Roar",
+        "Sea Halberd"
+      ],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 60,
+          "unit": "flat",
+          "raw": "+60 Physical Attack"
+        }
+      ],
+      "statsRaw": "+60 Physical Attack",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Magic Blade",
+      "page": "Magic Blade",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Magic_Blade",
+      "category": "Attack",
+      "caption": null,
+      "priceTotal": 1050,
+      "priceUpgrade": 400,
+      "tier": 2,
+      "recipe": [
+        "Dagger",
+        "Vampire Mallet"
+      ],
+      "buildsInto": [
+        "Rose Gold Meteor"
+      ],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 35,
+          "unit": "flat",
+          "raw": "+35 Physical Attack"
+        },
+        {
+          "stat": "Lifesteal",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Lifesteal"
+        }
+      ],
+      "statsRaw": "+35 Physical Attack, +10% Lifesteal",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Lifeline",
+          "text": "When taking damage that reduces HP below 30%, gains a (+60*Hero Level) shield (increases with level) and 50% Movement Speed that rapidly decays over 3 seconds. This effect has a 60 seconds cooldown.",
+          "numbers": [
+            30,
+            60,
+            50,
+            3,
+            60
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Malefic Gun",
+      "page": "Malefic Gun",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Malefic_Gun",
+      "category": "Attack",
+      "caption": "Attack Range Increase",
+      "priceTotal": 2120,
+      "priceUpgrade": 730,
+      "tier": 3,
+      "recipe": [
+        "Fury Hammer",
+        "Knife",
+        "Knife"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 40,
+          "unit": "flat",
+          "raw": "+40 Physical Attack"
+        },
+        {
+          "stat": "Attack Speed",
+          "value": 20,
+          "unit": "%",
+          "raw": "+20% Attack Speed"
+        }
+      ],
+      "statsRaw": "+40 Physical Attack, +20% Attack Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Armor Buster",
+          "text": "Increase Physical Penetration by 30%.",
+          "numbers": [
+            30
+          ]
+        },
+        {
+          "name": "Malefic Energy",
+          "text": "Increases Basic Attack range by 12%. When hitting a target, gains 10% Movement Speed for 0.5 seconds.",
+          "numbers": [
+            12,
+            10,
+            0.5
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Malefic Roar",
+      "page": "Malefic Roar",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Malefic_Roar",
+      "category": "Attack",
+      "caption": "High Physical Penetration",
+      "priceTotal": 2060,
+      "priceUpgrade": 1150,
+      "tier": 3,
+      "recipe": [
+        "Legion Sword"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 60,
+          "unit": "flat",
+          "raw": "+60 Physical Attack"
+        }
+      ],
+      "statsRaw": "+60 Physical Attack",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Armor Buster",
+          "text": "Increase Physical Penetration by 30%.",
+          "numbers": [
+            30
+          ]
+        },
+        {
+          "name": "Breaker",
+          "text": "When attacking an enemy, gains 0.1% extra Physical Penetration for each point of the enemy's Physical Defense, capped at 30%.",
+          "numbers": [
+            0.1,
+            30
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Ogre Tomahawk",
+      "page": "Ogre Tomahawk",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Ogre_Tomahawk",
+      "category": "Attack",
+      "caption": null,
+      "priceTotal": 650,
+      "priceUpgrade": 100,
+      "tier": 2,
+      "recipe": [
+        "Dagger",
+        "Vitality Crystal"
+      ],
+      "buildsInto": [
+        "Blade of the Heptaseas",
+        "Endless Battle",
+        "War Axe"
+      ],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 25,
+          "unit": "flat",
+          "raw": "+25 Physical Attack"
+        },
+        {
+          "stat": "HP",
+          "value": 230,
+          "unit": "flat",
+          "raw": "+230 HP"
+        }
+      ],
+      "statsRaw": "+25 Physical Attack, +230 HP",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Power Potion",
+      "page": "Power Potion",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Power_Potion",
+      "category": "Attack",
+      "caption": null,
+      "priceTotal": 1500,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [],
+      "stats": [],
+      "statsRaw": null,
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Increase Power",
+          "text": "Automatically used after purchasing, giving 30 Physical Attack and 15% of Lifesteal for 120s. Can only have one potion effect at a time.",
+          "numbers": [
+            30,
+            15,
+            120
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": false,
+      "occupiesSlot": false,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Regular Spear",
+      "page": "Regular Spear",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Regular_Spear",
+      "category": "Attack",
+      "caption": null,
+      "priceTotal": 600,
+      "priceUpgrade": 70,
+      "tier": 2,
+      "recipe": [
+        "Knife",
+        "Dagger"
+      ],
+      "buildsInto": [
+        "Corrosion Scythe",
+        "Demon Hunter Sword",
+        "Golden Staff",
+        "Sea Halberd",
+        "Wind of Nature"
+      ],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 20,
+          "unit": "flat",
+          "raw": "+20 Physical Attack"
+        },
+        {
+          "stat": "Attack Speed",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Attack Speed"
+        }
+      ],
+      "statsRaw": "+20 Physical Attack, +10% Attack Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Rogue Meteor",
+      "page": "Rogue Meteor",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Rogue_Meteor",
+      "category": "Attack",
+      "caption": null,
+      "priceTotal": 900,
+      "priceUpgrade": 300,
+      "tier": 2,
+      "recipe": [
+        "Knife",
+        "Javelin"
+      ],
+      "buildsInto": [
+        "Haas' Claws",
+        "Windtalker"
+      ],
+      "stats": [
+        {
+          "stat": "Attack Speed",
+          "value": 15,
+          "unit": "%",
+          "raw": "+15% Attack Speed"
+        },
+        {
+          "stat": "Crit Chance",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Crit Chance"
+        }
+      ],
+      "statsRaw": "+15% Attack Speed, +10% Crit Chance",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Rose Gold Meteor",
+      "page": "Rose Gold Meteor",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Rose_Gold_Meteor",
+      "category": "Attack",
+      "caption": "Low-HP Shield",
+      "priceTotal": 2030,
+      "priceUpgrade": 700,
+      "tier": 3,
+      "recipe": [
+        "Magic Blade",
+        "Knife"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 30,
+          "unit": "flat",
+          "raw": "+30 Physical Attack"
+        },
+        {
+          "stat": "Attack Speed",
+          "value": 20,
+          "unit": "%",
+          "raw": "+20% Attack Speed"
+        },
+        {
+          "stat": "Lifesteal",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Lifesteal"
+        }
+      ],
+      "statsRaw": "+30 Physical Attack, +20% Attack Speed, +10% Lifesteal",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Dragon Scale",
+          "text": "Every 4 extra Physical Attack increases Hybrid Defense by 1, up to 50 (effect is halved if Main Role is not Fighter).",
+          "numbers": [
+            4,
+            1,
+            50
+          ]
+        },
+        {
+          "name": "Lifeline",
+          "text": "When taking damage that reduces HP below 30%, gains a (120*Hero Level) shield (increases with level) and 50% Movement Speed that rapidly decays over 3 seconds. This effect has a 60 seconds cooldown.",
+          "numbers": [
+            30,
+            120,
+            50,
+            3,
+            60
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Scarlet Phantom",
+      "page": "Scarlet Phantom",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Scarlet_Phantom",
+      "category": "Attack",
+      "caption": "Crit & Attack Speed",
+      "priceTotal": 2020,
+      "priceUpgrade": 800,
+      "tier": 3,
+      "recipe": [
+        "Rogue Meteor",
+        "Javelin"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 30,
+          "unit": "flat",
+          "raw": "+30 Physical Attack"
+        },
+        {
+          "stat": "Attack Speed",
+          "value": 20,
+          "unit": "%",
+          "raw": "+20% Attack Speed"
+        },
+        {
+          "stat": "Crit Chance",
+          "value": 25,
+          "unit": "%",
+          "raw": "+25% Crit Chance"
+        }
+      ],
+      "statsRaw": "+30 Physical Attack, +20% Attack Speed, +25% Crit Chance",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Frenzy",
+          "text": "Critical strikes grant 30% extra Attack Speed and 5% extra Crit Chance for 2 seconds.",
+          "numbers": [
+            30,
+            5,
+            2
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "Removed",
+      "removed": true,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Sea Halberd",
+      "page": "Sea Halberd",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Sea_Halberd",
+      "category": "Attack",
+      "caption": "Healing Reduction",
+      "priceTotal": 2050,
+      "priceUpgrade": 540,
+      "tier": 3,
+      "recipe": [
+        "Legion Sword",
+        "Regular Spear"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 80,
+          "unit": "flat",
+          "raw": "+80 Physical Attack"
+        },
+        {
+          "stat": "Attack Speed",
+          "value": 20,
+          "unit": "%",
+          "raw": "+20% Attack Speed"
+        }
+      ],
+      "statsRaw": "+80 Physical Attack, +20% Attack Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Lifebane",
+          "text": "Dealing damage to a target will reduce the Shield and HP Regen effects on them to 60% of normal for 3 seconds.",
+          "numbers": [
+            60,
+            3
+          ]
+        },
+        {
+          "name": "Punish",
+          "text": "Increase damage by 8% against enemy heroes with higher extra HP.",
+          "numbers": [
+            8
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Swift Crossbow",
+      "page": "Swift Crossbow",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Swift_Crossbow",
+      "category": "Attack",
+      "caption": null,
+      "priceTotal": 1000,
+      "priceUpgrade": 440,
+      "tier": 2,
+      "recipe": [
+        "Knife",
+        "Knife"
+      ],
+      "buildsInto": [
+        "Corrosion Scythe",
+        "Feather of Heaven"
+      ],
+      "stats": [
+        {
+          "stat": "Attack Speed",
+          "value": 20,
+          "unit": "%",
+          "raw": "+20% Attack Speed"
+        }
+      ],
+      "statsRaw": "+20% Attack Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Crossbow",
+          "text": "Each Basic Attack deals 40 extra Adaptive Damage.",
+          "numbers": [
+            40
+          ]
+        },
+        {
+          "name": "Impulse",
+          "text": "Basic Attacks grant 3% extra Attack Speed for 3 seconds, capped at 5 stacks.",
+          "numbers": [
+            3,
+            3,
+            5
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Vampire Mallet",
+      "page": "Vampire Mallet",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Vampire_Mallet",
+      "category": "Attack",
+      "caption": null,
+      "priceTotal": 400,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [
+        "Magic Blade",
+        "Demon Hunter Sword",
+        "Haas' Claws",
+        "Wind of Nature"
+      ],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 8,
+          "unit": "flat",
+          "raw": "+8 Physical Attack"
+        },
+        {
+          "stat": "Lifesteal",
+          "value": 8,
+          "unit": "%",
+          "raw": "+8% Lifesteal"
+        }
+      ],
+      "statsRaw": "+8 Physical Attack, +8% Lifesteal",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "War Axe",
+      "page": "War Axe",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/War_Axe",
+      "category": "Attack",
+      "caption": "Continuous Damage Boost",
+      "priceTotal": 2100,
+      "priceUpgrade": 550,
+      "tier": 3,
+      "recipe": [
+        "Ogre Tomahawk",
+        "Iron Hunting Bow",
+        "Hero's Ring"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 35,
+          "unit": "flat",
+          "raw": "+35 Physical Attack"
+        },
+        {
+          "stat": "HP",
+          "value": 400,
+          "unit": "flat",
+          "raw": "+400 HP"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Cooldown Reduction"
+        },
+        {
+          "stat": "Hybrid Lifesteal",
+          "value": 8,
+          "unit": "%",
+          "raw": "+8% Hybrid Lifesteal"
+        }
+      ],
+      "statsRaw": "+35 Physical Attack, +400 HP, +10% Cooldown Reduction, +8% Hybrid Lifesteal",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Fighting Spirit",
+          "text": "Attacks grants 12 extra Physical Attack per second for 4 seconds, up to 6 stacks. Deals 10% extra True Damage based on the damage dealt (no damage reduction counted) at full stacks. (Marksmen, Mages, and Supports only receive 50% of these stacked effects.)",
+          "numbers": [
+            12,
+            4,
+            6,
+            10,
+            50
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Wind of Nature",
+      "page": "Wind of Nature",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Wind_of_Nature",
+      "category": "Attack",
+      "caption": "Physical Damage Immunity",
+      "priceTotal": 1910,
+      "priceUpgrade": 910,
+      "tier": 3,
+      "recipe": [
+        "Regular Spear",
+        "Vampire Mallet"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 30,
+          "unit": "flat",
+          "raw": "+30 Physical Attack"
+        },
+        {
+          "stat": "Attack Speed",
+          "value": 20,
+          "unit": "%",
+          "raw": "+20% Attack Speed"
+        },
+        {
+          "stat": "Lifesteal",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Lifesteal"
+        }
+      ],
+      "statsRaw": "+30 Physical Attack, +20% Attack Speed, +10% Lifesteal",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [
+        {
+          "name": "Wind Chant",
+          "text": "Become immune to all Physical Damage for 2 seconds (duration is halved if Main Role is not Marksman; 90 seconds cooldown).",
+          "numbers": [
+            2,
+            90
+          ]
+        }
+      ],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Windtalker",
+      "page": "Windtalker",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Windtalker",
+      "category": "Attack",
+      "caption": "Splash Damage",
+      "priceTotal": 1880,
+      "priceUpgrade": 700,
+      "tier": 3,
+      "recipe": [
+        "Rogue Meteor",
+        "Knife"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Attack Speed",
+          "value": 35,
+          "unit": "%",
+          "raw": "+35% Attack Speed"
+        },
+        {
+          "stat": "Crit Chance",
+          "value": 20,
+          "unit": "%",
+          "raw": "+20% Crit Chance"
+        },
+        {
+          "stat": "Movement Speed",
+          "value": 20,
+          "unit": "flat",
+          "raw": "+20 Movement Speed"
+        }
+      ],
+      "statsRaw": "+35% Attack Speed, +20% Crit Chance, +20 Movement Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Typhoon",
+          "text": "Every 5–2 seconds (reduced by 0.2 seconds for each Basic Attack), the next Basic Attack will hit up to 3 enemy units for 150–362 Magic Damage. (This attack can Crit and the damage increases to 200% against Minions.)",
+          "numbers": [
+            5,
+            2,
+            0.2,
+            3,
+            150,
+            362,
+            200
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Expert Gloves",
+      "page": "Expert Gloves",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Expert_Gloves",
+      "category": "Attack & Magic",
+      "caption": null,
+      "priceTotal": 500,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [
+        "Fleeting Time",
+        "Sky Piercer",
+        "Queen's Wings",
+        "Winter Crown"
+      ],
+      "stats": [
+        {
+          "stat": "Adaptive Attack,",
+          "value": 30,
+          "unit": "flat",
+          "raw": "+30 Adaptive Attack,"
+        }
+      ],
+      "statsRaw": "+30 Adaptive Attack,",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Sky Piercer",
+      "page": "Sky Piercer",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Sky_Piercer",
+      "category": "Attack & Magic",
+      "caption": "Best for Finishers",
+      "priceTotal": 1500,
+      "priceUpgrade": 500,
+      "tier": 2,
+      "recipe": [
+        "Expert Gloves",
+        "Expert Gloves"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Adaptive Attack",
+          "value": 60,
+          "unit": "flat",
+          "raw": "+60 Adaptive Attack"
+        },
+        {
+          "stat": "Movement Speed",
+          "value": 15,
+          "unit": "flat",
+          "raw": "+15 Movement Speed"
+        }
+      ],
+      "statsRaw": "+60 Adaptive Attack, +15 Movement Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Lethality",
+          "text": "After dealing damage to an enemy hero, executes the hero if their HP is lower than 4%. Gains 10 stack(s) of Lethality for each kill and loses 30% current stack(s) for each death. Each stack of Lethality increases the HP threshold of the execute effect by 0.1%, stacking up 80 times.",
+          "numbers": [
+            4,
+            10,
+            30,
+            0.1,
+            80
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Winter Crown",
+      "page": "Winter Crown",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Winter_Crown",
+      "category": "Attack & Magic",
+      "caption": "Temporary Invincibility",
+      "priceTotal": 1910,
+      "priceUpgrade": 660,
+      "tier": 2,
+      "recipe": [
+        "Expert Gloves",
+        "Hero's Ring",
+        "Vitality Crystal"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Adaptive Attack",
+          "value": 45,
+          "unit": "flat",
+          "raw": "+45 Adaptive Attack"
+        },
+        {
+          "stat": "HP",
+          "value": 400,
+          "unit": "flat",
+          "raw": "+400 HP"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 5,
+          "unit": "%",
+          "raw": "+5% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+45 Adaptive Attack, +400 HP, +5% Cooldown Reduction",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [
+        {
+          "name": "Frozen",
+          "text": "Becomes frozen, untargetable, and immune to damage for 2 seconds (100 seconds cooldown). Cannot move or cast skills while frozen, but skills already cast won't be interrupted.",
+          "numbers": [
+            2,
+            100
+          ]
+        }
+      ],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Fleeting Time",
+      "page": "Fleeting Time",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Fleeting_Time",
+      "category": "Attack, Magic & Defense",
+      "caption": "Ultimate CD Reduction",
+      "priceTotal": 2050,
+      "priceUpgrade": 650,
+      "tier": 2,
+      "recipe": [
+        "Hero's Ring",
+        "Hero's Ring",
+        "Expert Gloves"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Adaptive Attack",
+          "value": 30,
+          "unit": "flat",
+          "raw": "+30 Adaptive Attack"
+        },
+        {
+          "stat": "HP",
+          "value": 600,
+          "unit": "flat",
+          "raw": "+600 HP"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 15,
+          "unit": "%",
+          "raw": "+15% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+30 Adaptive Attack, +600 HP, +15% Cooldown Reduction",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Timestream",
+          "text": "Hero kills or assists reduce the Ultimate's current cooldown by 30%.",
+          "numbers": [
+            30
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Antique Cuirass",
+      "page": "Antique Cuirass",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Antique_Cuirass",
+      "category": "Defense",
+      "caption": "Physical Attack Reduction",
+      "priceTotal": 2170,
+      "priceUpgrade": 740,
+      "tier": 3,
+      "recipe": [
+        "Dreadnaught Armor",
+        "Ares Belt"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 920,
+          "unit": "flat",
+          "raw": "+920 HP"
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 40,
+          "unit": "flat",
+          "raw": "+40 Physical Defense"
+        },
+        {
+          "stat": "HP Regen",
+          "value": 4,
+          "unit": "flat",
+          "raw": "+4 HP Regen"
+        }
+      ],
+      "statsRaw": "+920 HP, +40 Physical Defense, +4 HP Regen",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Deter",
+          "text": "When hit by a skill, reduces the attacker's Physical Damage by 6% for 2 seconds (this effect stacks up to 3 times).",
+          "numbers": [
+            6,
+            2,
+            3
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Ares Belt",
+      "page": "Ares Belt",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Ares_Belt",
+      "category": "Defense",
+      "caption": null,
+      "priceTotal": 700,
+      "priceUpgrade": 400,
+      "tier": 2,
+      "recipe": [
+        "Vitality Crystal"
+      ],
+      "buildsInto": [
+        "Antique Cuirass",
+        "Brute Force Breastplate",
+        "Chastise Pauldron",
+        "Cursed Helmet",
+        "Guardian Helmet",
+        "Immortality",
+        "Queen's Wings",
+        "Thunder Belt"
+      ],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 600,
+          "unit": "flat",
+          "raw": "+600 HP"
+        }
+      ],
+      "statsRaw": "+600 HP",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Black Ice Shield",
+      "page": "Black Ice Shield",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Black_Ice_Shield",
+      "category": "Defense",
+      "caption": null,
+      "priceTotal": 780,
+      "priceUpgrade": 340,
+      "tier": 2,
+      "recipe": [
+        "Leather Jerkin",
+        "Magic Resist Cloak"
+      ],
+      "buildsInto": [
+        "Dominance Ice"
+      ],
+      "stats": [
+        {
+          "stat": "Physical Defense",
+          "value": 20,
+          "unit": "flat",
+          "raw": "+20 Physical Defense"
+        },
+        {
+          "stat": "Magic Defense",
+          "value": 20,
+          "unit": "flat",
+          "raw": "+20 Magic Defense"
+        }
+      ],
+      "statsRaw": "+20 Physical Defense, +20 Magic Defense",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Fortress Shield",
+          "text": "For each enemy hero within 3.55 units, Hybrid Defense is increased by 4, up to 20.",
+          "numbers": [
+            3.55,
+            4,
+            20
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Blade Armor",
+      "page": "Blade Armor",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Blade_Armor",
+      "category": "Defense",
+      "caption": "Damage Reflection",
+      "priceTotal": 1910,
+      "priceUpgrade": 840,
+      "tier": 3,
+      "recipe": [
+        "Steel Legplates",
+        "Leather Jerkin",
+        "Leather Jerkin"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Defense",
+          "value": 80,
+          "unit": "flat",
+          "raw": "+80 Physical Defense"
+        }
+      ],
+      "statsRaw": "+80 Physical Defense",
+      "uniqueStats": [
+        {
+          "stat": "Crit Damage Reduction",
+          "value": 20,
+          "unit": "%",
+          "raw": "+20% Crit Damage Reduction"
+        }
+      ],
+      "uniqueStatsRaw": "+20% Crit Damage Reduction",
+      "passives": [
+        {
+          "name": "Bladed Armor",
+          "text": "When struck by a Basic Attack, deals Physical Damage equal to 30 (+2% Total Physical Defense)% of the incoming damage (calculated before Damage Reduction) to the attacker and slows them by 15% for 1 second.",
+          "numbers": [
+            30,
+            2,
+            15,
+            1
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Brute Force Breastplate",
+      "page": "Brute Force Breastplate",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Brute_Force_Breastplate",
+      "category": "Defense",
+      "caption": "Attack, Speed Up, CC Reduction",
+      "priceTotal": 2070,
+      "priceUpgrade": 700,
+      "tier": 3,
+      "recipe": [
+        "Ares Belt",
+        "Hero's Ring",
+        "Leather Jerkin"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 800,
+          "unit": "flat",
+          "raw": "+800 HP"
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 20,
+          "unit": "flat",
+          "raw": "+20 Physical Defense"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+800 HP, +20 Physical Defense, +10% Cooldown Reduction",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Brute Force",
+          "text": "Each second after dealing damage, gain 8 extra Adaptive Attack and 2% extra Movement Speed for 4 seconds, up to 6 stacks. Gain 25% extra Control Duration Reduction at full stacks.",
+          "numbers": [
+            8,
+            2,
+            4,
+            6,
+            25
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Chastise Pauldron",
+      "page": "Chastise Pauldron",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Chastise_Pauldron",
+      "category": "Defense",
+      "caption": "Reduce Enemy Attack Speed",
+      "priceTotal": 2100,
+      "priceUpgrade": 770,
+      "tier": 3,
+      "recipe": [
+        "Steel Legplates",
+        "Ares Belt"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 900,
+          "unit": "flat",
+          "raw": "+900 HP"
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 40,
+          "unit": "flat",
+          "raw": "+40 Physical Defense"
+        }
+      ],
+      "statsRaw": "+900 HP, +40 Physical Defense",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Chastise",
+          "text": "Taking damage will reduce the Attack Speed and Attack Speed cap of the attacker to 75% of normal for 2 seconds.",
+          "numbers": [
+            75,
+            2
+          ]
+        },
+        {
+          "name": "Redemption",
+          "text": "When incoming damage reduces HP below 30%, recover 20% Max HP over the next 2 seconds. This effect has a 60 seconds cooldown.",
+          "numbers": [
+            30,
+            20,
+            2,
+            60
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Cursed Helmet",
+      "page": "Cursed Helmet",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Cursed_Helmet",
+      "category": "Defense",
+      "caption": "Survivability & Lane Clearing",
+      "priceTotal": 1910,
+      "priceUpgrade": 190,
+      "tier": 3,
+      "recipe": [
+        "Molten Essence",
+        "Ares Belt",
+        "Magic Resist Cloak"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 1200,
+          "unit": "flat",
+          "raw": "+1200 HP"
+        },
+        {
+          "stat": "Magic Defense",
+          "value": 20,
+          "unit": "flat",
+          "raw": "+20 Magic Defense"
+        }
+      ],
+      "statsRaw": "+1200 HP, +20 Magic Defense",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Burning Soul",
+          "text": "Deals (1.2% Total HP) Magic Damage to nearby enemies per second. This damage is increased by 125(+15*Hero Level)% against creeps and minions.",
+          "numbers": [
+            1.2,
+            125,
+            15
+          ]
+        },
+        {
+          "name": "Curse",
+          "text": "Dealing damage with Burning Soul will reduce the target's Hybrid Defense by 3 for 3 seconds. Stacks up to 3 times.",
+          "numbers": [
+            3,
+            3,
+            3
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Dominance Ice",
+      "page": "Dominance Ice",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Dominance_Ice",
+      "category": "Defense",
+      "caption": "Healing Reduction",
+      "priceTotal": 2010,
+      "priceUpgrade": 790,
+      "tier": 3,
+      "recipe": [
+        "Black Ice Shield",
+        "Leather Jerkin",
+        "Magic Resist Cloak"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Physical Defense",
+          "value": 40,
+          "unit": "flat",
+          "raw": "+40 Physical Defense"
+        },
+        {
+          "stat": "Magic Defense",
+          "value": 40,
+          "unit": "flat",
+          "raw": "+40 Magic Defense"
+        },
+        {
+          "stat": "Movement Speed",
+          "value": 5,
+          "unit": "%",
+          "raw": "+5% Movement Speed"
+        }
+      ],
+      "statsRaw": "+40 Physical Defense, +40 Magic Defense, +5% Movement Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Fortress Shield",
+          "text": "For each enemy hero within 5 units, Hybrid Defense is increased by 8, up to 40.",
+          "numbers": [
+            5,
+            8,
+            40
+          ]
+        },
+        {
+          "name": "Lifebane",
+          "text": "Reduces Shield and HP Regen effects of nearby enemies within 5 units to 60% of normal for 1 second.",
+          "numbers": [
+            5,
+            60,
+            1
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Dreadnaught Armor",
+      "page": "Dreadnaught Armor",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Dreadnaught_Armor",
+      "category": "Defense",
+      "caption": null,
+      "priceTotal": 730,
+      "priceUpgrade": 290,
+      "tier": 2,
+      "recipe": [
+        "Leather Jerkin",
+        "Leather Jerkin"
+      ],
+      "buildsInto": [
+        "Antique Cuirass"
+      ],
+      "stats": [
+        {
+          "stat": "Physical Defense",
+          "value": 30,
+          "unit": "flat",
+          "raw": "+30 Physical Defense"
+        }
+      ],
+      "statsRaw": "+30 Physical Defense",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Deter",
+          "text": "When hit by a skill, reduces the attacker's Physical Damage by 4% for 2 seconds (this effect stacks up to 3 times).",
+          "numbers": [
+            4,
+            2,
+            3
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Guardian Helmet",
+      "page": "Guardian Helmet",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Guardian_Helmet",
+      "category": "Defense",
+      "caption": "Constant HP Regen",
+      "priceTotal": 2500,
+      "priceUpgrade": 400,
+      "tier": 3,
+      "recipe": [
+        "Ares Belt",
+        "Ares Belt",
+        "Ares Belt"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 1800,
+          "unit": "flat",
+          "raw": "+1800 HP"
+        },
+        {
+          "stat": "HP Regen",
+          "value": 20,
+          "unit": "flat",
+          "raw": "+20 HP Regen"
+        }
+      ],
+      "statsRaw": "+1800 HP, +20 HP Regen",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Recovery",
+          "text": "After 5 seconds out of combat, recover (2.5% Total HP) HP per second.",
+          "numbers": [
+            5,
+            2.5
+          ]
+        },
+        {
+          "name": "Defender",
+          "text": "Upon taking more than 500 damage in a single instance, recover 30 (+0.3% Total HP)% HP from the excess damage beyond that amount.",
+          "numbers": [
+            500,
+            30,
+            0.3
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Healing Necklace",
+      "page": "Healing Necklace",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Healing_Necklace",
+      "category": "Defense",
+      "caption": null,
+      "priceTotal": 140,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [
+        "Radiant Armor",
+        "Rapid Boots"
+      ],
+      "stats": [
+        {
+          "stat": "HP Regen",
+          "value": 4,
+          "unit": "flat",
+          "raw": "+4 HP Regen"
+        }
+      ],
+      "statsRaw": "+4 HP Regen",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Hero's Ring",
+      "page": "Hero's Ring",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Hero's_Ring",
+      "category": "Defense",
+      "caption": null,
+      "priceTotal": 450,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [
+        "Magic Shoes",
+        "Brute Force Breastplate",
+        "Fleeting Time",
+        "Oracle",
+        "Queen's Wings",
+        "War Axe",
+        "Winter Crown"
+      ],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 150,
+          "unit": "flat",
+          "raw": "+150 HP"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 5,
+          "unit": "%",
+          "raw": "+5% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+150 HP, +5% Cooldown Reduction",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Immortality",
+      "page": "Immortality",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Immortality",
+      "category": "Defense",
+      "caption": "Self-Resurrection",
+      "priceTotal": 2120,
+      "priceUpgrade": 900,
+      "tier": 3,
+      "recipe": [
+        "Ares Belt",
+        "Vitality Crystal",
+        "Leather Jerkin"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 850,
+          "unit": "flat",
+          "raw": "+850 HP"
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 15,
+          "unit": "flat",
+          "raw": "+15 Physical Defense"
+        }
+      ],
+      "statsRaw": "+850 HP, +15 Physical Defense",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Immortal",
+          "text": "Resurrect 2.5 seconds upon death and gets 16% Max HP and a shield that can absorb 150(+70*Hero Level）damage. Shield lasts 3 seconds. This effect has a 210 seconds cooldown.",
+          "numbers": [
+            2.5,
+            16,
+            150,
+            70,
+            3,
+            210
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Leather Jerkin",
+      "page": "Leather Jerkin",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Leather_Jerkin",
+      "category": "Defense",
+      "caption": null,
+      "priceTotal": 220,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [
+        "Black Ice Shield",
+        "Dreadnaught Armor",
+        "Steel Legplates",
+        "Warrior Boots",
+        "Blade Armor",
+        "Brute Force Breastplate",
+        "Dominance Ice",
+        "Immortality",
+        "Thunder Belt"
+      ],
+      "stats": [
+        {
+          "stat": "Physical Defense",
+          "value": 14,
+          "unit": "flat",
+          "raw": "+14 Physical Defense"
+        }
+      ],
+      "statsRaw": "+14 Physical Defense",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Magic Resist Cloak",
+      "page": "Magic Resist Cloak",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Magic_Resist_Cloak",
+      "category": "Defense",
+      "caption": null,
+      "priceTotal": 220,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [
+        "Black Ice Shield",
+        "Silence Robe",
+        "Tough Boots",
+        "Cursed Helmet",
+        "Dominance Ice",
+        "Radiant Armor",
+        "Thunder Belt"
+      ],
+      "stats": [
+        {
+          "stat": "Magic Defense",
+          "value": 14,
+          "unit": "flat",
+          "raw": "+14 Magic Defense"
+        }
+      ],
+      "statsRaw": "+14 Magic Defense",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Molten Essence",
+      "page": "Molten Essence",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Molten_Essence",
+      "category": "Defense",
+      "caption": null,
+      "priceTotal": 800,
+      "priceUpgrade": 500,
+      "tier": 2,
+      "recipe": [
+        "Vitality Crystal"
+      ],
+      "buildsInto": [
+        "Cursed Helmet"
+      ],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 540,
+          "unit": "flat",
+          "raw": "+540 HP"
+        }
+      ],
+      "statsRaw": "+540 HP",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Burning Soul",
+          "text": "Deals (0.6% Total HP) Magic Damage to nearby enemies per second. This damage is increased by 125(+15*Hero Level)% against creeps and minions.",
+          "numbers": [
+            0.6,
+            125,
+            15
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Oracle",
+      "page": "Oracle",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Oracle",
+      "category": "Defense",
+      "caption": "Enhanced Regen",
+      "priceTotal": 1860,
+      "priceUpgrade": 660,
+      "tier": 2,
+      "recipe": [
+        "Hero's Ring",
+        "Hero's Ring",
+        "Vitality Crystal"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 850,
+          "unit": "flat",
+          "raw": "+850 HP"
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 20,
+          "unit": "flat",
+          "raw": "+20 Physical Defense"
+        },
+        {
+          "stat": "Magic Defense",
+          "value": 20,
+          "unit": "flat",
+          "raw": "+20 Magic Defense"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+850 HP, +20 Physical Defense, +20 Magic Defense, +10% Cooldown Reduction",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Bless",
+          "text": "Received Shield and HP Regen effects are increased by 25%.",
+          "numbers": [
+            25
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Queen's Wings",
+      "page": "Queen's Wings",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Queen's_Wings",
+      "category": "Defense",
+      "caption": "Low-HP Retaliation",
+      "priceTotal": 2250,
+      "priceUpgrade": 600,
+      "tier": 3,
+      "recipe": [
+        "Ares Belt",
+        "Hero's Ring",
+        "Expert Gloves"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 750,
+          "unit": "flat",
+          "raw": "+750 HP"
+        },
+        {
+          "stat": "Adaptive Attack",
+          "value": 30,
+          "unit": "flat",
+          "raw": "+30 Adaptive Attack"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Cooldown Reduction"
+        },
+        {
+          "stat": "Spell Vamp",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Spell Vamp"
+        }
+      ],
+      "statsRaw": "+750 HP, +30 Adaptive Attack, +10% Cooldown Reduction, +10% Spell Vamp",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Demonize",
+          "text": "When HP drops below 40%, gains 30% Damage Reduction for 3 seconds and reduces skill cooldowns by 2 seconds. This effect has a 60 seconds cooldown.",
+          "numbers": [
+            40,
+            30,
+            3,
+            2,
+            60
+          ]
+        },
+        {
+          "name": "Defiance",
+          "text": "For every 1% HP lost, damage is increased by 0.25%, up to 15%.",
+          "numbers": [
+            1,
+            0.25,
+            15
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Radiant Armor",
+      "page": "Radiant Armor",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Radiant_Armor",
+      "category": "Defense",
+      "caption": "Magic Damage Reduction",
+      "priceTotal": 1880,
+      "priceUpgrade": 500,
+      "tier": 3,
+      "recipe": [
+        "Silence Robe",
+        "Magic Resist Cloak",
+        "Healing Necklace"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 950,
+          "unit": "flat",
+          "raw": "+950 HP"
+        },
+        {
+          "stat": "Magic Defense",
+          "value": 40,
+          "unit": "flat",
+          "raw": "+40 Magic Defense"
+        },
+        {
+          "stat": "HP Regen",
+          "value": 12,
+          "unit": "flat",
+          "raw": "+12 HP Regen"
+        }
+      ],
+      "statsRaw": "+950 HP, +40 Magic Defense, +12 HP Regen",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Holy Blessing",
+          "text": "Taking Magic Damage grants 5(+1*Hero Level) Magic Defense for 5 seconds, up to 6 stacks (can only gain 1 stack(s) every 0.4 seconds).",
+          "numbers": [
+            5,
+            1,
+            5,
+            6,
+            1,
+            0.4
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Rock Potion",
+      "page": "Rock Potion",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Rock_Potion",
+      "category": "Defense",
+      "caption": null,
+      "priceTotal": 1500,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [],
+      "stats": [],
+      "statsRaw": null,
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Increase Power",
+          "text": "Upon purchase, grants 500 Max HP and 5% Damage Reduction for 120 seconds. Can only have one potion effect at a time.",
+          "numbers": [
+            500,
+            5,
+            120
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": false,
+      "occupiesSlot": false,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Silence Robe",
+      "page": "Silence Robe",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Silence_Robe",
+      "category": "Defense",
+      "caption": null,
+      "priceTotal": 1020,
+      "priceUpgrade": 500,
+      "tier": 2,
+      "recipe": [
+        "Vitality Crystal",
+        "Magic Resist Cloak"
+      ],
+      "buildsInto": [
+        "Valkyrie's Shield",
+        "Radiant Armor"
+      ],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 540,
+          "unit": "flat",
+          "raw": "+540 HP"
+        },
+        {
+          "stat": "Magic Defense",
+          "value": 23,
+          "unit": "flat",
+          "raw": "+23 Magic Defense"
+        }
+      ],
+      "statsRaw": "+540 HP, +23 Magic Defense",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Steel Legplates",
+      "page": "Steel Legplates",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Steel_Legplates",
+      "category": "Defense",
+      "caption": null,
+      "priceTotal": 630,
+      "priceUpgrade": 410,
+      "tier": 2,
+      "recipe": [
+        "Leather Jerkin"
+      ],
+      "buildsInto": [
+        "Blade Armor",
+        "Chastise Pauldron"
+      ],
+      "stats": [
+        {
+          "stat": "Physical Defense",
+          "value": 35,
+          "unit": "flat",
+          "raw": "+35 Physical Defense"
+        }
+      ],
+      "statsRaw": "+35 Physical Defense",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Thunder Belt",
+      "page": "Thunder Belt",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Thunder_Belt",
+      "category": "Defense",
+      "caption": "Damage for Tanks",
+      "priceTotal": 1820,
+      "priceUpgrade": 680,
+      "tier": 3,
+      "recipe": [
+        "Ares Belt",
+        "Leather Jerkin",
+        "Magic Resist Cloak"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 600,
+          "unit": "flat",
+          "raw": "+600 HP"
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 15,
+          "unit": "flat",
+          "raw": "+15 Physical Defense"
+        },
+        {
+          "stat": "Magic Defense",
+          "value": 15,
+          "unit": "flat",
+          "raw": "+15 Magic Defense"
+        },
+        {
+          "stat": "Movement Speed",
+          "value": 20,
+          "unit": "flat",
+          "raw": "+20 Movement Speed"
+        }
+      ],
+      "statsRaw": "+600 HP, +15 Physical Defense, +15 Magic Defense, +20 Movement Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Thunderbolt",
+          "text": "Every 4 seconds, the next Basic Attack deals 50 (+100% Extra Physical Defense) (+100% Extra Magic Defense) extra True Damage to the target and enemies around them, and briefly slows them by 99%. Hybrid Defense permanently increases by 1 each time the attack hits an enemy hero. (This effect is reduced to 50% for Marksmen, Mages, and Assassins)",
+          "numbers": [
+            4,
+            50,
+            100,
+            100,
+            99,
+            1,
+            50
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Twilight Armor",
+      "page": "Twilight Armor",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Twilight_Armor",
+      "category": "Defense",
+      "caption": "High Damage Resistance",
+      "priceTotal": 2100,
+      "priceUpgrade": 480,
+      "tier": 3,
+      "recipe": [
+        "Ares Belt",
+        "Ares Belt",
+        "Leather Jerkin"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 1200,
+          "unit": "flat",
+          "raw": "+1200 HP"
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 15,
+          "unit": "flat",
+          "raw": "+15 Physical Defense"
+        }
+      ],
+      "statsRaw": "+1200 HP, +15 Physical Defense",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Twilight",
+          "text": "Upon taking more than 500 damage in a single instance, the excess damage beyond that amount is reduced by 20 (+0.2% Total HP)%.",
+          "numbers": [
+            500,
+            20,
+            0.2
+          ]
+        },
+        {
+          "name": "Redemption",
+          "text": "When incoming damage reduces HP below 30%, recover 20% Max HP over the next 4 seconds. This effect has a 60 seconds cooldown.",
+          "numbers": [
+            30,
+            20,
+            4,
+            60
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "Removed",
+      "removed": true,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Valkyrie's Shield",
+      "page": "Valkyrie's Shield",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Valkyrie's_Shield",
+      "category": "Defense",
+      "caption": "Resist Burst Magic Damage",
+      "priceTotal": 2150,
+      "priceUpgrade": 830,
+      "tier": 3,
+      "recipe": [
+        "Silence Robe",
+        "Vitality Crystal"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 900,
+          "unit": "flat",
+          "raw": "+900 HP"
+        },
+        {
+          "stat": "Magic Defense",
+          "value": 48,
+          "unit": "flat",
+          "raw": "+48 Magic Defense"
+        },
+        {
+          "stat": "HP Regen",
+          "value": 2,
+          "unit": "flat",
+          "raw": "+2 HP Regen"
+        }
+      ],
+      "statsRaw": "+900 HP, +48 Magic Defense, +2 HP Regen",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Shield",
+          "text": "Upon taking Magic Damage from enemy hero skills or Basic Attacks, reduces Magic Damage taken by 25% for 3 seconds (including the damage that triggers the effect)s. Regains this effect 5 seconds after leaving combat.",
+          "numbers": [
+            25,
+            3,
+            5
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Vitality Crystal",
+      "page": "Vitality Crystal",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Vitality_Crystal",
+      "category": "Defense",
+      "caption": null,
+      "priceTotal": 300,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [
+        "Ares Belt",
+        "Elegant Gem",
+        "Molten Essence",
+        "Ogre Tomahawk",
+        "Silence Robe",
+        "Valkyrie's Shield",
+        "Concentrated Energy",
+        "Cursed Helmet",
+        "Flask of the Oasis",
+        "Glowing Wand",
+        "Immortality",
+        "Oracle",
+        "Winter Crown"
+      ],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 230,
+          "unit": "flat",
+          "raw": "+230 HP"
+        }
+      ],
+      "statsRaw": "+230 HP",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Bloody Retribution",
+      "page": "Bloody Retribution",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Bloody_Retribution",
+      "category": "Jungling",
+      "caption": null,
+      "priceTotal": null,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [],
+      "stats": [],
+      "statsRaw": null,
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [
+        {
+          "name": null,
+          "text": "Retribution's damage against creeps and minions is increased to 150%. When cast on an enemy hero, deals them 100 True Damage and steals HP equal to 300 plus 24% of the caster's extra HP from them for 3 seconds.\nRetribution is upgraded when the total number of creep kills, hero kills, and assists reaches 5.",
+          "numbers": [
+            150,
+            100,
+            300,
+            24,
+            3,
+            5
+          ]
+        }
+      ],
+      "availability": "Heroes who equipped Retribution",
+      "removed": false,
+      "sellable": false,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Flame Retribution",
+      "page": "Flame Retribution",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Flame_Retribution",
+      "category": "Jungling",
+      "caption": null,
+      "priceTotal": null,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [],
+      "stats": [],
+      "statsRaw": null,
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [
+        {
+          "name": null,
+          "text": "Retribution's damage against creeps and minions is increased to 150%. When cast on an enemy hero, deals them 100 True Damage and steals 71-120 Physical Attack and Magic Power (scales with level) from them for 3 seconds.\nRetribution is upgraded when the total number of creep kills, hero kills, and assists reaches 5.",
+          "numbers": [
+            150,
+            100,
+            71,
+            -120,
+            3,
+            5
+          ]
+        }
+      ],
+      "availability": "Heroes who equipped Retribution",
+      "removed": false,
+      "sellable": false,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Ice Retribution",
+      "page": "Ice Retribution",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Ice_Retribution",
+      "category": "Jungling",
+      "caption": null,
+      "priceTotal": null,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [],
+      "stats": [],
+      "statsRaw": null,
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [
+        {
+          "name": null,
+          "text": "Retribution's damage against creeps and minions is increased to 150%. When cast on an enemy hero, deals them 100 True Damage and steals 52-80 Movement Speed (scales with level) from them for 3 seconds.\nRetribution is upgraded when the total number of creep kills, hero kills, and assists reaches 5.",
+          "numbers": [
+            150,
+            100,
+            52,
+            -80,
+            3,
+            5
+          ]
+        }
+      ],
+      "availability": "Heroes who equipped Retribution",
+      "removed": false,
+      "sellable": false,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Azure Blade",
+      "page": "Azure Blade",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Azure_Blade",
+      "category": "Magic",
+      "caption": null,
+      "priceTotal": 600,
+      "priceUpgrade": 360,
+      "tier": 2,
+      "recipe": [
+        "Magic Necklace",
+        "Magic Necklace"
+      ],
+      "buildsInto": [
+        "Endless Battle",
+        "Starlium Scythe"
+      ],
+      "stats": [
+        {
+          "stat": "Mana Regen",
+          "value": 5,
+          "unit": "flat",
+          "raw": "+5 Mana Regen"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 5,
+          "unit": "%",
+          "raw": "+5% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+5 Mana Regen, +5% Cooldown Reduction",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Judgement",
+          "text": "After casting a skill, the next Basic Attack within 3 seconds deals 50 extra True Damage (1.5 seconds cooldown).",
+          "numbers": [
+            3,
+            50,
+            1.5
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Blood Wings",
+      "page": "Blood Wings",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Blood_Wings",
+      "category": "Magic",
+      "caption": "Speed Boost Shield",
+      "priceTotal": 2100,
+      "priceUpgrade": 460,
+      "tier": 3,
+      "recipe": [
+        "Magic Wand",
+        "Magic Wand"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 90,
+          "unit": "flat",
+          "raw": "+90 Magic Power"
+        }
+      ],
+      "statsRaw": "+90 Magic Power",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Guard",
+          "text": "Gains a 800 (+100% Magic Power) Shield that will regenerate 20 seconds after being damaged. The Shield also grants 30 Movement Speed while it lasts and 150 Movement Speed for 1 second after it breaks.",
+          "numbers": [
+            800,
+            100,
+            20,
+            30,
+            150,
+            1
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Book of Sages",
+      "page": "Book of Sages",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Book_of_Sages",
+      "category": "Magic",
+      "caption": null,
+      "priceTotal": 450,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [
+        "Tome of Evil",
+        "Clock of Destiny",
+        "Feather of Heaven",
+        "Flask of the Oasis",
+        "Lightning Truncheon",
+        "Starlium Scythe",
+        "Wishing Lantern"
+      ],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 8,
+          "unit": "flat",
+          "raw": "+8 Magic Power"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 5,
+          "unit": "%",
+          "raw": "+5% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+8 Magic Power, +5% Cooldown Reduction",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Bud of Hope",
+      "page": "Bud of Hope",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Bud_of_Hope",
+      "category": "Magic",
+      "caption": null,
+      "priceTotal": null,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 250,
+          "unit": "flat",
+          "raw": "+250 HP"
+        }
+      ],
+      "statsRaw": "+250 HP",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Bud of Hope",
+          "text": "Granted by Floryn and Dew. The equipment will reveal its true power once Dew evolves.",
+          "numbers": []
+        }
+      ],
+      "actives": [],
+      "availability": "Removed",
+      "removed": true,
+      "sellable": false,
+      "occupiesSlot": false,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Calamity Reaper",
+      "page": "Calamity Reaper",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Calamity_Reaper",
+      "category": "Magic",
+      "caption": "Enhanced Basic Attacks",
+      "priceTotal": 1950,
+      "priceUpgrade": 530,
+      "tier": 3,
+      "recipe": [
+        "Magic Wand",
+        "Azure Blade"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 70,
+          "unit": "flat",
+          "raw": "+70 Magic Power"
+        },
+        {
+          "stat": "Mana",
+          "value": 100,
+          "unit": "flat",
+          "raw": "+100 Mana"
+        },
+        {
+          "stat": "Mana Regen",
+          "value": 6,
+          "unit": "flat",
+          "raw": "+6 Mana Regen"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+70 Magic Power, +100 Mana, +6 Mana Regen, +10% Cooldown Reduction",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Calamity",
+          "text": "In 3 seconds after using the skill, the casters next Basic Attack deals additional True Damage as much as 120% of Magic Power with a cooldown of 1.5 seconds. Then briefly gains 10% Movement Speed.",
+          "numbers": [
+            3,
+            120,
+            1.5,
+            10
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "Removed",
+      "removed": true,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Clock of Destiny",
+      "page": "Clock of Destiny",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Clock_of_Destiny",
+      "category": "Magic",
+      "caption": "For Magic Tanks",
+      "priceTotal": 2030,
+      "priceUpgrade": 430,
+      "tier": 3,
+      "recipe": [
+        "Elegant Gem",
+        "Book of Sages",
+        "Book of Sages"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 45,
+          "unit": "flat",
+          "raw": "+45 Magic Power"
+        },
+        {
+          "stat": "HP",
+          "value": 400,
+          "unit": "flat",
+          "raw": "+400 HP"
+        },
+        {
+          "stat": "Mana",
+          "value": 400,
+          "unit": "flat",
+          "raw": "+400 Mana"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+45 Magic Power, +400 HP, +400 Mana, +10% Cooldown Reduction",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Destiny",
+          "text": "Gains 4.5(+0.5*Hero Level) Hybrid Defense for 5 seconds when dealing Magic Damage to enemy heroes, stacking up to 6 times (can gain 1 stack every 0.4 seconds).",
+          "numbers": [
+            4.5,
+            0.5,
+            5,
+            6,
+            1,
+            0.4
+          ]
+        },
+        {
+          "name": "Gift",
+          "text": "When HP drops below 50%, recovers 15% of HP over the next 3 seconds. When Mana drops below 50%, restores 15% of Mana over the next 3 seconds. Cooldown: 60 seconds.",
+          "numbers": [
+            50,
+            15,
+            3,
+            50,
+            15,
+            3,
+            60
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Concentrated Energy",
+      "page": "Concentrated Energy",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Concentrated_Energy",
+      "category": "Magic",
+      "caption": "Continuous Damage Boost",
+      "priceTotal": 2020,
+      "priceUpgrade": 400,
+      "tier": 3,
+      "recipe": [
+        "Mystic Container",
+        "Magic Wand",
+        "Vitality Crystal"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 75,
+          "unit": "flat",
+          "raw": "+75 Magic Power"
+        },
+        {
+          "stat": "HP",
+          "value": 400,
+          "unit": "flat",
+          "raw": "+400 HP"
+        }
+      ],
+      "statsRaw": "+75 Magic Power, +400 HP",
+      "uniqueStats": [
+        {
+          "stat": "Hybrid Lifesteal",
+          "value": 20,
+          "unit": "%",
+          "raw": "+20% Hybrid Lifesteal"
+        }
+      ],
+      "uniqueStatsRaw": "+20% Hybrid Lifesteal",
+      "passives": [
+        {
+          "name": "Recharge",
+          "text": "Increases Magic Power by 5 after dealing Magic Damage (this effect stacks up to 6 times and can only gain 1 stack every 0.4 seconds). When reaching full stacks, increases Magic Damage by 12% for 5 seconds.",
+          "numbers": [
+            5,
+            6,
+            1,
+            0.4,
+            12,
+            5
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Divine Glaive",
+      "page": "Divine Glaive",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Divine_Glaive",
+      "category": "Magic",
+      "caption": "Magic Penetration",
+      "priceTotal": 1970,
+      "priceUpgrade": 1150,
+      "tier": 3,
+      "recipe": [
+        "Magic Wand"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 65,
+          "unit": "flat",
+          "raw": "+65 Magic Power"
+        }
+      ],
+      "statsRaw": "+65 Magic Power",
+      "uniqueStats": [
+        {
+          "stat": "Magic Penetration",
+          "value": 40,
+          "unit": "%",
+          "raw": "+40% Magic Penetration"
+        }
+      ],
+      "uniqueStatsRaw": "+40% Magic Penetration",
+      "passives": [
+        {
+          "name": "Spellbreaker",
+          "text": "When attacking an enemy, gains 0.1% extra Magic Penetration for each point of the enemy's Magic Defense, capped at 20%.",
+          "numbers": [
+            0.1,
+            20
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Elegant Gem",
+      "page": "Elegant Gem",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Elegant_Gem",
+      "category": "Magic",
+      "caption": null,
+      "priceTotal": 700,
+      "priceUpgrade": 180,
+      "tier": 2,
+      "recipe": [
+        "Power Crystal",
+        "Vitality Crystal"
+      ],
+      "buildsInto": [
+        "Clock of Destiny"
+      ],
+      "stats": [
+        {
+          "stat": "HP",
+          "value": 300,
+          "unit": "flat",
+          "raw": "+300 HP"
+        },
+        {
+          "stat": "Mana",
+          "value": 380,
+          "unit": "flat",
+          "raw": "+380 Mana"
+        }
+      ],
+      "statsRaw": "+300 HP, +380 Mana",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Gift",
+          "text": "When HP drops below 50%, recovers 15% of HP over the next 3 seconds. When Mana drops below 50%, restores 15% of Mana over the next 3 seconds. Cooldown: 60 seconds.",
+          "numbers": [
+            50,
+            15,
+            3,
+            50,
+            15,
+            3,
+            60
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Enchanted Talisman",
+      "page": "Enchanted Talisman",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Enchanted_Talisman",
+      "category": "Magic",
+      "caption": "Mana Regen & CD Reduction",
+      "priceTotal": 2070,
+      "priceUpgrade": 180,
+      "tier": 3,
+      "recipe": [
+        "Tome of Evil",
+        "Magic Necklace",
+        "Magic Wand"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 70,
+          "unit": "flat",
+          "raw": "+70 Magic Power"
+        },
+        {
+          "stat": "HP",
+          "value": 300,
+          "unit": "flat",
+          "raw": "+300 HP"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 15,
+          "unit": "%",
+          "raw": "+15% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+70 Magic Power, +300 HP, +15% Cooldown Reduction",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Mana Spring",
+          "text": "Regenerates 15% of Max Mana every 10 seconds.",
+          "numbers": [
+            15,
+            10
+          ]
+        },
+        {
+          "name": "Magic Mastery",
+          "text": "Max Cooldown Reduction is increased by 5%.",
+          "numbers": [
+            5
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Exotic Veil",
+      "page": "Exotic Veil",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Exotic_Veil",
+      "category": "Magic",
+      "caption": null,
+      "priceTotal": 600,
+      "priceUpgrade": 300,
+      "tier": 2,
+      "recipe": [
+        "Mystery Codex"
+      ],
+      "buildsInto": [
+        "Genius Wand",
+        "Glowing Wand",
+        "Ice Queen Wand"
+      ],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 30,
+          "unit": "flat",
+          "raw": "+30 Magic Power"
+        },
+        {
+          "stat": "Movement Speed",
+          "value": 5,
+          "unit": "%",
+          "raw": "+5% Movement Speed"
+        }
+      ],
+      "statsRaw": "+30 Magic Power, +5% Movement Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Feather of Heaven",
+      "page": "Feather of Heaven",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Feather_of_Heaven",
+      "category": "Magic",
+      "caption": "Magic Basic Attacks",
+      "priceTotal": 2030,
+      "priceUpgrade": 580,
+      "tier": 3,
+      "recipe": [
+        "Swift Crossbow",
+        "Book of Sages"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 60,
+          "unit": "flat",
+          "raw": "+60 Magic Power"
+        },
+        {
+          "stat": "Attack Speed",
+          "value": 20,
+          "unit": "%",
+          "raw": "+20% Attack Speed"
+        },
+        {
+          "stat": "Lifesteal",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Lifesteal"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 5,
+          "unit": "%",
+          "raw": "+5% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+60 Magic Power, +20% Attack Speed, +10% Lifesteal, +5% Cooldown Reduction",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Affliction",
+          "text": "Each Basic Attack deals extra 50 (+30% Total Magic Power) Magic Damage.",
+          "numbers": [
+            50,
+            30
+          ]
+        },
+        {
+          "name": "Impulse",
+          "text": "Basic Attacks grant 6% extra Attack Speed for 3 seconds, capped at 5 stacks.",
+          "numbers": [
+            6,
+            3,
+            5
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Flask of the Oasis",
+      "page": "Flask of the Oasis",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Flask_of_the_Oasis",
+      "category": "Magic",
+      "caption": "Protect Teammates",
+      "priceTotal": 1850,
+      "priceUpgrade": 280,
+      "tier": 3,
+      "recipe": [
+        "Magic Wand",
+        "Book of Sages",
+        "Vitality Crystal"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 60,
+          "unit": "flat",
+          "raw": "+60 Magic Power"
+        },
+        {
+          "stat": "HP",
+          "value": 300,
+          "unit": "flat",
+          "raw": "+300 HP"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+60 Magic Power, +300 HP, +10% Cooldown Reduction",
+      "uniqueStats": [
+        {
+          "stat": "Healing Effect",
+          "value": 12,
+          "unit": "%",
+          "raw": "+12% Healing Effect"
+        }
+      ],
+      "uniqueStatsRaw": "+12% Healing Effect",
+      "passives": [
+        {
+          "name": "Blessing",
+          "text": "When casting a healing or shield skill, if the target's HP is below 35%, or falls below 35% within 3 seconds, they will get a (100*Hero Level) shield that lasts 3 seconds. When this effect triggers, it also reduces the cooldown of the caster's skills by 2 seconds. (This effect can only trigger once every 60 seconds on the same target, and will not trigger on self-only healing and shield skills.)",
+          "numbers": [
+            35,
+            35,
+            3,
+            100,
+            3,
+            2,
+            60
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Flower of Hope",
+      "page": "Flower of Hope",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Flower_of_Hope",
+      "category": "Magic",
+      "caption": null,
+      "priceTotal": null,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Adaptive Attack",
+          "value": 5,
+          "unit": "%",
+          "raw": "+5% Adaptive Attack"
+        }
+      ],
+      "statsRaw": "+5% Adaptive Attack",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Flower of Hope",
+          "text": "Every 6 seconds, the next skill or Basic Attack deals an additional 60 (+30% Total Physical Attack) (+30% Total Magic Power) Magic Damage.",
+          "numbers": [
+            6,
+            60,
+            30,
+            30
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "Floryn's allies",
+      "removed": false,
+      "sellable": false,
+      "occupiesSlot": false,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Genius Wand",
+      "page": "Genius Wand",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Genius_Wand",
+      "category": "Magic",
+      "caption": "Magic Defense Reduction",
+      "priceTotal": 2000,
+      "priceUpgrade": 580,
+      "tier": 3,
+      "recipe": [
+        "Exotic Veil",
+        "Magic Wand"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 75,
+          "unit": "flat",
+          "raw": "+75 Magic Power"
+        },
+        {
+          "stat": "Movement Speed",
+          "value": 5,
+          "unit": "%",
+          "raw": "+5% Movement Speed"
+        }
+      ],
+      "statsRaw": "+75 Magic Power, +5% Movement Speed",
+      "uniqueStats": [
+        {
+          "stat": "Magic Penetration",
+          "value": 10,
+          "unit": "flat",
+          "raw": "+10 Magic Penetration"
+        }
+      ],
+      "uniqueStatsRaw": "+10 Magic Penetration",
+      "passives": [
+        {
+          "name": "Magic",
+          "text": "Dealing Magic Damage to enemy heroes will reduce their Magic Defense by 2.5+(0.5*Hero Level) for 2 seconds. Stacks up to 3 times.",
+          "numbers": [
+            2.5,
+            0.5,
+            2,
+            3
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Glowing Wand",
+      "page": "Glowing Wand",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Glowing_Wand",
+      "category": "Magic",
+      "caption": "Healing Reduction",
+      "priceTotal": 2150,
+      "priceUpgrade": 950,
+      "tier": 3,
+      "recipe": [
+        "Exotic Veil",
+        "Mystery Codex",
+        "Vitality Crystal"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 60,
+          "unit": "flat",
+          "raw": "+60 Magic Power"
+        },
+        {
+          "stat": "HP",
+          "value": 300,
+          "unit": "flat",
+          "raw": "+300 HP"
+        },
+        {
+          "stat": "Movement Speed",
+          "value": 5,
+          "unit": "%",
+          "raw": "+5% Movement Speed"
+        }
+      ],
+      "statsRaw": "+60 Magic Power, +300 HP, +5% Movement Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Scorch",
+          "text": "Dealing Magic Damage burns the targets for 3 seconds, also dealing extra Magic Damage equal to 1% of the target's Max HP per second.",
+          "numbers": [
+            3,
+            1
+          ]
+        },
+        {
+          "name": "Lifebane",
+          "text": "Dealing damage to the target will reduce the Shield and HP Regen effects on them to 60% of normal for 3 seconds.",
+          "numbers": [
+            60,
+            3
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Holy Crystal",
+      "page": "Holy Crystal",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Holy_Crystal",
+      "category": "Magic",
+      "caption": "Max Magic Power",
+      "priceTotal": 3000,
+      "priceUpgrade": 540,
+      "tier": 3,
+      "recipe": [
+        "Magic Wand",
+        "Magic Wand",
+        "Magic Wand"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 165,
+          "unit": "flat",
+          "raw": "+165 Magic Power"
+        }
+      ],
+      "statsRaw": "+165 Magic Power",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Mystery",
+          "text": "Gains 21%-35% extra Magic Power (scales with level).",
+          "numbers": [
+            21,
+            -35
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Ice Queen Wand",
+      "page": "Ice Queen Wand",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Ice_Queen_Wand",
+      "category": "Magic",
+      "caption": "Slow on Skill Hit",
+      "priceTotal": 2040,
+      "priceUpgrade": 640,
+      "tier": 3,
+      "recipe": [
+        "Mystic Container",
+        "Exotic Veil",
+        "Mystery Codex"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 60,
+          "unit": "flat",
+          "raw": "+60 Magic Power"
+        },
+        {
+          "stat": "Spell Vamp",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Spell Vamp"
+        },
+        {
+          "stat": "HP",
+          "value": 300,
+          "unit": "flat",
+          "raw": "+300 HP"
+        },
+        {
+          "stat": "Movement Speed",
+          "value": 7,
+          "unit": "%",
+          "raw": "+7% Movement Speed"
+        }
+      ],
+      "statsRaw": "+60 Magic Power, +10% Spell Vamp, +300 HP, +7% Movement Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Ice Bound",
+          "text": "When a skill deals damage to an enemy hero, it will also slow them by 10% for 2 seconds (stacks up to 3 times). This effect has a 0.4 seconds cooldown.",
+          "numbers": [
+            10,
+            2,
+            3,
+            0.4
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Lantern of Hope",
+      "page": "Lantern of Hope",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Lantern_of_Hope",
+      "category": "Magic",
+      "caption": null,
+      "priceTotal": null,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 20,
+          "unit": "flat",
+          "raw": "+20 Magic Power"
+        },
+        {
+          "stat": "Movement Speed",
+          "value": 4,
+          "unit": "%",
+          "raw": "+4% Movement Speed"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 2,
+          "unit": "%",
+          "raw": "+2% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+20 Magic Power, +4% Movement Speed, +2% Cooldown Reduction",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Lantern of Hope",
+          "text": "The equipment's attributes scale with hero level.",
+          "numbers": []
+        }
+      ],
+      "actives": [],
+      "availability": "Floryn",
+      "removed": false,
+      "sellable": false,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Lightning Truncheon",
+      "page": "Lightning Truncheon",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Lightning_Truncheon",
+      "category": "Magic",
+      "caption": "Splash Damage",
+      "priceTotal": 2250,
+      "priceUpgrade": 760,
+      "tier": 3,
+      "recipe": [
+        "Magic Wand",
+        "Book of Sages",
+        "Power Crystal"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 75,
+          "unit": "flat",
+          "raw": "+75 Magic Power"
+        },
+        {
+          "stat": "Mana",
+          "value": 400,
+          "unit": "flat",
+          "raw": "+400 Mana"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+75 Magic Power, +400 Mana, +10% Cooldown Reduction",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Resonate",
+          "text": "Every 6 seconds, the next skill echoes, dealing 255 (+85% Magic Power) extra Magic Damage to all enemies in range.",
+          "numbers": [
+            6,
+            255,
+            85
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Magic Necklace",
+      "page": "Magic Necklace",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Magic_Necklace",
+      "category": "Magic",
+      "caption": null,
+      "priceTotal": 120,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [
+        "Azure Blade",
+        "Demon Shoes",
+        "Tome of Evil",
+        "Enchanted Talisman"
+      ],
+      "stats": [
+        {
+          "stat": "Mana Regen",
+          "value": 2,
+          "unit": "flat",
+          "raw": "+2 Mana Regen"
+        }
+      ],
+      "statsRaw": "+2 Mana Regen",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Magic Potion",
+      "page": "Magic Potion",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Magic_Potion",
+      "category": "Magic",
+      "caption": null,
+      "priceTotal": 1500,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [],
+      "stats": [],
+      "statsRaw": null,
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Increase Power",
+          "text": "Automatically used after purchasing, increases Magic Power by 30 and Cooldown Reduction by 10% for 120s. Can only have one potion effect at a time.",
+          "numbers": [
+            30,
+            10,
+            120
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": false,
+      "occupiesSlot": false,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Magic Wand",
+      "page": "Magic Wand",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Magic_Wand",
+      "category": "Magic",
+      "caption": null,
+      "priceTotal": 820,
+      "priceUpgrade": 520,
+      "tier": 2,
+      "recipe": [
+        "Mystery Codex"
+      ],
+      "buildsInto": [
+        "Blood Wings",
+        "Concentrated Energy",
+        "Divine Glaive",
+        "Enchanted Talisman",
+        "Flask of the Oasis",
+        "Genius Wand",
+        "Holy Crystal",
+        "Lightning Truncheon",
+        "Starlium Scythe",
+        "Wishing Lantern"
+      ],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 45,
+          "unit": "flat",
+          "raw": "+45 Magic Power"
+        }
+      ],
+      "statsRaw": "+45 Magic Power",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Mystery Codex",
+      "page": "Mystery Codex",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Mystery_Codex",
+      "category": "Magic",
+      "caption": null,
+      "priceTotal": 300,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [
+        "Arcane Boots",
+        "Exotic Veil",
+        "Magic Wand",
+        "Mystic Container",
+        "Tome of Evil",
+        "Glowing Wand",
+        "Ice Queen Wand"
+      ],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 15,
+          "unit": "flat",
+          "raw": "+15 Magic Power"
+        }
+      ],
+      "statsRaw": "+15 Magic Power",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Mystic Container",
+      "page": "Mystic Container",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Mystic_Container",
+      "category": "Magic",
+      "caption": null,
+      "priceTotal": 500,
+      "priceUpgrade": 200,
+      "tier": 2,
+      "recipe": [
+        "Mystery Codex"
+      ],
+      "buildsInto": [
+        "Concentrated Energy",
+        "Ice Queen Wand"
+      ],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 15,
+          "unit": "flat",
+          "raw": "+15 Magic Power"
+        },
+        {
+          "stat": "Spell Vamp",
+          "value": 8,
+          "unit": "%",
+          "raw": "+8% Spell Vamp"
+        }
+      ],
+      "statsRaw": "+15 Magic Power, +8% Spell Vamp",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Necklace of Durance",
+      "page": "Necklace of Durance",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Necklace_of_Durance",
+      "category": "Magic",
+      "caption": "Healing Reduction",
+      "priceTotal": 2010,
+      "priceUpgrade": 560,
+      "tier": 3,
+      "recipe": [
+        "Book of Sages",
+        "Elegant Gem",
+        "Mystery Codex"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 60,
+          "unit": "flat",
+          "raw": "+60 Magic Power"
+        },
+        {
+          "stat": "HP",
+          "value": 300,
+          "unit": "flat",
+          "raw": "+300 HP"
+        },
+        {
+          "stat": "Mana",
+          "value": 380,
+          "unit": "flat",
+          "raw": "+380 Mana"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 5,
+          "unit": "%",
+          "raw": "+5% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+60 Magic Power, +300 HP, +380 Mana, +5% Cooldown Reduction",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Gift",
+          "text": "Regens 20% HP and Mana within 2 seconds of leveling up.",
+          "numbers": [
+            20,
+            2
+          ]
+        },
+        {
+          "name": "Lifebane",
+          "text": "Upon dealing damage to the target, reduces Shield and HP Regen of the target by 50% for 3 seconds.",
+          "numbers": [
+            50,
+            3
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "Removed",
+      "removed": true,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Power Crystal",
+      "page": "Power Crystal",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Power_Crystal",
+      "category": "Magic",
+      "caption": null,
+      "priceTotal": 220,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [
+        "Elegant Gem",
+        "Lightning Truncheon",
+        "Wishing Lantern"
+      ],
+      "stats": [
+        {
+          "stat": "Mana",
+          "value": 280,
+          "unit": "flat",
+          "raw": "+280 Mana"
+        }
+      ],
+      "statsRaw": "+280 Mana",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Shadow Twinblades",
+      "page": "Shadow Twinblades",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Shadow_Twinblades",
+      "category": "Magic",
+      "caption": "Best for Assassins",
+      "priceTotal": 1960,
+      "priceUpgrade": 860,
+      "tier": 3,
+      "recipe": [
+        "Exotic Veil",
+        "Mystic Container"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 75,
+          "unit": "flat",
+          "raw": "+75 Magic Power"
+        },
+        {
+          "stat": "Magic Lifesteal",
+          "value": 15,
+          "unit": "%",
+          "raw": "+15% Magic Lifesteal"
+        },
+        {
+          "stat": "Movement Speed",
+          "value": 5,
+          "unit": "%",
+          "raw": "+5% Movement Speed"
+        }
+      ],
+      "statsRaw": "+75 Magic Power, +15% Magic Lifesteal, +5% Movement Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Assassination",
+          "text": "If no damage is taken or dealt within 5 sseconds, the next Basic Attack will deal extra Magic Damage equal to 200 plus 50% Magic Power, and inflict 60% slow effects upon the target for 1.5 seconds.",
+          "numbers": [
+            5,
+            200,
+            50,
+            60,
+            1.5
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "Removed",
+      "removed": true,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Shimmering Lantern",
+      "page": "Shimmering Lantern",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Shimmering_Lantern",
+      "category": "Magic",
+      "caption": null,
+      "priceTotal": null,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 20,
+          "unit": "flat",
+          "raw": "+20 Magic Power"
+        },
+        {
+          "stat": "Movement Speed",
+          "value": 5,
+          "unit": "%",
+          "raw": "+5% Movement Speed"
+        }
+      ],
+      "statsRaw": "+20 Magic Power, +5% Movement Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": null,
+          "text": "Floryn can share the power of Dew's Lantern with an allied hero. The Lantern is not strong enough yet and can evolve once it absorbs enough energy in battle.",
+          "numbers": []
+        }
+      ],
+      "actives": [],
+      "availability": "Removed",
+      "removed": true,
+      "sellable": false,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Starlium Scythe",
+      "page": "Starlium Scythe",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Starlium_Scythe",
+      "category": "Magic",
+      "caption": "Enhanced Basic Attacks",
+      "priceTotal": 2120,
+      "priceUpgrade": 250,
+      "tier": 3,
+      "recipe": [
+        "Azure Blade",
+        "Book of Sages",
+        "Magic Wand"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 75,
+          "unit": "flat",
+          "raw": "+75 Magic Power"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Cooldown Reduction"
+        },
+        {
+          "stat": "Hybrid Lifesteal",
+          "value": 8,
+          "unit": "%",
+          "raw": "+8% Hybrid Lifesteal"
+        },
+        {
+          "stat": "Mana Regen",
+          "value": 6,
+          "unit": "flat",
+          "raw": "+6 Mana Regen"
+        }
+      ],
+      "statsRaw": "+75 Magic Power, +10% Cooldown Reduction, +8% Hybrid Lifesteal, +6 Mana Regen",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Crisis",
+          "text": "After casting a skill, the next Basic Attack within 3 seconds deals 90 (+60% Total Magic Power) extra True Damage and reduces the target's Movement Speed by 15% for 1.5 seconds (1.5 seconds cooldown).",
+          "numbers": [
+            3,
+            90,
+            60,
+            15,
+            1.5,
+            1.5
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Tome of Evil",
+      "page": "Tome of Evil",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Tome_of_Evil",
+      "category": "Magic",
+      "caption": null,
+      "priceTotal": 950,
+      "priceUpgrade": 380,
+      "tier": 2,
+      "recipe": [
+        "Magic Necklace",
+        "Book of Sages"
+      ],
+      "buildsInto": [
+        "Enchanted Talisman"
+      ],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 30,
+          "unit": "flat",
+          "raw": "+30 Magic Power"
+        },
+        {
+          "stat": "Mana Regen",
+          "value": 2,
+          "unit": "flat",
+          "raw": "+2 Mana Regen"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+30 Magic Power, +2 Mana Regen, +10% Cooldown Reduction",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Wishing Lantern",
+      "page": "Wishing Lantern",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Wishing_Lantern",
+      "category": "Magic",
+      "caption": "Counter High HP",
+      "priceTotal": 2250,
+      "priceUpgrade": 760,
+      "tier": 3,
+      "recipe": [
+        "Magic Wand",
+        "Book of Sages",
+        "Power Crystal"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Magic Power",
+          "value": 75,
+          "unit": "flat",
+          "raw": "+75 Magic Power"
+        },
+        {
+          "stat": "Mana",
+          "value": 400,
+          "unit": "flat",
+          "raw": "+400 Mana"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Cooldown Reduction"
+        }
+      ],
+      "statsRaw": "+75 Magic Power, +400 Mana, +10% Cooldown Reduction",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Butterfly Goddess",
+          "text": "For every 900 Magic Damage dealt to an enemy hero (calculated before Damage Reduction), a Butterfly Goddess is summoned to attack the enemy hero, dealing Magic Damage equal to 8% of their Current HP.",
+          "numbers": [
+            900,
+            8
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Allow Throw",
+      "page": "Allow Throw",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Allow_Throw",
+      "category": "Movement",
+      "caption": null,
+      "priceTotal": 0,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [],
+      "stats": [],
+      "statsRaw": null,
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Trust",
+          "text": "Allow allied Jawhead to fling you.",
+          "numbers": []
+        }
+      ],
+      "actives": [],
+      "availability": "Jawhead's allies",
+      "removed": false,
+      "sellable": false,
+      "occupiesSlot": false,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Arcane Boots",
+      "page": "Arcane Boots",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Arcane_Boots",
+      "category": "Movement",
+      "caption": "Magic Penetration",
+      "priceTotal": 720,
+      "priceUpgrade": 170,
+      "tier": 2,
+      "recipe": [
+        "Boots",
+        "Mystery Codex"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Movement Speed",
+          "value": 40,
+          "unit": "flat",
+          "raw": "+40 Movement Speed"
+        },
+        {
+          "stat": "Magic Power",
+          "value": 15,
+          "unit": "flat",
+          "raw": "+15 Magic Power"
+        },
+        {
+          "stat": "Magic Penetration",
+          "value": 10,
+          "unit": "flat",
+          "raw": "+10 Magic Penetration"
+        }
+      ],
+      "statsRaw": "+40 Movement Speed, +15 Magic Power, +10 Magic Penetration",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Boots",
+      "page": "Boots",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Boots",
+      "category": "Movement",
+      "caption": null,
+      "priceTotal": 250,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [
+        "Arcane Boots",
+        "Demon Shoes",
+        "Magic Shoes",
+        "Rapid Boots",
+        "Swift Boots",
+        "Tough Boots",
+        "Warrior Boots"
+      ],
+      "stats": [
+        {
+          "stat": "Movement Speed",
+          "value": 20,
+          "unit": "flat",
+          "raw": "+20 Movement Speed"
+        }
+      ],
+      "statsRaw": "+20 Movement Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Broken Heart",
+      "page": "Broken Heart",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Broken_Heart",
+      "category": "Movement",
+      "caption": null,
+      "priceTotal": 0,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [],
+      "stats": [],
+      "statsRaw": null,
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Heart Broken",
+          "text": "Become immune to allied Cecilion's Moonlit Waltz in this match.",
+          "numbers": []
+        }
+      ],
+      "actives": [],
+      "availability": "Carmilla",
+      "removed": false,
+      "sellable": false,
+      "occupiesSlot": false,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Demon Shoes",
+      "page": "Demon Shoes",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Demon_Shoes",
+      "category": "Movement",
+      "caption": "Quick Mana Regen",
+      "priceTotal": 720,
+      "priceUpgrade": 230,
+      "tier": 2,
+      "recipe": [
+        "Boots",
+        "Magic Necklace",
+        "Magic Necklace"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Movement Speed",
+          "value": 40,
+          "unit": "flat",
+          "raw": "+40 Movement Speed"
+        },
+        {
+          "stat": "Mana Regen",
+          "value": 10,
+          "unit": "flat",
+          "raw": "+10 Mana Regen"
+        }
+      ],
+      "statsRaw": "+40 Movement Speed, +10 Mana Regen",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Mysticism",
+          "text": "Getting a kill or assist on an enemy Minion will restore 4% Mana. (An assist occurs when a Minion dies within 2 seconds after taking damage from the hero.)",
+          "numbers": [
+            4,
+            2
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Magic Shoes",
+      "page": "Magic Shoes",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Magic_Shoes",
+      "category": "Movement",
+      "caption": "CD Reduction",
+      "priceTotal": 720,
+      "priceUpgrade": 20,
+      "tier": 2,
+      "recipe": [
+        "Boots",
+        "Hero's Ring"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Movement Speed",
+          "value": 40,
+          "unit": "flat",
+          "raw": "+40 Movement Speed"
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10,
+          "unit": "%",
+          "raw": "+10% Cooldown Reduction"
+        },
+        {
+          "stat": "HP",
+          "value": 150,
+          "unit": "flat",
+          "raw": "+150 HP"
+        }
+      ],
+      "statsRaw": "+40 Movement Speed, +10% Cooldown Reduction, +150 HP",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Rapid Boots",
+      "page": "Rapid Boots",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Rapid_Boots",
+      "category": "Movement",
+      "caption": "Movement Speed",
+      "priceTotal": 720,
+      "priceUpgrade": 190,
+      "tier": 2,
+      "recipe": [
+        "Boots",
+        "Healing Necklace",
+        "Healing Necklace"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Movement Speed",
+          "value": 55,
+          "unit": "flat",
+          "raw": "+55 Movement Speed"
+        },
+        {
+          "stat": "Slow Reduction",
+          "value": 35,
+          "unit": "%",
+          "raw": "+35% Slow Reduction"
+        },
+        {
+          "stat": "HP Regen",
+          "value": 12,
+          "unit": "flat",
+          "raw": "+12 HP Regen"
+        }
+      ],
+      "statsRaw": "+55 Movement Speed, +35% Slow Reduction, +12 HP Regen",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Resonating Heart",
+      "page": "Resonating Heart",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Resonating_Heart",
+      "category": "Movement",
+      "caption": null,
+      "priceTotal": 0,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [],
+      "stats": [],
+      "statsRaw": null,
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Restore",
+          "text": "Allow allied Cecilion to use Moonlit Waltz on the user of this equipment.",
+          "numbers": []
+        }
+      ],
+      "actives": [],
+      "availability": "Carmilla",
+      "removed": false,
+      "sellable": false,
+      "occupiesSlot": false,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Swift Boots",
+      "page": "Swift Boots",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Swift_Boots",
+      "category": "Movement",
+      "caption": "Attack Speed",
+      "priceTotal": 720,
+      "priceUpgrade": 190,
+      "tier": 2,
+      "recipe": [
+        "Boots",
+        "Knife"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Movement Speed",
+          "value": 40,
+          "unit": "flat",
+          "raw": "+40 Movement Speed"
+        },
+        {
+          "stat": "Attack Speed",
+          "value": 15,
+          "unit": "%",
+          "raw": "+15% Attack Speed"
+        }
+      ],
+      "statsRaw": "+40 Movement Speed, +15% Attack Speed",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Throw Forbidden",
+      "page": "Throw Forbidden",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Throw_Forbidden",
+      "category": "Movement",
+      "caption": null,
+      "priceTotal": 0,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [],
+      "stats": [],
+      "statsRaw": null,
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Heavy Mountain",
+          "text": "Become immune to allied Jawhead's Ejector in this match.",
+          "numbers": []
+        }
+      ],
+      "actives": [],
+      "availability": "Jawhead's allies",
+      "removed": false,
+      "sellable": false,
+      "occupiesSlot": false,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Tough Boots",
+      "page": "Tough Boots",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Tough_Boots",
+      "category": "Movement",
+      "caption": "CC Duration Reduction",
+      "priceTotal": 720,
+      "priceUpgrade": 250,
+      "tier": 2,
+      "recipe": [
+        "Boots",
+        "Magic Resist Cloak"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Movement Speed",
+          "value": 40,
+          "unit": "flat",
+          "raw": "+40 Movement Speed"
+        },
+        {
+          "stat": "Magic Defense",
+          "value": 18,
+          "unit": "flat",
+          "raw": "+18 Magic Defense"
+        }
+      ],
+      "statsRaw": "+40 Movement Speed, +18 Magic Defense",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Fortitude",
+          "text": "CC and Slow Duration reduced by 25%.",
+          "numbers": [
+            25
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Warrior Boots",
+      "page": "Warrior Boots",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Warrior_Boots",
+      "category": "Movement",
+      "caption": "Stackable Physical Defense",
+      "priceTotal": 720,
+      "priceUpgrade": 250,
+      "tier": 2,
+      "recipe": [
+        "Boots",
+        "Leather Jerkin"
+      ],
+      "buildsInto": [],
+      "stats": [
+        {
+          "stat": "Movement Speed",
+          "value": 40,
+          "unit": "flat",
+          "raw": "+40 Movement Speed"
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 18,
+          "unit": "flat",
+          "raw": "+18 Physical Defense"
+        }
+      ],
+      "statsRaw": "+40 Movement Speed, +18 Physical Defense",
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": "Valor",
+          "text": "Gains 4 extra Physical Defense for 3 seconds when taking Physical Damage, up to 20.",
+          "numbers": [
+            4,
+            3,
+            20
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes",
+      "removed": false,
+      "sellable": true,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Active - Conceal",
+      "page": "Active - Conceal",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Active_-_Conceal",
+      "category": "Roaming",
+      "caption": null,
+      "priceTotal": null,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [],
+      "stats": [],
+      "statsRaw": null,
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [],
+      "actives": [
+        {
+          "name": null,
+          "text": "Conceals you and nearby allied heroes, granting 40% Movement Speed for 5 seconds, or until taking or dealing damage. (Cooldown: 60 seconds)\nWhen near allied heroes, you gain 30% EXP and Gold from minions and creeps. Dealing damage to enemy heroes (Cooldown: 15 seconds) or revealing enemies also grants EXP and Gold. This skill can only be unlocked after accumulating 1000 Gold from Thriving.",
+          "numbers": [
+            40,
+            5,
+            60,
+            30,
+            15,
+            1000
+          ]
+        }
+      ],
+      "availability": "All heroes without equipped Retribution",
+      "removed": false,
+      "sellable": false,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Passive - Dire Hit",
+      "page": "Passive - Dire Hit",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Passive_-_Dire_Hit",
+      "category": "Roaming",
+      "caption": null,
+      "priceTotal": null,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [],
+      "stats": [],
+      "statsRaw": null,
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": null,
+          "text": "Gains Force while moving, gradually increasing Movement Speed (up to 40). Upon reaching 20 stacks, the next hit consumes all stacks to deal extra True Damage based on the number of stacks.\nWhen near allied heroes, you gain 30% EXP and Gold from minions and creeps. Dealing damage to enemy heroes (Cooldown: 15 seconds) or revealing enemies also grants EXP and Gold. This skill can only be unlocked after accumulating 1000 Gold from Thriving.",
+          "numbers": [
+            40,
+            20,
+            30,
+            15,
+            1000
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes without equipped Retribution",
+      "removed": false,
+      "sellable": false,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Passive - Encourage",
+      "page": "Passive - Encourage",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Passive_-_Encourage",
+      "category": "Roaming",
+      "caption": null,
+      "priceTotal": null,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [],
+      "stats": [],
+      "statsRaw": null,
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": null,
+          "text": "Grants you and nearby allied heroes 20 extra Hybrid Defense.\nWhen near allied heroes, you gain 30% EXP and Gold from minions and creeps. Dealing damage to enemy heroes (Cooldown: 15 seconds) or revealing enemies also grants EXP and Gold. This skill can only be unlocked after accumulating 1000 Gold from Thriving.",
+          "numbers": [
+            20,
+            30,
+            15,
+            1000
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes without equipped Retribution",
+      "removed": false,
+      "sellable": false,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    },
+    {
+      "name": "Passive - Favor",
+      "page": "Passive - Favor",
+      "sourceUrl": "https://mobile-legends.fandom.com/wiki/Passive_-_Favor",
+      "category": "Roaming",
+      "caption": null,
+      "priceTotal": null,
+      "priceUpgrade": null,
+      "tier": 1,
+      "recipe": [],
+      "buildsInto": [],
+      "stats": [],
+      "statsRaw": null,
+      "uniqueStats": [],
+      "uniqueStatsRaw": null,
+      "passives": [
+        {
+          "name": null,
+          "text": "Every 15 seconds, your next healing or shield skill recovers 400 extra HP to the lowest-HP allied hero within 5 units (including yourself). Skills that only take effect on yourself cannot trigger this effect.\nWhen near allied heroes, you gain 30% EXP and Gold from minions and creeps. Dealing damage to enemy heroes (Cooldown: 15 seconds) or revealing enemies also grants EXP and Gold. This skill can only be unlocked after accumulating 1000 Gold from Thriving.",
+          "numbers": [
+            15,
+            400,
+            5,
+            30,
+            15,
+            1000
+          ]
+        }
+      ],
+      "actives": [],
+      "availability": "All heroes without equipped Retribution",
+      "removed": false,
+      "sellable": false,
+      "occupiesSlot": true,
+      "inEquipmentCategory": true
+    }
+  ]
+}
