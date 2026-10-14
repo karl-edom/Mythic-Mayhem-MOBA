@@ -1,10 +1,10 @@
-# Mythic Mayhem
+# Mythic Mayhem MOBA
 
 MOBA 3 contre 3 jouable dans le navigateur. C'est une **copie mixée** de Mobile Legends (le squelette), de League of Legends (stats et formules) et de Pokémon Unite (objets choisis avant la partie, compétences à choix). Les personnages sont originaux, et seront ensuite déclinés dans les univers voulus.
 
 Statut : **v1 jouable**, toi et 2 bots contre 3 bots. Règles : `docs/design/rules-v1.md`.
 
-> **Deux jeux dans ce dépôt.** Cette branche (`claude/great-ramanujan-j9816b`) est le **MOBA 3v3**, publié sous le nom « Mythic Mayhem MOBA ». La branche `claude/jstars-custom-characters-fiqi08` est un autre jeu, un brawler d'arène 3D (« Mythic Mayhem Arène »). Les deux branches se séparent après la décision 0004. Leurs décisions 0005 et suivantes portent les mêmes numéros mais ne parlent pas de la même chose : ne pas les fusionner.
+> **Ce dépôt contient le MOBA 3v3**, publié sous le nom « Mythic Mayhem MOBA ». Il a été séparé du dépôt d'origine `karl-edom/Mythic-Mayhem` (branche `claude/great-ramanujan-j9816b`), dont l'historique est conservé ici. Le brawler d'arène 3D (« Mythic Mayhem Arène ») reste dans le dépôt d'origine, sur la branche `claude/jstars-custom-characters-fiqi08`. Les deux projets partagent les décisions 0001 à 0004 ; à partir de 0005, chacun a les siennes.
 
 ## Jouer
 
