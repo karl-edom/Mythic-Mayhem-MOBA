@@ -137,6 +137,10 @@ let bannerUntil = 0;
 const feed: { html: string; born: number }[] = [];
 const cam = { x: 0, y: 0 };
 let scalePx = 26;
+/** Tilted ML camera: the ground is squashed vertically (a range circle is ~0.65× as tall as wide on the match video). */
+const TILT = 0.68;
+/** Ground point → upright-object space (same scale on both axes, y squashed by the tilt). */
+const proj = (p: Vec): Vec => ({ x: p.x, y: p.y * TILT });
 
 function shuffle<T>(a: T[]): T[] {
   for (let i = a.length - 1; i > 0; i--) {
@@ -286,7 +290,7 @@ function toast(text: string): void {
 // ---------------------------------------------------------------- rendering
 
 function screenToWorld(sx: number, sy: number): Vec {
-  return { x: cam.x + (sx - canvas.width / 2 / devicePixelRatio) / scalePx, y: cam.y + (sy - canvas.height / 2 / devicePixelRatio) / scalePx };
+  return { x: cam.x + (sx - canvas.width / 2 / devicePixelRatio) / scalePx, y: cam.y + (sy - canvas.height / 2 / devicePixelRatio) / (scalePx * TILT) };
 }
 
 function render(alpha: number): void {
@@ -310,31 +314,65 @@ function render(alpha: number): void {
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   ctx.fillStyle = COLORS.grass;
   ctx.fillRect(0, 0, W, H);
-  ctx.setTransform(dpr * scalePx, 0, 0, dpr * scalePx, dpr * (W / 2 - cam.x * scalePx), dpr * (H / 2 - cam.y * scalePx));
+  const ox = dpr * (W / 2 - cam.x * scalePx);
+  const oy = dpr * (H / 2 - cam.y * scalePx * TILT);
+  // Ground pass: map, fog, telegraphs, rings and shadows, squashed by the tilt.
+  ctx.setTransform(dpr * scalePx, 0, 0, dpr * scalePx * TILT, ox, oy);
   drawMap(ctx, w);
   const myTeam = player!.team;
-  drawFog(ctx, w, myTeam, W * dpr, H * dpr, [dpr * scalePx, dpr * (W / 2 - cam.x * scalePx), dpr * (H / 2 - cam.y * scalePx)]);
-
-  // Telegraphs under units.
+  drawFog(ctx, w, myTeam, W * dpr, H * dpr, [dpr * scalePx, dpr * scalePx * TILT, ox, oy]);
   for (const z of w.zones) drawZone(z, myTeam);
-
   const visible = w.units.filter((u) => (u.alive || u.kind === "tower") && visibleTo(w, myTeam, u));
-  for (const u of visible) if (u.kind === "tower") drawTower(u, myTeam);
-  for (const u of visible) if (u.kind === "monster") drawMonster(u, lerpPos(u));
-  for (const u of visible) if (u.kind === "minion") drawMinion(u, lerpPos(u));
-  for (const u of visible) if (u.kind === "hero") drawHero(u, lerpPos(u), myTeam);
-  for (const p of w.projectiles) {
-    ctx.fillStyle = p.color;
-    ctx.beginPath();
-    ctx.arc(p.pos.x, p.pos.y, p.targetId === null ? Math.max(0.22, p.width / 2) : 0.16, 0, Math.PI * 2);
-    ctx.fill();
-  }
+  for (const u of visible) if (u.alive) drawGroundMark(u, lerpPos(u));
   drawTowerWarning(w);
   drawSwings();
   drawLock(w);
   drawAim();
+
+  // Upright pass: units stand on their ground point, drawn back to front.
+  ctx.setTransform(dpr * scalePx, 0, 0, dpr * scalePx, ox, oy);
+  const order = [...visible].sort((a, b) => lerpPos(a).y - lerpPos(b).y);
+  for (const u of order) {
+    const p = proj(lerpPos(u));
+    if (u.kind === "tower") drawTower(u, p, myTeam);
+    else if (u.kind === "monster") drawMonster(u, lift(p, u.radius));
+    else if (u.kind === "minion") drawMinion(u, lift(p, u.radius));
+    else drawHero(u, lift(p, u.radius), myTeam);
+  }
+  for (const pr of w.projectiles) {
+    const p = lift(proj(pr.pos), 0.6);
+    ctx.fillStyle = pr.color;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, pr.targetId === null ? Math.max(0.22, pr.width / 2) : 0.16, 0, Math.PI * 2);
+    ctx.fill();
+  }
   drawFloaters();
   drawMinimap(w);
+}
+
+/** Body centre of an upright unit: raised above its ground point. */
+const lift = (p: Vec, r: number): Vec => ({ x: p.x, y: p.y - r * 0.9 });
+
+/** Under each unit: a soft shadow, and the team ring for heroes (circle blue, diamond red: colour is never the only cue). */
+function drawGroundMark(u: Unit, p: Vec): void {
+  ctx.fillStyle = "rgba(31,42,68,.18)";
+  ctx.beginPath();
+  ctx.arc(p.x, p.y, u.radius * 0.95, 0, Math.PI * 2);
+  ctx.fill();
+  if (u.kind !== "hero") return;
+  ctx.lineWidth = 0.12;
+  ctx.strokeStyle = u === player ? "#ffd84a" : teamColor(u.team);
+  ctx.beginPath();
+  if (u.team === 0) ctx.arc(p.x, p.y, u.radius + 0.22, 0, Math.PI * 2);
+  else {
+    const r = u.radius + 0.32;
+    ctx.moveTo(p.x, p.y - r);
+    ctx.lineTo(p.x + r, p.y);
+    ctx.lineTo(p.x, p.y + r);
+    ctx.lineTo(p.x - r, p.y);
+    ctx.closePath();
+  }
+  ctx.stroke();
 }
 
 function drawMap(c: CanvasRenderingContext2D, w: World): void {
@@ -379,7 +417,7 @@ function drawMap(c: CanvasRenderingContext2D, w: World): void {
   // Hedges (walls): only the visible part of the grid.
   const g = w.nav;
   const W = innerWidth / scalePx / 2 + 2;
-  const H = innerHeight / scalePx / 2 + 2;
+  const H = innerHeight / (scalePx * TILT) / 2 + 3;
   const x0 = Math.max(0, Math.floor(cam.x - W));
   const x1 = Math.min(g.size - 1, Math.ceil(cam.x + W));
   const y0 = Math.max(0, Math.floor(cam.y - H));
@@ -387,14 +425,18 @@ function drawMap(c: CanvasRenderingContext2D, w: World): void {
   for (let y = y0; y <= y1; y++) {
     for (let x = x0; x <= x1; x++) {
       if (!g.walls[y * g.size + x]) continue;
-      c.fillStyle = COLORS.hedgeShade;
-      c.fillRect(x - 0.02, y + 0.1, 1.04, 0.95);
+      // Raised hedge seen from the tilted camera: the top is lifted by HEDGE_H, and the
+      // front face shows where the cell below is open ground.
+      const HEDGE_H = 0.9;
+      if (y + 1 < g.size && !g.walls[(y + 1) * g.size + x]) {
+        c.fillStyle = COLORS.hedgeShade;
+        c.fillRect(x - 0.02, y + 1 - HEDGE_H, 1.04, HEDGE_H + 0.02);
+      }
       c.fillStyle = COLORS.hedge;
-      c.fillRect(x - 0.02, y - 0.02, 1.04, 0.9);
-      // Highlight on edges that face open ground, so walls read as raised.
+      c.fillRect(x - 0.02, y - HEDGE_H - 0.02, 1.04, 1.04);
       if (y > 0 && !g.walls[(y - 1) * g.size + x]) {
         c.fillStyle = COLORS.hedgeTop;
-        c.fillRect(x, y, 1, 0.25);
+        c.fillRect(x, y - HEDGE_H, 1, 0.3);
       }
     }
   }
@@ -405,7 +447,7 @@ function drawMap(c: CanvasRenderingContext2D, w: World): void {
 
 // Fog of war: a soft veil everywhere except around allied heroes, minions and towers.
 const fogLayers = new Map<CanvasRenderingContext2D, HTMLCanvasElement>();
-function drawFog(c: CanvasRenderingContext2D, w: World, team: number, pw: number, ph: number, [k, ox, oy]: [number, number, number]): void {
+function drawFog(c: CanvasRenderingContext2D, w: World, team: number, pw: number, ph: number, [kx, ky, ox, oy]: [number, number, number, number]): void {
   let layer = fogLayers.get(c);
   if (!layer) fogLayers.set(c, (layer = document.createElement("canvas")));
   if (layer.width !== pw || layer.height !== ph) {
@@ -418,7 +460,7 @@ function drawFog(c: CanvasRenderingContext2D, w: World, team: number, pw: number
   f.clearRect(0, 0, pw, ph);
   f.fillStyle = "rgba(48,64,110,.34)";
   f.fillRect(0, 0, pw, ph);
-  f.setTransform(k, 0, 0, k, ox, oy);
+  f.setTransform(kx, 0, 0, ky, ox, oy);
   f.globalCompositeOperation = "destination-out";
   for (const u of w.units) {
     if (!u.alive || u.team !== team) continue;
@@ -466,20 +508,11 @@ function hpBar(x: number, y: number, width: number, u: Unit, color: string, segm
 
 function drawHero(h: HeroUnit, p: Vec, myTeam: number): void {
   const isMe = h === player;
-  const team = teamColor(h.team);
-  // Team ring: circle for blue, diamond for red (colour is never the only cue).
-  ctx.lineWidth = 0.12;
-  ctx.strokeStyle = isMe ? "#ffd84a" : team;
+  // Body outline in team colour (the ground ring also tells teams apart).
+  ctx.lineWidth = 0.08;
+  ctx.strokeStyle = isMe ? "#ffd84a" : teamColor(h.team);
   ctx.beginPath();
-  if (h.team === 0) ctx.arc(p.x, p.y, h.radius + 0.22, 0, Math.PI * 2);
-  else {
-    const r = h.radius + 0.32;
-    ctx.moveTo(p.x, p.y - r);
-    ctx.lineTo(p.x + r, p.y);
-    ctx.lineTo(p.x, p.y + r);
-    ctx.lineTo(p.x - r, p.y);
-    ctx.closePath();
-  }
+  ctx.arc(p.x, p.y, h.radius + 0.05, 0, Math.PI * 2);
   ctx.stroke();
   if (inBush(world!, h.pos) >= 0) ctx.globalAlpha = 0.6;
   ctx.fillStyle = h.def.color;
@@ -579,9 +612,12 @@ function drawMonster(m: Extract<Unit, { kind: "monster" }>, p: Vec): void {
   ctx.fillText(m.name, p.x, p.y + m.radius + 0.55);
 }
 
-function drawTower(t: Extract<Unit, { kind: "tower" }>, myTeam: number): void {
-  const p = t.pos;
+function drawTower(t: Extract<Unit, { kind: "tower" }>, ground: Vec, myTeam: number): void {
   const r = t.radius;
+  // Upright: a pillar from the ground point to the crown.
+  const p = { x: ground.x, y: ground.y - r * 1.4 };
+  ctx.fillStyle = t.alive ? "rgba(31,42,68,.25)" : "rgba(31,42,68,.12)";
+  ctx.fillRect(p.x - r * 0.45, p.y, r * 0.9, r * 1.4);
   ctx.fillStyle = t.alive ? teamColor(t.team) : "rgba(31,42,68,.2)";
   ctx.beginPath();
   for (let i = 0; i < 6; i++) {
@@ -749,9 +785,10 @@ function drawFloaters(): void {
     ctx.font = font(0.5);
     ctx.lineWidth = 0.08;
     ctx.strokeStyle = "rgba(31,42,68,.7)";
-    ctx.strokeText(f.text, f.x, f.y - 1.2 - age);
+    const fy = f.y * TILT - 1.6 - age;
+    ctx.strokeText(f.text, f.x, fy);
     ctx.fillStyle = f.color;
-    ctx.fillText(f.text, f.x, f.y - 1.2 - age);
+    ctx.fillText(f.text, f.x, fy);
   }
   ctx.globalAlpha = 1;
 }
@@ -778,7 +815,7 @@ function drawMinimap(w: World): void {
     mctx.stroke();
   }
   const myTeam = player!.team;
-  drawFog(mctx, w, myTeam, mini.width, mini.height, [k, 0, 0]);
+  drawFog(mctx, w, myTeam, mini.width, mini.height, [k, k, 0, 0]);
   mctx.setTransform(k, 0, 0, k, 0, 0);
   for (const u of w.units) {
     if (!u.alive || !visibleTo(w, myTeam, u)) continue;
@@ -804,7 +841,7 @@ function drawMinimap(w: World): void {
   }
   // Camera frame.
   const W = innerWidth / scalePx;
-  const H = innerHeight / scalePx;
+  const H = innerHeight / (scalePx * TILT);
   mctx.strokeStyle = "rgba(31,42,68,.6)";
   mctx.lineWidth = 0.4;
   mctx.strokeRect(cam.x - W / 2, cam.y - H / 2, W, H);
