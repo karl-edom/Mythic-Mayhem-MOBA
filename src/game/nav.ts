@@ -39,7 +39,7 @@ export function resolveWalls(g: NavGrid, p: Vec, r: number): Vec {
         const qy = Math.max(cy, Math.min(pos.y, cy + 1));
         const dx = pos.x - qx;
         const dy = pos.y - qy;
-        const d = Math.hypot(dx, dy);
+        const d = Math.sqrt(dx * dx + dy * dy);
         if (d >= r) continue;
         if (d > 1e-6) {
           pos = { x: pos.x + (dx / d) * (r - d), y: pos.y + (dy / d) * (r - d) };

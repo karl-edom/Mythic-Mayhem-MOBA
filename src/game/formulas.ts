@@ -11,8 +11,9 @@ export function growthFraction(level: number, maxLevel: number, ratio: number): 
   if (level >= maxLevel) return 1;
   let done = 0;
   let total = 0;
+  let gain = 1; // ratio^(k-2), by repeated products (determinism: no pow)
   for (let k = 2; k <= maxLevel; k++) {
-    const gain = ratio ** (k - 2);
+    if (k > 2) gain *= ratio;
     total += gain;
     if (k <= level) done += gain;
   }

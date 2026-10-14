@@ -101,6 +101,17 @@
   #score .lvl { display: inline-block; min-width: 24px; text-align: center; background: #efe6ff; color: #6b3fc4; border-radius: 8px; font-weight: 800; }
   #score .its { font-size: 12px; } #score .its b { color: var(--gold); }
   #score .team-b td:first-child { border-left: 4px solid var(--blue); } #score .team-r td:first-child { border-left: 4px solid var(--red); }
+  .online .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 8px 0; }
+  .online .field { display: inline-flex; gap: 6px; align-items: center; font-weight: 700; }
+  .online input { font: inherit; padding: 6px 10px; border: 2px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); }
+  .online .pill { border: 2px solid var(--line); background: #fff; border-radius: 999px; padding: 4px 12px; font-weight: 700; color: var(--ink); }
+  .online .pill.on.b { background: var(--blue); border-color: var(--blue); color: #fff; } .online .pill.on.r { background: var(--red); border-color: var(--red); color: #fff; }
+  .play.small-play { margin: 0; padding: 8px 18px; font-size: 15px; }
+  .play.alt { background: #66708a; }
+  .online .code { font-size: 18px; } .online .code b { font: 700 26px var(--font-display); letter-spacing: .12em; color: var(--blue); }
+  .online .teams { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 560px; }
+  .online .teams h3 { margin: 4px 0; } .online .teams h3.b { color: var(--blue); } .online .teams h3.r { color: var(--red); }
+  .online ul { margin: 0; padding-left: 18px; }
   @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } #toast, #banner { transition: none; } }
   @media (max-width: 760px) { #bar { flex-wrap: wrap; max-width: calc(100vw - 150px); } #minimap { width: 120px; height: 120px; } .stat, .items { min-width: 130px; } #help { display: none; } }
 </style>

@@ -25,6 +25,17 @@ Commandes (clavier et souris) :
 | Tableau des scores | Tab (maintenu) |
 | Choix de compétence A ou B (niveaux 5 et 7) | 1 et 2 |
 
+### Jouer avec des amis
+
+Dans la page publiée sur claude.ai (pas dans le fichier local) :
+
+1. Partage la page à tes amis (bouton Partager, invitation par e-mail). Ils doivent être connectés à Claude. Pour héberger, il faut le rôle Contributeur ou plus.
+2. Chacun choisit son personnage, ses objets et son sort, puis son pseudo et son équipe.
+3. L'hôte clique sur **Créer une partie** et donne le code ; les autres le saisissent et cliquent sur **Rejoindre**.
+4. L'hôte clique sur **Lancer la partie**. Les places vides sont prises par des bots.
+
+Fonctionnement et limites : `docs/decisions/0006-jeu-en-ligne-lockstep.md`.
+
 Options de test dans l'adresse : `?vitesse=8` accélère la simulation, `?auto=1` confie ton personnage à un bot.
 
 ## Développer

@@ -62,7 +62,9 @@ Les priorités suivent le brief : d'abord ce qui change la partie, puis ce qui l
 | Élément | État |
 | --- | --- |
 | Moteur déterministe à pas fixe, piloté par des commandes (prérequis du réseau) | ✅ |
-| Multijoueur en ligne entre amis (jalon 2, décision 0001) | ⏳, gros chantier : serveur, salons, latence |
+| Multijoueur en ligne entre amis : salon par code, lockstep relayé par la page claude.ai (décision 0006) | ✅ |
+| Rejoindre en cours, reprise si l'hôte part, resynchronisation, bot qui remplace un joueur parti | 🔜 |
+| Prédiction locale du déplacement (réduire la latence ressentie) | 🔜 |
 | Rejeu d'une partie à partir de la graine et des commandes | ⏳, presque gratuit grâce au déterminisme |
 
 ## 5. Personnages venus d'autres univers

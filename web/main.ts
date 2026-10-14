@@ -7,6 +7,8 @@ import { createGame, heroes, inBush, isTargetable, nextUpgrade, skillManaCost, s
 import { botCommands, createBots, type Bots } from "../src/game/match.ts";
 import type { Command, HeroUnit, Unit, World, Zone } from "../src/game/state.ts";
 import type { HeroDef, ItemDef } from "../src/game/types.ts";
+import { getRoom, Lobby, newCode, OnlineGame, turnMs, type MyChoice, type RoomApi } from "./net.ts";
+import { stateHash } from "../src/net/lockstep.ts";
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const canvas = $<HTMLCanvasElement>("game");
@@ -73,7 +75,8 @@ function renderMenu(): void {
     <h2>1. Personnage</h2><div class="grid">${heroCards}</div>
     <h2>2. Trois objets, dans l'ordre (l'or les améliore automatiquement)</h2><div class="grid">${itemCards}</div>
     <h2>3. Sort de combat</h2><div class="grid">${spellCards}</div>
-    <button class="play" id="play" ${sel.hero && sel.items.length === 3 ? "" : "disabled"}>Jouer</button>
+    <button class="play" id="play" ${sel.hero && sel.items.length === 3 ? "" : "disabled"}>Jouer contre des bots</button>
+    <h2>4. Ou jouer avec des amis</h2><div id="online" class="online"></div>
     <p class="keys"><kbd>Z Q S D</kbd> (ou <kbd>W A S D</kbd>, flèches) se déplacer · <kbd>Espace</kbd> ou clic gauche maintenu : attaquer ·
       <kbd>A</kbd> <kbd>E</kbd> <kbd>R</kbd> (QWERTY : <kbd>Q</kbd> <kbd>E</kbd> <kbd>R</kbd>) compétences : maintenir pour viser à la souris, relâcher pour lancer · <kbd>F</kbd> sort · <kbd>B</kbd> retour à la base · <kbd>1</kbd> <kbd>2</kbd> choix de compétence · <kbd>Tab</kbd> maintenu : tableau des scores</p>
   </div>`;
@@ -103,6 +106,8 @@ function renderMenu(): void {
     }),
   );
   $("play").addEventListener("click", startGame);
+  renderOnline();
+  lobby?.update(myChoice()).catch(() => undefined);
 }
 
 function statLabel(k: string, v: number): string {
@@ -125,6 +130,13 @@ const AUTO = params.get("auto") === "1";
 let world: World | null = null;
 let bots: Bots | null = null;
 let player: HeroUnit | null = null;
+/** Online session, when playing with friends. */
+let online: OnlineGame | null = null;
+/** Nicknames of the humans, by hero id (online). */
+const nicks = new Map<number, string>();
+const esc = (t: string) => t.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
+/** Hero label: name, the player's nickname online, "(toi)" for this player. */
+const who = (h: HeroUnit) => `${h.name}${nicks.has(h.id) ? ` · ${esc(nicks.get(h.id)!)}` : ""}${h === player ? " (toi)" : ""}`;
 let acc = 0;
 let lastFrame = 0;
 const prevPos = new Map<number, Vec>();
@@ -158,6 +170,8 @@ function startGame(): void {
   const blue = [me, pick(others[0]!), pick(others[1]!)];
   const red = [pick(others[2]!), pick(others[3]!), pick(others[4]!)];
   const seed = Math.floor(Math.random() * 1e9);
+  online = null;
+  nicks.clear();
   world = createGame(CONTENT, [blue, red], seed);
   bots = createBots(world, seed);
   player = heroes(world).find((h) => h.isPlayer)!;
@@ -232,6 +246,7 @@ function playerCommand(): Command {
 
 function frame(now: number): void {
   if (!world || !player) return;
+  if (online) return onlineFrame(now);
   const dt = world.dt;
   acc += Math.min(0.25, (now - lastFrame) / 1000) * SPEED;
   lastFrame = now;
@@ -246,6 +261,34 @@ function frame(now: number): void {
   render(alpha);
   updateHud();
   if (world.winner !== null) {
+    showEnd();
+    return;
+  }
+  requestAnimationFrame(frame);
+}
+
+/** Online: the host's turns drive the simulation; render between turns. */
+let warnedDesync = false;
+function onlineFrame(now: number): void {
+  const g = online!;
+  g.input(playerCommand());
+  g.update(
+    now,
+    () => {
+      prevPos.clear();
+      for (const u of world!.units) prevPos.set(u.id, { ...u.pos });
+    },
+    consumeEvents,
+  );
+  render(Math.min(1, (now - g.lastTurnAt) / turnMs));
+  updateHud();
+  if (g.match.desync && !warnedDesync) {
+    warnedDesync = true;
+    banner("Partie désynchronisée : relancez une partie", null);
+  }
+  if (g.hostGone) toast("L'hôte a quitté la partie");
+  else if (g.waiting) toast("En attente de l'hôte…");
+  if (world!.winner !== null) {
     showEnd();
     return;
   }
@@ -275,7 +318,7 @@ function consumeEvents(): void {
       const k = heroes(w).find((h) => h.id === e.killerId);
       const v = heroes(w).find((h) => h.id === e.victimId);
       if (v) {
-        const name = (h: HeroUnit) => `<span class="${h.team === 0 ? "b" : "r"}">${h.name}${h === player ? " (toi)" : ""}</span>`;
+        const name = (h: HeroUnit) => `<span class="${h.team === 0 ? "b" : "r"}">${who(h)}</span>`;
         const helpers = e.assists.length ? ` <span class="small">+${e.assists.length}</span>` : "";
         const bounty = e.bounty > 0 ? ` <span class="small">+${e.bounty} or</span>` : "";
         feed.push({ html: `${k ? name(k) : "Tour / sbires"}${helpers} ⚔ ${name(v)}${bounty}`, born: performance.now() });
@@ -1110,7 +1153,7 @@ function updateScoreboard(w: World): void {
         const spellCd = Math.max(0, h.spell.readyAt - w.time);
         const state = h.alive ? "" : ` · <b>† ${Math.ceil(h.respawnAt - w.time)} s</b>`;
         return `<tr class="${h === player ? "me" : ""} ${h.alive ? "" : "dead"}">
-          <td><span class="dot" style="background:${h.def.color}"></span><b>${h.name}</b>${h === player ? " (toi)" : ""}<div class="small">${ROLE_FR[h.def.role]}${state}</div></td>
+          <td><span class="dot" style="background:${h.def.color}"></span><b>${who(h)}</b><div class="small">${ROLE_FR[h.def.role]}${state}</div></td>
           <td><span class="lvl">${h.level}</span></td>
           <td><b>${h.kills}</b> / ${h.deaths} / ${h.assists}</td>
           <td>${h.cs}</td>
@@ -1141,7 +1184,7 @@ function showEnd(): void {
     .sort((a, b) => a.team - b.team)
     .map(
       (h) =>
-        `<tr><td><span class="dot" style="background:${teamColor(h.team)}"></span>${h.name}${h.isPlayer ? " (toi)" : ""}</td><td>${h.level}</td><td>${h.kills} / ${h.deaths} / ${h.assists}</td><td>${h.cs}</td><td>${Math.round(h.damageToHeroes)}</td><td>${Math.round(h.totalGold)}</td></tr>`,
+        `<tr><td><span class="dot" style="background:${teamColor(h.team)}"></span>${who(h)}</td><td>${h.level}</td><td>${h.kills} / ${h.deaths} / ${h.assists}</td><td>${h.cs}</td><td>${Math.round(h.damageToHeroes)}</td><td>${Math.round(h.totalGold)}</td></tr>`,
     )
     .join("");
   const end = $("end");
@@ -1151,6 +1194,11 @@ function showEnd(): void {
     <button class="play" id="again">Rejouer</button> <button class="play" id="back" style="background:#66708a">Changer de personnage</button></div>`;
   end.classList.remove("hidden");
   $("hud").classList.add("hidden");
+  if (online) {
+    online.close();
+    online = null;
+    lobby = null;
+  }
   $("again").addEventListener("click", startGame);
   $("back").addEventListener("click", () => {
     end.classList.add("hidden");
@@ -1159,4 +1207,133 @@ function showEnd(): void {
   });
 }
 
+// ---------------------------------------------------------------- online lobby
+
+let roomApi: RoomApi | null | undefined;
+let lobby: Lobby | null = null;
+let joinCode = "";
+let busy = false;
+let nick = (() => {
+  try {
+    return localStorage.getItem("mm-nick") ?? "";
+  } catch {
+    return "";
+  }
+})();
+let myTeam: 0 | 1 = 0;
+
+function myChoice(): MyChoice {
+  const hero = sel.hero ?? CONTENT.heroes[0]!;
+  return { nick: nick || "Joueur", team: myTeam, hero: hero.id, items: sel.items.length === 3 ? sel.items : hero.defaults.items, spell: sel.spell };
+}
+
+function renderOnline(): void {
+  const box = document.getElementById("online");
+  if (!box) return;
+  if (roomApi === undefined) {
+    box.innerHTML = `<p class="sub">Recherche du mode en ligne…</p>`;
+    return;
+  }
+  if (roomApi === null) {
+    box.innerHTML = `<p class="sub">Le jeu entre amis marche dans la page publiée sur claude.ai. Invite tes amis sur la page (bouton Partager) : ils doivent être connectés à Claude. Ici, ce mode n'est pas disponible.</p>`;
+    return;
+  }
+  const nickField = `<label class="field">Pseudo <input id="nick" maxlength="16" value="${esc(nick)}" placeholder="Ton pseudo"></label>`;
+  const teamPick = `<span class="field">Équipe <button class="pill ${myTeam === 0 ? "on b" : ""}" data-team="0">Bleus</button><button class="pill ${myTeam === 1 ? "on r" : ""}" data-team="1">Rouges</button></span>`;
+  if (!lobby) {
+    box.innerHTML = `<div class="row">${nickField}${teamPick}</div>
+      <div class="row"><button class="play small-play" id="create" ${sel.hero && !busy ? "" : "disabled"}>Créer une partie</button>
+      <span class="field">ou code <input id="code" maxlength="5" value="${esc(joinCode)}" placeholder="abcde" size="6"></span>
+      <button class="play small-play alt" id="join" ${sel.hero && !busy ? "" : "disabled"}>Rejoindre</button></div>
+      <p class="keys">Choisis d'abord ton personnage, tes objets et ton sort. L'hôte partage le code ; les places vides sont prises par des bots.</p>`;
+  } else {
+    const list = (team: 0 | 1) =>
+      lobby!.players
+        .filter((p) => p.team === team)
+        .map((p) => `<li>${esc(p.nick)}${p.isMe ? " (toi)" : ""}${p.host ? " · hôte" : ""} — ${CONTENT.heroes.find((h) => h.id === p.hero)?.name ?? ""}</li>`)
+        .join("") || "<li class='small'>bots</li>";
+    box.innerHTML = `<div class="row">${nickField}${teamPick}</div>
+      <p class="code">Code de la partie : <b>${esc(lobby.code)}</b></p>
+      <div class="teams"><div><h3 class="b">Bleus</h3><ul>${list(0)}</ul></div><div><h3 class="r">Rouges</h3><ul>${list(1)}</ul></div></div>
+      ${lobby.error ? `<p class="touch-note" style="display:block">${esc(lobby.error)}</p>` : ""}
+      <div class="row">${lobby.isHost ? `<button class="play small-play" id="launch">Lancer la partie</button>` : `<span class="sub">En attente du lancement par l'hôte…</span>`}
+      <button class="play small-play alt" id="leave">Quitter</button></div>`;
+  }
+  box.querySelector<HTMLInputElement>("#nick")?.addEventListener("input", (e) => {
+    nick = (e.target as HTMLInputElement).value.slice(0, 16);
+    try {
+      localStorage.setItem("mm-nick", nick);
+    } catch {
+      /* private mode */
+    }
+    lobby?.update(myChoice()).catch(() => undefined);
+  });
+  box.querySelector<HTMLInputElement>("#code")?.addEventListener("input", (e) => (joinCode = (e.target as HTMLInputElement).value.toLowerCase().replace(/[^a-z0-9]/g, "")));
+  box.querySelectorAll<HTMLElement>("[data-team]").forEach((b) =>
+    b.addEventListener("click", () => {
+      myTeam = b.dataset.team === "1" ? 1 : 0;
+      lobby?.update(myChoice()).catch(() => undefined);
+      renderOnline();
+    }),
+  );
+  box.querySelector("#create")?.addEventListener("click", () => void openLobby(newCode(), true));
+  box.querySelector("#join")?.addEventListener("click", () => void (joinCode.length >= 3 && openLobby(joinCode, false)));
+  box.querySelector("#launch")?.addEventListener("click", () => void lobby?.start());
+  box.querySelector("#leave")?.addEventListener("click", () => {
+    lobby?.close();
+    void lobby?.room.leave();
+    lobby = null;
+    renderOnline();
+  });
+}
+
+async function openLobby(code: string, host: boolean): Promise<void> {
+  if (!roomApi || busy) return;
+  busy = true;
+  renderOnline();
+  try {
+    lobby = await Lobby.open(roomApi, code, host, myChoice(), renderOnline, (setup, hostPeer) => {
+      const l = lobby!;
+      const me = l.room.peers().find((p) => p.isMe && p.sameTab)?.peer;
+      if (!me || ![...setup.humans[0], ...setup.humans[1]].includes(me)) {
+        l.error = "La partie a commencé sans toi (équipe pleine ?).";
+        renderOnline();
+        return;
+      }
+      startOnline(new OnlineGame(l.room, setup, me === hostPeer, hostPeer, me), l);
+    });
+  } catch {
+    toast("Impossible de rejoindre la partie");
+  }
+  busy = false;
+  renderOnline();
+}
+
+function startOnline(g: OnlineGame, l: Lobby): void {
+  online = g;
+  warnedDesync = false;
+  world = g.world;
+  bots = g.match.bots;
+  player = heroes(world).find((h) => h.id === g.myHero)!;
+  nicks.clear();
+  const humans = [...g.setup.humans[0], ...g.setup.humans[1]];
+  heroes(world).forEach((h, i) => {
+    const p = l.players.find((x) => x.peer === humans[i]);
+    if (p) nicks.set(h.id, p.nick);
+  });
+  cam.x = player.pos.x;
+  cam.y = player.pos.y;
+  $("menu").classList.add("hidden");
+  $("end").classList.add("hidden");
+  $("hud").classList.remove("hidden");
+  requestAnimationFrame(frame);
+}
+
+// Test hook: tick and fingerprint of the online match (compared across tabs by the end-to-end test).
+(globalThis as Record<string, unknown>).__mmOnline = () => (online ? { tick: world!.tick, hash: stateHash(world!), desync: online.match.desync } : null);
+
 renderMenu();
+void getRoom().then((r) => {
+  roomApi = r;
+  renderOnline();
+});

@@ -1,7 +1,7 @@
 // Fixed-step match simulation for the v1 rules (docs/design/rules-v1.md).
 // Deterministic for a given seed; driven only by Commands; no rendering.
 
-import { add, dist, distToSegment, dot, len, norm, rng, scale, sub, type Vec } from "../sim/math.ts";
+import { add, detCos, detSin, dist, distToSegment, dot, len, norm, rng, scale, sub, type Vec } from "../sim/math.ts";
 import { effectiveDefense, evaluate, grow, mitigation, respawnTime, statAtLevel, xpToNext, type FormulaContext } from "./formulas.ts";
 import type {
   Command,
@@ -887,8 +887,14 @@ function inCone(p: Vec, r: number, origin: Vec, dir: Vec, range: number, angleDe
   const d = len(rel);
   if (d > range + r) return false;
   if (d < 0.01) return true;
-  const cos = dot(rel, dir) / d;
-  return Math.acos(Math.max(-1, Math.min(1, cos))) <= (angleDeg * Math.PI) / 360 + Math.asin(Math.min(1, r / d));
+  // Inside the angle, or a circle of radius r touching one of the two edges (no acos/asin: determinism).
+  const half = (angleDeg * Math.PI) / 360;
+  const c = detCos(half);
+  if (dot(rel, dir) >= d * c) return true;
+  const s = detSin(half);
+  const left = { x: dir.x * c - dir.y * s, y: dir.x * s + dir.y * c };
+  const right = { x: dir.x * c + dir.y * s, y: -dir.x * s + dir.y * c };
+  return distToSegment(p, origin, add(origin, scale(left, range))) <= r || distToSegment(p, origin, add(origin, scale(right, range))) <= r;
 }
 
 export function zoneContains(z: Zone, p: Vec, r: number): boolean {

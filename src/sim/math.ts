@@ -8,8 +8,27 @@ export const add = (a: Vec, b: Vec): Vec => ({ x: a.x + b.x, y: a.y + b.y });
 export const sub = (a: Vec, b: Vec): Vec => ({ x: a.x - b.x, y: a.y - b.y });
 export const scale = (a: Vec, k: number): Vec => ({ x: a.x * k, y: a.y * k });
 export const dot = (a: Vec, b: Vec): number => a.x * b.x + a.y * b.y;
-export const len = (a: Vec): number => Math.hypot(a.x, a.y);
-export const dist = (a: Vec, b: Vec): number => Math.hypot(a.x - b.x, a.y - b.y);
+// Cross-browser determinism (online lockstep): the simulation only uses + − × ÷ and Math.sqrt,
+// which IEEE 754 makes identical everywhere. Math.hypot, sin, cos, acos, pow… are not.
+export const hypot = (x: number, y: number): number => Math.sqrt(x * x + y * y);
+export const len = (a: Vec): number => hypot(a.x, a.y);
+export const dist = (a: Vec, b: Vec): number => hypot(a.x - b.x, a.y - b.y);
+
+/** Deterministic cosine (Taylor series after range reduction; error < 1e-6 on [-π, π]). */
+export function detCos(x: number): number {
+  const TWO_PI = 2 * Math.PI;
+  const a = x - TWO_PI * Math.floor((x + Math.PI) / TWO_PI);
+  const a2 = a * a;
+  let term = 1;
+  let sum = 1;
+  for (let k = 1; k <= 9; k++) {
+    term *= -a2 / ((2 * k - 1) * (2 * k));
+    sum += term;
+  }
+  return sum;
+}
+
+export const detSin = (x: number): number => detCos(x - Math.PI / 2);
 
 export function norm(a: Vec, fallback: Vec = { x: 1, y: 0 }): Vec {
   const l = len(a);

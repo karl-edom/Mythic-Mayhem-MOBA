@@ -228,6 +228,7 @@ Chaque compétence précise, dans les données, son **contre-jeu** et son **indi
 - **Annonces** (ML) : premier sang, doublé, triplé, séries (3 éliminations sans mourir : « Série meurtrière », puis « Déchaîné », « Inarrêtable », « Divin », « Légendaire »), fin de série, équipe anéantie. Bandeau à la couleur de l'équipe, et fil des 5 dernières éliminations en haut à droite.
 - **Récapitulatif de mort** (LoL, ML) : pendant la réapparition, qui a porté le dernier coup et les dégâts reçus dans les 15 dernières secondes, par source, avec la part attaques / compétences pour les héros.
 - **Minuteurs sur la minicarte** (ML) : temps avant le retour de la Tortue, du Seigneur et de chaque camp de jungle.
+- **Jeu en ligne** (décision 0006) : salon par code (« Créer une partie », « Rejoindre »), pseudo et équipe ; l'hôte lance, les bots complètent. Pseudos affichés à côté des héros dans le tableau Tab et le fil des éliminations. Messages « En attente de l'hôte… », « L'hôte a quitté la partie », « Partie désynchronisée ».
 - **Fin de partie** : vainqueur, durée, éliminations, dégâts, puis « Rejouer ».
 - **Visuel** : clair et jovial (herbe vert tendre, voies sable, rivière bleu clair). Les équipes se distinguent par la couleur **et** par la forme : bleu avec un anneau rond, rouge avec un anneau en losange.
 
