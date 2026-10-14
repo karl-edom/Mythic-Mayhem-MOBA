@@ -299,6 +299,8 @@ export interface MapData {
   towerDistances: Record<"top" | "mid" | "bot", { inner: number; outer: number }>;
   river: { from: Vec2; to: Vec2; width: number };
   bushes: { center: Vec2; size: Vec2 }[];
+  /** Walkable grid, one string per row: "#" wall, "." floor (tools/gen-map.ts). */
+  grid?: string[];
   /** Camps for the blue side; red camps are the point mirror. */
   camps: { id: string; pos: Vec2 }[];
   turtle: Vec2;

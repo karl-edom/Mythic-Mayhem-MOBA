@@ -21,6 +21,9 @@ const COLORS = {
   laneEdge: "#e7d39e",
   river: "#9fd7f3",
   bush: "#5fae57",
+  hedge: "#6cbd5a",
+  hedgeTop: "#8fd57a",
+  hedgeShade: "#57a248",
   blue: "#2f7bf5",
   red: "#f25a3a",
   self: "#4bd16b",
@@ -126,6 +129,8 @@ let acc = 0;
 let lastFrame = 0;
 const prevPos = new Map<number, Vec>();
 const floaters: { x: number; y: number; text: string; color: string; born: number }[] = [];
+/** Short-lived hit effects: melee slashes and ranged muzzle flashes. */
+const swings: { from: Vec; to: Vec; melee: boolean; boosted: boolean; born: number }[] = [];
 let toastUntil = 0;
 const cam = { x: 0, y: 0 };
 let scalePx = 26;
@@ -238,6 +243,10 @@ function consumeEvents(): void {
       }
     } else if (e.type === "heal" && e.amount > 20) {
       floaters.push({ x: e.pos.x, y: e.pos.y, text: `+${Math.round(e.amount)}`, color: "#4bd16b", born: performance.now() });
+    } else if (e.type === "attack") {
+      const a = w.units.find((u) => u.id === e.heroId);
+      const t = w.units.find((u) => u.id === e.targetId);
+      if (a && t && a.kind === "hero" && dist(a.pos, player!.pos) < 16) swings.push({ from: { ...a.pos }, to: { ...t.pos }, melee: a.def.attackType === "melee", boosted: e.boosted, born: performance.now() });
     } else if (e.type === "announce") toast(e.text);
     else if (e.type === "heroKill") {
       const k = heroes(w).find((h) => h.id === e.killerId);
@@ -302,6 +311,8 @@ function render(alpha: number): void {
     ctx.fill();
   }
   drawTowerWarning(w);
+  drawSwings();
+  drawLock(w);
   drawAim();
   drawFloaters();
   drawMinimap(w);
@@ -309,26 +320,21 @@ function render(alpha: number): void {
 
 function drawMap(c: CanvasRenderingContext2D, w: World): void {
   const s = w.content.map.size;
-  // Jungle tint beyond the lanes.
+  // Floor.
   c.fillStyle = COLORS.jungle;
   c.fillRect(0, 0, s, s);
-  c.fillStyle = COLORS.grass;
-  c.fillRect(-60, -60, s + 120, 60);
-  c.fillRect(-60, s, s + 120, 60);
-  c.fillRect(-60, 0, 60, s);
-  c.fillRect(s, 0, 60, s);
   // River.
   const r = w.content.map.river;
   c.strokeStyle = COLORS.river;
   c.lineCap = "round";
-  c.lineWidth = r.width;
+  c.lineWidth = r.width + 1;
   c.beginPath();
   c.moveTo(r.from[0], r.from[1]);
   c.lineTo(r.to[0], r.to[1]);
   c.stroke();
-  // Lanes.
-  for (const width of [2.6, 2.2]) {
-    c.strokeStyle = width > 2.4 ? COLORS.laneEdge : COLORS.lane;
+  // Lanes, as wide as their corridors.
+  for (const [width, color] of [[5.4, COLORS.laneEdge], [4.8, COLORS.lane]] as const) {
+    c.strokeStyle = color;
     c.lineWidth = width;
     c.lineJoin = "round";
     for (const lane of w.lanes) {
@@ -337,9 +343,6 @@ function drawMap(c: CanvasRenderingContext2D, w: World): void {
       c.stroke();
     }
   }
-  // Bushes.
-  c.fillStyle = COLORS.bush;
-  for (const b of w.bushes) roundRect(c, b.cx - b.hw, b.cy - b.hh, b.hw * 2, b.hh * 2, 0.6);
   // Fountains.
   w.content.map.fountains.forEach(([x, y], t) => {
     c.fillStyle = t === 0 ? "rgba(47,123,245,.18)" : "rgba(242,90,58,.18)";
@@ -349,12 +352,36 @@ function drawMap(c: CanvasRenderingContext2D, w: World): void {
   });
   // Turtle / Lord pits.
   for (const p of [w.content.map.turtle, w.content.map.lord]) {
-    c.strokeStyle = "rgba(255,255,255,.6)";
-    c.lineWidth = 0.12;
+    c.fillStyle = "rgba(255,255,255,.25)";
     c.beginPath();
-    c.arc(p[0], p[1], 2.4, 0, Math.PI * 2);
-    c.stroke();
+    c.arc(p[0], p[1], 3, 0, Math.PI * 2);
+    c.fill();
   }
+  // Hedges (walls): only the visible part of the grid.
+  const g = w.nav;
+  const W = innerWidth / scalePx / 2 + 2;
+  const H = innerHeight / scalePx / 2 + 2;
+  const x0 = Math.max(0, Math.floor(cam.x - W));
+  const x1 = Math.min(g.size - 1, Math.ceil(cam.x + W));
+  const y0 = Math.max(0, Math.floor(cam.y - H));
+  const y1 = Math.min(g.size - 1, Math.ceil(cam.y + H));
+  for (let y = y0; y <= y1; y++) {
+    for (let x = x0; x <= x1; x++) {
+      if (!g.walls[y * g.size + x]) continue;
+      c.fillStyle = COLORS.hedgeShade;
+      c.fillRect(x - 0.02, y + 0.1, 1.04, 0.95);
+      c.fillStyle = COLORS.hedge;
+      c.fillRect(x - 0.02, y - 0.02, 1.04, 0.9);
+      // Highlight on edges that face open ground, so walls read as raised.
+      if (y > 0 && !g.walls[(y - 1) * g.size + x]) {
+        c.fillStyle = COLORS.hedgeTop;
+        c.fillRect(x, y, 1, 0.25);
+      }
+    }
+  }
+  // Bushes.
+  c.fillStyle = COLORS.bush;
+  for (const b of w.bushes) roundRect(c, b.cx - b.hw, b.cy - b.hh, b.hw * 2, b.hh * 2, 0.6);
 }
 
 function roundRect(c: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number): void {
@@ -580,6 +607,46 @@ function drawZone(z: Zone, myTeam: number): void {
   }
 }
 
+function drawSwings(): void {
+  const now = performance.now();
+  for (let i = swings.length - 1; i >= 0; i--) {
+    const sw = swings[i]!;
+    const age = (now - sw.born) / 1000;
+    if (age > 0.18) {
+      swings.splice(i, 1);
+      continue;
+    }
+    const a = 1 - age / 0.18;
+    const color = sw.boosted ? `rgba(255,216,74,${a})` : `rgba(255,255,255,${a})`;
+    if (sw.melee) {
+      const ang = Math.atan2(sw.to.y - sw.from.y, sw.to.x - sw.from.x);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = sw.boosted ? 0.22 : 0.14;
+      ctx.beginPath();
+      ctx.arc(sw.from.x, sw.from.y, Math.min(2.2, dist(sw.from, sw.to)), ang - 0.7, ang + 0.7);
+      ctx.stroke();
+    } else {
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.arc(sw.from.x + (sw.to.x - sw.from.x) * 0.12, sw.from.y + (sw.to.y - sw.from.y) * 0.12, sw.boosted ? 0.35 : 0.22, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+}
+
+/** Ring around the target the player's attack is locked on. */
+function drawLock(w: World): void {
+  const t = w.units.find((u) => u.id === player!.attack.targetId);
+  if (!t || !t.alive || !(keys.has("Space") || mouse.down)) return;
+  ctx.strokeStyle = "rgba(240,60,40,.9)";
+  ctx.lineWidth = 0.1;
+  ctx.setLineDash([0.3, 0.2]);
+  ctx.beginPath();
+  ctx.arc(t.pos.x, t.pos.y, t.radius + 0.35, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.setLineDash([]);
+}
+
 function drawAim(): void {
   const aim = screenToWorld(mouse.x, mouse.y);
   const p = player!;
@@ -627,6 +694,8 @@ function drawMinimap(w: World): void {
   mctx.setTransform(k, 0, 0, k, 0, 0);
   mctx.fillStyle = COLORS.jungle;
   mctx.fillRect(0, 0, s, s);
+  mctx.fillStyle = COLORS.hedgeShade;
+  for (let y = 0; y < w.nav.size; y++) for (let x = 0; x < w.nav.size; x++) if (w.nav.walls[y * w.nav.size + x]) mctx.fillRect(x, y, 1, 1);
   mctx.strokeStyle = COLORS.river;
   mctx.lineWidth = w.content.map.river.width;
   mctx.beginPath();

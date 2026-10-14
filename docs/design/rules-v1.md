@@ -20,7 +20,8 @@ Toutes les valeurs chiffrées vivent dans `data/game/*.json`. Ce document en exp
   - **3 voies** : haut (par le coin haut-gauche), milieu (diagonale), bas (par le coin bas-droit).
   - **Rivière** sur l'autre diagonale ; jungle dans les quatre triangles entre voies et rivière.
   - **Buissons** : une unité dans un buisson est invisible pour l'adversaire, sauf si une unité adverse est dans le même buisson ✅ (ML, sans balises).
-  - **Simplification v1** : pas de murs ni de brouillard de guerre en dehors des buissons. Les murs de ML viendront avec un vrai tracé de carte.
+  - **Murs** : la jungle est fermée par des haies, avec des passages, des poches pour les camps et des fosses pour la Tortue et le Seigneur. La grille de la carte (1 case = 1 u) est générée par `tools/gen-map.ts` et vit dans `data/game/map.json`. Les tirs passent au-dessus des murs, mais pas les déplacements, les ruées ni les repoussements (comme dans ML).
+  - **Simplification v1** : pas de brouillard de guerre en dehors des buissons.
 - **Fontaine** (autel de ML) : soigne 10 % des PV et du mana toutes les 0,2 s ✅ (`mlbb/mechanics/altar.md`). Elle inflige des dégâts mortels aux ennemis qui y entrent.
 - **Retour à la base** : canalisation de 5 s, annulée par un déplacement ou des dégâts ✅. Sans boutique, il sert seulement à se soigner.
 
@@ -141,7 +142,7 @@ Valeurs relevées sur la version d'avant le patch 2.2.16, les seules chiffrées 
 
 - **Cadence** : une attaque toutes les 1 / vitesse d'attaque secondes, avec un temps d'armement de 25 % de cet intervalle 🧪 (principe de LoL). Pendant l'armement, le héros est immobile, et un déplacement annule l'attaque.
 - **Attaque boostée** ✅ (Unite) : **la 3ᵉ attaque de base est boostée**. Son effet dépend du héros. Contre-jeu : le compteur (3 points) est visible au-dessus du héros, et l'adversaire peut sortir de portée avant la 3ᵉ.
-- **Ciblage** ✅ (ML) : la touche d'attaque verrouille la cible par priorité, d'abord le héros ennemi au plus faible % de PV à portée, sinon l'unité la plus proche. Le verrou reste tant que la cible est à portée.
+- **Ciblage** ✅ (ML) : la touche d'attaque verrouille la cible par priorité, d'abord le héros ennemi au plus faible % de PV à portée, sinon l'unité la plus proche. Le verrou reste tant que la cible est à portée. Tant que la touche est maintenue, l'attaque l'emporte sur le déplacement : le héros poursuit sa cible (jusqu'à 3 u au-delà de sa portée) et frappe, comme le bouton d'attaque de ML. La cible verrouillée est entourée de rouge, et chaque coup est visible.
 - **Tour et sbires** : une attaque de base sur une tour n'est possible que si elle est vulnérable (§3).
 
 ## 8. Compétences
@@ -221,7 +222,7 @@ Les valeurs 🧪 sont réglées par ce banc d'essai. Les mesures en jeu prévues
 
 ## 13. Limites connues de la v1
 
-- **Pas de murs ni de brouillard** en dehors des buissons. La carte n'a pas encore le tracé de ML.
+- **Pas de brouillard de guerre** en dehors des buissons. La carte reprend la structure de ML (3 voies en couloirs, jungle fermée), avec un tracé simplifié.
 - **Passifs des objets** : affichés, pas encore appliqués. Seules les stats comptent.
 - **Contrôles** : provocation et suppression ne sont pas encore implémentées.
 - **Bots** : simples. Ils tiennent leur voie, poussent derrière leurs sbires, se battent quand c'est favorable, se replient et rentrent à la base. Le jungleur fait ses camps, la Tortue et le Seigneur.

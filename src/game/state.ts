@@ -1,6 +1,7 @@
 // Runtime state of a match. Plain data: the client renders it, the engine steps it.
 
 import type { Vec } from "../sim/math.ts";
+import type { NavGrid } from "./nav.ts";
 import type { DamageType, GameContent, HeroDef, SkillDef, SpellDef, StatBlock, Team } from "./types.ts";
 
 /** Teams 0 (blue) and 1 (red); 2 = neutral monsters. */
@@ -170,7 +171,8 @@ export type GameEvent =
   | { type: "item"; heroId: number; itemName: string }
   | { type: "announce"; text: string; team: Side | null }
   | { type: "towerDown"; team: Side; tier: TowerTier }
-  | { type: "cast"; heroId: number; slot: number };
+  | { type: "cast"; heroId: number; slot: number }
+  | { type: "attack"; heroId: number; targetId: number; boosted: boolean };
 
 export interface Command {
   heroId: number;
@@ -205,4 +207,5 @@ export interface World {
   /** Lane paths as Vec, one per lane, from the blue base. */
   lanes: Vec[][];
   bushes: { cx: number; cy: number; hw: number; hh: number }[];
+  nav: NavGrid;
 }

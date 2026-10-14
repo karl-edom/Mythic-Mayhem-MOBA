@@ -3,6 +3,7 @@
 
 import { add, dist, norm, scale, sub, type Vec } from "../sim/math.ts";
 import { isTargetable, lanePathFor, pointAlong, progressAlong, skillManaCost, skillRange, visibleTo } from "./engine.ts";
+import { newNavCache, steer, type NavCache } from "./nav.ts";
 import type { Command, HeroUnit, MinionUnit, MonsterUnit, TowerUnit, Unit, World } from "./state.ts";
 import type { Team } from "./types.ts";
 
@@ -11,6 +12,7 @@ export interface BotMemory {
   lane: number;
   retreating: boolean;
   random: () => number;
+  nav: NavCache;
 }
 
 /** Jungler = the hero carrying Retribution; laners fill mid, bot, top. */
@@ -23,13 +25,14 @@ export function assignRoles(world: World, team: Team, random: () => number): Map
   for (const h of mine) {
     if (!jungler && h.spell.def.id === "retribution") {
       jungler = true;
-      out.set(h.id, { role: "jungle", lane: 0, retreating: false, random });
-    } else out.set(h.id, { role: "lane", lane: laneOrder[next++ % 3]!, retreating: false, random });
+      out.set(h.id, { role: "jungle", lane: 0, retreating: false, random, nav: newNavCache() });
+    } else out.set(h.id, { role: "lane", lane: laneOrder[next++ % 3]!, retreating: false, random, nav: newNavCache() });
   }
   return out;
 }
 
-const moveTo = (h: HeroUnit, p: Vec): Vec | undefined => (dist(h.pos, p) > 0.4 ? norm(sub(p, h.pos)) : undefined);
+/** Walk toward p, around walls (A* on the map grid, cached per bot). */
+const moveTo = (world: World, h: HeroUnit, mem: BotMemory, p: Vec): Vec | undefined => steer(world.nav, h.pos, p, mem.nav, world.time);
 
 function enemyHeroesNear(world: World, h: HeroUnit, r: number): HeroUnit[] {
   return world.units.filter(
@@ -96,7 +99,7 @@ export function decideBot(world: World, h: HeroUnit, mem: BotMemory): Command {
       if (h.recallEnd === 0) cmd.recall = true;
       return cmd;
     }
-    const m = moveTo(h, fountain);
+    const m = moveTo(world, h, mem, fountain);
     if (m) cmd.move = m;
     if (hpRatio < 0.2 && h.spell.def.id === "flicker" && h.spell.readyAt <= world.time && threats.some((t) => dist(t.pos, h.pos) < 3)) {
       cmd.spell = { target: fountain };
@@ -119,11 +122,11 @@ export function decideBot(world: World, h: HeroUnit, mem: BotMemory): Command {
       if (h.spell.def.id === "aegis" && hpRatio < 0.4 && h.spell.readyAt <= world.time) cmd.spell = { target: h.pos };
       if (h.spell.def.id === "purify" && h.status.stunUntil > world.time && h.spell.readyAt <= world.time) cmd.spell = { target: h.pos };
       if (dist(target.pos, h.pos) - target.radius - h.radius <= h.stats.range + 3) cmd.attack = true;
-      else cmd.move = moveTo(h, target.pos);
+      else cmd.move = moveTo(world, h, mem, target.pos);
       return cmd;
     }
     if (!favorable && dist(target.pos, h.pos) < 5) {
-      const m = moveTo(h, fountain);
+      const m = moveTo(world, h, mem, fountain);
       if (m) cmd.move = m;
       return cmd;
     }
@@ -137,7 +140,7 @@ export function decideBot(world: World, h: HeroUnit, mem: BotMemory): Command {
     const d = dist(objective.pos, h.pos);
     const helpers = alliesNear(world, h, objective.pos, 8);
     if ((mem.role === "jungle" && (objective.monster === "turtle" || helpers >= 1)) || (d < 12 && helpers >= 1)) {
-      return engageMonster(world, h, objective, cmd);
+      return engageMonster(world, h, objective, cmd, mem);
     }
   }
 
@@ -145,13 +148,13 @@ export function decideBot(world: World, h: HeroUnit, mem: BotMemory): Command {
   return lane(world, h, cmd, mem);
 }
 
-function engageMonster(world: World, h: HeroUnit, m: MonsterUnit, cmd: Command): Command {
+function engageMonster(world: World, h: HeroUnit, m: MonsterUnit, cmd: Command, mem: BotMemory): Command {
   if (h.spell.def.id === "retribution" && h.spell.readyAt <= world.time && dist(h.pos, m.pos) < 4) {
     const smite = 520 + 80 * h.level;
     if (m.hp <= smite || m.monster !== "camp") cmd.spell = { target: m.pos };
   }
   if (dist(m.pos, h.pos) - m.radius - h.radius > h.stats.range) {
-    cmd.move = moveTo(h, m.pos);
+    cmd.move = moveTo(world, h, mem, m.pos);
     return cmd;
   }
   const cast = trySkills(world, h, m, 0);
@@ -167,7 +170,7 @@ function jungle(world: World, h: HeroUnit, cmd: Command, mem: BotMemory): Comman
   const pool = own.length > 0 ? own : camps.filter((c) => enemyHeroesNear(world, h, 10).length === 0);
   pool.sort((a, b) => dist(a.pos, h.pos) - dist(b.pos, h.pos));
   const camp = pool[0];
-  if (camp && (h.hp / h.maxHp > 0.5 || camp.targetId === h.id)) return engageMonster(world, h, camp, cmd);
+  if (camp && (h.hp / h.maxHp > 0.5 || camp.targetId === h.id)) return engageMonster(world, h, camp, cmd, mem);
   // No camp up: help the lane with the most enemy pressure (mid by default).
   mem.lane = 1;
   return lane(world, h, cmd, mem);
@@ -195,7 +198,7 @@ function lane(world: World, h: HeroUnit, cmd: Command, mem: BotMemory): Command 
   const danger = dangerousTower(world, h, h.pos);
   if (danger && !(target?.kind === "tower" && target.id === danger.id && allyMinions.some((m) => dist(m.pos, danger.pos) < 6))) {
     const back = add(h.pos, scale(norm(sub(h.pos, danger.pos)), 2));
-    cmd.move = moveTo(h, back);
+    cmd.move = moveTo(world, h, mem, back);
     return cmd;
   }
   if (target && !dangerousTower(world, h, target.pos)) {
@@ -207,7 +210,7 @@ function lane(world: World, h: HeroUnit, cmd: Command, mem: BotMemory): Command 
     cmd.attack = true;
     return cmd;
   }
-  const m = moveTo(h, anchor);
+  const m = moveTo(world, h, mem, anchor);
   if (m) cmd.move = m;
   return cmd;
 }

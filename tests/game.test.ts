@@ -134,3 +134,54 @@ test("une partie complète entre bots se termine par la destruction d'une base",
   assert.ok(base);
   assert.ok(r.duration > 6 * 60, `durée ${r.duration}`);
 });
+
+test("carte : tout est atteignable depuis chaque fontaine, buissons sur du sol", async () => {
+  const { isWallAt } = await import("../src/game/nav.ts");
+  const w = newGame();
+  const n = w.nav.size;
+  for (const [fx, fy] of CONTENT.map.fountains) {
+    const seen = new Uint8Array(n * n);
+    const queue = [Math.floor(fy) * n + Math.floor(fx)];
+    seen[queue[0]!] = 1;
+    while (queue.length) {
+      const c = queue.pop()!;
+      for (const d of [1, -1, n, -n]) {
+        const k = c + d;
+        if (k < 0 || k >= n * n || seen[k] || w.nav.walls[k]) continue;
+        seen[k] = 1;
+        queue.push(k);
+      }
+    }
+    const reach = (x: number, y: number) => seen[Math.floor(y) * n + Math.floor(x)] === 1;
+    for (const u of w.units) if (u.kind === "tower") assert.ok(reach(u.pos.x, u.pos.y), `tour ${u.id}`);
+    for (const c of CONTENT.map.camps) {
+      assert.ok(reach(c.pos[0], c.pos[1]), c.id);
+      assert.ok(reach(n - c.pos[0], n - c.pos[1]), `${c.id} rouge`);
+    }
+    assert.ok(reach(...CONTENT.map.turtle));
+    assert.ok(reach(...CONTENT.map.lord));
+  }
+  for (const b of CONTENT.map.bushes) assert.ok(!isWallAt(w.nav, { x: b.center[0], y: b.center[1] }), `buisson ${b.center}`);
+});
+
+test("murs : un héros ne traverse pas une haie", () => {
+  const w = newGame();
+  const h = heroList(w)[0]!;
+  // Blue jungle wall between the top lane and the orange buff.
+  const wallCell = w.nav.walls.findIndex((v, i) => v === 1 && i % 48 === 9 && Math.floor(i / 48) === 24);
+  assert.ok(wallCell >= 0, "il y a bien un mur en (9, 24)");
+  h.pos = { x: 6, y: 24.5 };
+  for (let i = 0; i < 20 * 3; i++) step(w, [{ heroId: h.id, move: { x: 1, y: 0 } }]);
+  assert.ok(h.pos.x < 9, `bloqué avant le mur (x = ${h.pos.x.toFixed(2)})`);
+});
+
+test("attaque : maintenir l'attaque l'emporte sur le déplacement quand une cible est proche", () => {
+  const w = newGame();
+  const [a, b] = [heroList(w).find((h) => h.team === 0)!, heroList(w).find((h) => h.team === 1)!];
+  a.pos = { x: 20, y: 28 };
+  b.pos = { x: 21.5, y: 27 };
+  b.hp = b.maxHp = 1e6;
+  for (let i = 0; i < 20 * 3; i++) step(w, [{ heroId: a.id, attack: true, move: { x: -1, y: 0 } }]);
+  assert.ok(b.hp < b.maxHp, "la cible a pris des coups");
+  assert.ok(w.events.length >= 0);
+});

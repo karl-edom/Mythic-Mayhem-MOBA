@@ -18,6 +18,7 @@ import type {
   World,
   Zone,
 } from "./state.ts";
+import { buildGrid, moveUntilWall, resolveWalls } from "./nav.ts";
 import type { DamageType, Effect, GameContent, HeroDef, Role, SkillDef, SkillMods, SpellDef, StatBlock, Team, Vec2 } from "./types.ts";
 
 const v = ([x, y]: Vec2): Vec => ({ x, y });
@@ -99,6 +100,7 @@ export function createGame(content: GameContent, picks: [HeroPick[], HeroPick[]]
     waveCount: 0,
     lanes: map.lanes.map((l) => l.path.map(v)),
     bushes: map.bushes.map((b) => ({ cx: b.center[0], cy: b.center[1], hw: b.size[0] / 2, hh: b.size[1] / 2 })),
+    nav: buildGrid(map.grid, map.size),
   };
 
   // Structures: 2 towers per lane per team, then the base.
@@ -646,13 +648,13 @@ function applyEffect(world: World, caster: HeroUnit, target: Unit, e: Effect, ra
       return;
     case "knockback": {
       const dir = norm(sub(target.pos, origin), { x: 1, y: 0 });
-      target.pos = clampMap(world, add(target.pos, scale(dir, e.distance)));
+      target.pos = clampMap(world, moveUntilWall(world.nav, target.pos, dir, e.distance, target.radius).pos);
       break;
     }
     case "pull": {
       const to = sub(origin, target.pos);
       const d = Math.min(len(to), e.distance);
-      target.pos = clampMap(world, add(target.pos, scale(norm(to), Math.max(0, d - 0.8))));
+      target.pos = clampMap(world, moveUntilWall(world.nav, target.pos, norm(to), Math.max(0, d - 0.8), target.radius).pos);
       break;
     }
   }
@@ -820,7 +822,7 @@ export function tryCast(world: World, h: HeroUnit, slot: number, target: Vec): b
       const range = c.range + rangeAdd;
       const t = pickEnemyHeroNear(world, h, target, range);
       if (!t) return false;
-      if (c.dashTo) h.pos = clampMap(world, add(t.pos, scale(norm(sub(h.pos, t.pos)), t.radius + h.radius)));
+      if (c.dashTo) h.pos = resolveWalls(world.nav, clampMap(world, add(t.pos, scale(norm(sub(h.pos, t.pos)), t.radius + h.radius))), h.radius);
       applyTo(t, h.pos);
       break;
     }
@@ -885,6 +887,7 @@ function heroAttack(world: World, h: HeroUnit, target: Unit): void {
   const rules = world.content.rules;
   h.attack.count++;
   const boosted = h.attack.count % rules.boostedEvery === 0;
+  pushEvent(world, { type: "attack", heroId: h.id, targetId: target.id, boosted });
   const crit = h.stats.critChance > 0 && world.rng() < h.stats.critChance;
   const hit = (w: World, t: Unit) => {
     dealDamage(w, h, t, h.stats.physicalAttack * (crit ? 2 : 1), "physical");
@@ -950,8 +953,9 @@ function stepHero(world: World, h: HeroUnit, cmd: Command | undefined): void {
     const d = h.dash;
     const stepLen = Math.min(d.speed * world.dt, d.remaining);
     const from = h.pos;
-    h.pos = clampMap(world, add(h.pos, scale(d.dir, stepLen)));
-    d.remaining -= stepLen;
+    const moved = moveUntilWall(world.nav, h.pos, d.dir, stepLen, h.radius);
+    h.pos = clampMap(world, moved.pos);
+    d.remaining = moved.blocked ? 0 : d.remaining - stepLen;
     for (const u of world.units) {
       if (!hittable(world, h, u) || d.hit.has(u.id)) continue;
       if (distToSegment(u.pos, from, h.pos) <= u.radius + h.radius) {
@@ -978,31 +982,38 @@ function stepHero(world: World, h: HeroUnit, cmd: Command | undefined): void {
   if (cmd?.recall && h.recallEnd === 0) h.recallEnd = t + rules.recall;
 
   const moving = !!cmd?.move && (cmd.move.x !== 0 || cmd.move.y !== 0);
-  if (moving && !isRooted(world, h)) {
+  const move = () => {
     h.recallEnd = 0;
     h.attack.windupEnd = 0;
     const dir = norm(cmd!.move!);
     h.facing = dir;
     h.pos = clampMap(world, add(h.pos, scale(dir, moveSpeedOf(world, h) * world.dt)));
-    // Holding attack while moving: keep the lock but do not shoot.
-    return;
-  }
+  };
 
-  // Basic attack (hold attack).
+  // Basic attack (ML attack button): while held, it takes precedence over movement
+  // as long as there is a target in range or close enough to chase.
   if (cmd?.attack) {
-    h.recallEnd = 0;
     let target = unitById(world, h.attack.targetId);
     const inRange = (u: Unit) => dist(u.pos, h.pos) - u.radius - h.radius <= h.stats.range;
-    if (!target || !target.alive || !isTargetable(world, target) || !visibleTo(world, h.team, target) || !inRange(target)) {
+    const chaseable = (u: Unit) => dist(u.pos, h.pos) - u.radius - h.radius <= h.stats.range + 3;
+    if (!target || !target.alive || !isTargetable(world, target) || !visibleTo(world, h.team, target) || !chaseable(target)) {
       target = pickAttackTarget(world, h) ?? pickAttackTarget(world, h, 3);
       h.attack.targetId = target?.id ?? null;
-    }
-    if (target && !inRange(target) && !isRooted(world, h)) {
-      h.pos = clampMap(world, add(h.pos, scale(norm(sub(target.pos, h.pos)), moveSpeedOf(world, h) * world.dt)));
-      h.attack.windupEnd = 0;
-      return;
+    } else if (!inRange(target)) {
+      // A closer target in range wins over chasing the locked one, except a locked hero.
+      const near = pickAttackTarget(world, h);
+      if (near && (target.kind !== "hero" || near.kind === "hero")) {
+        target = near;
+        h.attack.targetId = near.id;
+      }
     }
     if (target) {
+      h.recallEnd = 0;
+      if (!inRange(target)) {
+        if (!isRooted(world, h)) h.pos = clampMap(world, add(h.pos, scale(norm(sub(target.pos, h.pos)), moveSpeedOf(world, h) * world.dt)));
+        h.attack.windupEnd = 0;
+        return;
+      }
       h.facing = norm(sub(target.pos, h.pos), h.facing);
       const interval = 1 / h.stats.attackSpeed;
       if (h.attack.windupEnd === 0 && h.attack.nextAt <= t) h.attack.windupEnd = t + interval * rules.windupFraction;
@@ -1011,10 +1022,11 @@ function stepHero(world: World, h: HeroUnit, cmd: Command | undefined): void {
         h.attack.nextAt = t + interval * (1 - rules.windupFraction);
         heroAttack(world, h, target);
       }
+      return;
     }
-  } else {
-    h.attack.windupEnd = 0;
   }
+  h.attack.windupEnd = 0;
+  if (moving && !isRooted(world, h)) move();
 }
 
 function castSpell(world: World, h: HeroUnit, target: Vec): void {
@@ -1022,7 +1034,7 @@ function castSpell(world: World, h: HeroUnit, target: Vec): void {
   switch (s.id) {
     case "flicker": {
       const dir = norm(sub(target, h.pos), h.facing);
-      h.pos = clampMap(world, add(h.pos, scale(dir, Math.min(s.distance, dist(target, h.pos) || s.distance))));
+      h.pos = resolveWalls(world.nav, clampMap(world, add(h.pos, scale(dir, Math.min(s.distance, dist(target, h.pos) || s.distance)))), h.radius);
       h.dash = null;
       break;
     }
@@ -1301,6 +1313,7 @@ export function step(world: World, commands: Command[]): void {
     else if (u.kind === "monster") stepMonster(world, u);
   }
   separateMinions(world);
+  for (const u of world.units) if (u.alive && u.kind !== "tower") u.pos = resolveWalls(world.nav, u.pos, Math.min(u.radius, 0.7));
 
   // Fountain kills intruders (ML altar: 2 000 raw damage every 0.2 s).
   for (const team of [0, 1] as Team[]) {
