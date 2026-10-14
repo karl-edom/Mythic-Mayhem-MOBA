@@ -18,7 +18,7 @@ import type {
   World,
   Zone,
 } from "./state.ts";
-import { buildGrid, moveUntilWall, resolveWalls } from "./nav.ts";
+import { buildGrid, isWallAt, moveUntilWall, resolveWalls, segmentClear } from "./nav.ts";
 import type { DamageType, Effect, GameContent, ItemEffect, HeroDef, Role, SkillDef, SkillMods, SpellDef, StatBlock, Team, Vec2 } from "./types.ts";
 
 const v = ([x, y]: Vec2): Vec => ({ x, y });
@@ -1004,12 +1004,17 @@ function addZone(world: World, owner: HeroUnit, shape: Zone["shape"], delay: num
 // ---------------------------------------------------------------- basic attacks
 
 /** ML lock-on priority: lowest-HP% visible enemy hero in range, else the closest attackable unit. */
+/** Basic attacks need a clear line when walls block shots. */
+export function lineOfSight(world: World, a: Vec, b: Vec): boolean {
+  return !world.content.rules.wallsBlockShots || segmentClear(world.nav, a, b, 0.1);
+}
+
 export function pickAttackTarget(world: World, h: HeroUnit, extra = 0): Unit | undefined {
   const range = h.stats.range + extra;
   let best: Unit | undefined;
   let bestKey = Infinity;
   for (const u of world.units) {
-    if (!u.alive || u.team === h.team || !isTargetable(world, u) || !visibleTo(world, h.team, u)) continue;
+    if (!u.alive || u.team === h.team || !isTargetable(world, u) || !visibleTo(world, h.team, u) || !lineOfSight(world, h.pos, u.pos)) continue;
     const d = dist(u.pos, h.pos) - u.radius - h.radius;
     if (d > range) continue;
     const key = u.kind === "hero" ? u.hp / u.maxHp - 10 : d;
@@ -1142,7 +1147,7 @@ function stepHero(world: World, h: HeroUnit, cmd: Command | undefined): void {
     let target = unitById(world, h.attack.targetId);
     const inRange = (u: Unit) => dist(u.pos, h.pos) - u.radius - h.radius <= h.stats.range;
     const chaseable = (u: Unit) => dist(u.pos, h.pos) - u.radius - h.radius <= h.stats.range + 3;
-    if (!target || !target.alive || !isTargetable(world, target) || !visibleTo(world, h.team, target) || !chaseable(target)) {
+    if (!target || !target.alive || !isTargetable(world, target) || !visibleTo(world, h.team, target) || !chaseable(target) || !lineOfSight(world, h.pos, target.pos)) {
       target = pickAttackTarget(world, h) ?? pickAttackTarget(world, h, 3);
       h.attack.targetId = target?.id ?? null;
     } else if (!inRange(target)) {
@@ -1156,8 +1161,18 @@ function stepHero(world: World, h: HeroUnit, cmd: Command | undefined): void {
     if (target) {
       h.recallEnd = 0;
       if (!inRange(target)) {
+        // Steering wins over chasing: the player keeps control of where the hero goes.
+        if (moving) {
+          if (!isRooted(world, h)) move();
+          return;
+        }
         if (!isRooted(world, h)) h.pos = clampMap(world, add(h.pos, scale(norm(sub(target.pos, h.pos)), moveSpeedOf(world, h) * world.dt)));
         h.attack.windupEnd = 0;
+        return;
+      }
+      // Kiting (ML): between two attacks the hero moves; it only stands still during the wind-up.
+      if (moving && h.attack.windupEnd === 0 && h.attack.nextAt > t) {
+        if (!isRooted(world, h)) move();
         return;
       }
       h.facing = norm(sub(target.pos, h.pos), h.facing);
@@ -1497,12 +1512,14 @@ export function step(world: World, commands: Command[]): void {
       }
       p.dir = norm(to);
       p.pos = add(p.pos, scale(p.dir, p.speed * world.dt));
-      return true;
+      // A homing shot whose target slipped behind a hedge hits the hedge.
+      return !(world.content.rules.wallsBlockShots && isWallAt(world.nav, p.pos));
     }
     const stepLen = Math.min(p.speed * world.dt, p.remaining);
     const from = p.pos;
     p.pos = add(p.pos, scale(p.dir, stepLen));
     p.remaining -= stepLen;
+    if (world.content.rules.wallsBlockShots && isWallAt(world.nav, p.pos)) return false;
     if (owner?.kind === "hero") {
       for (const u of world.units) {
         if (!hittable(world, owner, u)) continue;

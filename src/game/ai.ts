@@ -2,7 +2,7 @@
 // (reads skill data, never hero ids).
 
 import { add, dist, norm, scale, sub, type Vec } from "../sim/math.ts";
-import { isTargetable, lanePathFor, pointAlong, progressAlong, skillManaCost, skillRange, visibleTo } from "./engine.ts";
+import { isTargetable, lanePathFor, lineOfSight, pointAlong, progressAlong, skillManaCost, skillRange, visibleTo } from "./engine.ts";
 import { newNavCache, steer, type NavCache } from "./nav.ts";
 import type { Command, HeroUnit, MinionUnit, MonsterUnit, TowerUnit, Unit, World } from "./state.ts";
 import type { Team } from "./types.ts";
@@ -121,7 +121,7 @@ export function decideBot(world: World, h: HeroUnit, mem: BotMemory): Command {
       if (cast) cmd.cast = cast;
       if (h.spell.def.id === "aegis" && hpRatio < 0.4 && h.spell.readyAt <= world.time) cmd.spell = { target: h.pos };
       if (h.spell.def.id === "purify" && h.status.stunUntil > world.time && h.spell.readyAt <= world.time) cmd.spell = { target: h.pos };
-      if (dist(target.pos, h.pos) - target.radius - h.radius <= h.stats.range + 3) cmd.attack = true;
+      if (dist(target.pos, h.pos) - target.radius - h.radius <= h.stats.range + 3 && lineOfSight(world, h.pos, target.pos)) cmd.attack = true;
       else cmd.move = moveTo(world, h, mem, target.pos);
       return cmd;
     }
@@ -153,7 +153,7 @@ function engageMonster(world: World, h: HeroUnit, m: MonsterUnit, cmd: Command, 
     const smite = 520 + 80 * h.level;
     if (m.hp <= smite || m.monster !== "camp") cmd.spell = { target: m.pos };
   }
-  if (dist(m.pos, h.pos) - m.radius - h.radius > h.stats.range) {
+  if (dist(m.pos, h.pos) - m.radius - h.radius > h.stats.range || !lineOfSight(world, h.pos, m.pos)) {
     cmd.move = moveTo(world, h, mem, m.pos);
     return cmd;
   }
@@ -192,7 +192,7 @@ function lane(world: World, h: HeroUnit, cmd: Command, mem: BotMemory): Command 
   const target = world.units
     .filter(
       (u) =>
-        u.alive && u.team !== h.team && u.team !== 2 && isTargetable(world, u) && visibleTo(world, h.team, u) && dist(u.pos, h.pos) < h.stats.range + 4,
+        u.alive && u.team !== h.team && u.team !== 2 && isTargetable(world, u) && visibleTo(world, h.team, u) && dist(u.pos, h.pos) < h.stats.range + 4 && lineOfSight(world, h.pos, u.pos),
     )
     .sort((a, b) => dist(a.pos, h.pos) - dist(b.pos, h.pos))[0];
   const danger = dangerousTower(world, h, h.pos);

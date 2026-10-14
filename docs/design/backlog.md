@@ -10,6 +10,9 @@ Les priorités suivent le brief : d'abord ce qui change la partie, puis ce qui l
 | --- | --- | --- |
 | Voies en couloirs, jungle fermée, collisions | ML | ✅ |
 | Attaque de base prioritaire, verrou de cible | ML | ✅ |
+| Attaquer en se déplaçant (immobile seulement pendant l'armement) | ML | ✅ |
+| Murs qui arrêtent attaques de base et projectiles | choix du projet | ✅ |
+| Comparaison avec des vidéos de parties (vitesse, portées, rythme) | les trois | 🔜, YouTube bloqué depuis le conteneur : captures ou extraits fournis par le porteur |
 | Régénération des PV hors combat seulement | choix du projet | ✅ |
 | Brouillard de guerre, révélation après attaque depuis un buisson | ML, LoL | ✅ |
 | Passifs des 10 objets | ML | ✅ (simplifiés) |

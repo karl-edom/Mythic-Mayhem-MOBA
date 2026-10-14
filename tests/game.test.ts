@@ -244,3 +244,43 @@ test("annonces : premier sang, et les derniers coups comptent dans le score", ()
   dealDamage(w, a, minion, 1e9, "true");
   assert.equal(a.cs, 1);
 });
+
+test("attaque en mouvement (ML) : le héros frappe quand l'attaque est prête et se déplace entre deux coups", () => {
+  const w = newGame();
+  const [a, b] = [heroList(w).find((h) => h.def.id === "pique")!, heroList(w).find((h) => h.team === 1)!];
+  a.pos = { x: 20, y: 28 };
+  b.pos = { x: 23, y: 28 };
+  b.hp = b.maxHp = 1e6;
+  const start = { ...a.pos };
+  for (let i = 0; i < 20 * 2; i++) {
+    b.pos = { x: a.pos.x + 3, y: a.pos.y };
+    step(w, [{ heroId: a.id, attack: true, move: { x: 0, y: -1 } }]);
+  }
+  assert.ok(b.hp < b.maxHp, "des coups sont partis");
+  assert.ok(start.y - a.pos.y > 2, `le héros a avancé (${(start.y - a.pos.y).toFixed(2)} u)`);
+});
+
+test("murs : pas d'attaque de base ni de projectile à travers une haie", async () => {
+  const { isWallAt, segmentClear } = await import("../src/game/nav.ts");
+  const w = newGame();
+  const pique = heroList(w).find((h) => h.def.id === "pique")!;
+  const enemy = heroList(w).find((h) => h.team === 1)!;
+  pique.pos = { x: 6, y: 24.5 };
+  let spot: { x: number; y: number } | undefined;
+  for (let x = 9; x <= 10.5 && !spot; x += 0.5) {
+    const p = { x, y: 24.5 };
+    if (!isWallAt(w.nav, p) && !segmentClear(w.nav, pique.pos, p, 0.1)) spot = p;
+  }
+  for (let y = 20; y <= 30 && !spot; y += 0.5) {
+    const p = { x: 10.5, y };
+    if (!isWallAt(w.nav, p) && !segmentClear(w.nav, pique.pos, p, 0.1)) spot = p;
+  }
+  assert.ok(spot, "une case de sol derrière la haie, à portée");
+  enemy.hp = enemy.maxHp = 1e6;
+  for (let i = 0; i < 20 * 3; i++) {
+    enemy.pos = { ...spot };
+    pique.pos = { x: 6, y: 24.5 };
+    step(w, [{ heroId: pique.id, attack: true }]);
+  }
+  assert.equal(enemy.hp, enemy.maxHp);
+});

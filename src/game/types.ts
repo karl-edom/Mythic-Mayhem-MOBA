@@ -302,6 +302,8 @@ export interface RulesData {
   assistWindow: number;
   /** Seconds without fighting before natural HP regen resumes. */
   combatTimeout: number;
+  /** Walls stop basic attacks (line of sight) and projectiles. */
+  wallsBlockShots: boolean;
   /** Vision radius by unit kind (fog of war). */
   vision: { hero: number; minion: number; tower: number; revealAfterAttack: number };
   announcer: { multiKillWindow: number; streakNames: string[]; multiNames: string[]; firstBlood: string; ace: string };

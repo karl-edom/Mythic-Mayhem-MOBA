@@ -43,6 +43,8 @@
   "assistWindow": 10,
   "_combatTimeout": "Régénération naturelle des PV seulement hors combat (aucun dégât reçu ni infligé à un héros ou une tour depuis 4 s). Choix du projet après retour de jeu ; Unite et LoL n'ont qu'une régénération faible ou conditionnelle 🧪",
   "combatTimeout": 4,
+  "_wallsBlockShots": "Choix du porteur de projet après test : les haies bloquent les attaques de base (ligne de vue obligatoire) et les projectiles. Les zones au sol (cônes, cercles, lignes télégraphiées) passent toujours. Les sources publiques sur ML ne tranchent pas 🧪",
+  "wallsBlockShots": true,
   "vision": {
     "_source": "Brouillard de guerre (ML, LoL, Unite) : rayons 🧪 ; les buissons cachent toujours (ML) ; un héros qui attaque depuis un buisson est révélé 1 s (ML)",
     "hero": 8,
