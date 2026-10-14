@@ -4,6 +4,8 @@ MOBA 3 contre 3 jouable dans le navigateur. C'est une **copie mixée** de Mobile
 
 Statut : **v1 jouable**, toi et 2 bots contre 3 bots. Règles : `docs/design/rules-v1.md`.
 
+> **Deux jeux dans ce dépôt.** Cette branche (`claude/great-ramanujan-j9816b`) est le **MOBA 3v3**, publié sous le nom « Mythic Mayhem MOBA ». La branche `claude/jstars-custom-characters-fiqi08` est un autre jeu, un brawler d'arène 3D (« Mythic Mayhem Arène »). Les deux branches se séparent après la décision 0004. Leurs décisions 0005 et suivantes portent les mêmes numéros mais ne parlent pas de la même chose : ne pas les fusionner.
+
 ## Jouer
 
 ```bash

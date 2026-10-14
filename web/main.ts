@@ -67,7 +67,7 @@ function renderMenu(): void {
     .map((s) => `<button class="card ${sel.spell === s.id ? "sel" : ""}" data-spell="${s.id}"><div class="t">${s.name}</div><div class="m">${s.description} Recharge ${s.cooldown} s.</div></button>`)
     .join("");
   menu.innerHTML = `<div class="wrap">
-    <h1>Mythic <span>Mayhem</span></h1>
+    <h1>Mythic <span>Mayhem</span> · MOBA</h1>
     <p class="sub">3 contre 3 sur une carte façon Mobile Legends. Toi et 2 bots contre 3 bots. Détruis la base adverse.</p>
     <p class="touch-note">Cette version se joue au clavier et à la souris, sur ordinateur.</p>
     <h2>1. Personnage</h2><div class="grid">${heroCards}</div>
