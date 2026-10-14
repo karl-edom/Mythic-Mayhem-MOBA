@@ -75,6 +75,17 @@ export interface HeroUnit extends UnitBase {
   assists: number;
   damageToHeroes: number;
   lastHitAt: number;
+  /** Minions and monsters last-hit (scoreboard). */
+  cs: number;
+  /** Natural HP regen is paused until then (out-of-combat rule). */
+  combatUntil: number;
+  /** Seen through bushes until then (attacked from a bush). */
+  revealUntil: number;
+  /** Kills since last death, and kills chained within the multi-kill window. */
+  streak: number;
+  multi: { count: number; at: number };
+  /** Item passive state. */
+  passive: { readyAt: Record<string, number>; huntTargetId: number | null; huntHits: number[]; nextTickAt: number };
 }
 
 export type MinionKind = "melee" | "ranged" | "cannon" | "super" | "lord";
@@ -169,7 +180,7 @@ export type GameEvent =
   | { type: "heroKill"; killerId: number | null; victimId: number; assists: number[] }
   | { type: "levelUp"; heroId: number; level: number }
   | { type: "item"; heroId: number; itemName: string }
-  | { type: "announce"; text: string; team: Side | null }
+  | { type: "announce"; text: string; team: Side | null; big?: boolean }
   | { type: "towerDown"; team: Side; tier: TowerTier }
   | { type: "cast"; heroId: number; slot: number }
   | { type: "attack"; heroId: number; targetId: number; boosted: boolean };
@@ -208,4 +219,15 @@ export interface World {
   lanes: Vec[][];
   bushes: { cx: number; cy: number; hw: number; hh: number }[];
   nav: NavGrid;
+  /** Enemy unit ids each team can see this tick (fog of war), rebuilt at the start of every step. */
+  vision: [Set<number>, Set<number>];
+  /** Per team: structures destroyed, Turtles and Lords taken (scoreboard). */
+  objectives: [TeamObjectives, TeamObjectives];
+  firstBlood: boolean;
+}
+
+export interface TeamObjectives {
+  towers: number;
+  turtles: number;
+  lords: number;
 }

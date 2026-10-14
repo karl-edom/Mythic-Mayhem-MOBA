@@ -19,7 +19,7 @@ import type {
   Zone,
 } from "./state.ts";
 import { buildGrid, moveUntilWall, resolveWalls } from "./nav.ts";
-import type { DamageType, Effect, GameContent, HeroDef, Role, SkillDef, SkillMods, SpellDef, StatBlock, Team, Vec2 } from "./types.ts";
+import type { DamageType, Effect, GameContent, ItemEffect, HeroDef, Role, SkillDef, SkillMods, SpellDef, StatBlock, Team, Vec2 } from "./types.ts";
 
 const v = ([x, y]: Vec2): Vec => ({ x, y });
 const SPEED_UNIT = 100; // ML speed points per unit/s
@@ -101,6 +101,12 @@ export function createGame(content: GameContent, picks: [HeroPick[], HeroPick[]]
     lanes: map.lanes.map((l) => l.path.map(v)),
     bushes: map.bushes.map((b) => ({ cx: b.center[0], cy: b.center[1], hw: b.size[0] / 2, hh: b.size[1] / 2 })),
     nav: buildGrid(map.grid, map.size),
+    vision: [new Set(), new Set()],
+    objectives: [
+      { towers: 0, turtles: 0, lords: 0 },
+      { towers: 0, turtles: 0, lords: 0 },
+    ],
+    firstBlood: false,
   };
 
   // Structures: 2 towers per lane per team, then the base.
@@ -129,6 +135,7 @@ export function createGame(content: GameContent, picks: [HeroPick[], HeroPick[]]
   for (const team of [0, 1] as Team[]) {
     for (const pick of picks[team]) addHero(world, team, pick);
   }
+  computeVision(world);
   return world;
 }
 
@@ -216,6 +223,12 @@ function addHero(world: World, team: Team, pick: HeroPick): HeroUnit {
     assists: 0,
     damageToHeroes: 0,
     lastHitAt: -99,
+    cs: 0,
+    combatUntil: 0,
+    revealUntil: 0,
+    streak: 0,
+    multi: { count: 0, at: -99 },
+    passive: { readyAt: {}, huntTargetId: null, huntHits: [], nextTickAt: 0 },
   };
   refreshStats(world, h);
   h.hp = h.maxHp;
@@ -263,6 +276,8 @@ export function refreshStats(world: World, h: HeroUnit): void {
     }
   }
   for (const b of h.status.buffs) st[b.stat] += b.add;
+  const amp = itemEffect(world, h, "magicAmp");
+  if (amp) st.magicPower *= 1 + amp.pctAtLevel1 + ((amp.pctAtMaxLevel - amp.pctAtLevel1) * (h.level - 1)) / (r.xp.maxLevel - 1);
   if (h.purpleUntil > world.time) st.cdr += world.content.units.buffs.purple.cdr;
   st.cdr = Math.min(st.cdr, r.caps.cdr);
   st.attackSpeed = Math.min(st.attackSpeed * (1 + asPct), r.caps.attackSpeed);
@@ -277,6 +292,28 @@ export function refreshStats(world: World, h: HeroUnit): void {
   // Max HP gains are added as current HP (LoL rule); losses keep the ratio.
   h.hp = grewHp > 0 && h.hp > 0 ? Math.min(h.maxHp, h.hp + grewHp) : Math.min(h.maxHp, ratio * h.maxHp);
   h.mana = Math.min(h.maxMana, Math.max(h.mana, manaRatio * h.maxMana));
+}
+
+/** The unique passive of a finished (tier 3) item the hero carries, if any. */
+export function itemEffect<K extends ItemEffect["kind"]>(world: World, h: HeroUnit, kind: K): Extract<ItemEffect, { kind: K }> | undefined {
+  for (const it of h.items) {
+    if (it.tier < 3) continue;
+    const e = world.content.items.find((i) => i.id === it.id)?.effect;
+    if (e?.kind === kind) return e as Extract<ItemEffect, { kind: K }>;
+  }
+  return undefined;
+}
+
+/** Ready-once-per-cooldown helper for item passives. */
+function passiveReady(world: World, h: HeroUnit, key: string, cooldown: number): boolean {
+  if ((h.passive.readyAt[key] ?? 0) > world.time) return false;
+  h.passive.readyAt[key] = world.time + cooldown;
+  return true;
+}
+
+function addBuff(world: World, h: HeroUnit, stat: keyof StatBlock, add: number, duration: number): void {
+  h.status.buffs.push({ stat, add, until: world.time + duration });
+  refreshStats(world, h);
 }
 
 function formulaCtx(h: HeroUnit, rank: number, target?: Unit): FormulaContext {
@@ -311,12 +348,42 @@ export function inBush(world: World, p: Vec): number {
   return world.bushes.findIndex((b) => Math.abs(p.x - b.cx) <= b.hw && Math.abs(p.y - b.cy) <= b.hh);
 }
 
-/** Buissons de ML : invisible pour l'adversaire, sauf s'il a une unité dans le même buisson. */
+/** Fog of war: towers and monsters are always shown; heroes and minions only inside the team's vision. */
 export function visibleTo(world: World, team: Side, u: Unit): boolean {
-  if (u.team === team || u.kind !== "hero") return true;
-  const b = inBush(world, u.pos);
-  if (b < 0) return true;
-  return world.units.some((o) => o.alive && o.team === team && inBush(world, o.pos) === b);
+  if (team === 2 || u.team === team || u.kind === "tower" || u.kind === "monster") return true;
+  return world.vision[team].has(u.id);
+}
+
+export function visionRadius(world: World, u: Unit): number {
+  const r = world.content.rules.vision;
+  return u.kind === "hero" ? r.hero : u.kind === "tower" ? r.tower : u.kind === "minion" ? r.minion : 0;
+}
+
+/**
+ * Rebuilds what each team sees. Vision comes from allied heroes, minions and towers.
+ * ML bushes: a hero in a bush stays hidden unless an enemy unit stands in the same bush
+ * or the hero attacked in the last second.
+ */
+export function computeVision(world: World): void {
+  for (const team of [0, 1] as Team[]) {
+    const seen = world.vision[team];
+    seen.clear();
+    const sources = world.units.filter((s) => s.alive && s.team === team && s.kind !== "monster");
+    const sourceBush = new Map<number, number>();
+    const bushOf = (s: Unit) => {
+      let b = sourceBush.get(s.id);
+      if (b === undefined) sourceBush.set(s.id, (b = inBush(world, s.pos)));
+      return b;
+    };
+    for (const u of world.units) {
+      if (!u.alive || u.team === team || u.team === 2 || u.kind === "tower") continue;
+      if (u.kind === "hero" && u.revealUntil <= world.time) {
+        const b = inBush(world, u.pos);
+        if (b >= 0 && !sources.some((s) => bushOf(s) === b)) continue;
+      }
+      if (sources.some((s) => dist(s.pos, u.pos) <= visionRadius(world, s) + u.radius)) seen.add(u.id);
+    }
+  }
 }
 
 export const isEnemy = (a: Side, b: Side) => a !== b;
@@ -345,14 +412,20 @@ function pushEvent(world: World, e: GameEvent): void {
   if (world.events.length > 4000) world.events.splice(0, world.events.length - 2000);
 }
 
-export function dealDamage(world: World, source: Unit | null, target: Unit, raw: number, type: DamageType): number {
+/** How the damage was dealt; item passives react to basic attacks and skills. */
+export type DamageOrigin = "attack" | "skill" | "other";
+
+export function dealDamage(world: World, source: Unit | null, target: Unit, raw: number, type: DamageType, origin: DamageOrigin = "other"): number {
   if (!target.alive || raw <= 0) return 0;
   const rules = world.content.rules;
   let amount = raw;
   if (type !== "true") {
     let def: number;
-    if (target.kind === "hero") def = type === "physical" ? target.stats.physicalDefense : target.stats.magicDefense;
-    else def = target.defense;
+    if (target.kind === "hero") {
+      def = type === "physical" ? target.stats.physicalDefense : target.stats.magicDefense;
+      const fort = itemEffect(world, target, "fortress");
+      if (fort) def += Math.min(fort.max, fort.perEnemy * nearbyHeroes(world, (1 - (target.team as Team)) as Team, target.pos, fort.radius).length);
+    } else def = target.defense;
     const pen = source?.kind === "hero" ? (type === "physical" ? source.stats.physicalPenPct : source.stats.magicPenPct) : 0;
     amount *= mitigation(effectiveDefense(def, pen), rules);
   }
@@ -377,10 +450,15 @@ export function dealDamage(world: World, source: Unit | null, target: Unit, raw:
   }
   target.status.shields = target.status.shields.filter((s) => s.amount > 0 && s.until > world.time);
   target.hp -= amount;
+  // Out-of-combat rule: any hit on a hero, or a hero hitting a hero or a tower, pauses natural regen.
+  if (target.kind === "hero" && source) target.combatUntil = world.time + rules.combatTimeout;
   if (source?.kind === "hero") {
     target.damagedBy.set(source.id, world.time);
+    if (target.kind === "hero" || target.kind === "tower") source.combatUntil = world.time + rules.combatTimeout;
+    if (inBush(world, source.pos) >= 0) source.revealUntil = world.time + rules.vision.revealAfterAttack;
     if (target.kind === "hero") source.damageToHeroes += amount;
     if (source.stats.lifesteal > 0 && type === "physical") healUnit(world, source, amount * source.stats.lifesteal);
+    if (target.kind === "hero") heroHitPassives(world, source, target, origin);
   }
   if (target.kind === "hero") target.recallEnd = 0;
   pushEvent(world, { type: "damage", targetId: target.id, amount, damageType: type, fromHero: source?.kind === "hero", pos: { ...target.pos } });
@@ -395,6 +473,30 @@ export function dealDamage(world: World, source: Unit | null, target: Unit, raw:
   }
   if (target.hp <= 0) kill(world, source, target);
   return amount;
+}
+
+/** Item passives triggered when a hero damages an enemy hero. */
+function heroHitPassives(world: World, source: HeroUnit, target: HeroUnit, origin: DamageOrigin): void {
+  const t = world.time;
+  const despair = itemEffect(world, source, "despair");
+  if (despair && target.hp > 0 && target.hp / target.maxHp < despair.hpBelow && passiveReady(world, source, "despair", despair.duration)) {
+    addBuff(world, source, "physicalAttack", source.stats.physicalAttack * despair.attackPct, despair.duration);
+  }
+  const hunt = itemEffect(world, source, "hunt");
+  if (hunt && origin !== "other") {
+    const p = source.passive;
+    if (p.huntTargetId !== target.id) p.huntHits = [];
+    p.huntTargetId = target.id;
+    p.huntHits = [...p.huntHits.filter((x) => t - x <= hunt.window), t];
+    if (p.huntHits.length >= hunt.hits && passiveReady(world, source, "hunt", hunt.duration)) {
+      p.huntHits = [];
+      addBuff(world, source, "moveSpeed", source.stats.moveSpeed * hunt.moveSpeedPct, hunt.duration);
+    }
+  }
+  const deter = itemEffect(world, target, "deterrence");
+  if (deter && origin === "skill" && passiveReady(world, source, "deterred", deter.duration)) {
+    addBuff(world, source, "physicalAttack", -source.stats.physicalAttack * deter.attackPct, deter.duration);
+  }
 }
 
 export function healUnit(world: World, target: Unit, amount: number): void {
@@ -520,6 +622,7 @@ function kill(world: World, source: Unit | null, target: Unit): void {
     const xp = rules.xp.heroKillBase + rules.xp.heroKillPerLevel * target.level;
     shareXp(world, enemyTeam, target.pos, xp, killerHero?.team === enemyTeam ? killerHero : undefined);
     pushEvent(world, { type: "heroKill", killerId: killerHero?.id ?? null, victimId: target.id, assists: assists.map((a) => a.id) });
+    announceKill(world, killerHero?.team === enemyTeam ? killerHero : null, target);
     target.damagedBy.clear();
     return;
   }
@@ -530,6 +633,7 @@ function kill(world: World, source: Unit | null, target: Unit): void {
     if (source?.kind === "hero") {
       const retri = source.spell.def.id === "retribution" && early ? 0.3 : 1;
       giveGold(world, source, target.goldValue * retri);
+      source.cs++;
     } else {
       const near = nearbyHeroes(world, enemyTeam, target.pos, rules.xp.shareRadius);
       for (const h of near) giveGold(world, h, (target.goldValue * rules.gold.noHeroLastHitShare) / near.length);
@@ -541,6 +645,7 @@ function kill(world: World, source: Unit | null, target: Unit): void {
   if (target.kind === "tower") {
     pushEvent(world, { type: "towerDown", team: target.team, tier: target.tier });
     const enemyTeam = (1 - (target.team as Team)) as Team;
+    world.objectives[enemyTeam].towers++;
     for (const h of heroes(world)) if (h.team === enemyTeam && h.alive) giveGold(world, h, target.tier === "base" ? 0 : 120);
     if (target.tier === "base") world.winner = enemyTeam;
     else pushEvent(world, { type: "announce", text: target.team === 0 ? "Une tour bleue est tombée" : "Une tour rouge est tombée", team: null });
@@ -554,6 +659,7 @@ function kill(world: World, source: Unit | null, target: Unit): void {
     const def = world.content.units.camps.find((c) => c.id === m.campId)!;
     world.campRespawns.push({ campId: m.campId, side: m.jungleOf as Team, at: world.time + def.respawn });
     if (killerHero) {
+      killerHero.cs++;
       const bonus = killerHero.spell.def.id === "retribution" ? 1.6 : 1;
       giveGold(world, killerHero, def.gold * bonus);
       shareXp(world, killerHero.team, m.pos, def.xp * bonus, killerHero);
@@ -571,6 +677,7 @@ function kill(world: World, source: Unit | null, target: Unit): void {
     world.turtle.deadAt = world.time;
     world.turtle.nextSpawnAt = world.time < tu.lastSpawnAfterDeathBefore ? world.time + tu.respawn : Infinity;
     if (team !== null) {
+      world.objectives[team as Team].turtles++;
       const gold = tu.goldPerHero[Math.min(world.turtle.count - 1, tu.goldPerHero.length - 1)] ?? 60;
       for (const h of heroes(world)) {
         if (h.team !== team) continue;
@@ -588,10 +695,32 @@ function kill(world: World, source: Unit | null, target: Unit): void {
   const lo = world.content.units.lord;
   world.lord.nextSpawnAt = world.time + (world.time >= lo.lateAfter ? lo.respawnLate : lo.respawn);
   if (team !== null) {
+    world.objectives[team as Team].lords++;
     for (const h of heroes(world)) if (h.team === team && h.alive) giveXp(world, h, lo.xpPerHero);
     summonLord(world, team as Team);
     pushEvent(world, { type: "announce", text: team === 0 ? "Le Seigneur rejoint l'équipe bleue !" : "Le Seigneur rejoint l'équipe rouge !", team });
   }
+}
+
+/** ML announcer: first blood, multi-kills, kill streaks, shutdowns and aces. */
+function announceKill(world: World, killer: HeroUnit | null, victim: HeroUnit): void {
+  const a = world.content.rules.announcer;
+  const t = world.time;
+  const say = (text: string) => pushEvent(world, { type: "announce", text, team: killer?.team ?? null, big: true });
+  if (victim.streak >= 3 && killer) say(`${killer.name} met fin à la série de ${victim.name}`);
+  victim.streak = 0;
+  victim.multi = { count: 0, at: -99 };
+  if (!killer) return;
+  killer.streak++;
+  killer.multi = t - killer.multi.at <= a.multiKillWindow ? { count: killer.multi.count + 1, at: t } : { count: 1, at: t };
+  const multi = a.multiNames[Math.min(killer.multi.count, a.multiNames.length - 1)];
+  const streak = a.streakNames[Math.min(killer.streak, a.streakNames.length - 1)];
+  if (!world.firstBlood) {
+    world.firstBlood = true;
+    say(`${a.firstBlood} : ${killer.name}`);
+  } else if (multi) say(`${multi} : ${killer.name}`);
+  else if (streak) say(`${streak} : ${killer.name}`);
+  if (heroes(world).every((h) => h.team !== victim.team || !h.alive)) say(a.ace);
 }
 
 function lastHeroDamager(world: World, target: Unit): HeroUnit | null {
@@ -612,7 +741,13 @@ function applyEffect(world: World, caster: HeroUnit, target: Unit, e: Effect, ra
   const ally = target.team === caster.team;
   switch (e.type) {
     case "damage":
-      if (!ally) dealDamage(world, caster, target, evaluate(e.amount, formulaCtx(caster, rank, target)) * mult, e.damageType);
+      if (!ally) {
+        dealDamage(world, caster, target, evaluate(e.amount, formulaCtx(caster, rank, target)) * mult, e.damageType, "skill");
+        const blade = itemEffect(world, caster, "spellblade");
+        if (blade && target.alive && target.kind !== "tower" && passiveReady(world, caster, "spellblade", blade.cooldown)) {
+          dealDamage(world, caster, target, evaluate(blade.amount, formulaCtx(caster, 1, target)), blade.damageType);
+        }
+      }
       return;
     case "heal":
       if (ally) healUnit(world, target, evaluate(e.amount, formulaCtx(caster, rank, target)) * mult);
@@ -890,7 +1025,17 @@ function heroAttack(world: World, h: HeroUnit, target: Unit): void {
   pushEvent(world, { type: "attack", heroId: h.id, targetId: target.id, boosted });
   const crit = h.stats.critChance > 0 && world.rng() < h.stats.critChance;
   const hit = (w: World, t: Unit) => {
-    dealDamage(w, h, t, h.stats.physicalAttack * (crit ? 2 : 1), "physical");
+    dealDamage(w, h, t, h.stats.physicalAttack * (crit ? 2 : 1), "physical", "attack");
+    const onHit = itemEffect(w, h, "onHit");
+    if (onHit && t.alive) {
+      dealDamage(w, h, t, onHit.damage, onHit.damageType);
+      if (t.kind !== "tower") t.status.slows.push({ pct: onHit.slowPct, until: w.time + onHit.slowDuration });
+    }
+    const thunder = itemEffect(w, h, "thunder");
+    if (thunder && t.alive && t.kind !== "tower" && passiveReady(w, h, "thunder", thunder.cooldown)) {
+      dealDamage(w, h, t, evaluate(thunder.amount, formulaCtx(h, 1, t)), thunder.damageType);
+      t.status.slows.push({ pct: thunder.slowPct, until: w.time + thunder.slowDuration });
+    }
     if (boosted) for (const e of h.def.boosted.effects) applyEffect(w, h, t, e, 1, 1, h.pos);
     if (h.orangeUntil > w.time && t.kind === "hero" && h.orangeReadyAt <= w.time) {
       const b = w.content.units.buffs.orange;
@@ -931,9 +1076,10 @@ function stepHero(world: World, h: HeroUnit, cmd: Command | undefined): void {
   h.status.slows = h.status.slows.filter((s) => s.until > t);
   if (h.status.buffs.length !== nBuffs || (h.purpleUntil > 0 && h.purpleUntil <= t && h.purpleUntil > t - world.dt)) refreshStats(world, h);
 
-  // Regeneration and fountain.
-  h.hp = Math.min(h.maxHp, h.hp + h.stats.hpRegen * world.dt);
+  // Regeneration (HP only out of combat) and fountain.
+  if (t >= h.combatUntil) h.hp = Math.min(h.maxHp, h.hp + h.stats.hpRegen * world.dt);
   h.mana = Math.min(h.maxMana, h.mana + h.stats.manaRegen * world.dt);
+  periodicPassives(world, h);
   giveXp(world, h, rules.xp.passivePerSec * world.dt);
   giveGold(world, h, rules.gold.passivePerSec * world.dt);
   const fountain = v(world.content.map.fountains[h.team as Team]);
@@ -1027,6 +1173,20 @@ function stepHero(world: World, h: HeroUnit, cmd: Command | undefined): void {
   }
   h.attack.windupEnd = 0;
   if (moving && !isRooted(world, h)) move();
+}
+
+/** Item passives on a timer: mana surge, burning aura. */
+function periodicPassives(world: World, h: HeroUnit): void {
+  const surge = itemEffect(world, h, "manaSurge");
+  if (surge && h.maxMana > 0 && h.mana < h.maxMana && passiveReady(world, h, "manaSurge", surge.interval)) {
+    h.mana = Math.min(h.maxMana, h.mana + h.maxMana * surge.manaPct);
+  }
+  const burn = itemEffect(world, h, "burn");
+  if (burn && passiveReady(world, h, "burn", burn.interval)) {
+    for (const u of world.units) {
+      if (u.alive && hittable(world, h, u) && dist(u.pos, h.pos) <= burn.radius + u.radius) dealDamage(world, h, u, h.maxHp * burn.maxHpPct * burn.interval, "magic");
+    }
+  }
 }
 
 function castSpell(world: World, h: HeroUnit, target: Vec): void {
@@ -1301,6 +1461,7 @@ export function step(world: World, commands: Command[]): void {
   world.tick++;
   world.time = world.tick * world.dt;
   stepTimers(world);
+  computeVision(world);
 
   const byHero = new Map(commands.map((c) => [c.heroId, c]));
   for (const u of world.units) {

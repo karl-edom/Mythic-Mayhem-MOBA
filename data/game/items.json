@@ -1,12 +1,13 @@
 {
   "version": 1,
-  "_source": "Chaînes de fabrication, prix et stats ✅ ML (data/reference/mlbb/items.json). Noms : les nôtres. Passifs : texte seulement en v1.",
+  "_source": "Chaînes de fabrication, prix et stats ✅ ML (data/reference/mlbb/items.json). Noms : les nôtres. Passifs : appliqués par le moteur (champ effect) quand l'objet est complet (palier 3), comme dans ML.",
   "items": [
     {
       "id": "despair",
       "name": "Lame du désespoir",
       "category": "attack",
-      "passive": "Désespoir : +25 % d'attaque pendant 2 s en frappant une cible sous 50 % de PV (ML, à venir).",
+      "passive": "Désespoir : +25 % d'attaque pendant 2 s en touchant un héros sous 50 % de PV (ML).",
+      "effect": { "kind": "despair", "hpBelow": 0.5, "attackPct": 0.25, "duration": 2 },
       "tiers": [
         { "name": "Dague", "price": 250, "stats": { "physicalAttack": 15 }, "source": "Dagger" },
         { "name": "Épée de légion", "price": 910, "stats": { "physicalAttack": 60 }, "source": "Legion Sword" },
@@ -17,7 +18,8 @@
       "id": "hunter",
       "name": "Frappe du chasseur",
       "category": "attack",
-      "passive": "Traque : 5 coups de suite sur la même cible donnent +50 % de vitesse décroissante (ML, à venir).",
+      "passive": "Traque : 5 coups (attaques ou compétences) en 3 s sur le même héros donnent +50 % de vitesse pendant 2 s (ML ; sans décroissance ici).",
+      "effect": { "kind": "hunt", "hits": 5, "window": 3, "moveSpeedPct": 0.5, "duration": 2 },
       "tiers": [
         { "name": "Dague", "price": 250, "stats": { "physicalAttack": 15 }, "source": "Dagger" },
         { "name": "Marteau de fureur", "price": 830, "stats": { "physicalAttack": 35 }, "source": "Fury Hammer" },
@@ -28,7 +30,8 @@
       "id": "scythe",
       "name": "Faux corrosive",
       "category": "attack",
-      "passive": "Corrosion : les attaques de base infligent 80 dégâts physiques de plus et ralentissent de 8 % (ML, à venir).",
+      "passive": "Corrosion : les attaques de base infligent 80 dégâts physiques de plus et ralentissent de 8 % pendant 1 s (ML ⚠️).",
+      "effect": { "kind": "onHit", "damage": 80, "damageType": "physical", "slowPct": 0.08, "slowDuration": 1 },
       "tiers": [
         { "name": "Couteau", "price": 280, "stats": { "attackSpeedPct": 0.1 }, "source": "Knife" },
         { "name": "Arbalète rapide", "price": 1000, "stats": { "attackSpeedPct": 0.2 }, "source": "Swift Crossbow" },
@@ -39,7 +42,8 @@
       "id": "crystal",
       "name": "Cristal sacré",
       "category": "magic",
-      "passive": "Mystère : +21 à 35 % de puissance magique selon le niveau (ML, à venir).",
+      "passive": "Mystère : +21 % de puissance magique au niveau 1, jusqu'à +35 % au niveau 15 (ML).",
+      "effect": { "kind": "magicAmp", "pctAtLevel1": 0.21, "pctAtMaxLevel": 0.35 },
       "tiers": [
         { "name": "Codex mystique", "price": 300, "stats": { "magicPower": 15 }, "source": "Mystery Codex" },
         { "name": "Baguette magique", "price": 820, "stats": { "magicPower": 45 }, "source": "Magic Wand" },
@@ -50,7 +54,8 @@
       "id": "truncheon",
       "name": "Matraque foudroyante",
       "category": "magic",
-      "passive": "Résonance : toutes les 6 s, la compétence suivante inflige 255 + 85 % de puissance en plus (ML, à venir).",
+      "passive": "Résonance : toutes les 6 s, la compétence suivante inflige 255 + 85 % de puissance en dégâts magiques en plus à la cible (ML ⚠️ ; une seule cible ici).",
+      "effect": { "kind": "spellblade", "cooldown": 6, "amount": { "base": 255, "ratios": [{ "stat": "magicPower", "value": 0.85 }] }, "damageType": "magic" },
       "tiers": [
         { "name": "Codex mystique", "price": 300, "stats": { "magicPower": 15 }, "source": "Mystery Codex" },
         { "name": "Baguette magique", "price": 820, "stats": { "magicPower": 45 }, "source": "Magic Wand" },
@@ -61,7 +66,8 @@
       "id": "talisman",
       "name": "Talisman enchanté",
       "category": "magic",
-      "passive": "Source de mana : rend 15 % du mana max toutes les 10 s (ML, à venir).",
+      "passive": "Source de mana : rend 15 % du mana max toutes les 10 s (ML ⚠️).",
+      "effect": { "kind": "manaSurge", "interval": 10, "manaPct": 0.15 },
       "tiers": [
         { "name": "Collier magique", "price": 120, "stats": { "manaRegen": 2 }, "source": "Magic Necklace" },
         { "name": "Tome du mal", "price": 950, "stats": { "magicPower": 30, "manaRegen": 2, "cdr": 0.1 }, "source": "Tome of Evil" },
@@ -72,7 +78,8 @@
       "id": "cuirass",
       "name": "Cuirasse antique",
       "category": "defense",
-      "passive": "Dissuasion : touché par une compétence, réduit les dégâts physiques de l'attaquant de 6 % (ML, à venir).",
+      "passive": "Dissuasion : touché par une compétence, réduit l'attaque physique du lanceur de 6 % pendant 2 s (ML ⚠️ ; sans cumul ici).",
+      "effect": { "kind": "deterrence", "attackPct": 0.06, "duration": 2 },
       "tiers": [
         { "name": "Justaucorps de cuir", "price": 220, "stats": { "physicalDefense": 14 }, "source": "Leather Jerkin" },
         { "name": "Armure intrépide", "price": 730, "stats": { "physicalDefense": 30 }, "source": "Dreadnaught Armor" },
@@ -83,7 +90,8 @@
       "id": "ice",
       "name": "Glace dominante",
       "category": "defense",
-      "passive": "Forteresse : +8 défenses par héros ennemi à moins de 5 u, jusqu'à +40 (ML, à venir).",
+      "passive": "Forteresse : +8 défenses physique et magique par héros ennemi à moins de 5 u, jusqu'à +40 (ML ⚠️).",
+      "effect": { "kind": "fortress", "perEnemy": 8, "max": 40, "radius": 5 },
       "tiers": [
         { "name": "Justaucorps de cuir", "price": 220, "stats": { "physicalDefense": 14 }, "source": "Leather Jerkin" },
         { "name": "Bouclier de glace noire", "price": 780, "stats": { "physicalDefense": 20, "magicDefense": 20 }, "source": "Black Ice Shield" },
@@ -94,7 +102,8 @@
       "id": "helmet",
       "name": "Casque maudit",
       "category": "defense",
-      "passive": "Âme ardente : 1,2 % des PV max en dégâts magiques par seconde aux ennemis proches (ML, à venir).",
+      "passive": "Âme ardente : 1,2 % des PV max en dégâts magiques par seconde aux ennemis à moins de 2,5 u (ML ⚠️).",
+      "effect": { "kind": "burn", "maxHpPct": 0.012, "radius": 2.5, "interval": 1 },
       "tiers": [
         { "name": "Cristal de vitalité", "price": 300, "stats": { "hp": 230 }, "source": "Vitality Crystal" },
         { "name": "Ceinture d'Arès", "price": 700, "stats": { "hp": 600 }, "source": "Ares Belt" },
@@ -105,7 +114,8 @@
       "id": "thunder",
       "name": "Ceinture du tonnerre",
       "category": "defense",
-      "passive": "Foudre : toutes les 4 s, l'attaque suivante inflige des dégâts bruts et ralentit fortement (ML, à venir).",
+      "passive": "Foudre : toutes les 4 s, l'attaque de base suivante inflige 30 + 1,5 % des PV max en dégâts bruts et ralentit de 40 % pendant 1,2 s (ML ⚠️ ; valeurs 🧪).",
+      "effect": { "kind": "thunder", "cooldown": 4, "amount": { "base": 30, "ratios": [{ "stat": "maxHp", "value": 0.015 }] }, "damageType": "true", "slowPct": 0.4, "slowDuration": 1.2 },
       "tiers": [
         { "name": "Cristal de vitalité", "price": 300, "stats": { "hp": 230 }, "source": "Vitality Crystal" },
         { "name": "Ceinture d'Arès", "price": 700, "stats": { "hp": 600 }, "source": "Ares Belt" },

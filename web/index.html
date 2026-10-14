@@ -72,13 +72,33 @@
   #choice .card { width: 220px; }
   #dead { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); background: rgba(31,42,68,.8); color: #fff; padding: 14px 24px; border-radius: 14px; font-size: 20px; font-weight: 700; }
   #minimap { position: absolute; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); width: 180px; height: 180px; border-radius: 14px; box-shadow: var(--shadow); background: #fff; }
-  #help { position: absolute; left: 12px; top: calc(12px + env(safe-area-inset-top, 0px)); background: rgba(255,255,255,.9); border-radius: 12px; padding: 6px 10px; font-size: 12px; color: var(--muted); }
+  #help { position: absolute; left: 12px; top: calc(12px + env(safe-area-inset-top, 0px)); max-width: calc(50vw - 120px); background: rgba(255,255,255,.9); border-radius: 12px; padding: 6px 10px; font-size: 12px; line-height: 1.9; color: var(--muted); }
   table { border-collapse: collapse; background: var(--panel); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
   td, th { padding: 6px 12px; text-align: left; border-bottom: 1px solid var(--line); }
   button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
   .touch-note { display: none; color: var(--red); font-weight: 700; }
   @media (hover: none), (max-width: 760px) { .touch-note { display: block; } }
-  @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } #toast { transition: none; } }
+  #banner { position: absolute; top: calc(64px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); font: 700 28px/1.1 var(--font-display); color: #fff; padding: 8px 22px; border-radius: 16px; opacity: 0; transition: opacity .2s; white-space: nowrap; box-shadow: var(--shadow); }
+  #banner.on { opacity: 1; }
+  #banner.b { background: var(--blue); } #banner.r { background: var(--red); } #banner.n { background: rgba(31,42,68,.85); }
+  #feed { position: absolute; top: calc(12px + env(safe-area-inset-top, 0px)); right: 12px; display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
+  #feed div { background: rgba(255,255,255,.92); border-radius: 10px; padding: 3px 10px; font-size: 13px; font-weight: 700; box-shadow: var(--shadow); }
+  #feed .b { color: var(--blue); } #feed .r { color: var(--red); }
+  #score { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: min(980px, calc(100vw - 32px)); max-height: calc(100vh - 32px); overflow: auto; background: rgba(255,255,255,.97); border-radius: 18px; box-shadow: var(--shadow); padding: 14px 16px; font-variant-numeric: tabular-nums; }
+  #score .head { display: flex; align-items: center; justify-content: space-between; gap: 12px; font: 700 18px var(--font-display); margin-bottom: 8px; flex-wrap: wrap; }
+  #score .head .b { color: var(--blue); } #score .head .r { color: var(--red); }
+  #score .obj { font: 600 13px var(--font-body); color: var(--muted); }
+  #score table { width: 100%; table-layout: fixed; box-shadow: none; border-radius: 0; margin-bottom: 10px; font-size: 13px; }
+  #score th:nth-child(1) { width: 19%; } #score th:nth-child(2) { width: 6%; } #score th:nth-child(3) { width: 11%; } #score th:nth-child(4) { width: 11%; }
+  #score th:nth-child(5) { width: 8%; } #score th:nth-child(6) { width: 8%; } #score th:nth-child(7) { width: 23%; } #score th:nth-child(8) { width: 14%; }
+  #score th { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+  #score td, #score th { padding: 5px 8px; }
+  #score tr.me td { background: #fff8db; }
+  #score tr.dead td { color: var(--muted); }
+  #score .lvl { display: inline-block; min-width: 24px; text-align: center; background: #efe6ff; color: #6b3fc4; border-radius: 8px; font-weight: 800; }
+  #score .its { font-size: 12px; } #score .its b { color: var(--gold); }
+  #score .team-b td:first-child { border-left: 4px solid var(--blue); } #score .team-r td:first-child { border-left: 4px solid var(--red); }
+  @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } #toast, #banner { transition: none; } }
   @media (max-width: 760px) { #bar { flex-wrap: wrap; max-width: calc(100vw - 150px); } #minimap { width: 120px; height: 120px; } .stat, .items { min-width: 130px; } #help { display: none; } }
 </style>
 </head>
@@ -87,11 +107,14 @@
 <div id="hud" class="hidden">
   <div id="top"><span class="b" id="kb">0</span><span id="clock">0:00</span><span class="r" id="kr">0</span></div>
   <div id="toast"></div>
-  <div id="help"><kbd>ZQSD</kbd>/<kbd>WASD</kbd> bouger · <kbd>Espace</kbd>/clic attaquer · <kbd>A</kbd><kbd>E</kbd><kbd>R</kbd> compétences · <kbd>F</kbd> sort · <kbd>B</kbd> base</div>
+  <div id="banner"></div>
+  <div id="feed"></div>
+  <div id="help"><kbd>ZQSD</kbd>/<kbd>WASD</kbd> bouger · <kbd>Espace</kbd>/clic attaquer · <kbd>A</kbd><kbd>E</kbd><kbd>R</kbd> compétences · <kbd>F</kbd> sort · <kbd>B</kbd> base · <kbd>Tab</kbd> tableau</div>
   <div id="choice" class="hidden"></div>
   <div id="dead" class="hidden"></div>
   <div id="bar"></div>
   <canvas id="minimap" width="360" height="360"></canvas>
+  <div id="score" class="hidden"></div>
 </div>
 <div id="menu" class="screen"></div>
 <div id="end" class="screen hidden"></div>

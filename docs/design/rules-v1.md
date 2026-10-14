@@ -19,9 +19,9 @@ Toutes les valeurs chiffrées vivent dans `data/game/*.json`. Ce document en exp
   - Un carré de 48 × 48 u 🧪, base bleue en bas à gauche, base rouge en haut à droite, en miroir.
   - **3 voies** : haut (par le coin haut-gauche), milieu (diagonale), bas (par le coin bas-droit).
   - **Rivière** sur l'autre diagonale ; jungle dans les quatre triangles entre voies et rivière.
-  - **Buissons** : une unité dans un buisson est invisible pour l'adversaire, sauf si une unité adverse est dans le même buisson ✅ (ML, sans balises).
+  - **Brouillard de guerre** (ML, LoL, Unite) : chaque équipe ne voit les héros et sbires adverses que dans le rayon de vision de ses héros (8 u), sbires (5 u) et tours (8 u) 🧪. Les tours et les monstres restent toujours visibles. À l'écran, un voile bleuté couvre ce que l'équipe ne voit pas, sur la carte et sur la minicarte. Contre-jeu : se cacher dans la jungle ou en buisson, et avancer avec ses sbires pour voir.
+  - **Buissons** : un héros dans un buisson est invisible pour l'adversaire, même dans sa vision, sauf si une unité adverse est dans le même buisson ✅ (ML, sans balises). Un héros qui inflige des dégâts depuis un buisson est révélé 1 s ✅ (ML).
   - **Murs** : la jungle est fermée par des haies, avec des passages, des poches pour les camps et des fosses pour la Tortue et le Seigneur. La grille de la carte (1 case = 1 u) est générée par `tools/gen-map.ts` et vit dans `data/game/map.json`. Les tirs passent au-dessus des murs, mais pas les déplacements, les ruées ni les repoussements (comme dans ML).
-  - **Simplification v1** : pas de brouillard de guerre en dehors des buissons.
 - **Fontaine** (autel de ML) : soigne 10 % des PV et du mana toutes les 0,2 s ✅ (`mlbb/mechanics/altar.md`). Elle inflige des dégâts mortels aux ennemis qui y entrent.
 - **Retour à la base** : canalisation de 5 s, annulée par un déplacement ou des dégâts ✅. Sans boutique, il sert seulement à se soigner.
 
@@ -125,6 +125,7 @@ Valeurs relevées sur la version d'avant le patch 2.2.16, les seules chiffrées 
 
 - **Stats** (échelle de ML) :
   - PV, mana, régénérations ⚠️ (l'unité, par seconde ou par 5 s, n'est pas documentée ; v1 : par seconde) ;
+  - **régénération des PV hors combat seulement** 🎯 (choix du projet après test) : elle s'arrête pendant 4 s après un coup reçu, ou après un coup porté à un héros ou à une tour. Le mana se régénère toujours. Les PV montent aussi d'un coup quand le PV max augmente, au passage de niveau ou de palier d'objet (règle de LoL) ;
   - attaque physique, puissance magique, défenses physique et magique ;
   - vitesse d'attaque, vitesse de déplacement, portée d'attaque ;
   - critique (dégâts critiques ×2), réduction de recharge (plafond 40 % ⚠️), vol de vie, pénétrations.
@@ -174,7 +175,20 @@ Décisions 0004 et 0005.
   4. puis ceux de l'objet 3.
 
   Le prix d'un palier est la différence de prix entre les deux objets de ML.
-- **Effets passifs des objets** : v1 avec les stats seulement. Les passifs de ML sont listés dans les données et arriveront ensuite.
+- **Effets passifs des objets** : actifs quand l'objet est complet (palier 3), comme dans ML. Chaque passif est décrit en données (`effect` dans `data/game/items.json`) et appliqué par un crochet du moteur. Valeurs de ML ✅ ou ⚠️ (version ancienne), simplifiées quand c'est indiqué :
+
+  | Objet | Passif |
+  | --- | --- |
+  | Lame du désespoir | +25 % d'attaque 2 s en touchant un héros sous 50 % de PV |
+  | Frappe du chasseur | 5 coups en 3 s sur le même héros : +50 % de vitesse 2 s |
+  | Faux corrosive | attaques de base : +80 dégâts physiques et ralentissement de 8 % |
+  | Cristal sacré | +21 % (niveau 1) à +35 % (niveau 15) de puissance magique |
+  | Matraque foudroyante | toutes les 6 s, une compétence ajoute 255 + 85 % de puissance |
+  | Talisman enchanté | rend 15 % du mana max toutes les 10 s |
+  | Cuirasse antique | touché par une compétence : −6 % d'attaque au lanceur 2 s |
+  | Glace dominante | +8 défenses par héros ennemi proche (max +40) |
+  | Casque maudit | 1,2 % des PV max par seconde en dégâts magiques autour de soi |
+  | Ceinture du tonnerre | toutes les 4 s, l'attaque suivante : 30 + 1,5 % des PV max en dégâts bruts, ralentit de 40 % |
 - **Sorts de combat** (ML), valeurs d'effet ✅ et recharges ⚠️ (connues du jeu, absentes de l'extraction) :
   - Saut (Flicker), 4 u, 120 s ;
   - Châtiment (Retribution), 520 + 80 × niveau de dégâts bruts aux monstres et aux sbires, 35 s ;
@@ -206,6 +220,8 @@ Chaque compétence précise, dans les données, son **contre-jeu** et son **indi
   - sort : F ; retour à la base : B ;
   - choix A ou B : touches 1 et 2.
 - **En partie** : PV, mana, recharges, niveau et XP, or et prochain palier d'objet, minicarte, minuteur, score des éliminations, alertes (objectifs, choix de compétence). Barres de vie graduées par tranches de 1 000 PV ✅ (ML).
+- **Tableau des scores** (Tab maintenu, comme dans ML et LoL) : par héros, niveau, éliminations / morts / assistances, derniers coups (sbires et monstres), or total, dégâts aux héros, objets et paliers, sort (recharge visible pour les alliés), temps de réapparition des morts. Par équipe : tours détruites, Tortues, Seigneurs, or total, écart d'or.
+- **Annonces** (ML) : premier sang, doublé, triplé, séries (3 éliminations sans mourir : « Série meurtrière », puis « Déchaîné », « Inarrêtable », « Divin », « Légendaire »), fin de série, équipe anéantie. Bandeau à la couleur de l'équipe, et fil des 5 dernières éliminations en haut à droite.
 - **Fin de partie** : vainqueur, durée, éliminations, dégâts, puis « Rejouer ».
 - **Visuel** : clair et jovial (herbe vert tendre, voies sable, rivière bleu clair). Les équipes se distinguent par la couleur **et** par la forme : bleu avec un anneau rond, rouge avec un anneau en losange.
 
@@ -222,10 +238,10 @@ Les valeurs 🧪 sont réglées par ce banc d'essai. Les mesures en jeu prévues
 
 ## 13. Limites connues de la v1
 
-- **Pas de brouillard de guerre** en dehors des buissons. La carte reprend la structure de ML (3 voies en couloirs, jungle fermée), avec un tracé simplifié.
-- **Passifs des objets** : affichés, pas encore appliqués. Seules les stats comptent.
+- **Carte** : la structure de ML (3 voies en couloirs, jungle fermée), avec un tracé simplifié. La vision ne tient pas compte des murs (pas de ligne de vue).
+- **Passifs des objets** : appliqués, avec des simplifications (pas de décroissance de la vitesse de Traque, pas de cumul de Dissuasion, Résonance sur une seule cible).
 - **Contrôles** : provocation et suppression ne sont pas encore implémentées.
 - **Bots** : simples. Ils tiennent leur voie, poussent derrière leurs sbires, se battent quand c'est favorable, se replient et rentrent à la base. Le jungleur fait ses camps, la Tortue et le Seigneur.
 - **Commandes** : clavier et souris seulement, pas de commandes tactiles.
 - **Multijoueur en ligne** : pas encore, c'est le jalon 2 (décision 0001).
-- **Durée mesurée entre bots** (`npm run sim`) : de 10 à 19 min selon les compositions. Les valeurs 🧪 restent à remplacer par les mesures en jeu.
+- **Durée mesurée entre bots** (`npm run sim -- --n 20`, avec brouillard et passifs) : de 7:37 à 24:46, médiane 15:44. Les parties très courtes viennent de la base, attaquable dès qu'une tour intérieure tombe en 3v3. Les valeurs 🧪 restent à remplacer par les mesures en jeu.

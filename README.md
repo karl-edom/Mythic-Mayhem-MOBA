@@ -20,6 +20,7 @@ Commandes (clavier et souris) :
 | Compétences, visées à la souris | A, E, R en AZERTY (Q, E, R en QWERTY) |
 | Sort de combat | F |
 | Retour à la base | B |
+| Tableau des scores | Tab (maintenu) |
 | Choix de compétence A ou B (niveaux 5 et 7) | 1 et 2 |
 
 Options de test dans l'adresse : `?vitesse=8` accélère la simulation, `?auto=1` confie ton personnage à un bot.
@@ -40,6 +41,7 @@ npm run sim -- --n 10   # parties complètes entre bots : durée, niveaux, or
 ## Documents
 
 - `docs/design/rules-v1.md` : règles de la v1 (valeurs ✅ relevées, ⚠️ anciennes, 🧪 provisoires)
+- `docs/design/backlog.md` : ce qui manque encore par rapport aux trois jeux, par priorité
 - `docs/research/comparison.md` : comparaison des trois jeux et choix faits
 - `docs/research/systems/` : fiches détaillées par famille de systèmes
 - `docs/research/gaps.md` : valeurs manquantes et mesures à faire en jeu

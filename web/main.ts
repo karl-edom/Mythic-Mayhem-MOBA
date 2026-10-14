@@ -3,7 +3,7 @@
 
 import { add, dist, norm, sub, type Vec } from "../src/sim/math.ts";
 import { CONTENT } from "../src/game/content.ts";
-import { createGame, heroes, inBush, isTargetable, nextUpgrade, step, upgradeCost, visibleTo, type HeroPick } from "../src/game/engine.ts";
+import { createGame, heroes, inBush, isTargetable, nextUpgrade, step, upgradeCost, visibleTo, visionRadius, type HeroPick } from "../src/game/engine.ts";
 import { botCommands, createBots, type Bots } from "../src/game/match.ts";
 import type { Command, HeroUnit, Unit, World, Zone } from "../src/game/state.ts";
 import type { HeroDef, ItemDef } from "../src/game/types.ts";
@@ -60,7 +60,7 @@ function renderMenu(): void {
         ${idx >= 0 ? `<span class="order">${idx + 1}</span>` : ""}
         <div class="t">${it.name}</div>
         <div class="m">${it.tiers.map((t) => `${t.name} ${t.price}`).join(" → ")}</div>
-        <div class="m">${stats}</div></button>`;
+        <div class="m">${stats}</div>${it.passive ? `<div class="m"><b>Passif</b> ${it.passive}</div>` : ""}</button>`;
     })
     .join("");
   const spellCards = CONTENT.spells
@@ -75,7 +75,7 @@ function renderMenu(): void {
     <h2>3. Sort de combat</h2><div class="grid">${spellCards}</div>
     <button class="play" id="play" ${sel.hero && sel.items.length === 3 ? "" : "disabled"}>Jouer</button>
     <p class="keys"><kbd>Z Q S D</kbd> (ou <kbd>W A S D</kbd>, flèches) se déplacer · <kbd>Espace</kbd> ou clic gauche maintenu : attaquer ·
-      <kbd>A</kbd> <kbd>E</kbd> <kbd>R</kbd> (QWERTY : <kbd>Q</kbd> <kbd>E</kbd> <kbd>R</kbd>) compétences vers la souris · <kbd>F</kbd> sort · <kbd>B</kbd> retour à la base · <kbd>1</kbd> <kbd>2</kbd> choix de compétence</p>
+      <kbd>A</kbd> <kbd>E</kbd> <kbd>R</kbd> (QWERTY : <kbd>Q</kbd> <kbd>E</kbd> <kbd>R</kbd>) compétences vers la souris · <kbd>F</kbd> sort · <kbd>B</kbd> retour à la base · <kbd>1</kbd> <kbd>2</kbd> choix de compétence · <kbd>Tab</kbd> maintenu : tableau des scores</p>
   </div>`;
   menu.querySelectorAll<HTMLElement>("[data-hero]").forEach((b) =>
     b.addEventListener("click", () => {
@@ -132,6 +132,9 @@ const floaters: { x: number; y: number; text: string; color: string; born: numbe
 /** Short-lived hit effects: melee slashes and ranged muzzle flashes. */
 const swings: { from: Vec; to: Vec; melee: boolean; boosted: boolean; born: number }[] = [];
 let toastUntil = 0;
+let bannerUntil = 0;
+/** Kill feed (top right), newest last. */
+const feed: { html: string; born: number }[] = [];
 const cam = { x: 0, y: 0 };
 let scalePx = 26;
 
@@ -247,16 +250,30 @@ function consumeEvents(): void {
       const a = w.units.find((u) => u.id === e.heroId);
       const t = w.units.find((u) => u.id === e.targetId);
       if (a && t && a.kind === "hero" && dist(a.pos, player!.pos) < 16) swings.push({ from: { ...a.pos }, to: { ...t.pos }, melee: a.def.attackType === "melee", boosted: e.boosted, born: performance.now() });
-    } else if (e.type === "announce") toast(e.text);
-    else if (e.type === "heroKill") {
+    } else if (e.type === "announce") {
+      if (e.big) banner(e.text, e.team);
+      else toast(e.text);
+    } else if (e.type === "heroKill") {
       const k = heroes(w).find((h) => h.id === e.killerId);
       const v = heroes(w).find((h) => h.id === e.victimId);
-      if (v) toast(k ? `${k.name} a éliminé ${v.name}` : `${v.name} a été éliminé`);
+      if (v) {
+        const name = (h: HeroUnit) => `<span class="${h.team === 0 ? "b" : "r"}">${h.name}${h === player ? " (toi)" : ""}</span>`;
+        const helpers = e.assists.length ? ` <span class="small">+${e.assists.length}</span>` : "";
+        feed.push({ html: `${k ? name(k) : "Tour / sbires"}${helpers} ⚔ ${name(v)}`, born: performance.now() });
+        if (feed.length > 5) feed.shift();
+      }
     } else if (e.type === "item" && e.heroId === player!.id) toast(`Objet amélioré : ${e.itemName}`);
     else if (e.type === "levelUp" && e.heroId === player!.id) floaters.push({ x: player!.pos.x, y: player!.pos.y - 1, text: `Niveau ${e.level} !`, color: "#b98af0", born: performance.now() });
   }
   w.events.length = 0;
   if (floaters.length > 120) floaters.splice(0, floaters.length - 120);
+}
+
+function banner(text: string, team: number | null): void {
+  const b = $("banner");
+  b.textContent = text;
+  b.className = `on ${team === 0 ? "b" : team === 1 ? "r" : "n"}`;
+  bannerUntil = performance.now() + 2600;
 }
 
 function toast(text: string): void {
@@ -294,8 +311,9 @@ function render(alpha: number): void {
   ctx.fillRect(0, 0, W, H);
   ctx.setTransform(dpr * scalePx, 0, 0, dpr * scalePx, dpr * (W / 2 - cam.x * scalePx), dpr * (H / 2 - cam.y * scalePx));
   drawMap(ctx, w);
-
   const myTeam = player!.team;
+  drawFog(ctx, w, myTeam, W * dpr, H * dpr, [dpr * scalePx, dpr * (W / 2 - cam.x * scalePx), dpr * (H / 2 - cam.y * scalePx)]);
+
   // Telegraphs under units.
   for (const z of w.zones) drawZone(z, myTeam);
 
@@ -382,6 +400,41 @@ function drawMap(c: CanvasRenderingContext2D, w: World): void {
   // Bushes.
   c.fillStyle = COLORS.bush;
   for (const b of w.bushes) roundRect(c, b.cx - b.hw, b.cy - b.hh, b.hw * 2, b.hh * 2, 0.6);
+}
+
+// Fog of war: a soft veil everywhere except around allied heroes, minions and towers.
+const fogLayers = new Map<CanvasRenderingContext2D, HTMLCanvasElement>();
+function drawFog(c: CanvasRenderingContext2D, w: World, team: number, pw: number, ph: number, [k, ox, oy]: [number, number, number]): void {
+  let layer = fogLayers.get(c);
+  if (!layer) fogLayers.set(c, (layer = document.createElement("canvas")));
+  if (layer.width !== pw || layer.height !== ph) {
+    layer.width = pw;
+    layer.height = ph;
+  }
+  const f = layer.getContext("2d")!;
+  f.setTransform(1, 0, 0, 1, 0, 0);
+  f.globalCompositeOperation = "source-over";
+  f.clearRect(0, 0, pw, ph);
+  f.fillStyle = "rgba(48,64,110,.34)";
+  f.fillRect(0, 0, pw, ph);
+  f.setTransform(k, 0, 0, k, ox, oy);
+  f.globalCompositeOperation = "destination-out";
+  for (const u of w.units) {
+    if (!u.alive || u.team !== team) continue;
+    const r = visionRadius(w, u);
+    if (r <= 0) continue;
+    const g = f.createRadialGradient(u.pos.x, u.pos.y, r * 0.8, u.pos.x, u.pos.y, r);
+    g.addColorStop(0, "rgba(0,0,0,1)");
+    g.addColorStop(1, "rgba(0,0,0,0)");
+    f.fillStyle = g;
+    f.beginPath();
+    f.arc(u.pos.x, u.pos.y, r, 0, Math.PI * 2);
+    f.fill();
+  }
+  c.save();
+  c.setTransform(1, 0, 0, 1, 0, 0);
+  c.drawImage(layer, 0, 0);
+  c.restore();
 }
 
 function roundRect(c: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number): void {
@@ -710,6 +763,8 @@ function drawMinimap(w: World): void {
     mctx.stroke();
   }
   const myTeam = player!.team;
+  drawFog(mctx, w, myTeam, mini.width, mini.height, [k, 0, 0]);
+  mctx.setTransform(k, 0, 0, k, 0, 0);
   for (const u of w.units) {
     if (!u.alive || !visibleTo(w, myTeam, u)) continue;
     if (u.kind === "minion") {
@@ -751,7 +806,16 @@ function updateHud(): void {
   $("clock").textContent = fmt(w.time);
   $("kb").textContent = String(w.kills[0]);
   $("kr").textContent = String(w.kills[1]);
-  if (performance.now() > toastUntil) $("toast").classList.remove("on");
+  const now = performance.now();
+  if (now > toastUntil) $("toast").classList.remove("on");
+  if (now > bannerUntil) $("banner").classList.remove("on");
+  while (feed.length && now - feed[0]!.born > 9000) feed.shift();
+  const feedHtml = feed.map((f) => `<div>${f.html}</div>`).join("");
+  if ($("feed").dataset.html !== feedHtml) {
+    $("feed").innerHTML = feedHtml;
+    $("feed").dataset.html = feedHtml;
+  }
+  updateScoreboard(w);
 
   const skillKeys = ["A/Q", "E", "R"];
   const skills = p.def.skills
@@ -771,7 +835,8 @@ function updateHud(): void {
   const items = p.items
     .map((it) => {
       const d = itemDef(it.id);
-      return `<div class="it">${it.tier > 0 ? `<b>${"★".repeat(it.tier)}</b> ${d.tiers[it.tier - 1]!.name}` : `<span class="small">☆ ${d.name}</span>`}</div>`;
+      const passive = it.tier === 3 && d.effect ? ` <span class="small">· passif actif</span>` : "";
+      return `<div class="it" title="${d.passive ?? ""}">${it.tier > 0 ? `<b>${"★".repeat(it.tier)}</b> ${d.tiers[it.tier - 1]!.name}${passive}` : `<span class="small">☆ ${d.name}</span>`}</div>`;
     })
     .join("");
   const xpNeed = w.content.rules.xp.perLevelBase + w.content.rules.xp.perLevelStep * p.level;
@@ -814,6 +879,55 @@ function updateHud(): void {
 
 const itemDef = (id: string): ItemDef => CONTENT.items.find((i) => i.id === id)!;
 
+// ---------------------------------------------------------------- scoreboard (hold Tab)
+
+let lastScore = "";
+function updateScoreboard(w: World): void {
+  const box = $("score");
+  if (!keys.has("Tab")) {
+    box.classList.add("hidden");
+    return;
+  }
+  const teamGold = (t: number) => heroes(w).filter((h) => h.team === t).reduce((s, h) => s + h.totalGold, 0);
+  const obj = (t: 0 | 1) => {
+    const o = w.objectives[t];
+    return `<span class="obj">${o.towers} tour${o.towers > 1 ? "s" : ""} · ${o.turtles} Tortue${o.turtles > 1 ? "s" : ""} · ${o.lords} Seigneur${o.lords > 1 ? "s" : ""} · ${(teamGold(t) / 1000).toFixed(1)} k or</span>`;
+  };
+  const rows = (t: number) =>
+    heroes(w)
+      .filter((h) => h.team === t)
+      .map((h) => {
+        const items = h.items
+          .map((it) => {
+            const d = itemDef(it.id);
+            return it.tier > 0 ? `<b>${"★".repeat(it.tier)}</b> ${d.tiers[it.tier - 1]!.name}` : `<span class="small">☆ ${d.name}</span>`;
+          })
+          .join("<br>");
+        const spellCd = Math.max(0, h.spell.readyAt - w.time);
+        const state = h.alive ? "" : ` · <b>† ${Math.ceil(h.respawnAt - w.time)} s</b>`;
+        return `<tr class="${h === player ? "me" : ""} ${h.alive ? "" : "dead"}">
+          <td><span class="dot" style="background:${h.def.color}"></span><b>${h.name}</b>${h === player ? " (toi)" : ""}<div class="small">${ROLE_FR[h.def.role]}${state}</div></td>
+          <td><span class="lvl">${h.level}</span></td>
+          <td><b>${h.kills}</b> / ${h.deaths} / ${h.assists}</td>
+          <td>${h.cs}</td>
+          <td>${Math.round(h.totalGold)}</td>
+          <td>${Math.round(h.damageToHeroes / 100) / 10} k</td>
+          <td class="its">${items}</td>
+          <td>${h.spell.def.name}${h.team === player!.team && spellCd > 0 ? ` <span class="small">${Math.ceil(spellCd)} s</span>` : ""}</td></tr>`;
+      })
+      .join("");
+  const head = `<tr><th>Héros</th><th>Niv.</th><th>É / M / A</th><th>Derniers coups</th><th>Or</th><th>Dégâts</th><th>Objets</th><th>Sort</th></tr>`;
+  const diff = Math.round(teamGold(player!.team) - teamGold(1 - player!.team));
+  const html = `<div class="head"><span class="b">Bleus ${w.kills[0]}</span><span>${fmt(w.time)} · écart d'or ${diff >= 0 ? "+" : ""}${diff}</span><span class="r">${w.kills[1]} Rouges</span></div>
+    <div>${obj(0)}</div><table class="team-b">${head}${rows(0)}</table>
+    <div>${obj(1)}</div><table class="team-r">${head}${rows(1)}</table>`;
+  if (html !== lastScore) {
+    box.innerHTML = html;
+    lastScore = html;
+  }
+  box.classList.remove("hidden");
+}
+
 // ---------------------------------------------------------------- end screen
 
 function showEnd(): void {
@@ -823,13 +937,13 @@ function showEnd(): void {
     .sort((a, b) => a.team - b.team)
     .map(
       (h) =>
-        `<tr><td><span class="dot" style="background:${teamColor(h.team)}"></span>${h.name}${h.isPlayer ? " (toi)" : ""}</td><td>${h.level}</td><td>${h.kills} / ${h.deaths} / ${h.assists}</td><td>${Math.round(h.damageToHeroes)}</td><td>${Math.round(h.totalGold)}</td></tr>`,
+        `<tr><td><span class="dot" style="background:${teamColor(h.team)}"></span>${h.name}${h.isPlayer ? " (toi)" : ""}</td><td>${h.level}</td><td>${h.kills} / ${h.deaths} / ${h.assists}</td><td>${h.cs}</td><td>${Math.round(h.damageToHeroes)}</td><td>${Math.round(h.totalGold)}</td></tr>`,
     )
     .join("");
   const end = $("end");
   end.innerHTML = `<div class="wrap"><h1>${won ? "Victoire !" : "Défaite"}</h1>
     <p class="sub">Partie de ${fmt(w.time)} · éliminations ${w.kills[0]} – ${w.kills[1]}</p>
-    <table><tr><th>Héros</th><th>Niveau</th><th>É / M / A</th><th>Dégâts aux héros</th><th>Or</th></tr>${rows}</table>
+    <table><tr><th>Héros</th><th>Niveau</th><th>É / M / A</th><th>Derniers coups</th><th>Dégâts aux héros</th><th>Or</th></tr>${rows}</table>
     <button class="play" id="again">Rejouer</button> <button class="play" id="back" style="background:#66708a">Changer de personnage</button></div>`;
   end.classList.remove("hidden");
   $("hud").classList.add("hidden");

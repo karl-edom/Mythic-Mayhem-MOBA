@@ -159,7 +159,22 @@ export interface ItemDef {
   category: "attack" | "magic" | "defense";
   tiers: [ItemTier, ItemTier, ItemTier];
   passive?: string;
+  /** Unique passive of the finished item (tier 3), handled by the engine. */
+  effect?: ItemEffect;
 }
+
+/** Item passives (ML): one engine hook per kind; values stay in data. */
+export type ItemEffect =
+  | { kind: "despair"; hpBelow: number; attackPct: number; duration: number }
+  | { kind: "hunt"; hits: number; window: number; moveSpeedPct: number; duration: number }
+  | { kind: "onHit"; damage: number; damageType: DamageType; slowPct: number; slowDuration: number }
+  | { kind: "magicAmp"; pctAtLevel1: number; pctAtMaxLevel: number }
+  | { kind: "spellblade"; cooldown: number; amount: Formula; damageType: DamageType }
+  | { kind: "manaSurge"; interval: number; manaPct: number }
+  | { kind: "deterrence"; attackPct: number; duration: number }
+  | { kind: "fortress"; perEnemy: number; max: number; radius: number }
+  | { kind: "burn"; maxHpPct: number; radius: number; interval: number }
+  | { kind: "thunder"; cooldown: number; amount: Formula; damageType: DamageType; slowPct: number; slowDuration: number };
 
 export type SpellDef =
   | { id: "flicker"; name: string; cooldown: number; distance: number; description: string }
@@ -285,7 +300,11 @@ export interface RulesData {
   skillSchedule: { skill2: number; ultimate: number; choice1: number; choice2: number; plus1: number; plus2: number; ultRanks: number[] };
   finalStretch: number;
   assistWindow: number;
+  /** Seconds without fighting before natural HP regen resumes. */
   combatTimeout: number;
+  /** Vision radius by unit kind (fog of war). */
+  vision: { hero: number; minion: number; tower: number; revealAfterAttack: number };
+  announcer: { multiKillWindow: number; streakNames: string[]; multiNames: string[]; firstBlood: string; ace: string };
 }
 
 export interface MapData {

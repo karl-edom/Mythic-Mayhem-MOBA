@@ -41,5 +41,21 @@
   },
   "finalStretch": 1080,
   "assistWindow": 10,
-  "combatTimeout": 4
+  "_combatTimeout": "Régénération naturelle des PV seulement hors combat (aucun dégât reçu ni infligé à un héros ou une tour depuis 4 s). Choix du projet après retour de jeu ; Unite et LoL n'ont qu'une régénération faible ou conditionnelle 🧪",
+  "combatTimeout": 4,
+  "vision": {
+    "_source": "Brouillard de guerre (ML, LoL, Unite) : rayons 🧪 ; les buissons cachent toujours (ML) ; un héros qui attaque depuis un buisson est révélé 1 s (ML)",
+    "hero": 8,
+    "minion": 5,
+    "tower": 8,
+    "revealAfterAttack": 1
+  },
+  "announcer": {
+    "_source": "Annonces de ML (premier sang, séries, doublé, triplé, équipe anéantie) ; fenêtre de 10 s ⚠️",
+    "multiKillWindow": 10,
+    "firstBlood": "Premier sang",
+    "ace": "Équipe anéantie",
+    "multiNames": ["", "", "Doublé", "Triplé", "Quadruplé", "Quintuplé"],
+    "streakNames": ["", "", "", "Série meurtrière", "Déchaîné", "Inarrêtable", "Divin", "Légendaire"]
+  }
 }

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { CONTENT } from "../src/game/content.ts";
-import { createGame, dealDamage, giveGold, isTargetable, nextUpgrade, step, upgradeCost } from "../src/game/engine.ts";
+import { createGame, dealDamage, giveGold, isTargetable, nextUpgrade, refreshStats, step, upgradeCost } from "../src/game/engine.ts";
 import { growthFraction, mitigation, respawnTime, statAtLevel, xpToNext } from "../src/game/formulas.ts";
 import { defaultPick, heroList, runGame } from "../src/game/match.ts";
 import type { HeroUnit, TowerUnit } from "../src/game/state.ts";
@@ -184,4 +184,63 @@ test("attaque : maintenir l'attaque l'emporte sur le déplacement quand une cibl
   for (let i = 0; i < 20 * 3; i++) step(w, [{ heroId: a.id, attack: true, move: { x: -1, y: 0 } }]);
   assert.ok(b.hp < b.maxHp, "la cible a pris des coups");
   assert.ok(w.events.length >= 0);
+});
+
+test("régénération : les PV ne remontent pas en combat, seulement 4 s après le dernier coup", () => {
+  const w = newGame();
+  const [a, b] = [heroList(w).find((h) => h.team === 0)!, heroList(w).find((h) => h.team === 1)!];
+  a.pos = { x: 20, y: 28 };
+  b.pos = { x: 30, y: 20 };
+  dealDamage(w, b, a, 1000, "true");
+  const hurt = a.hp;
+  for (let i = 0; i < 20 * 3; i++) step(w, []);
+  assert.equal(Math.round(a.hp), Math.round(hurt), "pas de régénération pendant 3 s après un coup");
+  for (let i = 0; i < 20 * 3; i++) step(w, []);
+  assert.ok(a.hp > hurt, "la régénération reprend hors combat");
+});
+
+test("brouillard : un ennemi loin de toute unité alliée est invisible, proche il est vu", async () => {
+  const { visibleTo } = await import("../src/game/engine.ts");
+  const w = newGame();
+  const blue = heroList(w).filter((h) => h.team === 0);
+  const red = heroList(w).find((h) => h.team === 1)!;
+  red.pos = { x: 15, y: 15 }; // Lord pit, far from blue towers and heroes
+  step(w, []);
+  assert.equal(visibleTo(w, 0, red), false);
+  blue[0]!.pos = { x: 18, y: 17 };
+  step(w, []);
+  assert.equal(visibleTo(w, 0, red), true);
+  // Towers stay visible through the fog.
+  const tower = w.units.find((u) => u.kind === "tower" && u.team === 1)!;
+  assert.equal(visibleTo(w, 0, tower), true);
+});
+
+test("objets : passifs du palier 3 (Mystère augmente la puissance, Désespoir s'active sous 50 % de PV)", () => {
+  const w = newGame();
+  const brasier = heroList(w).find((h) => h.def.id === "brasier")!;
+  const before = brasier.stats.magicPower;
+  brasier.items = [{ id: "crystal", tier: 3 }, ...brasier.items.slice(1)];
+  refreshStats(w, brasier);
+  assert.ok(Math.abs(brasier.stats.magicPower - (before + 165) * 1.21) < 1e-6, `${before} → ${brasier.stats.magicPower}`);
+
+  const [a, b] = [heroList(w).find((h) => h.team === 0 && h !== brasier)!, heroList(w).find((h) => h.team === 1)!];
+  a.items = [{ id: "despair", tier: 3 }, a.items[1]!, a.items[2]!];
+  refreshStats(w, a);
+  const atk = a.stats.physicalAttack;
+  b.hp = b.maxHp * 0.4;
+  dealDamage(w, a, b, 1, "physical", "attack");
+  assert.ok(Math.abs(a.stats.physicalAttack - atk * 1.25) < 1e-6, `${atk} → ${a.stats.physicalAttack}`);
+});
+
+test("annonces : premier sang, et les derniers coups comptent dans le score", () => {
+  const w = newGame();
+  const [a, b] = [heroList(w).find((h) => h.team === 0)!, heroList(w).find((h) => h.team === 1)!];
+  dealDamage(w, a, b, 1e9, "true");
+  const ann = w.events.filter((e) => e.type === "announce" && e.big);
+  assert.ok(ann.some((e) => e.type === "announce" && e.text.startsWith("Premier sang")));
+  assert.equal(a.streak, 1);
+  while (w.time < 11) step(w, []);
+  const minion = w.units.find((u) => u.kind === "minion" && u.team === 1)!;
+  dealDamage(w, a, minion, 1e9, "true");
+  assert.equal(a.cs, 1);
 });
