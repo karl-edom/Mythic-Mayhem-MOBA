@@ -3,7 +3,7 @@
 
 import { add, dist, norm, sub, type Vec } from "../src/sim/math.ts";
 import { CONTENT } from "../src/game/content.ts";
-import { createGame, heroes, inBush, isTargetable, nextUpgrade, step, upgradeCost, visibleTo, visionRadius, type HeroPick } from "../src/game/engine.ts";
+import { createGame, heroes, inBush, isTargetable, nextUpgrade, skillManaCost, skillRange, step, upgradeCost, visibleTo, visionRadius, type HeroPick } from "../src/game/engine.ts";
 import { botCommands, createBots, type Bots } from "../src/game/match.ts";
 import type { Command, HeroUnit, Unit, World, Zone } from "../src/game/state.ts";
 import type { HeroDef, ItemDef } from "../src/game/types.ts";
@@ -75,7 +75,7 @@ function renderMenu(): void {
     <h2>3. Sort de combat</h2><div class="grid">${spellCards}</div>
     <button class="play" id="play" ${sel.hero && sel.items.length === 3 ? "" : "disabled"}>Jouer</button>
     <p class="keys"><kbd>Z Q S D</kbd> (ou <kbd>W A S D</kbd>, flèches) se déplacer · <kbd>Espace</kbd> ou clic gauche maintenu : attaquer ·
-      <kbd>A</kbd> <kbd>E</kbd> <kbd>R</kbd> (QWERTY : <kbd>Q</kbd> <kbd>E</kbd> <kbd>R</kbd>) compétences vers la souris · <kbd>F</kbd> sort · <kbd>B</kbd> retour à la base · <kbd>1</kbd> <kbd>2</kbd> choix de compétence · <kbd>Tab</kbd> maintenu : tableau des scores</p>
+      <kbd>A</kbd> <kbd>E</kbd> <kbd>R</kbd> (QWERTY : <kbd>Q</kbd> <kbd>E</kbd> <kbd>R</kbd>) compétences : maintenir pour viser à la souris, relâcher pour lancer · <kbd>F</kbd> sort · <kbd>B</kbd> retour à la base · <kbd>1</kbd> <kbd>2</kbd> choix de compétence · <kbd>Tab</kbd> maintenu : tableau des scores</p>
   </div>`;
   menu.querySelectorAll<HTMLElement>("[data-hero]").forEach((b) =>
     b.addEventListener("click", () => {
@@ -175,6 +175,9 @@ function startGame(): void {
 // ---------------------------------------------------------------- input
 
 const keys = new Set<string>();
+/** Skill keys (physical codes, AZERTY A = KeyQ) and the skill being aimed while its key is held. */
+const SKILL_KEYS: Record<string, 0 | 1 | 2> = { KeyQ: 0, Digit7: 0, KeyE: 1, KeyR: 2 };
+let aiming: 0 | 1 | 2 | null = null;
 let mouse = { x: 0, y: 0, down: false };
 const queued: Partial<Command> = {};
 
@@ -182,17 +185,28 @@ addEventListener("keydown", (e) => {
   if (!world) return;
   keys.add(e.code);
   const aim = screenToWorld(mouse.x, mouse.y);
-  if (e.code === "KeyQ" || e.code === "Digit7") queued.cast = { slot: 0, target: aim };
-  if (e.code === "KeyE") queued.cast = { slot: 1, target: aim };
-  if (e.code === "KeyR") queued.cast = { slot: 2, target: aim };
+  // ML-style aiming: hold the skill key to see where it lands, release to cast.
+  const slot = SKILL_KEYS[e.code];
+  if (slot !== undefined && !e.repeat) aiming = slot;
   if (e.code === "KeyF") queued.spell = { target: aim };
   if (e.code === "KeyB") queued.recall = true;
   if (e.code === "Digit1" || e.code === "Numpad1") queued.choose = "A";
   if (e.code === "Digit2" || e.code === "Numpad2") queued.choose = "B";
   if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Tab"].includes(e.code)) e.preventDefault();
 });
-addEventListener("keyup", (e) => keys.delete(e.code));
-addEventListener("blur", () => keys.clear());
+addEventListener("keyup", (e) => {
+  keys.delete(e.code);
+  const slot = SKILL_KEYS[e.code];
+  if (world && slot !== undefined && aiming === slot) {
+    queued.cast = { slot, target: screenToWorld(mouse.x, mouse.y) };
+    aiming = null;
+  }
+  if (e.code === "Escape") aiming = null;
+});
+addEventListener("blur", () => {
+  keys.clear();
+  aiming = null;
+});
 canvas.addEventListener("mousemove", (e) => (mouse = { ...mouse, x: e.clientX, y: e.clientY }));
 canvas.addEventListener("mousedown", (e) => {
   if (e.button === 0) mouse.down = true;
@@ -263,7 +277,8 @@ function consumeEvents(): void {
       if (v) {
         const name = (h: HeroUnit) => `<span class="${h.team === 0 ? "b" : "r"}">${h.name}${h === player ? " (toi)" : ""}</span>`;
         const helpers = e.assists.length ? ` <span class="small">+${e.assists.length}</span>` : "";
-        feed.push({ html: `${k ? name(k) : "Tour / sbires"}${helpers} ⚔ ${name(v)}`, born: performance.now() });
+        const bounty = e.bounty > 0 ? ` <span class="small">+${e.bounty} or</span>` : "";
+        feed.push({ html: `${k ? name(k) : "Tour / sbires"}${helpers} ⚔ ${name(v)}${bounty}`, born: performance.now() });
         if (feed.length > 5) feed.shift();
       }
     } else if (e.type === "item" && e.heroId === player!.id) toast(`Objet amélioré : ${e.itemName}`);
@@ -328,6 +343,7 @@ function render(alpha: number): void {
   drawSwings();
   drawLock(w);
   drawAim();
+  drawSkillAim(w);
 
   // Upright pass: units stand on their ground point, drawn back to front.
   ctx.setTransform(dpr * scalePx, 0, 0, dpr * scalePx, ox, oy);
@@ -771,6 +787,94 @@ function drawAim(): void {
   ctx.stroke();
 }
 
+/** Where the held skill will land (ML aiming): blue when castable, grey otherwise. */
+function drawSkillAim(w: World): void {
+  const h = player!;
+  if (aiming === null || !h.alive) return;
+  const slot = aiming;
+  const st = h.skills[slot];
+  const def = h.def.skills[slot]!;
+  const ready = st.unlocked && st.readyAt <= w.time && h.mana >= skillManaCost(w, h, slot);
+  const fill = ready ? "rgba(47,123,245,.22)" : "rgba(102,112,138,.2)";
+  const line = ready ? "rgba(47,123,245,.9)" : "rgba(102,112,138,.8)";
+  const aim = screenToWorld(mouse.x, mouse.y);
+  const dir = norm(sub(aim, h.pos), h.facing);
+  const range = skillRange(h, slot);
+  const o = h.pos;
+  ctx.fillStyle = fill;
+  ctx.strokeStyle = line;
+  ctx.lineWidth = 0.08;
+  const circle = (c: Vec, r: number, dashed = false) => {
+    ctx.setLineDash(dashed ? [0.3, 0.25] : []);
+    ctx.beginPath();
+    ctx.arc(c.x, c.y, r, 0, Math.PI * 2);
+    if (!dashed) ctx.fill();
+    ctx.stroke();
+    ctx.setLineDash([]);
+  };
+  const band = (length: number, width: number) => {
+    const n = { x: -dir.y * (width / 2), y: dir.x * (width / 2) };
+    const end = add(o, { x: dir.x * length, y: dir.y * length });
+    ctx.beginPath();
+    ctx.moveTo(o.x + n.x, o.y + n.y);
+    ctx.lineTo(end.x + n.x, end.y + n.y);
+    ctx.lineTo(end.x - n.x, end.y - n.y);
+    ctx.lineTo(o.x - n.x, o.y - n.y);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+  };
+  const c = def.cast;
+  switch (c.type) {
+    case "projectile":
+      band(range, Math.max(0.5, c.width));
+      break;
+    case "line":
+      band(range, c.width);
+      break;
+    case "dash":
+      band(range, h.radius * 2);
+      break;
+    case "cone": {
+      const a = Math.atan2(dir.y, dir.x);
+      const half = (c.angle * Math.PI) / 360;
+      ctx.beginPath();
+      ctx.moveTo(o.x, o.y);
+      ctx.arc(o.x, o.y, range, a - half, a + half);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+      break;
+    }
+    case "circle": {
+      const reach = range - c.radius;
+      circle(o, reach, true);
+      const d = Math.min(dist(aim, o), reach);
+      circle(add(o, { x: dir.x * d, y: dir.y * d }), c.radius);
+      break;
+    }
+    case "selfCircle":
+      circle(o, range);
+      break;
+    case "targetEnemy":
+    case "targetAlly": {
+      circle(o, range, true);
+      const wantAlly = c.type === "targetAlly";
+      let best: Unit | undefined;
+      for (const u of heroes(w)) {
+        if (!u.alive || (u.team === h.team) !== wantAlly || (wantAlly && u === h) || !visibleTo(w, h.team, u)) continue;
+        if (dist(u.pos, o) > range + u.radius) continue;
+        if (!best || dist(u.pos, aim) < dist(best.pos, aim)) best = u;
+      }
+      if (best) circle(best.pos, best.radius + 0.4);
+      break;
+    }
+    case "self":
+      circle(o, h.radius + 0.5);
+      break;
+  }
+}
+
 function drawFloaters(): void {
   const now = performance.now();
   ctx.textAlign = "center";
@@ -839,6 +943,27 @@ function drawMinimap(w: World): void {
     mctx.arc(h.pos.x, h.pos.y, 1.3, 0, Math.PI * 2);
     mctx.fill();
   }
+  // Objective and camp timers (ML shows them on the minimap).
+  mctx.font = "bold 3.2px Nunito, system-ui";
+  mctx.textAlign = "center";
+  mctx.textBaseline = "middle";
+  const timer = (pos: Vec, at: number, color: string) => {
+    if (!Number.isFinite(at) || at <= w.time) return;
+    const left = Math.ceil(at - w.time);
+    mctx.fillStyle = "rgba(255,255,255,.85)";
+    mctx.fillRect(pos.x - 3.4, pos.y - 1.9, 6.8, 3.8);
+    mctx.fillStyle = color;
+    mctx.fillText(left >= 60 ? `${Math.floor(left / 60)}:${String(left % 60).padStart(2, "0")}` : `${left}`, pos.x, pos.y + 0.2);
+  };
+  timer({ x: w.content.map.turtle[0], y: w.content.map.turtle[1] }, w.turtle.nextSpawnAt, "#2fa58c");
+  timer({ x: w.content.map.lord[0], y: w.content.map.lord[1] }, w.lord.nextSpawnAt, "#7b4bd6");
+  for (const r of w.campRespawns) {
+    const c = w.content.map.camps.find((x) => x.id === r.campId);
+    if (!c) continue;
+    const pos = r.side === 0 ? { x: c.pos[0], y: c.pos[1] } : { x: s - c.pos[0], y: s - c.pos[1] };
+    timer(pos, r.at, r.campId === "orange" ? "#d9731a" : r.campId === "purple" ? "#7b4bd6" : COLORS.ink);
+  }
+  mctx.textBaseline = "alphabetic";
   // Camera frame.
   const W = innerWidth / scalePx;
   const H = innerHeight / (scalePx * TILT);
@@ -924,9 +1049,36 @@ function updateHud(): void {
   }
   const dead = $("dead");
   if (!p.alive) {
-    dead.textContent = `Réapparition dans ${Math.ceil(p.respawnAt - w.time)} s`;
+    const html = `<div>Réapparition dans ${Math.ceil(p.respawnAt - w.time)} s</div>${deathRecap(p)}`;
+    if (dead.dataset.html !== html) {
+      dead.innerHTML = html;
+      dead.dataset.html = html;
+    }
     dead.classList.remove("hidden");
   } else dead.classList.add("hidden");
+}
+
+/** Death recap (LoL, ML): who dealt the damage in the last seconds, attacks vs skills. */
+function deathRecap(p: HeroUnit): string {
+  const by = new Map<string, { team: number | null; attack: number; skill: number; other: number }>();
+  for (const d of p.damageLog) {
+    const e = by.get(d.source) ?? { team: d.sourceTeam, attack: 0, skill: 0, other: 0 };
+    e[d.origin] += d.amount;
+    by.set(d.source, e);
+  }
+  if (by.size === 0) return "";
+  const last = [...p.damageLog].reverse().find((d) => d.source !== "Sbires");
+  const rows = [...by.entries()]
+    .map(([name, e]) => ({ name, e, total: e.attack + e.skill + e.other }))
+    .sort((a, b) => b.total - a.total)
+    .slice(0, 4)
+    .map(({ name, e, total }) => {
+      // Heroes: split attacks and skills; towers, minions and monsters only have a total.
+      const parts = e.attack || e.skill ? [e.attack && `attaques ${Math.round(e.attack)}`, e.skill && `compétences ${Math.round(e.skill)}`, e.other && `objets ${Math.round(e.other)}`].filter(Boolean).join(", ") : "";
+      return `<div class="recap"><b>${name}</b> ${Math.round(total)} <span>${parts}</span></div>`;
+    })
+    .join("");
+  return `<div class="recap-title">Éliminé par ${last?.source ?? "?"}</div>${rows}`;
 }
 
 const itemDef = (id: string): ItemDef => CONTENT.items.find((i) => i.id === id)!;

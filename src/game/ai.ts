@@ -139,7 +139,9 @@ export function decideBot(world: World, h: HeroUnit, mem: BotMemory): Command {
   if (objective && threats.length === 0) {
     const d = dist(objective.pos, h.pos);
     const helpers = alliesNear(world, h, objective.pos, 8);
-    if ((mem.role === "jungle" && (objective.monster === "turtle" || helpers >= 1)) || (d < 12 && helpers >= 1)) {
+    // Mid-game: laners come from further away to join an objective an ally is on.
+    const reach = world.time >= world.content.rules.midGameAt ? 30 : 12;
+    if ((mem.role === "jungle" && (objective.monster === "turtle" || helpers >= 1)) || (d < reach && helpers >= 1)) {
       return engageMonster(world, h, objective, cmd, mem);
     }
   }

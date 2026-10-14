@@ -229,6 +229,7 @@ function addHero(world: World, team: Team, pick: HeroPick): HeroUnit {
     streak: 0,
     multi: { count: 0, at: -99 },
     passive: { readyAt: {}, huntTargetId: null, huntHits: [], nextTickAt: 0 },
+    damageLog: [],
   };
   refreshStats(world, h);
   h.hp = h.maxHp;
@@ -440,6 +441,7 @@ export function dealDamage(world: World, source: Unit | null, target: Unit, raw:
   if (source?.kind === "monster" && target.kind === "hero" && target.spell.def.id === "retribution") amount *= 0.5;
   if (source && (source.kind === "minion" && source.type !== "lord") && (target.kind === "hero" || target.kind === "tower")) {
     amount *= world.content.units.minions.damageVsHeroesAndStructures;
+    if (target.kind === "tower" && world.time >= rules.finalStretch) amount *= 1 + rules.finalStretchStructureBonus;
   }
   // Shields absorb first, soonest-expiring first (LoL).
   target.status.shields.sort((a, b) => a.until - b.until);
@@ -451,6 +453,10 @@ export function dealDamage(world: World, source: Unit | null, target: Unit, raw:
   }
   target.status.shields = target.status.shields.filter((s) => s.amount > 0 && s.until > world.time);
   target.hp -= amount;
+  if (target.kind === "hero" && amount > 0) {
+    target.damageLog.push({ t: world.time, source: sourceName(source), sourceTeam: source?.team ?? null, origin, type, amount });
+    if (target.damageLog.length > 200 || target.damageLog[0]!.t < world.time - 15) target.damageLog = target.damageLog.filter((d) => d.t >= world.time - 15);
+  }
   // Out-of-combat rule: any hit on a hero, or a hero hitting a hero or a tower, pauses natural regen.
   if (target.kind === "hero" && source) target.combatUntil = world.time + rules.combatTimeout;
   if (source?.kind === "hero") {
@@ -474,6 +480,14 @@ export function dealDamage(world: World, source: Unit | null, target: Unit, raw:
   }
   if (target.hp <= 0) kill(world, source, target);
   return amount;
+}
+
+function sourceName(u: Unit | null): string {
+  if (!u) return "Fontaine";
+  if (u.kind === "hero") return u.name;
+  if (u.kind === "tower") return u.tier === "base" ? "Base" : "Tour";
+  if (u.kind === "minion") return u.type === "lord" ? "Seigneur" : "Sbires";
+  return u.name;
 }
 
 /** Item passives triggered when a hero damages an enemy hero. */
@@ -612,9 +626,11 @@ function kill(world: World, source: Unit | null, target: Unit): void {
       .filter(([id, t]) => world.time - t <= rules.assistWindow && id !== killerHero?.id)
       .map(([id]) => world.units.find((u) => u.id === id))
       .filter((u): u is HeroUnit => u?.kind === "hero" && u.team === enemyTeam);
+    // Bounty on a hero on a streak (shutdown), on top of the kill gold.
+    const bounty = Math.min(rules.gold.bountyMax, rules.gold.bountyPerStreak * Math.max(0, target.streak - 1));
     if (killerHero && killerHero.team === enemyTeam) {
       killerHero.kills++;
-      giveGold(world, killerHero, rules.gold.kill);
+      giveGold(world, killerHero, rules.gold.kill + bounty);
     }
     for (const a of assists) {
       a.assists++;
@@ -622,8 +638,9 @@ function kill(world: World, source: Unit | null, target: Unit): void {
     }
     const xp = rules.xp.heroKillBase + rules.xp.heroKillPerLevel * target.level;
     shareXp(world, enemyTeam, target.pos, xp, killerHero?.team === enemyTeam ? killerHero : undefined);
-    pushEvent(world, { type: "heroKill", killerId: killerHero?.id ?? null, victimId: target.id, assists: assists.map((a) => a.id) });
-    announceKill(world, killerHero?.team === enemyTeam ? killerHero : null, target);
+    const paid = killerHero?.team === enemyTeam ? bounty : 0;
+    pushEvent(world, { type: "heroKill", killerId: killerHero?.id ?? null, victimId: target.id, assists: assists.map((a) => a.id), bounty: paid });
+    announceKill(world, killerHero?.team === enemyTeam ? killerHero : null, target, paid);
     target.damagedBy.clear();
     return;
   }
@@ -704,11 +721,11 @@ function kill(world: World, source: Unit | null, target: Unit): void {
 }
 
 /** ML announcer: first blood, multi-kills, kill streaks, shutdowns and aces. */
-function announceKill(world: World, killer: HeroUnit | null, victim: HeroUnit): void {
+function announceKill(world: World, killer: HeroUnit | null, victim: HeroUnit, bounty: number): void {
   const a = world.content.rules.announcer;
   const t = world.time;
   const say = (text: string) => pushEvent(world, { type: "announce", text, team: killer?.team ?? null, big: true });
-  if (victim.streak >= 3 && killer) say(`${killer.name} met fin à la série de ${victim.name}`);
+  if (victim.streak >= 3 && killer) say(`${killer.name} met fin à la série de ${victim.name} (+${bounty} or)`);
   victim.streak = 0;
   victim.multi = { count: 0, at: -99 };
   if (!killer) return;
@@ -1069,6 +1086,7 @@ function stepHero(world: World, h: HeroUnit, cmd: Command | undefined): void {
   if (!h.alive) {
     if (t >= h.respawnAt) {
       h.alive = true;
+      h.damageLog = [];
       h.pos = v(world.content.map.fountains[h.team as Team]);
       h.hp = h.maxHp;
       h.mana = h.maxMana;

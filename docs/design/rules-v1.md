@@ -17,7 +17,7 @@ Toutes les valeurs chiffrées vivent dans `data/game/*.json`. Ce document en exp
 - **Équipes** : 3 contre 3. Les places libres sont tenues par des bots. Le nombre de joueurs par équipe est un paramètre ; le 5v5 viendra plus tard.
 - **Carte** : la structure de ML (`systems/A-B-structure-carte.md`).
   - Un carré de **68 × 68 u** ✅, base bleue en bas à gauche, base rouge en haut à droite, en miroir. Taille mesurée sur la vidéo d'une partie de ML : un héros à 240 de vitesse traverse la largeur de la carte en 28 s environ (`docs/research/video-ml-2026-10-14.md`). Toute la carte est générée par `node tools/gen-map.ts --size 68` ; les couloirs, poches et fosses gardent leur largeur, les positions suivent la taille.
-  - **Caméra** ✅ (même vidéo) : environ 20 u de large à l'écran, au moins 11 u de haut.
+  - **Caméra** ✅ (même vidéo) : environ 20 u de large à l'écran, **inclinée** comme dans ML. Le sol est écrasé verticalement (facteur 0,68 : un cercle de portée est environ 0,65 fois moins haut que large sur la vidéo). Les héros, sbires, tours et textes restent debout, avec une ombre et l'anneau d'équipe au sol ; les haies ont du relief.
   - **3 voies** : haut (par le coin haut-gauche), milieu (diagonale), bas (par le coin bas-droit).
   - **Rivière** sur l'autre diagonale ; jungle dans les quatre triangles entre voies et rivière.
   - **Brouillard de guerre** (ML, LoL, Unite) : chaque équipe ne voit les héros et sbires adverses que dans le rayon de vision de ses héros (8 u), sbires (5 u) et tours (8 u) 🧪. Les tours et les monstres restent toujours visibles. À l'écran, un voile bleuté couvre ce que l'équipe ne voit pas, sur la carte et sur la minicarte. Contre-jeu : se cacher dans la jungle ou en buisson, et avancer avec ses sbires pour voir.
@@ -38,7 +38,7 @@ Toutes les valeurs chiffrées vivent dans `data/game/*.json`. Ce document en exp
 | 2:00 | Apparition de la Tortue (réapparition 120 s ; plus de nouvelle Tortue si la dernière meurt après 6:00) |
 | 5:00 | Fin de la protection des tours extérieures |
 | 8:00 | Apparition du Seigneur (réapparition 180 s, puis 120 s après 18:00) |
-| 18:00 | Le Seigneur cesse de grandir. Phase finale annoncée à l'écran. |
+| 18:00 | Le Seigneur cesse de grandir. **Phase finale** : les sbires infligent +50 % de dégâts aux structures 🎯 (pour finir les parties ; cible 12 à 20 min). |
 
 ## 3. Structures
 
@@ -140,6 +140,7 @@ Valeurs relevées sur la version d'avant le patch 2.2.16, les seules chiffrées 
 - **Dégâts bruts** : ils ignorent les défenses.
 - **Réapparition** : 3,2 + 2,1 × niveau + minutes de jeu ⚠️ (ancienne formule de ML), plafonnée à 60 s 🧪. Elle augmente bien avec la durée de partie, comme observé par le porteur de projet.
 - **Or d'une élimination** : 300 pour le tueur ; 150 répartis entre les participants 🧪. Revenu passif : 2 or / s 🧪.
+- **Prime** (ML, LoL) : tuer un héros en série rapporte +100 or par élimination de sa série à partir de la 2e, plafonné à +500 🧪. Elle est affichée dans le fil des éliminations et dans l'annonce de fin de série. Contre-jeu : la prime aide l'équipe en retard à revenir.
 
 ## 7. Attaque de base et ciblage
 
@@ -219,12 +220,14 @@ Chaque compétence précise, dans les données, son **contre-jeu** et son **indi
 - **Commandes** (touches physiques, donc AZERTY et QWERTY) :
   - déplacement : ZQSD en AZERTY (WASD en QWERTY) ou flèches ;
   - attaque : Espace ou clic gauche ;
-  - compétences : A, E, R en AZERTY (Q, E, R en QWERTY), visées à la souris ;
+  - compétences : A, E, R en AZERTY (Q, E, R en QWERTY). **Maintenir pour viser, relâcher pour lancer** (visée de ML) : la zone d'effet s'affiche au sol pendant la visée (bande, cône, cercle, cible entourée), en bleu si la compétence est prête, en gris sinon. Échap annule ;
   - sort : F ; retour à la base : B ;
   - choix A ou B : touches 1 et 2.
 - **En partie** : PV, mana, recharges, niveau et XP, or et prochain palier d'objet, minicarte, minuteur, score des éliminations, alertes (objectifs, choix de compétence). Barres de vie graduées par tranches de 1 000 PV ✅ (ML).
 - **Tableau des scores** (Tab maintenu, comme dans ML et LoL) : par héros, niveau, éliminations / morts / assistances, derniers coups (sbires et monstres), or total, dégâts aux héros, objets et paliers, sort (recharge visible pour les alliés), temps de réapparition des morts. Par équipe : tours détruites, Tortues, Seigneurs, or total, écart d'or.
 - **Annonces** (ML) : premier sang, doublé, triplé, séries (3 éliminations sans mourir : « Série meurtrière », puis « Déchaîné », « Inarrêtable », « Divin », « Légendaire »), fin de série, équipe anéantie. Bandeau à la couleur de l'équipe, et fil des 5 dernières éliminations en haut à droite.
+- **Récapitulatif de mort** (LoL, ML) : pendant la réapparition, qui a porté le dernier coup et les dégâts reçus dans les 15 dernières secondes, par source, avec la part attaques / compétences pour les héros.
+- **Minuteurs sur la minicarte** (ML) : temps avant le retour de la Tortue, du Seigneur et de chaque camp de jungle.
 - **Fin de partie** : vainqueur, durée, éliminations, dégâts, puis « Rejouer ».
 - **Visuel** : clair et jovial (herbe vert tendre, voies sable, rivière bleu clair). Les équipes se distinguent par la couleur **et** par la forme : bleu avec un anneau rond, rouge avec un anneau en losange.
 
@@ -244,7 +247,7 @@ Les valeurs 🧪 sont réglées par ce banc d'essai. Les mesures en jeu prévues
 - **Carte** : la structure de ML (3 voies en couloirs, jungle fermée), avec un tracé simplifié. La vision ne tient pas compte des murs (pas de ligne de vue).
 - **Passifs des objets** : appliqués, avec des simplifications (pas de décroissance de la vitesse de Traque, pas de cumul de Dissuasion, Résonance sur une seule cible).
 - **Contrôles** : provocation et suppression ne sont pas encore implémentées.
-- **Bots** : simples. Ils tiennent leur voie, poussent derrière leurs sbires, se battent quand c'est favorable, se replient et rentrent à la base. Le jungleur fait ses camps, la Tortue et le Seigneur.
+- **Bots** : simples. Ils tiennent leur voie, poussent derrière leurs sbires, se battent quand c'est favorable, se replient et rentrent à la base. Le jungleur fait ses camps, la Tortue et le Seigneur. À partir de 10:00, les bots de voie rejoignent de plus loin (30 u) un objectif qu'un allié attaque.
 - **Commandes** : clavier et souris seulement, pas de commandes tactiles.
 - **Multijoueur en ligne** : pas encore, c'est le jalon 2 (décision 0001).
-- **Durée mesurée entre bots** (`npm run sim -- --n 20`, carte de 68 u, 3 tours par voie) : de 9:22 à 28:12, médiane 16:46. Les valeurs 🧪 restent à remplacer par les mesures en jeu.
+- **Durée mesurée entre bots** (`npm run sim -- --n 20`, carte de 68 u, 3 tours par voie, phase finale) : de 10:11 à 23:00, médiane 16:12, 10 victoires de chaque côté. Les valeurs 🧪 restent à remplacer par les mesures en jeu.

@@ -18,7 +18,9 @@ Les priorités suivent le brief : d'abord ce qui change la partie, puis ce qui l
 | Brouillard de guerre, révélation après attaque depuis un buisson | ML, LoL | ✅ |
 | Passifs des 10 objets | ML | ✅ (simplifiés) |
 | Annonces : premier sang, séries, multiples, équipe anéantie | ML | ✅ |
-| Prime sur un héros en série (plus d'or pour qui l'arrête) | ML, LoL | 🔜 |
+| Prime sur un héros en série (plus d'or pour qui l'arrête) | ML, LoL | ✅ |
+| Caméra inclinée (sol écrasé, unités debout, haies en relief) | ML | ✅ |
+| Phase finale (sbires plus forts contre les structures après 18:00) | choix du projet | ✅ |
 | Provocation et suppression | ML, LoL | 🔜 |
 | Ping et signaux rapides (« attaquer », « reculer », « objectif ») | les trois | 🔜, utile surtout en multijoueur |
 | Plus de héros : 2 par rôle | ML | 🔜, avec l'outil de budget de puissance |
@@ -36,10 +38,10 @@ Les priorités suivent le brief : d'abord ce qui change la partie, puis ce qui l
 | Tableau des scores (Tab) : niveaux, É/M/A, derniers coups, or, objets, sorts, réapparitions, objectifs | ML, LoL | ✅ |
 | Fil des éliminations, bandeaux d'annonce | ML | ✅ |
 | Passif des objets visible au menu et dans l'interface | ML | ✅ |
-| Indicateur de portée des compétences et zone de visée avant le lancer | les trois | 🔜 |
+| Indicateur de portée des compétences et zone de visée avant le lancer (maintenir, relâcher) | les trois | ✅ |
 | Infobulles des compétences (dégâts au niveau actuel, recharge, coût) | LoL, ML | 🔜 |
-| Récapitulatif de mort (qui a infligé quoi) | LoL, ML | 🔜 |
-| Minuteurs des objectifs (Tortue, Seigneur, buffs) sur la minicarte | ML | 🔜 |
+| Récapitulatif de mort (qui a infligé quoi) | LoL, ML | ✅ |
+| Minuteurs des objectifs (Tortue, Seigneur, camps) sur la minicarte | ML | ✅ |
 | Cibler avec la souris (clic sur un ennemi) en plus du verrou automatique | LoL | ⏳ |
 | Commandes tactiles (joystick et boutons) | ML, Unite | ⏳, nécessaires pour jouer sur téléphone |
 | Options : touches, son, qualité | les trois | ⏳ |
@@ -51,7 +53,8 @@ Les priorités suivent le brief : d'abord ce qui change la partie, puis ce qui l
 | Tenir la voie, combattre si favorable, se replier, rentrer à la base | ✅ |
 | Respect du brouillard (les bots ne voient que ce que leur équipe voit) | ✅ |
 | Jungleur : camps, Tortue, Seigneur | ✅ |
-| Rotations entre voies, regroupement en milieu de partie | 🔜 |
+| Regroupement sur les objectifs en milieu de partie | ✅ (premier pas) |
+| Rotations entre voies, poussée groupée | 🔜 |
 | Niveaux de difficulté | ⏳ |
 
 ## 4. Multijoueur et technique

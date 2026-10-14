@@ -314,3 +314,17 @@ test("murs : pas d'attaque de base ni de projectile à travers une haie", async 
   }
   assert.equal(enemy.hp, enemy.maxHp);
 });
+
+test("prime : tuer un héros en série rapporte plus d'or, et la mort garde la trace des dégâts reçus", () => {
+  const w = newGame();
+  const [a, b] = [heroList(w).find((h) => h.team === 0)!, heroList(w).find((h) => h.team === 1)!];
+  b.streak = 4; // on a streak of 4: bounty = 3 × 100
+  const before = a.totalGold;
+  dealDamage(w, a, b, 500, "physical", "attack");
+  dealDamage(w, a, b, 1e9, "true", "skill");
+  assert.equal(Math.round(a.totalGold - before), R.gold.kill + 3 * R.gold.bountyPerStreak);
+  const kill = w.events.find((e) => e.type === "heroKill");
+  assert.ok(kill && kill.type === "heroKill" && kill.bounty === 300);
+  assert.ok(b.damageLog.some((d) => d.source === a.name && d.origin === "attack"));
+  assert.ok(b.damageLog.some((d) => d.source === a.name && d.origin === "skill"));
+});

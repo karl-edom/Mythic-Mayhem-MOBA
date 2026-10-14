@@ -71,6 +71,9 @@
   #choice { position: absolute; bottom: 120px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; pointer-events: auto; }
   #choice .card { width: 220px; }
   #dead { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); background: rgba(31,42,68,.8); color: #fff; padding: 14px 24px; border-radius: 14px; font-size: 20px; font-weight: 700; }
+  #dead .recap-title { margin-top: 8px; font-size: 15px; color: #ffd84a; }
+  #dead .recap { font-size: 13px; font-weight: 600; margin-top: 3px; }
+  #dead .recap span { color: #c9d3e8; font-weight: 400; }
   #minimap { position: absolute; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); width: 180px; height: 180px; border-radius: 14px; box-shadow: var(--shadow); background: #fff; }
   #help { position: absolute; left: 12px; top: calc(12px + env(safe-area-inset-top, 0px)); max-width: calc(50vw - 120px); background: rgba(255,255,255,.9); border-radius: 12px; padding: 6px 10px; font-size: 12px; line-height: 1.9; color: var(--muted); }
   table { border-collapse: collapse; background: var(--panel); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
@@ -109,7 +112,7 @@
   <div id="toast"></div>
   <div id="banner"></div>
   <div id="feed"></div>
-  <div id="help"><kbd>ZQSD</kbd>/<kbd>WASD</kbd> bouger · <kbd>Espace</kbd>/clic attaquer · <kbd>A</kbd><kbd>E</kbd><kbd>R</kbd> compétences · <kbd>F</kbd> sort · <kbd>B</kbd> base · <kbd>Tab</kbd> tableau</div>
+  <div id="help"><kbd>ZQSD</kbd>/<kbd>WASD</kbd> bouger · <kbd>Espace</kbd>/clic attaquer · <kbd>A</kbd><kbd>E</kbd><kbd>R</kbd> maintenir pour viser, relâcher pour lancer · <kbd>F</kbd> sort · <kbd>B</kbd> base · <kbd>Tab</kbd> tableau</div>
   <div id="choice" class="hidden"></div>
   <div id="dead" class="hidden"></div>
   <div id="bar"></div>

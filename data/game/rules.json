@@ -19,7 +19,10 @@
     "passivePerSec": 2,
     "kill": 300,
     "assist": 150,
-    "noHeroLastHitShare": 0.8
+    "noHeroLastHitShare": 0.8,
+    "_bounty": "Prime sur un héros en série : +100 or par élimination à partir de la 2e, plafonnée à +500, pour qui l'arrête (forme de LoL ; ML en a une, valeurs non publiées) 🧪",
+    "bountyPerStreak": 100,
+    "bountyMax": 500
   },
   "respawn": { "_source": "⚠️ ancienne formule ML ; plafond 🧪", "base": 3.2, "perLevel": 2.1, "perMinute": 1, "max": 60 },
   "defense": { "_source": "✅ ML (dégâts × 120 / (120 + défense), plancher −60)", "k": 120, "floor": -60 },
@@ -40,6 +43,10 @@
     "ultRanks": [4, 8, 12]
   },
   "finalStretch": 1080,
+  "_finalStretch": "Phase finale à 18:00 : les sbires infligent +50 % de dégâts aux structures, pour que les parties finissent (choix du projet ; la cible est 12 à 20 min) 🧪",
+  "finalStretchStructureBonus": 0.5,
+  "_midGame": "À partir de 10:00, les bots de voie rejoignent un objectif (Tortue, Seigneur) déjà attaqué par un allié jusqu'à 30 u (12 u avant) 🧪",
+  "midGameAt": 600,
   "assistWindow": 10,
   "_combatTimeout": "Régénération naturelle des PV seulement hors combat (aucun dégât reçu ni infligé à un héros ou une tour depuis 4 s). Choix du projet après retour de jeu ; Unite et LoL n'ont qu'une régénération faible ou conditionnelle 🧪",
   "combatTimeout": 4,

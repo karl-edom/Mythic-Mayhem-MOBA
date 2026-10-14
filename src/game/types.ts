@@ -289,7 +289,7 @@ export interface RulesData {
     heroKillBase: number;
     heroKillPerLevel: number;
   };
-  gold: { passivePerSec: number; kill: number; assist: number; noHeroLastHitShare: number };
+  gold: { passivePerSec: number; kill: number; assist: number; noHeroLastHitShare: number; bountyPerStreak: number; bountyMax: number };
   respawn: { base: number; perLevel: number; perMinute: number; max: number };
   defense: { k: number; floor: number };
   caps: { cdr: number; attackSpeed: number };
@@ -300,6 +300,8 @@ export interface RulesData {
   fountain: { radius: number; healPct: number; interval: number };
   skillSchedule: { skill2: number; ultimate: number; choice1: number; choice2: number; plus1: number; plus2: number; ultRanks: number[] };
   finalStretch: number;
+  finalStretchStructureBonus: number;
+  midGameAt: number;
   assistWindow: number;
   /** Seconds without fighting before natural HP regen resumes. */
   combatTimeout: number;

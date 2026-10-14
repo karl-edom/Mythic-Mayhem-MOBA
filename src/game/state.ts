@@ -86,6 +86,17 @@ export interface HeroUnit extends UnitBase {
   multi: { count: number; at: number };
   /** Item passive state. */
   passive: { readyAt: Record<string, number>; huntTargetId: number | null; huntHits: number[]; nextTickAt: number };
+  /** Damage taken in the last seconds, for the death recap (cleared on respawn). */
+  damageLog: DamageEntry[];
+}
+
+export interface DamageEntry {
+  t: number;
+  source: string;
+  sourceTeam: Side | null;
+  origin: "attack" | "skill" | "other";
+  type: DamageType;
+  amount: number;
 }
 
 export type MinionKind = "melee" | "ranged" | "cannon" | "super" | "lord";
@@ -178,7 +189,7 @@ export type GameEvent =
   | { type: "damage"; targetId: number; amount: number; damageType: DamageType; fromHero: boolean; pos: Vec }
   | { type: "heal"; targetId: number; amount: number; pos: Vec }
   | { type: "death"; unitId: number; killerId: number | null; pos: Vec }
-  | { type: "heroKill"; killerId: number | null; victimId: number; assists: number[] }
+  | { type: "heroKill"; killerId: number | null; victimId: number; assists: number[]; bounty: number }
   | { type: "levelUp"; heroId: number; level: number }
   | { type: "item"; heroId: number; itemName: string }
   | { type: "announce"; text: string; team: Side | null; big?: boolean }
