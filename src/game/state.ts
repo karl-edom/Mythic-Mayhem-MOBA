@@ -108,7 +108,8 @@ export interface MinionUnit extends UnitBase {
   aggroHeroId: number | null;
 }
 
-export type TowerTier = "outer" | "inner" | "base";
+/** Per lane: outer → inner → inhibitor (ML "Base Turret"); then the base itself. */
+export type TowerTier = "outer" | "inner" | "inhibitor" | "base";
 
 export interface TowerUnit extends UnitBase {
   kind: "tower";

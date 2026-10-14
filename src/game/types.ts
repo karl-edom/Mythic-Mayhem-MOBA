@@ -238,6 +238,7 @@ export interface UnitsData {
     earlyShield: { until: number; reduction: number };
     outer: TowerDef;
     inner: TowerDef;
+    inhibitor: TowerDef;
     base: TowerDef;
   };
   camps: CampDef[];
@@ -317,7 +318,7 @@ export interface MapData {
   /** Lanes as polylines from the blue base to the red base. */
   lanes: { id: "top" | "mid" | "bot"; path: Vec2[] }[];
   /** Tower distances along each lane, from each team's own base. */
-  towerDistances: Record<"top" | "mid" | "bot", { inner: number; outer: number }>;
+  towerDistances: Record<"top" | "mid" | "bot", { inhibitor: number; inner: number; outer: number }>;
   river: { from: Vec2; to: Vec2; width: number };
   bushes: { center: Vec2; size: Vec2 }[];
   /** Walkable grid, one string per row: "#" wall, "." floor (tools/gen-map.ts). */

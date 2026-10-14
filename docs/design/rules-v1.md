@@ -15,8 +15,9 @@ Toutes les valeurs chiffrées vivent dans `data/game/*.json`. Ce document en exp
 ## 1. Format et carte
 
 - **Équipes** : 3 contre 3. Les places libres sont tenues par des bots. Le nombre de joueurs par équipe est un paramètre ; le 5v5 viendra plus tard.
-- **Carte** : la structure de ML (`systems/A-B-structure-carte.md`), réduite.
-  - Un carré de 48 × 48 u 🧪, base bleue en bas à gauche, base rouge en haut à droite, en miroir.
+- **Carte** : la structure de ML (`systems/A-B-structure-carte.md`).
+  - Un carré de **68 × 68 u** ✅, base bleue en bas à gauche, base rouge en haut à droite, en miroir. Taille mesurée sur la vidéo d'une partie de ML : un héros à 240 de vitesse traverse la largeur de la carte en 28 s environ (`docs/research/video-ml-2026-10-14.md`). Toute la carte est générée par `node tools/gen-map.ts --size 68` ; les couloirs, poches et fosses gardent leur largeur, les positions suivent la taille.
+  - **Caméra** ✅ (même vidéo) : environ 20 u de large à l'écran, au moins 11 u de haut.
   - **3 voies** : haut (par le coin haut-gauche), milieu (diagonale), bas (par le coin bas-droit).
   - **Rivière** sur l'autre diagonale ; jungle dans les quatre triangles entre voies et rivière.
   - **Brouillard de guerre** (ML, LoL, Unite) : chaque équipe ne voit les héros et sbires adverses que dans le rayon de vision de ses héros (8 u), sbires (5 u) et tours (8 u) 🧪. Les tours et les monstres restent toujours visibles. À l'écran, un voile bleuté couvre ce que l'équipe ne voit pas, sur la carte et sur la minicarte. Contre-jeu : se cacher dans la jungle ou en buisson, et avancer avec ses sbires pour voir.
@@ -45,15 +46,16 @@ Toutes les valeurs chiffrées vivent dans `data/game/*.json`. Ce document en exp
 | --- | --- | --- | --- | --- |
 | Tour extérieure | 4 500 | 320 + 3,82 / min | 20 / 20 | ✅ ML |
 | Tour intérieure | 5 500 | 360 + 3,82 / min | 20 / 20 | ✅ ML |
+| Tour de base de voie | 6 900 | 520 + 3,82 / min | 40 / 40 | ✅ ML |
 | Base | 7 900, +165 PV toutes les 5 s | 539 + 3,82 / min | 40 / 40 | ✅ ML |
 
-- **En 3v3 : 2 tours par voie** (extérieure, intérieure), puis la base.
+- **3 tours par voie, comme dans ML** (extérieure, intérieure, tour de base de voie), puis la base. La v1 n'en avait que 2 : les parties entre bots finissaient trop vite.
 - **Portée** : 5,3 u ✅. Les tours tirent 1 fois par seconde et infligent des **dégâts bruts** ✅.
 - **Dégâts croissants sur un héros** : +75 % des dégâts initiaux par coup consécutif ✅ (ML), **plafonnés à ×2,5** (plafond de LoL, décidé en R2), remis à zéro après 2 s sans tirer sur ce héros ✅.
 - **Ciblage** : la première cible valide, en commençant par les sbires. La tour bascule sur un héros ennemi qui blesse un héros allié à portée ✅. Le Seigneur invoqué est prioritaire parmi les non-héros ✅.
 - **Protection sans sbires** : −50 % de dégâts subis si aucun sbire ennemi n'est à portée de la tour ✅.
 - **Protection de début** : les tours extérieures subissent −30 % de dégâts jusqu'à 5:00 ✅. L'or versé à ceux qui frappent ce bouclier dans ML n'est pas repris en v1.
-- **Ordre de vulnérabilité** : seule la tour la plus avancée d'une voie peut être attaquée ; la base devient vulnérable dès qu'une tour intérieure est tombée ✅.
+- **Ordre de vulnérabilité** : seule la tour la plus avancée d'une voie peut être attaquée ; la base devient vulnérable dès qu'une tour de base de voie est tombée ✅.
 - **Indicateur à trois couleurs de ML** ✅ :
   - jaune : on est à portée ;
   - vert : la tour vise une autre cible ;
@@ -62,7 +64,7 @@ Toutes les valeurs chiffrées vivent dans `data/game/*.json`. Ce document en exp
 ## 4. Sbires
 
 - **Une vague par voie toutes les 30 s dès 0:10** ✅ (ML), composée d'un sbire de **mêlée**, d'un sbire **à distance** et d'un **canon** ✅ (voies latérales de ML ; v1 identique au milieu).
-- **Super-sbire** : envoyé sur une voie dont la tour intérieure adverse est tombée ✅.
+- **Super-sbire** : envoyé sur une voie dont la tour de base de voie adverse est tombée ✅.
 - **Stats de combat** : aucune n'est publiée pour ML ❓. On reprend les stats de LoL converties à l'échelle de ML 🧪 :
   - PV × 4, attaque × 2, portées ÷ 140 ;
   - croissance de +3 % de PV et d'attaque par minute 🧪.
@@ -245,4 +247,4 @@ Les valeurs 🧪 sont réglées par ce banc d'essai. Les mesures en jeu prévues
 - **Bots** : simples. Ils tiennent leur voie, poussent derrière leurs sbires, se battent quand c'est favorable, se replient et rentrent à la base. Le jungleur fait ses camps, la Tortue et le Seigneur.
 - **Commandes** : clavier et souris seulement, pas de commandes tactiles.
 - **Multijoueur en ligne** : pas encore, c'est le jalon 2 (décision 0001).
-- **Durée mesurée entre bots** (`npm run sim -- --n 20`, avec brouillard et passifs) : de 7:37 à 24:46, médiane 15:44. Les parties très courtes viennent de la base, attaquable dès qu'une tour intérieure tombe en 3v3. Les valeurs 🧪 restent à remplacer par les mesures en jeu.
+- **Durée mesurée entre bots** (`npm run sim -- --n 20`, carte de 68 u, 3 tours par voie) : de 9:22 à 28:12, médiane 16:46. Les valeurs 🧪 restent à remplacer par les mesures en jeu.

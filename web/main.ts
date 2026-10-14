@@ -298,7 +298,8 @@ function render(alpha: number): void {
     canvas.width = Math.round(W * dpr);
     canvas.height = Math.round(H * dpr);
   }
-  scalePx = Math.max(18, Math.min(30, Math.min(W, H) / 22));
+  // ML camera, measured on a match video: about 20 u across the screen and at least 11 u high.
+  scalePx = Math.min(W / 20, H / 11);
   const lerpPos = (u: Unit): Vec => {
     const p = prevPos.get(u.id);
     return p ? { x: p.x + (u.pos.x - p.x) * alpha, y: p.y + (u.pos.y - p.y) * alpha } : u.pos;
@@ -437,6 +438,9 @@ function drawFog(c: CanvasRenderingContext2D, w: World, team: number, pw: number
   c.restore();
 }
 
+/** World-space font that keeps the same on-screen size whatever the zoom (sizes tuned at 34 px per unit). */
+const font = (u: number) => `bold ${(u * 34) / scalePx}px Nunito, system-ui`;
+
 function roundRect(c: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number): void {
   c.beginPath();
   c.roundRect(x, y, w, h, r);
@@ -497,10 +501,16 @@ function drawHero(h: HeroUnit, p: Vec, myTeam: number): void {
   }
   const barColor = isMe ? COLORS.self : h.team === myTeam ? COLORS.blue : COLORS.red;
   hpBar(p.x, p.y - h.radius - 0.75, 2.2, h, barColor, 1000);
-  ctx.font = "bold 0.42px Nunito, system-ui";
+  ctx.font = font(0.42);
   ctx.textAlign = "center";
   ctx.fillStyle = COLORS.ink;
   ctx.fillText(`${h.level} ${h.name}`, p.x, p.y - h.radius - 0.9);
+  // ML: an eye under the name tells the player they are hidden in a bush.
+  if (isMe && inBush(world!, h.pos) >= 0 && h.revealUntil <= world!.time) {
+    ctx.font = font(0.34);
+    ctx.fillStyle = "#2f7a3a";
+    ctx.fillText("👁 caché", p.x, p.y - h.radius - 0.42 + 0.1);
+  }
   // Boosted attack counter (Unite): visible to everyone.
   const every = world!.content.rules.boostedEvery;
   for (let i = 0; i < every - 1; i++) {
@@ -528,7 +538,7 @@ function drawStatusIcons(u: Unit, p: Vec): void {
   if (u.status.silenceUntil > t) icons.push("∅ silence");
   if (u.status.slows.some((s) => s.until > t)) icons.push("↓ ralenti");
   if (icons.length === 0) return;
-  ctx.font = "bold 0.36px Nunito, system-ui";
+  ctx.font = font(0.36);
   ctx.fillStyle = "#7a3cff";
   ctx.textAlign = "center";
   ctx.fillText(icons.join("  "), p.x, p.y - u.radius - 1.45);
@@ -544,7 +554,7 @@ function drawMinion(m: Extract<Unit, { kind: "minion" }>, p: Vec): void {
   ctx.globalAlpha = 1;
   hpBar(p.x, p.y - m.radius - 0.3, m.type === "lord" ? 2.4 : 0.8, m, teamColor(m.team), m.type === "lord" ? 2000 : 0, m.type === "lord" ? 0.22 : 0.12);
   if (m.type === "lord") {
-    ctx.font = "bold 0.4px Nunito, system-ui";
+    ctx.font = font(0.4);
     ctx.fillStyle = COLORS.ink;
     ctx.textAlign = "center";
     ctx.fillText("Seigneur allié", p.x, p.y - m.radius - 0.5);
@@ -558,7 +568,12 @@ function drawMonster(m: Extract<Unit, { kind: "monster" }>, p: Vec): void {
   ctx.arc(p.x, p.y, m.radius, 0, Math.PI * 2);
   ctx.fill();
   hpBar(p.x, p.y - m.radius - 0.4, m.monster === "camp" ? 1.4 : 3, m, "#c8a04a", m.monster === "camp" ? 1000 : 2000);
-  ctx.font = "bold 0.38px Nunito, system-ui";
+  // ML shows monsters' HP as a number above the bar.
+  ctx.font = font(0.3);
+  ctx.fillStyle = COLORS.ink;
+  ctx.textAlign = "center";
+  ctx.fillText(String(Math.ceil(m.hp)), p.x, p.y - m.radius - 0.5);
+  ctx.font = font(0.38);
   ctx.fillStyle = COLORS.ink;
   ctx.textAlign = "center";
   ctx.fillText(m.name, p.x, p.y + m.radius + 0.55);
@@ -585,7 +600,7 @@ function drawTower(t: Extract<Unit, { kind: "tower" }>, myTeam: number): void {
   ctx.fill();
   hpBar(p.x, p.y - r - 0.5, t.tier === "base" ? 3.4 : 2.6, t, teamColor(t.team), 1000);
   if (!isTargetable(world!, t) && t.team !== myTeam) {
-    ctx.font = "bold 0.34px Nunito, system-ui";
+    ctx.font = font(0.34);
     ctx.fillStyle = COLORS.ink;
     ctx.textAlign = "center";
     ctx.fillText("protégée", p.x, p.y + r + 0.5);
@@ -731,7 +746,7 @@ function drawFloaters(): void {
       continue;
     }
     ctx.globalAlpha = 1 - age;
-    ctx.font = "bold 0.5px Nunito, system-ui";
+    ctx.font = font(0.5);
     ctx.lineWidth = 0.08;
     ctx.strokeStyle = "rgba(31,42,68,.7)";
     ctx.strokeText(f.text, f.x, f.y - 1.2 - age);

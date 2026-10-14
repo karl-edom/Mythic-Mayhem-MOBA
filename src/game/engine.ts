@@ -115,7 +115,7 @@ export function createGame(content: GameContent, picks: [HeroPick[], HeroPick[]]
     map.lanes.forEach((lane, li) => {
       const path = lanePathFor(world, li, team);
       const d = map.towerDistances[lane.id];
-      for (const tier of ["inner", "outer"] as const) {
+      for (const tier of ["inhibitor", "inner", "outer"] as const) {
         addTower(world, team, tier, li, pointAlong(path, d[tier]), tw[tier].hp, tw[tier].defense);
       }
     });
@@ -400,7 +400,8 @@ export function isTargetable(world: World, u: Unit): boolean {
   const own = world.units.filter((t): t is TowerUnit => t.kind === "tower" && t.team === u.team);
   if (u.tier === "outer") return true;
   if (u.tier === "inner") return !own.some((t) => t.alive && t.tier === "outer" && t.lane === u.lane);
-  return own.some((t) => !t.alive && t.tier === "inner");
+  if (u.tier === "inhibitor") return !own.some((t) => t.alive && t.tier === "inner" && t.lane === u.lane);
+  return own.some((t) => !t.alive && t.tier === "inhibitor");
 }
 
 export const heroes = (w: World) => w.units.filter((u): u is HeroUnit => u.kind === "hero");
@@ -1241,9 +1242,10 @@ function spawnWave(world: World): void {
   const m = world.content.units.minions;
   const min = minutes(world);
   const growth = 1 + m.growthPctPerMin * min;
+  if (world.waveCount === 0) pushEvent(world, { type: "announce", text: "Les sbires arrivent !", team: null });
   for (const team of [0, 1] as Team[]) {
     world.lanes.forEach((_, li) => {
-      const enemyInnerDown = world.units.some((u) => u.kind === "tower" && u.team !== team && u.tier === "inner" && u.lane === li && !u.alive);
+      const enemyInnerDown = world.units.some((u) => u.kind === "tower" && u.team !== team && u.tier === "inhibitor" && u.lane === li && !u.alive);
       // ML side lanes: one footman, one ranged, one cannon per wave.
       const kinds: MinionKind[] = ["melee", "ranged", "cannon"];
       if (enemyInnerDown) kinds.push("super");

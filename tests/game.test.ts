@@ -1,13 +1,35 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { CONTENT } from "../src/game/content.ts";
-import { createGame, dealDamage, giveGold, isTargetable, nextUpgrade, refreshStats, step, upgradeCost } from "../src/game/engine.ts";
+import { createGame, dealDamage, pointAlong, giveGold, isTargetable, nextUpgrade, refreshStats, step, upgradeCost } from "../src/game/engine.ts";
 import { growthFraction, mitigation, respawnTime, statAtLevel, xpToNext } from "../src/game/formulas.ts";
 import { defaultPick, heroList, runGame } from "../src/game/match.ts";
 import type { HeroUnit, TowerUnit } from "../src/game/state.ts";
 
 const R = CONTENT.rules;
-const ids = CONTENT.heroes.map((h) => h.id);
+/** Points that stay valid whatever the map size: along the mid lane, from the blue base. */
+const MID = CONTENT.map.lanes[1]!.path.map(([x, y]) => ({ x, y }));
+const midAt = (frac: number, side = 0) => {
+  const p = pointAlong(MID, frac * Math.hypot(MID[1]!.x - MID[0]!.x, MID[1]!.y - MID[0]!.y));
+  return { x: p.x + side * 0.7, y: p.y + side * 0.7 };
+};
+/** Top-lane row crossing a thin blue jungle hedge: hero start on the lane and the first wall cell to its right. */
+function topLaneWall(w: ReturnType<typeof newGame>) {
+  const n = w.nav.size;
+  const wall = (x: number, y: number) => w.nav.walls[y * n + x] === 1;
+  for (let dy = 0; dy < n / 4; dy++) {
+    for (const y of [Math.floor(n / 2) + dy, Math.floor(n / 2) - dy]) {
+      let x = 1;
+      while (x < n && wall(x, y)) x++; // into the lane
+      const start = { x: x + 0.5, y: y + 0.5 };
+      while (x < n && !wall(x, y)) x++; // across the lane
+      const wallX = x;
+      while (x < n && wall(x, y)) x++; // through the hedge
+      if (x < n - 1 && x - wallX <= 3) return { start, wallX, y };
+    }
+  }
+  throw new Error("pas de haie fine à côté de la voie du haut");
+}const ids = CONTENT.heroes.map((h) => h.id);
 const teams = () => [ids.slice(0, 3).map((i) => defaultPick(CONTENT, i)), ids.slice(3).map((i) => defaultPick(CONTENT, i))] as const;
 const newGame = (seed = 1) => createGame(CONTENT, [[...teams()[0]], [...teams()[1]]], seed);
 
@@ -53,18 +75,23 @@ test("objets : paliers 1 des trois objets, puis objet 1 jusqu'au bout, au prix d
   assert.ok(pique.stats.physicalAttack > 30 + 15 + 15);
 });
 
-test("tours : seule la plus avancée d'une voie est attaquable ; la base après une tour intérieure", () => {
+test("tours : seule la plus avancée d'une voie est attaquable ; la base après une tour de base de voie (ML)", () => {
   const w = newGame();
   const red = w.units.filter((u): u is TowerUnit => u.kind === "tower" && u.team === 1);
   const outer = red.find((t) => t.tier === "outer" && t.lane === 1)!;
   const inner = red.find((t) => t.tier === "inner" && t.lane === 1)!;
+  const inhib = red.find((t) => t.tier === "inhibitor" && t.lane === 1)!;
   const base = red.find((t) => t.tier === "base")!;
   assert.ok(isTargetable(w, outer));
   assert.ok(!isTargetable(w, inner));
   assert.ok(!isTargetable(w, base));
   outer.alive = false;
   assert.ok(isTargetable(w, inner));
+  assert.ok(!isTargetable(w, inhib));
   inner.alive = false;
+  assert.ok(isTargetable(w, inhib));
+  assert.ok(!isTargetable(w, base));
+  inhib.alive = false;
   assert.ok(isTargetable(w, base));
 });
 
@@ -167,19 +194,18 @@ test("carte : tout est atteignable depuis chaque fontaine, buissons sur du sol",
 test("murs : un héros ne traverse pas une haie", () => {
   const w = newGame();
   const h = heroList(w)[0]!;
-  // Blue jungle wall between the top lane and the orange buff.
-  const wallCell = w.nav.walls.findIndex((v, i) => v === 1 && i % 48 === 9 && Math.floor(i / 48) === 24);
-  assert.ok(wallCell >= 0, "il y a bien un mur en (9, 24)");
-  h.pos = { x: 6, y: 24.5 };
-  for (let i = 0; i < 20 * 3; i++) step(w, [{ heroId: h.id, move: { x: 1, y: 0 } }]);
-  assert.ok(h.pos.x < 9, `bloqué avant le mur (x = ${h.pos.x.toFixed(2)})`);
+  const { start, wallX } = topLaneWall(w);
+  assert.ok(wallX < w.nav.size - 1, "il y a bien un mur à droite de la voie du haut");
+  h.pos = { ...start };
+  for (let i = 0; i < 20 * 4; i++) step(w, [{ heroId: h.id, move: { x: 1, y: 0 } }]);
+  assert.ok(h.pos.x < wallX, `bloqué avant le mur (x = ${h.pos.x.toFixed(2)}, mur en ${wallX})`);
 });
 
 test("attaque : maintenir l'attaque l'emporte sur le déplacement quand une cible est proche", () => {
   const w = newGame();
   const [a, b] = [heroList(w).find((h) => h.team === 0)!, heroList(w).find((h) => h.team === 1)!];
-  a.pos = { x: 20, y: 28 };
-  b.pos = { x: 21.5, y: 27 };
+  a.pos = midAt(0.42);
+  b.pos = { x: a.pos.x + 1.2, y: a.pos.y - 1 };
   b.hp = b.maxHp = 1e6;
   for (let i = 0; i < 20 * 3; i++) step(w, [{ heroId: a.id, attack: true, move: { x: -1, y: 0 } }]);
   assert.ok(b.hp < b.maxHp, "la cible a pris des coups");
@@ -189,8 +215,8 @@ test("attaque : maintenir l'attaque l'emporte sur le déplacement quand une cibl
 test("régénération : les PV ne remontent pas en combat, seulement 4 s après le dernier coup", () => {
   const w = newGame();
   const [a, b] = [heroList(w).find((h) => h.team === 0)!, heroList(w).find((h) => h.team === 1)!];
-  a.pos = { x: 20, y: 28 };
-  b.pos = { x: 30, y: 20 };
+  a.pos = midAt(0.4);
+  b.pos = midAt(0.6);
   dealDamage(w, b, a, 1000, "true");
   const hurt = a.hp;
   for (let i = 0; i < 20 * 3; i++) step(w, []);
@@ -204,10 +230,11 @@ test("brouillard : un ennemi loin de toute unité alliée est invisible, proche 
   const w = newGame();
   const blue = heroList(w).filter((h) => h.team === 0);
   const red = heroList(w).find((h) => h.team === 1)!;
-  red.pos = { x: 15, y: 15 }; // Lord pit, far from blue towers and heroes
+  const [lx, ly] = CONTENT.map.lord;
+  red.pos = { x: lx, y: ly }; // Lord pit, far from blue towers and heroes
   step(w, []);
   assert.equal(visibleTo(w, 0, red), false);
-  blue[0]!.pos = { x: 18, y: 17 };
+  blue[0]!.pos = { x: lx + 2, y: ly + 1.5 };
   step(w, []);
   assert.equal(visibleTo(w, 0, red), true);
   // Towers stay visible through the fog.
@@ -248,16 +275,17 @@ test("annonces : premier sang, et les derniers coups comptent dans le score", ()
 test("attaque en mouvement (ML) : le héros frappe quand l'attaque est prête et se déplace entre deux coups", () => {
   const w = newGame();
   const [a, b] = [heroList(w).find((h) => h.def.id === "pique")!, heroList(w).find((h) => h.team === 1)!];
-  a.pos = { x: 20, y: 28 };
-  b.pos = { x: 23, y: 28 };
+  a.pos = midAt(0.42);
   b.hp = b.maxHp = 1e6;
   const start = { ...a.pos };
+  // Walk along the mid lane (toward the red base) while the target keeps pace beside.
+  const dir = { x: Math.SQRT1_2, y: -Math.SQRT1_2 };
   for (let i = 0; i < 20 * 2; i++) {
-    b.pos = { x: a.pos.x + 3, y: a.pos.y };
-    step(w, [{ heroId: a.id, attack: true, move: { x: 0, y: -1 } }]);
+    b.pos = { x: a.pos.x + 1.5, y: a.pos.y + 1.5 };
+    step(w, [{ heroId: a.id, attack: true, move: dir }]);
   }
   assert.ok(b.hp < b.maxHp, "des coups sont partis");
-  assert.ok(start.y - a.pos.y > 2, `le héros a avancé (${(start.y - a.pos.y).toFixed(2)} u)`);
+  assert.ok(Math.hypot(a.pos.x - start.x, a.pos.y - start.y) > 2, "le héros a avancé");
 });
 
 test("murs : pas d'attaque de base ni de projectile à travers une haie", async () => {
@@ -265,21 +293,23 @@ test("murs : pas d'attaque de base ni de projectile à travers une haie", async 
   const w = newGame();
   const pique = heroList(w).find((h) => h.def.id === "pique")!;
   const enemy = heroList(w).find((h) => h.team === 1)!;
-  pique.pos = { x: 6, y: 24.5 };
+  const lane = topLaneWall(w);
+  const { wallX, y } = lane;
+  const start = { x: wallX - 1, y: lane.start.y };
+  pique.pos = { ...start };
   let spot: { x: number; y: number } | undefined;
-  for (let x = 9; x <= 10.5 && !spot; x += 0.5) {
-    const p = { x, y: 24.5 };
-    if (!isWallAt(w.nav, p) && !segmentClear(w.nav, pique.pos, p, 0.1)) spot = p;
-  }
-  for (let y = 20; y <= 30 && !spot; y += 0.5) {
-    const p = { x: 10.5, y };
-    if (!isWallAt(w.nav, p) && !segmentClear(w.nav, pique.pos, p, 0.1)) spot = p;
+  for (let x = wallX + 0.5; x <= start.x + 4.5 && !spot; x += 0.5) {
+    for (const dy of [0, -1, 1, -2, 2]) {
+      const p = { x, y: y + 0.5 + dy };
+      if (!spot && !isWallAt(w.nav, p) && !segmentClear(w.nav, pique.pos, p, 0.1)) spot = p;
+    }
   }
   assert.ok(spot, "une case de sol derrière la haie, à portée");
+  for (const u of w.units) if (u.kind === "tower") u.alive = false; // only Pique may shoot
   enemy.hp = enemy.maxHp = 1e6;
   for (let i = 0; i < 20 * 3; i++) {
     enemy.pos = { ...spot };
-    pique.pos = { x: 6, y: 24.5 };
+    pique.pos = { ...start };
     step(w, [{ heroId: pique.id, attack: true }]);
   }
   assert.equal(enemy.hp, enemy.maxHp);

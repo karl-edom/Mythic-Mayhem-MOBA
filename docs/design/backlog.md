@@ -12,7 +12,8 @@ Les priorités suivent le brief : d'abord ce qui change la partie, puis ce qui l
 | Attaque de base prioritaire, verrou de cible | ML | ✅ |
 | Attaquer en se déplaçant (immobile seulement pendant l'armement) | ML | ✅ |
 | Murs qui arrêtent attaques de base et projectiles | choix du projet | ✅ |
-| Comparaison avec des vidéos de parties (vitesse, portées, rythme) | les trois | 🔜, YouTube bloqué depuis le conteneur : captures ou extraits fournis par le porteur |
+| Comparaison avec une vidéo de partie de ML : taille de carte, caméra, 3 tours par voie | ML | ✅ (`docs/research/video-ml-2026-10-14.md`) |
+| Autres vidéos : combat d'équipe, Seigneur, fin de partie | ML | 🔜, sur demande au porteur |
 | Régénération des PV hors combat seulement | choix du projet | ✅ |
 | Brouillard de guerre, révélation après attaque depuis un buisson | ML, LoL | ✅ |
 | Passifs des 10 objets | ML | ✅ (simplifiés) |

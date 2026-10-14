@@ -25,6 +25,7 @@
     "earlyShield": { "until": 300, "reduction": 0.3 },
     "outer": { "hp": 4500, "damage": { "base": 320, "perMin": 3.82 }, "defense": 20 },
     "inner": { "hp": 5500, "damage": { "base": 360, "perMin": 3.82 }, "defense": 20 },
+    "inhibitor": { "_source": "✅ ML Base Turret (tour de base de voie)", "hp": 6900, "damage": { "base": 520, "perMin": 3.82 }, "defense": 40 },
     "base": { "hp": 7900, "damage": { "base": 539, "perMin": 3.82 }, "defense": 40, "regenPer5s": 165 }
   },
   "camps": [
