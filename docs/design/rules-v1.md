@@ -17,6 +17,8 @@ Toutes les valeurs chiffrées vivent dans `data/game/*.json`. Ce document en exp
 - **Équipes** : 3 contre 3. Les places libres sont tenues par des bots. Le nombre de joueurs par équipe est un paramètre ; le 5v5 viendra plus tard.
 - **Carte** : la structure de ML (`systems/A-B-structure-carte.md`).
   - Un carré de **68 × 68 u** ✅, base bleue en bas à gauche, base rouge en haut à droite, en miroir. Taille mesurée sur la vidéo d'une partie de ML : un héros à 240 de vitesse traverse la largeur de la carte en 28 s environ (`docs/research/video-ml-2026-10-14.md`). Toute la carte est générée par `node tools/gen-map.ts --size 68` ; les couloirs, poches et fosses gardent leur largeur, les positions suivent la taille.
+  - **Vue de l'équipe rouge** ✅ (ML) : la carte est retournée de 180° pour les joueurs rouges. Leur base est en bas à gauche et le combat se trouve devant eux, sur l'écran comme sur la minicarte. Les commandes suivent l'écran.
+  - **Caméra libre** : clic maintenu sur la minicarte pour regarder ailleurs, puis retour au héros au relâchement (ML). Touche Y pour une caméra libre, déplacée en amenant la souris au bord de l'écran (LoL). Mort : la caméra reste libre, déplacée avec Z Q S D ou la souris au bord. On ne voit jamais plus que ce que voit son équipe : le brouillard s'applique partout.
   - **Caméra** ✅ (même vidéo) : environ 20 u de large à l'écran, **inclinée** comme dans ML. Le sol est écrasé verticalement (facteur 0,68 : un cercle de portée est environ 0,65 fois moins haut que large sur la vidéo). Les héros, sbires, tours et textes restent debout, avec une ombre et l'anneau d'équipe au sol ; les haies ont du relief.
   - **3 voies** : haut (par le coin haut-gauche), milieu (diagonale), bas (par le coin bas-droit).
   - **Rivière** sur l'autre diagonale ; jungle dans les quatre triangles entre voies et rivière.
@@ -230,7 +232,7 @@ Chaque compétence précise, dans les données, son **contre-jeu** et son **indi
 - **Minuteurs sur la minicarte** (ML) : temps avant le retour de la Tortue, du Seigneur et de chaque camp de jungle.
 - **Jeu en ligne** (décision 0006) : salon par code (« Créer une partie », « Rejoindre »), pseudo et équipe ; l'hôte lance, les bots complètent. Pseudos affichés à côté des héros dans le tableau Tab et le fil des éliminations. Messages « En attente de l'hôte… », « L'hôte a quitté la partie », « Partie désynchronisée ».
 - **Fin de partie** : vainqueur, durée, éliminations, dégâts, puis « Rejouer ».
-- **Visuel** : clair et jovial (herbe vert tendre, voies sable, rivière bleu clair). Les équipes se distinguent par la couleur **et** par la forme : bleu avec un anneau rond, rouge avec un anneau en losange.
+- **Visuel** (passe 1, en attendant l'habillage des personnages par univers) : sol peint une fois et mis en cache (herbe tachetée, voies sableuses avec cailloux, rivière à reflets, places des bases, fosses en pierre), haies en touffes arrondies avec fleurs, hautes herbes pour les buissons. Héros en boules brillantes marquées de leur initiale, avec un halo d'équipe et un anneau au sol (rond bleu, losange rouge : la couleur n'est jamais le seul indice). Sbires distincts par type, monstres avec des yeux qui suivent leur cible, tours en pierre avec cristal lumineux et décombres une fois détruites. Projectiles avec traînée, étincelles à l'impact, nuage à la mort, léger rebond en marchant. Boutons de compétence ronds avec balayage de recharge, grisés sans mana.
 
 ## 12. Mesure et calibrage
 

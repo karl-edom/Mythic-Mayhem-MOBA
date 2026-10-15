@@ -42,6 +42,8 @@ Les priorités suivent le brief : d'abord ce qui change la partie, puis ce qui l
 | Infobulles des compétences (dégâts au niveau actuel, recharge, coût) | LoL, ML | 🔜 |
 | Récapitulatif de mort (qui a infligé quoi) | LoL, ML | ✅ |
 | Minuteurs des objectifs (Tortue, Seigneur, camps) sur la minicarte | ML | ✅ |
+| Caméra libre (minicarte, touche Y, après la mort) dans les limites de la vision | ML, LoL | ✅ |
+| Carte retournée pour l'équipe rouge | ML | ✅ |
 | Cibler avec la souris (clic sur un ennemi) en plus du verrou automatique | LoL | ⏳ |
 | Commandes tactiles (joystick et boutons) | ML, Unite | ⏳, nécessaires pour jouer sur téléphone |
 | Options : touches, son, qualité | les trois | ⏳ |
@@ -78,6 +80,6 @@ Les priorités suivent le brief : d'abord ce qui change la partie, puis ce qui l
 
 | Élément | État |
 | --- | --- |
-| Héros dessinés (silhouettes, animations d'attaque et de compétences) | ⏳ |
-| Haies et décor moins carrés | ⏳ |
-| Effets de compétences plus riches, sons, musique | ⏳ |
+| Passe visuelle 1 : sol peint, haies arrondies, tours, sbires, monstres, effets, boutons ronds | ✅ |
+| Héros dessinés par univers (silhouettes, animations d'attaque et de compétences) | ⏳, en fin de projet avec les univers |
+| Effets propres à chaque compétence, sons, musique | ⏳ |

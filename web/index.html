@@ -62,9 +62,15 @@
   .meter.xp { height: 6px; }
   .small { font-size: 12px; color: var(--muted); }
   .skills { display: flex; gap: 8px; }
-  .sk { width: 62px; height: 62px; border-radius: 12px; background: #f1f5fc; border: 2px solid var(--line); position: relative; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 10px; line-height: 1.15; font-weight: 600; overflow: hidden; padding: 12px 3px 2px; word-break: break-word; }
-  .sk .k { position: absolute; top: 2px; left: 5px; font-size: 11px; color: var(--muted); }
-  .sk .cd { position: absolute; inset: 0; background: rgba(31,42,68,.55); color: #fff; font-size: 18px; display: flex; align-items: center; justify-content: center; }
+  /* Skill buttons: round, with a cooldown sweep (ML). */
+  .sk { width: 66px; height: 66px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ffffff 0%, #e4ecfb 60%, #c9d6ef 100%); border: 3px solid #fff; box-shadow: 0 3px 10px rgba(31,42,68,.25), inset 0 -3px 0 rgba(31,42,68,.08); position: relative; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 10px; line-height: 1.1; font-weight: 700; overflow: hidden; padding: 8px; word-break: break-word; color: var(--ink); }
+  .sk.spell { width: 52px; height: 52px; background: radial-gradient(circle at 35% 30%, #fffbe9 0%, #ffe9a8 70%, #f2c75a 100%); }
+  .sk.aim { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(47,123,245,.35), 0 3px 10px rgba(31,42,68,.25); }
+  .sk.nomana { filter: grayscale(.6); }
+  .sk .k { position: absolute; top: 4px; left: 50%; transform: translateX(-50%); font-size: 10px; color: var(--muted); }
+  .sk .n { margin-top: 6px; }
+  .sk .cd { position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(rgba(31,42,68,.62) var(--p), rgba(31,42,68,.18) 0); color: #fff; display: flex; align-items: center; justify-content: center; }
+  .sk .cd b { font: 700 19px var(--font-display); text-shadow: 0 1px 2px rgba(0,0,0,.4); }
   .sk.locked { opacity: .35; }
   .items { display: flex; flex-direction: column; gap: 3px; min-width: 190px; }
   .it { font-size: 12px; } .it b { color: var(--gold); }
@@ -74,7 +80,7 @@
   #dead .recap-title { margin-top: 8px; font-size: 15px; color: #ffd84a; }
   #dead .recap { font-size: 13px; font-weight: 600; margin-top: 3px; }
   #dead .recap span { color: #c9d3e8; font-weight: 400; }
-  #minimap { position: absolute; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); width: 180px; height: 180px; border-radius: 14px; box-shadow: var(--shadow); background: #fff; }
+  #minimap { pointer-events: auto; cursor: crosshair; position: absolute; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); width: 180px; height: 180px; border-radius: 14px; box-shadow: var(--shadow); background: #fff; }
   #help { position: absolute; left: 12px; top: calc(12px + env(safe-area-inset-top, 0px)); max-width: calc(50vw - 120px); background: rgba(255,255,255,.9); border-radius: 12px; padding: 6px 10px; font-size: 12px; line-height: 1.9; color: var(--muted); }
   table { border-collapse: collapse; background: var(--panel); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
   td, th { padding: 6px 12px; text-align: left; border-bottom: 1px solid var(--line); }
@@ -123,7 +129,7 @@
   <div id="toast"></div>
   <div id="banner"></div>
   <div id="feed"></div>
-  <div id="help"><kbd>ZQSD</kbd>/<kbd>WASD</kbd> bouger · <kbd>Espace</kbd>/clic attaquer · <kbd>A</kbd><kbd>E</kbd><kbd>R</kbd> maintenir pour viser, relâcher pour lancer · <kbd>F</kbd> sort · <kbd>B</kbd> base · <kbd>Tab</kbd> tableau</div>
+  <div id="help"><kbd>ZQSD</kbd>/<kbd>WASD</kbd> bouger · <kbd>Espace</kbd>/clic attaquer · <kbd>A</kbd><kbd>E</kbd><kbd>R</kbd> maintenir pour viser, relâcher pour lancer · <kbd>F</kbd> sort · <kbd>B</kbd> base · <kbd>Tab</kbd> tableau · <kbd>Y</kbd> caméra libre · minicarte : regarder ailleurs</div>
   <div id="choice" class="hidden"></div>
   <div id="dead" class="hidden"></div>
   <div id="bar"></div>
